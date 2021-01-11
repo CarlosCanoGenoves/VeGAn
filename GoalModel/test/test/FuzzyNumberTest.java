@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import VEGAN.FuzzyNumber;
+import goalModel.EConfidence;
+import goalModel.EImportance;
 
 import java.util.concurrent.ThreadLocalRandom;	//Random Numbers
 
@@ -23,9 +25,9 @@ class FuzzyNumberTest {
 			
 			fn = new FuzzyNumber(n1,n2,n3);
 			
-			assertEquals(fn.n1, n1);
-			assertEquals(fn.n2, n2);
-			assertEquals(fn.n3, n3);
+			assertEquals(n1, fn.n1);
+			assertEquals(n2, fn.n2);
+			assertEquals(n3, fn.n3);
 		}
 	}
 
@@ -43,9 +45,9 @@ class FuzzyNumberTest {
 		{
 			FuzzyNumber fn = new FuzzyNumber(input[i]);
 						
-			assertEquals(fn.n1, expectedOutput[i].n1);
-			assertEquals(fn.n2, expectedOutput[i].n2);
-			assertEquals(fn.n3, expectedOutput[i].n3);
+			assertEquals(expectedOutput[i].n1, fn.n1);
+			assertEquals(expectedOutput[i].n2, fn.n2);
+			assertEquals(expectedOutput[i].n3, fn.n3);
 		}
 	}
 
@@ -63,15 +65,32 @@ class FuzzyNumberTest {
 		{
 			FuzzyNumber fn = new FuzzyNumber(intputNumber[i], intputMinMax[i]);
 						
-			assertEquals(fn.n1, expectedOutput[i].n1);
-			assertEquals(fn.n2, expectedOutput[i].n2);
-			assertEquals(fn.n3, expectedOutput[i].n3);
+			assertEquals(expectedOutput[i].n1, fn.n1);
+			assertEquals(expectedOutput[i].n2, fn.n2);
+			assertEquals(expectedOutput[i].n3, fn.n3);
 		}
 	}
 	
 	@Test
 	void testPriorizacion() {
-		fail("Not yet implemented");
+		EImportance[] inputImportance = {EImportance.VERY_HIGH, EImportance.VERY_HIGH, EImportance.VERY_HIGH, EImportance.HIGH, EImportance.HIGH, EImportance.HIGH, EImportance.MEDIUM, EImportance.MEDIUM, EImportance.MEDIUM, EImportance.LOW, EImportance.LOW, EImportance.LOW, EImportance.VERY_LOW, EImportance.VERY_LOW, EImportance.VERY_LOW};
+		//										VERY_HIGH																		HIGH																		MEDIUM																		LOW																			VERY_LOW
+		EConfidence[] inputConfidence = {EConfidence.POSSIBLY_MORE, EConfidence.CONFIDENT, EConfidence.POSSIBLY_LESS, EConfidence.POSSIBLY_MORE, EConfidence.CONFIDENT, EConfidence.POSSIBLY_LESS, EConfidence.POSSIBLY_MORE, EConfidence.CONFIDENT, EConfidence.POSSIBLY_LESS, EConfidence.POSSIBLY_MORE, EConfidence.CONFIDENT, EConfidence.POSSIBLY_LESS, EConfidence.POSSIBLY_MORE, EConfidence.CONFIDENT, EConfidence.POSSIBLY_LESS};
+		//												VH-PM							VH-C								VH-PL							H-PM						H-C								H-PL						M-PM						M-C								M-PL						L-PM						L-C							L-PL						VL-PM							VL-C							VL-PL
+		FuzzyNumber[] expectedOutput = {new FuzzyNumber(9.67, 10.25, 11),new FuzzyNumber(9.52, 9.67, 9.92),new FuzzyNumber(8, 9.31, 9.67),new FuzzyNumber(8, 9.13, 10),new FuzzyNumber(7.7, 8, 8.52),new FuzzyNumber(6, 7.32, 8),new FuzzyNumber(6, 7.27, 8),new FuzzyNumber(5.6, 6, 6.66),new FuzzyNumber(4, 5.11, 6),new FuzzyNumber(4, 5.44, 6),new FuzzyNumber(3.37, 4, 4.86),new FuzzyNumber(2, 2.72, 4),new FuzzyNumber(2.33, 3.62, 4),new FuzzyNumber(1.78, 2.33, 3.16),new FuzzyNumber(1, 1.37, 2.33)};
+		
+		if(inputImportance.length !=  inputConfidence.length || inputImportance.length != expectedOutput.length)
+			fail("Test NOT WELL DESIGNED");
+		
+		for(int i=0;i<inputImportance.length;i++)
+		{
+			System.out.println(inputImportance[i] +" " +inputConfidence[i]);
+			FuzzyNumber fn = new FuzzyNumber(inputImportance[i], inputConfidence[i]);
+						
+			assertEquals(expectedOutput[i].n1, fn.n1);
+			assertEquals(expectedOutput[i].n2, fn.n2);
+			assertEquals(expectedOutput[i].n3, fn.n3);
+		}
 	}
 	
 	@Test
