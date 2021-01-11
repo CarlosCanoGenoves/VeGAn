@@ -162,75 +162,105 @@ public class FuzzyNumber {
 		{
 			if(confidence == EConfidence.POSSIBLY_MORE)
 			{
-				
+				n1=9.67;
+				n2=10.25;
+				n3=11;
 			}
 			else if(confidence == EConfidence.CONFIDENT)
 			{
-				
+				n1=9.52;
+				n2=9.67;
+				n3=9.92;
 			}
 			else if(confidence == EConfidence.POSSIBLY_LESS)
 			{
-				
+				n1=8;
+				n2=9.31;
+				n3=9.67;
 			}
 		}
 		else if(importance == EImportance.HIGH)
 		{
 			if(confidence == EConfidence.POSSIBLY_MORE)
 			{
-				
+				n1=8;
+				n2=9.13;
+				n3=10;
 			}
 			else if(confidence == EConfidence.CONFIDENT)
 			{
-				
+				n1=7.7;
+				n2=8;
+				n3=8.52;
 			}
 			else if(confidence == EConfidence.POSSIBLY_LESS)
 			{
-				
+				n1=6;
+				n2=7.32;
+				n3=8;
 			}
 		}
 		else if(importance == EImportance.MEDIUM)
 		{
 			if(confidence == EConfidence.POSSIBLY_MORE)
 			{
-				
+				n1=6;
+				n2=7.27;
+				n3=8;
 			}
 			else if(confidence == EConfidence.CONFIDENT)
 			{
-				
+				n1=5.6;
+				n2=6;
+				n3=6.66;
 			}
 			else if(confidence == EConfidence.POSSIBLY_LESS)
 			{
-				
+				n1=4;
+				n2=5.11;
+				n3=6;
 			}
 		}
 		else if(importance == EImportance.LOW)
 		{
 			if(confidence == EConfidence.POSSIBLY_MORE)
 			{
-				
+				n1=4;
+				n2=5.44;
+				n3=6;
 			}
 			else if(confidence == EConfidence.CONFIDENT)
 			{
-				
+				n1=3.37;
+				n2=4;
+				n3=4.86;
 			}
 			else if(confidence == EConfidence.POSSIBLY_LESS)
 			{
-				
+				n1=2;
+				n2=2.72;
+				n3=4;
 			}
 		}
 		else if(importance == EImportance.VERY_LOW)
 		{
 			if(confidence == EConfidence.POSSIBLY_MORE)
 			{
-				
+				n1=2.33;
+				n2=3.62;
+				n3=4;
 			}
 			else if(confidence == EConfidence.CONFIDENT)
 			{
-				
+				n1=1.78;
+				n2=2.33;
+				n3=3.16;
 			}
 			else if(confidence == EConfidence.POSSIBLY_LESS)
 			{
-				
+				n1=1;
+				n2=1.37;
+				n3=2.33;
 			}
 		}
 		
