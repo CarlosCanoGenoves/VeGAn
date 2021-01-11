@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoalModel:GoalModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:GoalModel="http://GoalModel"
+    xsi:schemaLocation="http://GoalModel GoalModel.ecore"
+    name="Amazon Kindle Unlimited">
+  <actors name="Reader">
+    <intentionalelements
+        xsi:type="GoalModel:Goal"
+        name="Read Books">
+      <srcLinks
+          xsi:type="GoalModel:Dependency"
+          trgs="//@actors.1/@intentionalelements.0"/>
+      <descomposedIn
+          xsi:type="GoalModel:Task"
+          name="Buy paper book">
+        <srcLinks
+            xsi:type="GoalModel:Contribution"
+            trgs="//@actors.0/@intentionalelements.1"
+            contributionType="25"/>
+      </descomposedIn>
+      <descomposedIn
+          xsi:type="GoalModel:Task"
+          name="Subscribe to Amazon Kindle Unlimited">
+        <srcLinks
+            xsi:type="GoalModel:Contribution"
+            trgs="//@actors.0/@intentionalelements.1"
+            contributionType="75"/>
+      </descomposedIn>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="GoalModel:SoftGoal"
+        name="Low Cost"
+        trgLinks="//@actors.0/@intentionalelements.0/@descomposedIn.0/@srcLinks.0 //@actors.0/@intentionalelements.0/@descomposedIn.1/@srcLinks.0"/>
+  </actors>
+  <actors name="Writer">
+    <intentionalelements
+        xsi:type="GoalModel:Goal"
+        name="Publish book"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <descomposedIn
+          xsi:type="GoalModel:Task"
+          name="Publish book on paper">
+        <srcLinks
+            xsi:type="GoalModel:Contribution"
+            trgs="//@actors.1/@intentionalelements.1"
+            contributionType="25"/>
+        <srcLinks
+            xsi:type="GoalModel:Contribution"
+            trgs="//@actors.1/@intentionalelements.2"
+            contributionType="75"/>
+      </descomposedIn>
+      <descomposedIn
+          xsi:type="GoalModel:Task"
+          name="Publish book on Amazon">
+        <srcLinks
+            xsi:type="GoalModel:Contribution"
+            trgs="//@actors.1/@intentionalelements.1"
+            contributionType="75"/>
+        <srcLinks
+            xsi:type="GoalModel:Contribution"
+            trgs="//@actors.1/@intentionalelements.2"
+            contributionType="25"/>
+      </descomposedIn>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="GoalModel:SoftGoal"
+        name="Benefits"
+        trgLinks="//@actors.1/@intentionalelements.0/@descomposedIn.1/@srcLinks.0 //@actors.1/@intentionalelements.0/@descomposedIn.0/@srcLinks.0"/>
+    <intentionalelements
+        xsi:type="GoalModel:SoftGoal"
+        name="Increase readers"
+        trgLinks="//@actors.1/@intentionalelements.0/@descomposedIn.1/@srcLinks.1 //@actors.1/@intentionalelements.0/@descomposedIn.0/@srcLinks.1"/>
+  </actors>
+</GoalModel:GoalModel>

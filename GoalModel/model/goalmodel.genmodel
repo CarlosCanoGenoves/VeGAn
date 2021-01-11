@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/GoalModel/src" modelPluginID="GoalModel" modelName="Goalmodel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>../src/goalModel.ecore</foreignModel>
+  <genPackages prefix="GoalModel" disposableProviderFactory="true" ecorePackage="goalModel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EImportance">
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Very_High"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/High"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Medium"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Low"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Very_Low"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EContribution">
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/p100"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/p75"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/p50"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/p25"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/p0"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/n25"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/n50"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/n75"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/n100"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EConfidence">
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EConfidence/Possibly_More"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EConfidence/Confident"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EConfidence/Possibly_Less"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EDecomposition">
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/IOR"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/LITERAL2"/>
+    </genEnums>
+    <genClasses ecoreClass="goalModel.ecore#//GoalModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalModel/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalModel/actors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalModel/interActorLinks"/>
+    </genClasses>
+    <genClasses ecoreClass="goalModel.ecore#//Actor">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Actor/goalmodel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//Actor/intentionalelements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="goalModel.ecore#//IntentionalElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//IntentionalElement/actor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//IntentionalElement/srcLinks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//IntentionalElement/trgLinks"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="goalModel.ecore#//Link">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//Link/goalmodel"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Link/src"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//Link/trgs"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="goalModel.ecore#//GoalElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/importance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalElement/iterations"/>
+    </genClasses>
+    <genClasses ecoreClass="goalModel.ecore#//Contribution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Contribution/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Contribution/contributionType"/>
+    </genClasses>
+    <genClasses ecoreClass="goalModel.ecore#//Dependency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Dependency/name"/>
+    </genClasses>
+    <genClasses ecoreClass="goalModel.ecore#//Iteration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Iteration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Importance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Value"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Iteration/element"/>
+    </genClasses>
+    <genClasses ecoreClass="goalModel.ecore#//Goal"/>
+    <genClasses ecoreClass="goalModel.ecore#//Task"/>
+    <genClasses ecoreClass="goalModel.ecore#//SoftGoal"/>
+    <genClasses ecoreClass="goalModel.ecore#//Decomposition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Decomposition/decompositionType"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

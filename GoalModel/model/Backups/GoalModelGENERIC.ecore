@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="GoalModelGENERIC" nsURI="http://GoalModelGENERIC" nsPrefix="GoalModelGENERIC">
+  <eClassifiers xsi:type="ecore:EClass" name="GoalModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//Actor" containment="true" eOpposite="#//Actor/goalmodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interActorLinks" upperBound="-1"
+        eType="#//Link" containment="true" eOpposite="#//Link/goalmodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//Links" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//GoalElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goalmodel" lowerBound="1"
+        eType="#//GoalModel" eOpposite="#//GoalModel/actors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intentionalelements" upperBound="-1"
+        eType="#//IntentionalElement" containment="true" eOpposite="#//IntentionalElement/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intraActorLinks" upperBound="-1"
+        eType="#//Link" containment="true" eOpposite="#//Link/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iterations" eType="#//Iteration"
+        eOpposite="#//Iteration/actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//Links" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntentionalElement" abstract="true"
+      eSuperTypes="#//GoalElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"
+        eOpposite="#//Actor/intentionalelements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="srcLinks" upperBound="-1"
+        eType="#//Link" containment="true" eOpposite="#//Link/src"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trgLinks" upperBound="-1"
+        eType="#//Link" eOpposite="#//Link/trgs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iterations" upperBound="-1"
+        eType="#//Iteration" eOpposite="#//Iteration/intentionalelement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compose" eType="#//IntentionalElement"
+        eOpposite="#//IntentionalElement/descomposedIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descomposedIn" upperBound="-1"
+        eType="#//IntentionalElement" containment="true" eOpposite="#//IntentionalElement/compose"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goalmodel" eType="#//GoalModel"
+        eOpposite="#//GoalModel/interActorLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"
+        eOpposite="#//Actor/intraActorLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//IntentionalElement"
+        eOpposite="#//IntentionalElement/srcLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trgs" lowerBound="1" upperBound="-1"
+        eType="#//IntentionalElement" eOpposite="#//IntentionalElement/trgLinks"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EImportance">
+    <eLiterals name="Very High" literal="Very_High"/>
+    <eLiterals name="High" value="1"/>
+    <eLiterals name="Medium" value="2"/>
+    <eLiterals name="Low" value="3"/>
+    <eLiterals name="Very Low" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoalElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importance" eType="#//EImportance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="#//EConfidence"
+        defaultValueLiteral="Confident"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//Link">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ContributionType" eType="#//EContribution"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependency" eSuperTypes="#//Link"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EContribution">
+    <eLiterals name="100"/>
+    <eLiterals name="75" value="1"/>
+    <eLiterals name="50" value="2"/>
+    <eLiterals name="25" value="3"/>
+    <eLiterals name="0" value="4"/>
+    <eLiterals name="-25" value="5"/>
+    <eLiterals name="-50" value="6"/>
+    <eLiterals name="-75" value="7"/>
+    <eLiterals name="-100" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Iteration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Iteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Importance" eType="#//EImportance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Confidence" eType="#//EConfidence"
+        defaultValueLiteral="Confident"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"
+        eOpposite="#//Actor/iterations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intentionalelement" eType="#//IntentionalElement"
+        eOpposite="#//IntentionalElement/iterations"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EConfidence">
+    <eLiterals name="Possibly More"/>
+    <eLiterals name="Confident" value="1"/>
+    <eLiterals name="Possibly Less" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//IntentionalElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//IntentionalElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SoftGoal" eSuperTypes="#//IntentionalElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Decomposition" eSuperTypes="#//Link"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Links">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
