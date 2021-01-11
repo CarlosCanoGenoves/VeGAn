@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated goalmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="goalModel.presentation.GoalModelModelWizardID"
+            name="%_UI_GoalModelModelWizard_label"
+            class="goalModel.presentation.GoalModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GoalModelModelFile.gif">
+         <description>%_UI_GoalModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated goalmodel -->
+      <editor
+            id="goalModel.presentation.GoalModelEditorID"
+            name="%_UI_GoalModelEditor_label"
+            icon="icons/full/obj16/GoalModelModelFile.gif"
+            extensions="goalmodel"
+            class="goalModel.presentation.GoalModelEditor"
+            contributorClass="goalModel.presentation.GoalModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

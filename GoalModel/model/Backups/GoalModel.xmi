@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoalModel1:GoalModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:GoalModel1="http://GoalModel1"
+    xsi:schemaLocation="http://GoalModel1 GoalModel1.ecore">
+  <actors>
+    <intentionalelements
+        xsi:type="GoalModel1:Goal"
+        name="Read Books"
+        srcLinks="//@actors.0/@intraActorLinks.0"/>
+    <intentionalelements
+        xsi:type="GoalModel1:Task"
+        name="Paper books"
+        trgLinks="//@actors.0/@intraActorLinks.0"/>
+    <intentionalelements
+        xsi:type="GoalModel1:Task"
+        name="Subscribe Kindle Unlimited"
+        trgLinks="//@actors.0/@intraActorLinks.0"/>
+    <intentionalelements
+        xsi:type="GoalModel1:SoftGoal"
+        name="Low Cost"/>
+    <intraActorLinks
+        xsi:type="GoalModel1:Decomposition"
+        src="//@actors.0/@intentionalelements.0"
+        trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2"/>
+  </actors>
+</GoalModel1:GoalModel>
