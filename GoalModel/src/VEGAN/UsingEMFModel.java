@@ -62,7 +62,6 @@ public class UsingEMFModel {
 		}
 		
 		Propagation.propagate(myGoalModel);
-		
 	}
 
 	public static GoalModel load(String file) {
