@@ -60,6 +60,9 @@ public class UsingEMFModel {
 
 			System.out.println(type.getName());
 		}
+		
+		Propagation.propagate(myGoalModel);
+		
 	}
 
 	public static GoalModel load(String file) {
