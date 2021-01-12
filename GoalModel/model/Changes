@@ -1,0 +1,5 @@
+Restricciones OCL a añadir
+
+1- Los nombres de los Elementos intencionales NO pueden repetirse dentro de un mismo actor
+2- Un elemento intencional puede estar en una única relación de Descomposición como PADRE (Source)
+3- Un elemento intencional puede estar en una única relación de descomposición como HIJO (target)
