@@ -54,111 +54,59 @@ public class Propagation {
 		if(verbose)
 			System.out.println("Amount of IE: " + toVisitIE.size());
 		
-		int forceStop = ieP*ieP + 100;
+		//Forzar que la propagacion pare debido a que tarda demasiado. Detecta LOOPS, ¿ Posible error ?
+		int forceStop = ieP*ieP*ieP + 100;
+		
+		List<Link> propagatedLinks = new ArrayList<Link>();
 		
 		while (!toVisitIE.isEmpty()) {
 			
 			if(forceStop-- == 0 )
 			{
-				System.out.println("Force to Stop propagation due Loop");
+				System.out.println("Force to Stop due too many cicles. Possible Loop");
 				break;
 			}
 			
 			IntentionalElement ie = toVisitIE.remove(0);
 
 			boolean puede_propagar = true;
-
 			
 			//Comprobacion de dependencias
 			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Dependency && toVisitIE.contains(link.getSrc())))
-				puede_propagar = false;
+				{
+					if(verbose)
+						System.out.println("NOT propagate " + ie.getName() + " due Dependency");
+					
+					puede_propagar = false;
+				}
 
 			//Comprobacion de contribucciones
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Contribution && toVisitIE.contains(link.getTrgs().get(0))))
+			{
+				if(verbose)
+					System.out.println("NOT propagate " + ie.getName() + " due Contribution");
+				
 				puede_propagar = false;
+			}
 
 			//Comprobacion de descomposiciones
-			//Hay que IMPLEMENTAR varios cambios:
-				//1- Un HIJO no puede propagar SIN su padre
-				//2- Un PADRE no puede propagar si TODOS sus hijos no han propagado
-				//3- Un PADRE puede PROPAGAR PARCIALMENTE solo a sus hijos cuando no puede impactar a nadie mas
-			
-			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition && link.getTrgs().stream().anyMatch(children -> toVisitIE.contains(children))))
+			//Un HIJO no debe propagar ANTES que su padre
+			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition && !propagatedLinks.contains(link)))
+				{
+				if(verbose)
+					System.out.println("NOT propagate " + ie.getName() + " due Decomposition");
+				
 				puede_propagar = false;
+				}
 			
 			if(!puede_propagar)
 			{
-				if(verbose)
-					System.out.println("SIN Propagar: "+ie.getName());
-				
 				toVisitIE.add(ie);
 				continue;
 			}
 			
 			if(verbose)
-				System.out.println("Propagando: "+ie.getName());
-			
-			//Propagamos Dependencias
-			for (Iterator<Link> linkIterator = ie.getSrcLinks().iterator(); linkIterator.hasNext();)
-			{		
-				Link link = (Link) linkIterator.next();
-				if(!(link instanceof Dependency))
-					continue;
-				
-				int eiSrc = ieToPosition.get(link.getSrc());
-				int eiTrg = ieToPosition.get(link.getTrgs().get(0));
-				
-				result[eiTrg][eiSrc] = result[eiSrc][eiTrg]+100;
-				
-				for(int i=0;i<ieP;i++)
-				{
-					if(i!=eiTrg && i!=eiSrc)
-						result[eiTrg][i] = result[eiTrg][i] + result[eiSrc][i];
-				}
-			}
-			
-			//Propagamos Contribuciones
-			for (Iterator<Link> linkIterator = ie.getTrgLinks().iterator(); linkIterator.hasNext();)
-			{		
-				Link link = (Link) linkIterator.next();
-				if(!(link instanceof Contribution))
-					continue;
-				
-				int eiSrc = ieToPosition.get(link.getSrc());
-				int eiTrg = ieToPosition.get(link.getTrgs().get(0));
-				
-				double impact = getImpact(((Contribution)link).getContributionType());
-				
-				result[eiSrc][eiTrg] = result[eiSrc][eiTrg] + impact;
-				
-				impact=impact/100;
-				
-				for(int i=0;i<ieP;i++)
-				{
-					if(i!=eiTrg && i!=eiSrc)
-						result[eiSrc][i] = result[eiSrc][i] + result[eiTrg][i]*impact;
-				}
-			}
-			
-			//Falta añadir la Propagacion de las descomposiciones: Padres e Hijos
-			
-			//Decomposicion de HIJOS a PADRES
-			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition))
-			{
-				int iePos = ieToPosition.get(ie);
-				
-				Decomposition dec = (Decomposition)ie.getTrgLinks().stream().filter(link -> link instanceof Decomposition).findFirst().get();
-				
-				IntentionalElement father = dec.getSrc();
-				
-				int ieFather = ieToPosition.get(father);
-				
-				for(int i=0;i<ieP;i++)
-				{
-					if(i!=ieFather && i!=iePos)
-						result[ieFather][i] = result[ieFather][i] + result[iePos][i];
-				}
-			}
+				System.out.println("Propagating: "+ie.getName());
 			
 			//Descomposicion de PADRES a HIJOS
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition))
@@ -168,18 +116,120 @@ public class Propagation {
 				//SIEMPRE va a ser distinto de NULL debido a la condicion anterior
 				Decomposition dec = (Decomposition)ie.getSrcLinks().stream().filter(link -> link instanceof Decomposition).findFirst().get();
 				
-				for (Iterator<IntentionalElement> ieIterator = dec.getTrgs().iterator(); ieIterator.hasNext();)
+				if(!propagatedLinks.contains(dec))
 				{
-					IntentionalElement child = (IntentionalElement) ieIterator.next();
+					if(verbose)
+						System.out.println("Decomposition");
 					
-					int ieChildPos = ieToPosition.get(child);
-					
-					for(int i=0;i<ieP;i++)
+					for (Iterator<IntentionalElement> ieIterator = dec.getTrgs().iterator(); ieIterator.hasNext();)
 					{
-						if(i!=ieChildPos && i!=iePos)
-							result[ieChildPos][i] = result[ieChildPos][i] + result[iePos][i];
+						IntentionalElement child = (IntentionalElement) ieIterator.next();
+						
+						int ieChildPos = ieToPosition.get(child);
+						
+						for(int i=0;i<ieP;i++)
+						{
+							if(i!=ieChildPos && i!=iePos)
+								result[ieChildPos][i] = result[ieChildPos][i] + result[iePos][i];
+						}
+					}
+					
+					propagatedLinks.add(dec);
+				}
+			}
+			
+			//Un elemento intencional NO puede propagar SI todos sus hijos no han propagado
+			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition && link.getTrgs().stream().anyMatch(children -> toVisitIE.contains(children))))
+				{
+					if(verbose)
+						System.out.println("NOT propagate " + ie.getName() + " due Decomposition");
+					
+					toVisitIE.add(ie);
+					continue;
+				}
+			
+			boolean fin_propagacion = true;
+			
+			//Propagate Dependencies
+			for (Iterator<Link> linkIterator = ie.getSrcLinks().iterator(); linkIterator.hasNext();)
+			{
+				if(verbose)
+					System.out.println("Dependency");
+				
+				Link link = (Link) linkIterator.next();
+				if(!(link instanceof Dependency) || propagatedLinks.contains(link))
+					continue;
+				
+				//NO PROPAGAR A TARGET PERTENECIENTE A UNA DESCOMPOSICION SIN PROPAGAR				
+				if(link.getTrgs().get(0).getTrgLinks().stream().anyMatch(dec -> dec instanceof Decomposition && !propagatedLinks.contains(dec)))
+				{
+					fin_propagacion = false;
+					continue;
+				}
+					
+				int eiSrc = ieToPosition.get(link.getSrc());
+				int eiTrg = ieToPosition.get(link.getTrgs().get(0));
+				
+				result[eiTrg][eiSrc] = result[eiSrc][eiTrg]+100;
+				propagateFather(result, 100, eiSrc, link.getTrgs().get(0));
+				
+				for(int i=0;i<ieP;i++)
+				{
+					if(i!=eiTrg && i!=eiSrc) {
+						result[eiTrg][i] = result[eiTrg][i] + result[eiSrc][i];
+						propagateFather(result, result[eiSrc][i], i, ie);
 					}
 				}
+				
+				
+				propagatedLinks.add(link);
+			}
+			
+			//Propagate Contributions
+			for (Iterator<Link> linkIterator = ie.getTrgLinks().iterator(); linkIterator.hasNext();)
+			{
+				if(verbose)
+					System.out.println("Contribution");
+				
+				Link link = (Link) linkIterator.next();
+				if(!(link instanceof Contribution) || propagatedLinks.contains(link))
+					continue;
+				
+				//NO PROPAGAR A SOURCE PERTENECIENTE A UNA DESCOMPOSICION SIN PROPAGAR				
+				if(link.getSrc().getTrgLinks().stream().anyMatch(dec -> dec instanceof Decomposition && !propagatedLinks.contains(dec)))
+				{
+					fin_propagacion = false;
+					continue;
+				}
+				
+				int eiSrc = ieToPosition.get(link.getSrc());
+				int eiTrg = ieToPosition.get(link.getTrgs().get(0));
+				
+				double impact = getImpact(((Contribution)link).getContributionType());
+				
+				result[eiSrc][eiTrg] = result[eiSrc][eiTrg] + impact;
+				propagateFather(result, impact, eiTrg, link.getSrc());
+				
+				impact=impact/100;
+				
+				for(int i=0;i<ieP;i++)
+				{
+					if(i!=eiTrg && i!=eiSrc)
+					{
+						result[eiSrc][i] = result[eiSrc][i] + result[eiTrg][i]*impact;
+						propagateFather(result, result[eiTrg][i]*impact, i, link.getSrc());
+					}
+				}
+				
+				propagatedLinks.add(link);
+			}
+						
+			if(!fin_propagacion)
+			{
+				if(verbose)
+					System.out.println("Partial propagation");
+				
+				toVisitIE.add(ie);
 			}
 		}
 		
@@ -203,4 +253,20 @@ public class Propagation {
 		return 0;
 	}
 	
+	private static void propagateFather(double[][] result, double impact, int target, IntentionalElement child)
+	{
+		if(!child.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition) || impact == 0)
+			return;
+		
+		System.out.println("Propagando a PADRE de "+child.getName() + " valor de " + impact);
+		
+		IntentionalElement father = child.getTrgLinks().stream().filter(link -> link instanceof Decomposition).findFirst().get().getSrc();
+		
+		int fatherPos = ieToPosition.get(father);
+		
+		result[fatherPos][target] = result[fatherPos][target] + impact;
+		
+		if(father.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition))
+			propagateFather(result, impact, target, father);
+	}
 }

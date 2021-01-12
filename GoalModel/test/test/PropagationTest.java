@@ -214,4 +214,10 @@ GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		
 		assertArrayEquals(expectedOutput, otuput);
 	}
+	
+	@Test
+	void testPropagationLimites() 
+	{
+		fail("NOT IMPLEMENTED");
+	}
 }
