@@ -258,8 +258,6 @@ public class Propagation {
 		if(!child.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition) || impact == 0)
 			return;
 		
-		System.out.println("Propagando a PADRE de "+child.getName() + " valor de " + impact);
-		
 		IntentionalElement father = child.getTrgLinks().stream().filter(link -> link instanceof Decomposition).findFirst().get().getSrc();
 		
 		int fatherPos = ieToPosition.get(father);
