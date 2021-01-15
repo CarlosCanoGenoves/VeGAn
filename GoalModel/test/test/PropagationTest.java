@@ -125,6 +125,7 @@ class PropagationTest {
 	@Test
 	void testPropagationOfDecompositionPadre_Hijo() 
 	{
+		/*
 		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		
 		GoalModel myGoalModel = factory.createGoalModel();
@@ -159,6 +160,9 @@ class PropagationTest {
 		d1.setSrc(ie1);
 		d1.getTrgs().add(ie2);
 		d1.getTrgs().add(ie3);
+		*/
+		
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/decompositionPH.xmi");
 		
 		//La estructura es A&BC & A -> D
 		double[][] expectedOutput = {
@@ -167,7 +171,7 @@ class PropagationTest {
 				{0, 0, Double.MAX_VALUE, 50},		//C
 				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
-		double[][] otuput = Propagation.propagate(myGoalModel);
+		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, otuput);
 	}
@@ -175,6 +179,7 @@ class PropagationTest {
 	@Test
 	void testPropagationOfDecompositionHijo_Padre() 
 	{
+		/*
 		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		
 		GoalModel myGoalModel = factory.createGoalModel();
@@ -209,6 +214,9 @@ class PropagationTest {
 		d1.setSrc(ie1);
 		d1.getTrgs().add(ie2);
 		d1.getTrgs().add(ie3);
+		*/
+		
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/decompositionHP.xmi");
 		
 		//La estructura es A&BC & B -> D
 		double[][] expectedOutput = {
@@ -217,7 +225,7 @@ class PropagationTest {
 				{0, 0, Double.MAX_VALUE, 0},		//C
 				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
-		double[][] otuput = Propagation.propagate(myGoalModel);
+		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, otuput);
 	}
@@ -225,7 +233,8 @@ class PropagationTest {
 	@Test
 	void testPropagationLimites() 
 	{
-GoalModelFactory factory = GoalModelFactory.eINSTANCE;
+		/*
+		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		
 		GoalModel myGoalModel = factory.createGoalModel();
 		myGoalModel.setName("TESTGoalModel1");
@@ -291,6 +300,9 @@ GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		c4.setSrc(ie6);
 		c4.getTrgs().add(ie7);
 		c4.setContributionType(EContribution.P50);
+		*/
+		
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/full.xmi");
 		
 		//La estructura es:
 		//A Contribuye a C
@@ -307,7 +319,7 @@ GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 				{0, 50, 0, 0, 0, Double.MAX_VALUE, 50},		//F
 				{0, 0, 0, 0, 0, 0, Double.MAX_VALUE}};		//G
 		
-		double[][] otuput = Propagation.propagate(myGoalModel);
+		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, otuput);
 	}
