@@ -1,5 +1,6 @@
 package VEGAN;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,19 +11,17 @@ import java.util.Optional;
 import goalModel.*;
 
 public class Propagation {
-
-	public static Map<IntentionalElement, Integer> ieToPosition = new HashMap<IntentionalElement, Integer>();
 	
 	//METHOD FOR TESTING, WILL BE REMOVED
-	public static double[][] propagate(GoalModel goalModel)
+	public static AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel)
 	{
 		return propagate(goalModel, false);
 	}
 	
-	public static double[][] propagate(GoalModel goalModel, boolean verbose)
+	public static AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel, boolean verbose)
 	{
 		List<IntentionalElement> toVisitIE = new ArrayList<IntentionalElement>();
-		ieToPosition.clear();
+		Map<IntentionalElement, Integer> ieToPosition = new HashMap<IntentionalElement, Integer>();
 		
 		int ieP = 0;
 		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
@@ -36,7 +35,7 @@ public class Propagation {
 			}
 		}
 		
-		double[][] result = new double[ieP][ieP];
+		double[][] propagacion = new double[ieP][ieP];
 		
 		//Inicializamos la matriz
 		//EL ARRAY ESTA MAL los elementos que se descomponen NO deberian aparecer en el array ya que estan COMPUESTOS por sus hijos
@@ -45,9 +44,9 @@ public class Propagation {
 			for(int j=0;j<ieP;j++)
 			{
 				if(i==j)	//Un elemento CONSIGO MISMO tiene MAXIMO impacto
-					result[i][j] = Double.MAX_VALUE;
+					propagacion[i][j] = Double.MAX_VALUE;
 				else
-					result[i][j] = 0;
+					propagacion[i][j] = 0;
 			}
 		}
 		
@@ -130,7 +129,7 @@ public class Propagation {
 						for(int i=0;i<ieP;i++)
 						{
 							if(i!=ieChildPos && i!=iePos)
-								result[ieChildPos][i] = result[ieChildPos][i] + result[iePos][i];
+								propagacion[ieChildPos][i] = propagacion[ieChildPos][i] + propagacion[iePos][i];
 						}
 					}
 					
@@ -170,14 +169,14 @@ public class Propagation {
 				int eiSrc = ieToPosition.get(link.getSrc());
 				int eiTrg = ieToPosition.get(link.getTrgs().get(0));
 				
-				result[eiTrg][eiSrc] = result[eiSrc][eiTrg]+100;
-				propagateFather(result, 100, eiSrc, link.getTrgs().get(0));
+				propagacion[eiTrg][eiSrc] = propagacion[eiSrc][eiTrg]+100;
+				propagateFather(propagacion, 100, eiSrc, link.getTrgs().get(0), ieToPosition);
 				
 				for(int i=0;i<ieP;i++)
 				{
 					if(i!=eiTrg && i!=eiSrc) {
-						result[eiTrg][i] = result[eiTrg][i] + result[eiSrc][i];
-						propagateFather(result, result[eiSrc][i], i, ie);
+						propagacion[eiTrg][i] = propagacion[eiTrg][i] + propagacion[eiSrc][i];
+						propagateFather(propagacion, propagacion[eiSrc][i], i, ie, ieToPosition);
 					}
 				}
 				
@@ -207,8 +206,8 @@ public class Propagation {
 				
 				double impact = getImpact(((Contribution)link).getContributionType());
 				
-				result[eiSrc][eiTrg] = result[eiSrc][eiTrg] + impact;
-				propagateFather(result, impact, eiTrg, link.getSrc());
+				propagacion[eiSrc][eiTrg] = propagacion[eiSrc][eiTrg] + impact;
+				propagateFather(propagacion, impact, eiTrg, link.getSrc(), ieToPosition);
 				
 				impact=impact/100;
 				
@@ -216,8 +215,8 @@ public class Propagation {
 				{
 					if(i!=eiTrg && i!=eiSrc)
 					{
-						result[eiSrc][i] = result[eiSrc][i] + result[eiTrg][i]*impact;
-						propagateFather(result, result[eiTrg][i]*impact, i, link.getSrc());
+						propagacion[eiSrc][i] = propagacion[eiSrc][i] + propagacion[eiTrg][i]*impact;
+						propagateFather(propagacion, propagacion[eiTrg][i]*impact, i, link.getSrc(), ieToPosition);
 					}
 				}
 				
@@ -232,6 +231,9 @@ public class Propagation {
 				toVisitIE.add(ie);
 			}
 		}
+		
+		AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> result = 
+				new AbstractMap.SimpleImmutableEntry<>(propagacion, ieToPosition);
 		
 		return result;
 	}
@@ -253,7 +255,7 @@ public class Propagation {
 		return 0;
 	}
 	
-	private static void propagateFather(double[][] result, double impact, int target, IntentionalElement child)
+	private static void propagateFather(double[][] result, double impact, int target, IntentionalElement child, Map<IntentionalElement, Integer> ieToPosition)
 	{
 		if(!child.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition) || impact == 0)
 			return;
@@ -265,6 +267,6 @@ public class Propagation {
 		result[fatherPos][target] = result[fatherPos][target] + impact;
 		
 		if(father.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition))
-			propagateFather(result, impact, target, father);
+			propagateFather(result, impact, target, father, ieToPosition);
 	}
 }
