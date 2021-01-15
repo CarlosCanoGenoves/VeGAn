@@ -108,9 +108,13 @@ public class FuzzyNumber {
 		if(n == Double.MAX_VALUE || n == Double.MIN_VALUE)
 			return new FuzzyNumber(n);
 
-			if(n>=-100 & n<=100)
-				return new FuzzyNumber(n);
-			
+		if(n>=-100 & n<=100)
+			return new FuzzyNumber(n);
+
+		System.out.println("Saturando: "+ n);
+		System.out.println("Min: "+ min);
+		System.out.println("Max: "+ max);
+		
 		if (n == max) 
 			return new FuzzyNumber(10, 11, 11);
 		if(n==min)
@@ -139,16 +143,16 @@ public class FuzzyNumber {
 			//Indentify the min and max of each column (criterion)
 			for(int j=0;j<impactMatrix.length;j++)
 			{
-				if(impactMatrix[i][j] < min)
-					min = impactMatrix[i][j];
+				if(impactMatrix[j][i] < min && impactMatrix[j][i] != Double.MIN_VALUE)
+					min = impactMatrix[j][i];
 				
-				if(impactMatrix[i][j] > max)
-					max = impactMatrix[i][j];
+				if(impactMatrix[j][i] > max && impactMatrix[j][i] != Double.MAX_VALUE)
+					max = impactMatrix[j][i];
 			}
 			
 			for(int j=0;j<impactMatrix.length;j++)
 			{
-				fuzzifiedImpactMatrix[i][j] = fuzzyfy(impactMatrix[i][j], min, max);
+				fuzzifiedImpactMatrix[j][i] = fuzzyfy(impactMatrix[j][i], min, max);
 			}
 		}
 		
