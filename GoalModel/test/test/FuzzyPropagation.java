@@ -55,9 +55,26 @@ class FuzzyPropagation {
 				{100, 100, 100, Double.MAX_VALUE} };	//D
 		
 		double[][] output = Propagation.propagate(myLoadedGoalModel);
-		FuzzyNumber[][] expectedOutput2 = {{}};
 		
 		assertArrayEquals(expectedOutput, output);
+		
+		FuzzyNumber[][] output2 = FuzzyNumber.fuzzyfy(output);
+		FuzzyNumber[][] expectedOutput2 = {
+				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(0)},
+				{new FuzzyNumber(100), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(0)},
+				{new FuzzyNumber(100), new FuzzyNumber(100), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0)},
+				{new FuzzyNumber(100), new FuzzyNumber(100), new FuzzyNumber(100), new FuzzyNumber(Double.MAX_VALUE)}};
+		
+		if(output.length != output2.length || output2.length != expectedOutput2.length)
+			fail("Incorrect output size");
+		
+		for(int i=0;i<expectedOutput2.length;i++)
+			for(int j=0;j<expectedOutput2.length;j++)
+			{
+				assertEquals(expectedOutput2[i][j].n1, output2[i][j].n1);
+				assertEquals(expectedOutput2[i][j].n2, output2[i][j].n2);
+				assertEquals(expectedOutput2[i][j].n3, output2[i][j].n3);
+			}
 	}
 	
 	@Test
@@ -75,6 +92,24 @@ class FuzzyPropagation {
 		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, output);
+		
+		FuzzyNumber[][] output2 = FuzzyNumber.fuzzyfy(output);
+		FuzzyNumber[][] expectedOutput2 = {
+				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(50)},
+				{new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(50)},
+				{new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(50)},
+				{new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE)}};
+		
+		if(output.length != output2.length || output2.length != expectedOutput2.length)
+			fail("Incorrect output size");
+		
+		for(int i=0;i<expectedOutput2.length;i++)
+			for(int j=0;j<expectedOutput2.length;j++)
+			{
+				assertEquals(expectedOutput2[i][j].n1, output2[i][j].n1);
+				assertEquals(expectedOutput2[i][j].n2, output2[i][j].n2);
+				assertEquals(expectedOutput2[i][j].n3, output2[i][j].n3);
+			}
 	}
 	
 	@Test
@@ -92,31 +127,63 @@ class FuzzyPropagation {
 		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, output);
+		
+		FuzzyNumber[][] output2 = FuzzyNumber.fuzzyfy(output);
+		FuzzyNumber[][] expectedOutput2 = {
+				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(50)},
+				{new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(50)},
+				{new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0)},
+				{new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE)}};
+		
+		if(output.length != output2.length || output2.length != expectedOutput2.length)
+			fail("Incorrect output size");
+		
+		for(int i=0;i<expectedOutput2.length;i++)
+			for(int j=0;j<expectedOutput2.length;j++)
+			{
+				assertEquals(expectedOutput2[i][j].n1, output2[i][j].n1);
+				assertEquals(expectedOutput2[i][j].n2, output2[i][j].n2);
+				assertEquals(expectedOutput2[i][j].n3, output2[i][j].n3);
+			}
 	}
 	
 	@Test
-	void testFuzzyPropagationLimites() 
+	void testFuzzyPropagationSaturacion() 
 	{
-		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/full.xmi");
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/saturacion.xmi");
 		
 		//La estructura es:
-		//A Contribuye a C
-		//C Contribuye a B
-		//C se descompone en E y F
-		//D Contribuye a E
-		//F Contribuye a G
+		//A Contribuye a C & D
+		//B Contribuye a C & D
+		//C se descompone en D
+		//D
 		double[][] expectedOutput = {
-				{Double.MAX_VALUE, 25, 50, 0, 0, 0, 25},	//A
-				{0, Double.MAX_VALUE, 0, 0, 0, 0, 0},		//B
-				{0, 50, Double.MAX_VALUE, 0, 0, 0, 50},		//C
-				{0, 25, 0, Double.MAX_VALUE, 50, 0, 0},		//D
-				{0, 50, 0, 0, Double.MAX_VALUE, 0, 0},		//E
-				{0, 50, 0, 0, 0, Double.MAX_VALUE, 50},		//F
-				{0, 0, 0, 0, 0, 0, Double.MAX_VALUE}};		//G
+				{Double.MAX_VALUE, 100, 100, 225},		//A
+				{0, Double.MAX_VALUE, 100, 175},		//B
+				{0, 0, Double.MAX_VALUE, 100},		//C
+				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
 		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, output);
+		
+		FuzzyNumber[][] output2 = FuzzyNumber.fuzzyfy(output);
+		FuzzyNumber[][] expectedOutput2 = {
+				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(100), new FuzzyNumber(100), new FuzzyNumber(10, 11, 11)},
+				{new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(100), new FuzzyNumber(10, 10.6, 11)},
+				{new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(100)},
+				{new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(Double.MAX_VALUE)}};
+		
+		if(output.length != output2.length || output2.length != expectedOutput2.length)
+			fail("Incorrect output size");
+		
+		for(int i=0;i<expectedOutput2.length;i++)
+			for(int j=0;j<expectedOutput2.length;j++)
+			{
+				assertEquals(expectedOutput2[i][j].n1, output2[i][j].n1);
+				assertEquals(expectedOutput2[i][j].n2, output2[i][j].n2);
+				assertEquals(expectedOutput2[i][j].n3, output2[i][j].n3);
+			}
 	}
 
 }

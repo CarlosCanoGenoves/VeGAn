@@ -13,7 +13,7 @@ Por añadir:
 
 Un elemento intencional puede estar en una única relación de Descomposición como PADRE (Source)
 Un elemento intencional puede estar en una única relación de descomposición como HIJO (target)
-Evitar ciclos
+Evitar ciclos	-	https://modeling-languages.com/closure-operation-added-to-ocl/
 
 Propagación:
 
