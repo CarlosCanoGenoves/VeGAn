@@ -1,0 +1,21 @@
+Metamodelo:
+Eliminar la relación de Link a GoalModel. Alternativa: usar OCL y utilizar el enlace del actor
+
+OCL:
+
+Existentes:
+
+1- Generar los nombres de las Contribuciones y las dependencias
+2- Los nombres los actores son UNICOS
+3- Los nombres de los elementos intencionales DENTRO de un mismo actor son UNICOS
+
+Por añadir:
+
+Un elemento intencional puede estar en una única relación de Descomposición como PADRE (Source)
+Un elemento intencional puede estar en una única relación de descomposición como HIJO (target)
+Evitar ciclos
+
+Propagación:
+
+- La propagación de las depedencias debería ser a Double.Max_Value en vez de 100
+	- Es necesario tener en cuenta el impacto sobre una dependencia
