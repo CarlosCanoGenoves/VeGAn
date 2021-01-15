@@ -4,13 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import VEGAN.Propagation;
+import VEGAN.*;
 import goalModel.*;
 
 class PropagationTest {
 
 	@Test
 	void testPropagationOfContributions() {
+		/*
 		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		
 		GoalModel myGoalModel = factory.createGoalModel();
@@ -50,6 +51,9 @@ class PropagationTest {
 		c3.setSrc(ie3);
 		c3.getTrgs().add(ie4);
 		c3.setContributionType(EContribution.P50);
+		*/
+		
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/contribution.xmi");
 		
 		//La estructura es A -> B -> C -> D
 		double[][] expectedOutput = {
@@ -58,13 +62,14 @@ class PropagationTest {
 				{0, 0, Double.MAX_VALUE, 50},			//C
 				{0, 0, 0, Double.MAX_VALUE}	};		//D
 		
-		double[][] otuput = Propagation.propagate(myGoalModel);
+		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, otuput);
 	}
 	
 	@Test
 	void testPropagationOfDependencies() {
+		/*
 		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		
 		GoalModel myGoalModel = factory.createGoalModel();
@@ -101,7 +106,9 @@ class PropagationTest {
 		Dependency d3 = factory.createDependency();
 		d3.setSrc(ie3);
 		d3.getTrgs().add(ie4);
+		*/
 		
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/dependency.xmi");
 		
 		//La estructura es A -D- B -D- C -D- D
 		double[][] expectedOutput = {
@@ -110,7 +117,7 @@ class PropagationTest {
 				{100, 100,Double.MAX_VALUE, 0},			//C
 				{100, 100, 100, Double.MAX_VALUE} };	//D
 		
-		double[][] otuput = Propagation.propagate(myGoalModel);
+		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
 		
 		assertArrayEquals(expectedOutput, otuput);
 	}
@@ -118,7 +125,7 @@ class PropagationTest {
 	@Test
 	void testPropagationOfDecompositionPadre_Hijo() 
 	{
-GoalModelFactory factory = GoalModelFactory.eINSTANCE;
+		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
 		
 		GoalModel myGoalModel = factory.createGoalModel();
 		myGoalModel.setName("TESTGoalModel1");

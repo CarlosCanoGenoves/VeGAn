@@ -54,23 +54,44 @@ class FuzzyNumberTest {
 	}
 
 	@Test
-	void testSaturacion() {
+	void testFuzzification() {
 		double[] intputNumber = { -150, -110, -101, -105, 150, 110, 101, 105 };
-		double[] intputMinMax = { -150, -110, -110, -110, 150, 110, 110, 110 };
+		double[] intputMin = { 	  -150, -110, -110, -110,    0,  0,   0,   0 };
+		double[] intputMax = {       0,    0,    0,    0,  150, 110, 110, 110 };
 
 		FuzzyNumber[] expectedOutput = { new FuzzyNumber(-11, -11, -10), new FuzzyNumber(-11, -11, -10),
 				new FuzzyNumber(-11, -10.1, -10), new FuzzyNumber(-11, -10.5, -10), new FuzzyNumber(10, 11, 11),
 				new FuzzyNumber(10, 11, 11), new FuzzyNumber(10, 10.1, 11), new FuzzyNumber(10, 10.5, 11) };
 
-		if (intputNumber.length != intputMinMax.length || intputNumber.length != expectedOutput.length)
+		if (intputNumber.length != intputMin.length || intputNumber.length != intputMax.length || intputNumber.length != expectedOutput.length)
 			fail("Test NOT WELL DESIGNED");
 
 		for (int i = 0; i < intputNumber.length; i++) {
-			FuzzyNumber fn = new FuzzyNumber(intputNumber[i], intputMinMax[i]);
+			FuzzyNumber fn = FuzzyNumber.fuzzyfy(intputNumber[i], intputMin[i], intputMax[i]);
 
 			assertEquals(expectedOutput[i].n1, fn.n1);
 			assertEquals(expectedOutput[i].n2, fn.n2);
 			assertEquals(expectedOutput[i].n3, fn.n3);
+		}
+		
+		double[] input2 = { Double.MIN_VALUE, -125, -100, -75, -50, -25, -15, 0, 15, 25, 50, 75, 100, 125, Double.MAX_VALUE };
+				
+		FuzzyNumber[] expectedOutput2 = { new FuzzyNumber(-11, -11, -10), new FuzzyNumber(-11, -11, -10),
+				new FuzzyNumber(-11, -10, -8), new FuzzyNumber(-10, -8, -6), new FuzzyNumber(-8, -6, -4),
+				new FuzzyNumber(-6, -4, -2), new FuzzyNumber(-4, -2, -1),
+				new FuzzyNumber(0, 0, 0),
+				new FuzzyNumber(1, 2, 4), new FuzzyNumber(2, 4, 6), new FuzzyNumber(4, 6, 8), new FuzzyNumber(6, 8, 10),
+				new FuzzyNumber(8, 10, 11), new FuzzyNumber(10, 11, 11), new FuzzyNumber(10, 11, 11) };
+
+		if (input2.length != expectedOutput2.length)
+			fail("Test NOT WELL DESIGNED");
+
+		for (int i = 0; i < input2.length; i++) {
+			FuzzyNumber fn = FuzzyNumber.fuzzyfy(input2[i], -125, 125);
+
+			assertEquals(expectedOutput2[i].n1, fn.n1);
+			assertEquals(expectedOutput2[i].n2, fn.n2);
+			assertEquals(expectedOutput2[i].n3, fn.n3);
 		}
 	}
 
@@ -99,7 +120,6 @@ class FuzzyNumberTest {
 			fail("Test NOT WELL DESIGNED");
 
 		for (int i = 0; i < inputImportance.length; i++) {
-			System.out.println(inputImportance[i] + " " + inputConfidence[i]);
 			FuzzyNumber fn = new FuzzyNumber(inputImportance[i], inputConfidence[i]);
 
 			assertEquals(expectedOutput[i].n1, fn.n1);

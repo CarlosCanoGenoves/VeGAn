@@ -25,6 +25,7 @@ public class FuzzyNumber {
 			n3 = 0;
 			return;
 		}
+		
 		if (n == Double.MAX_VALUE) {
 			n1 = 10;
 			n2 = 11;
@@ -94,38 +95,35 @@ public class FuzzyNumber {
 		}
 	}
 
+
 	/**
-	 * Generar el numero fuzzy Saturando
-	 * 
-	 * @param n      debe ser >100 o <-100
-	 * @param minmax debe ser >100 o <-100, tener (+ o -) igual que n y ser MAYOR o
-	 *               MENOR
+	 * Generate the fuzzy number
+	 * @param n	Number to Fuzzify
+	 * @param min MIN value
+	 * @param max MAX value
+	 * @return
 	 */
-	public FuzzyNumber(double n, double minmax) {
-		boolean positivo = n > 0;
+	public static FuzzyNumber fuzzyfy(double n, double min, double max) {
 
-		if (n == minmax) {
-			if (positivo) {
-				n1 = 10;
-				n2 = 11;
-				n3 = 11;
-			} else {
-				n1 = -11;
-				n2 = -11;
-				n3 = -10;
-			}
+		if(n == Double.MAX_VALUE || n == Double.MIN_VALUE)
+			return new FuzzyNumber(n);
 
-			return;
-		}
+			if(n>=-100 & n<=100)
+				return new FuzzyNumber(n);
+			
+		if (n == max) 
+			return new FuzzyNumber(10, 11, 11);
+		if(n==min)
+			return new FuzzyNumber(-11, -11, -10);
+			
+		if (n > 0) {
+			double n2 = 10 + (n - 100) / (max - 100);
 
-		if (positivo) {
-			n1 = 10;
-			n2 = 10 + (n - 100) / (minmax - 100);
-			n3 = 11;
+			return new FuzzyNumber(10, n2, 11);
 		} else {
-			n1 = -11;
-			n2 = -10 - ((n + 100) / (minmax + 100));
-			n3 = -10;
+			double n2 = -10 - ((n + 100) / (min + 100));
+			
+			return new FuzzyNumber(-11, n2, -10);
 		}
 	}
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<goalModel:GoalModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:goalModel="http://goalModel"
+    xsi:schemaLocation="http://goalModel goalModel.ecore"
+    name="goalModel">
+  <actors name="actor">
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="A">
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.0/@intentionalelements.1"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="B"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.0/@intentionalelements.2"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="C"
+        trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.0/@intentionalelements.3"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="D"
+        trgLinks="//@actors.0/@intentionalelements.2/@srcLinks.0"/>
+  </actors>
+</goalModel:GoalModel>
