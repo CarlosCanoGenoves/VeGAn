@@ -62,9 +62,9 @@ class PropagationTest {
 				{0, 0, Double.MAX_VALUE, 50},			//C
 				{0, 0, 0, Double.MAX_VALUE}	};		//D
 		
-		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
+		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
-		assertArrayEquals(expectedOutput, otuput);
+		assertArrayEquals(expectedOutput, output);
 	}
 	
 	@Test
@@ -117,9 +117,9 @@ class PropagationTest {
 				{100, 100,Double.MAX_VALUE, 0},			//C
 				{100, 100, 100, Double.MAX_VALUE} };	//D
 		
-		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
+		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
-		assertArrayEquals(expectedOutput, otuput);
+		assertArrayEquals(expectedOutput, output);
 	}
 	
 	@Test
@@ -171,9 +171,9 @@ class PropagationTest {
 				{0, 0, Double.MAX_VALUE, 50},		//C
 				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
-		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
+		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
-		assertArrayEquals(expectedOutput, otuput);
+		assertArrayEquals(expectedOutput, output);
 	}
 	
 	@Test
@@ -225,9 +225,9 @@ class PropagationTest {
 				{0, 0, Double.MAX_VALUE, 0},		//C
 				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
-		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
+		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
-		assertArrayEquals(expectedOutput, otuput);
+		assertArrayEquals(expectedOutput, output);
 	}
 	
 	@Test
@@ -319,8 +319,8 @@ class PropagationTest {
 				{0, 50, 0, 0, 0, Double.MAX_VALUE, 50},		//F
 				{0, 0, 0, 0, 0, 0, Double.MAX_VALUE}};		//G
 		
-		double[][] otuput = Propagation.propagate(myLoadedGoalModel);
+		double[][] output = Propagation.propagate(myLoadedGoalModel);
 		
-		assertArrayEquals(expectedOutput, otuput);
+		assertArrayEquals(expectedOutput, output);
 	}
 }

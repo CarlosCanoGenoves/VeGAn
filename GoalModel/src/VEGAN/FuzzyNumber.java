@@ -127,6 +127,33 @@ public class FuzzyNumber {
 		}
 	}
 
+	public static FuzzyNumber[][] fuzzyfy(double[][] impactMatrix)
+	{
+		FuzzyNumber[][] fuzzifiedImpactMatrix = new FuzzyNumber[impactMatrix.length][impactMatrix.length];
+		
+		for(int i=0;i<impactMatrix.length;i++)
+		{
+			double max = 100;
+			double min = -100;
+			
+			//Indentify the min and max of each column (criterion)
+			for(int j=0;j<impactMatrix.length;j++)
+			{
+				if(impactMatrix[i][j] < min)
+					min = impactMatrix[i][j];
+				
+				if(impactMatrix[i][j] > max)
+					max = impactMatrix[i][j];
+			}
+			
+			for(int j=0;j<impactMatrix.length;j++)
+			{
+				fuzzifiedImpactMatrix[i][j] = fuzzyfy(impactMatrix[i][j], min, max);
+			}
+		}
+		
+		return fuzzifiedImpactMatrix;
+	}
 	/**
 	 * Gemerar numero fuzzy a partir de la importancia y la certeza
 	 */
