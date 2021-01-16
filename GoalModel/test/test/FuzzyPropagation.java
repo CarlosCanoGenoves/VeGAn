@@ -23,9 +23,9 @@ class FuzzyPropagation {
 				{0, 0, Double.MAX_VALUE, 50},			//C
 				{0, 0, 0, Double.MAX_VALUE}	};		//D
 		
-		AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
 		
-		double[][] output = p.getKey();
+		double[][] output = p.Item1;
 		
 		assertArrayEquals(expectedOutput, output);
 		
@@ -59,9 +59,9 @@ class FuzzyPropagation {
 				{100, 100,Double.MAX_VALUE, 0},			//C
 				{100, 100, 100, Double.MAX_VALUE} };	//D
 		
-		AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
 		
-		double[][] output = p.getKey();
+		double[][] output = p.Item1;
 		
 		assertArrayEquals(expectedOutput, output);
 		
@@ -96,9 +96,9 @@ class FuzzyPropagation {
 				{0, 0, Double.MAX_VALUE, 50},		//C
 				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
-		AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
 		
-		double[][] output = p.getKey();
+		double[][] output = p.Item1;
 		
 		assertArrayEquals(expectedOutput, output);
 		
@@ -133,9 +133,9 @@ class FuzzyPropagation {
 				{0, 0, Double.MAX_VALUE, 0},		//C
 				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
-		AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
 		
-		double[][] output = p.getKey();
+		double[][] output = p.Item1;
 		
 		assertArrayEquals(expectedOutput, output);
 		
@@ -174,9 +174,9 @@ class FuzzyPropagation {
 				{0, 0, Double.MAX_VALUE, 100},		//C
 				{0, 0, 0, Double.MAX_VALUE} };		//D
 		
-		AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
 		
-		double[][] output = p.getKey();
+		double[][] output = p.Item1;
 		
 		assertArrayEquals(expectedOutput, output);
 		

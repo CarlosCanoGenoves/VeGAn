@@ -13,12 +13,12 @@ import goalModel.*;
 public class Propagation {
 	
 	//METHOD FOR TESTING, WILL BE REMOVED
-	public static AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel)
+	public static Tuple<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel)
 	{
 		return propagate(goalModel, false);
 	}
 	
-	public static AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel, boolean verbose)
+	public static Tuple<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel, boolean verbose)
 	{
 		List<IntentionalElement> toVisitIE = new ArrayList<IntentionalElement>();
 		Map<IntentionalElement, Integer> ieToPosition = new HashMap<IntentionalElement, Integer>();
@@ -232,8 +232,7 @@ public class Propagation {
 			}
 		}
 		
-		AbstractMap.SimpleImmutableEntry<double[][], Map<IntentionalElement, Integer>> result = 
-				new AbstractMap.SimpleImmutableEntry<>(propagacion, ieToPosition);
+		Tuple<double[][], Map<IntentionalElement, Integer>> result = new Tuple<double[][], Map<IntentionalElement,Integer>>(propagacion, ieToPosition);
 		
 		return result;
 	}
