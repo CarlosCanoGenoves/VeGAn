@@ -37,18 +37,18 @@ public class FTOPSIS {
 	
 	public static Tuple<FuzzyNumber[], Map<Actor, Integer>> calculateActorWeight(GoalModel goalModel)
 	{
-		List<FuzzyNumber> actorWeight = new ArrayList<FuzzyNumber>();
+		FuzzyNumber[] actorWeight = new FuzzyNumber[goalModel.getActors().size()];
 		Map<Actor, Integer> actorToPosition = new HashMap<Actor, Integer>();
 		
 		int i = 0;
 		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
 			Actor actor = (Actor) actorIterator.next();
 			
-			actorWeight.add(new FuzzyNumber(actor.getImportance(), actor.getConfidence()));
-			actorToPosition.put(actor, i++);
+			actorWeight[i++] = new FuzzyNumber(actor.getImportance(), actor.getConfidence());
+			actorToPosition.put(actor, i);
 		}
 		
-		Tuple<FuzzyNumber[], Map<Actor, Integer>> tuple = new Tuple<FuzzyNumber[], Map<Actor,Integer>>((FuzzyNumber[])actorWeight.toArray(), actorToPosition);
+		Tuple<FuzzyNumber[], Map<Actor, Integer>> tuple = new Tuple<FuzzyNumber[], Map<Actor,Integer>>(actorWeight, actorToPosition);
 		
 		return tuple;
 	}
@@ -98,9 +98,9 @@ public class FTOPSIS {
 			for (Iterator<IntentionalElement> ieIterator = dec.getTrgs().iterator(); ieIterator.hasNext();) {
 				IntentionalElement child = (IntentionalElement) ieIterator.next();
 
-				ieWeight[ieToPosition.get(child)].n1 = ieWeight[ieToPosition.get(child)].n1 / total.n1;
-				ieWeight[ieToPosition.get(child)].n2 = ieWeight[ieToPosition.get(child)].n2 / total.n2;
-				ieWeight[ieToPosition.get(child)].n3 = ieWeight[ieToPosition.get(child)].n3 / total.n3;
+				ieWeight[ieToPosition.get(child)].n1 = (ieWeight[ieToPosition.get(child)].n1 / total.n1) * ieWeight[ieToPosition.get(ie)].n1;
+				ieWeight[ieToPosition.get(child)].n2 = (ieWeight[ieToPosition.get(child)].n2 / total.n2) * ieWeight[ieToPosition.get(ie)].n2;
+				ieWeight[ieToPosition.get(child)].n3 = (ieWeight[ieToPosition.get(child)].n3 / total.n3) * ieWeight[ieToPosition.get(ie)].n3;
 			}
 		}
 		
