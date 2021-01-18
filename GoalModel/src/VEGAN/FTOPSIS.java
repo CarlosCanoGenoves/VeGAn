@@ -17,11 +17,11 @@ public class FTOPSIS {
 	
 	public static FuzzyNumber[][] normalizeMatrix(FuzzyNumber[][] matrix)
 	{
-		//Fuzzy numbers go from -11 to 11 so the Max value is 11
+		//Fuzzy numbers go from -11 to 11 therefore the Max value is 11
 		return normalizeMatrix(matrix, 11);
 	}
 	
-	public static FuzzyNumber[][] normalizeMatrix(FuzzyNumber[][] matrix, double maxValue)
+	private static FuzzyNumber[][] normalizeMatrix(FuzzyNumber[][] matrix, double maxValue)
 	{
 		for(int i=0;i<matrix.length;i++)
 			for(int j=0;j<matrix.length;j++)
@@ -105,5 +105,61 @@ public class FTOPSIS {
 		}
 		
 		return ieWeight;
+	}
+	
+	// Weighted Normalized Fuzzy Performance Matrix
+	public static FuzzyNumber[][] calculateWFNM(GoalModel goalModel, FuzzyNumber[][] NFPM, FuzzyNumber[] actorWeight,
+			FuzzyNumber[] ieWeight, Map<IntentionalElement, Integer> ieToPosition,
+			Map<Actor, Integer> actorToPosition) {
+
+		FuzzyNumber[][] WFNPM = new FuzzyNumber[NFPM.length][NFPM.length];
+		
+		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
+			Actor actor = (Actor) actorIterator.next();
+			
+			int actorP = actorToPosition.get(actor);
+			
+			for (Iterator<IntentionalElement> ieIterator =actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
+			{
+				IntentionalElement ie = (IntentionalElement) ieIterator.next();
+				
+				int ieP = ieToPosition.get(ie);
+				
+				for(int i=0;i<NFPM.length;i++)
+				{
+					double n1 = NFPM[i][ieP].n1 * actorWeight[actorP].n1 * ieWeight[ieP].n1;
+					double n2 = NFPM[i][ieP].n2 * actorWeight[actorP].n2 * ieWeight[ieP].n2;
+					double n3 = NFPM[i][ieP].n3 * actorWeight[actorP].n3 * ieWeight[ieP].n3;
+					
+					WFNPM[i][ieP] = new FuzzyNumber(n1, n2, n3);
+				}
+				
+			}
+		}
+		
+		return WFNPM;
+	}
+	
+	
+	public static FuzzyNumber[][] calculateWFNM(GoalModel goalModel) {
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(goalModel);
+		
+		double[][] performanceMatrix = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		//Fuzzy Performance Matrix
+		FuzzyNumber[][] fuzzyPerformanceMatrix = FuzzyNumber.fuzzyfy(performanceMatrix);
+		
+		//Normalized Fuzzy Performance Matrix
+		FuzzyNumber[][] normalizedFuzzyPerformanceMatrix = normalizeMatrix(fuzzyPerformanceMatrix);
+		
+		Tuple<FuzzyNumber[], Map<Actor, Integer>> tupleActorWeight = calculateActorWeight(goalModel);
+		
+		FuzzyNumber[] actorWeight = tupleActorWeight.Item1;
+		Map<Actor, Integer> actorToPosition = tupleActorWeight.Item2;
+		
+		FuzzyNumber[] ieWeight = calculateIEWeight(goalModel, ieToPosition);
+		
+		return calculateWFNM(goalModel, normalizedFuzzyPerformanceMatrix, actorWeight, ieWeight, ieToPosition, actorToPosition);
 	}
 }
