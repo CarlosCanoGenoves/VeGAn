@@ -44,8 +44,8 @@ public class FTOPSIS {
 		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
 			Actor actor = (Actor) actorIterator.next();
 			
-			actorWeight[i++] = new FuzzyNumber(actor.getImportance(), actor.getConfidence());
-			actorToPosition.put(actor, i);
+			actorWeight[i] = new FuzzyNumber(actor.getImportance(), actor.getConfidence());
+			actorToPosition.put(actor, i++);
 		}
 		
 		Tuple<FuzzyNumber[], Map<Actor, Integer>> tuple = new Tuple<FuzzyNumber[], Map<Actor,Integer>>(actorWeight, actorToPosition);
@@ -125,12 +125,11 @@ public class FTOPSIS {
 				
 				int ieP = ieToPosition.get(ie);
 				
-				for(int i=0;i<NFPM.length;i++)
-				{
+				for (int i = 0; i < NFPM.length; i++) {
 					double n1 = NFPM[i][ieP].n1 * actorWeight[actorP].n1 * ieWeight[ieP].n1;
 					double n2 = NFPM[i][ieP].n2 * actorWeight[actorP].n2 * ieWeight[ieP].n2;
 					double n3 = NFPM[i][ieP].n3 * actorWeight[actorP].n3 * ieWeight[ieP].n3;
-					
+
 					WFNPM[i][ieP] = new FuzzyNumber(n1, n2, n3);
 				}
 				
