@@ -81,6 +81,7 @@ class testFTOPSIS {
 		}
 	}
 	
+	@Test
 	//Weighted Normalized Fuzzy Performance Matrix
 	void testCalculateWFNM() {
 		GoalModel goalModel = UsingEMFModel.load("testModels/simpleCriteriaWeight.xmi");
@@ -105,7 +106,21 @@ class testFTOPSIS {
 		
 		FuzzyNumber[][] weightedNormalizedFuzzyPerformanceMatrix = FTOPSIS.calculateWFNM(goalModel, normalizedFuzzyPerformanceMatrix, actorWeight, ieWeight, ieToPosition, actorToPosition);
 		
-		//FuzzyNumber[][] expectedOutput = {};
+		FuzzyNumber[][] output = weightedNormalizedFuzzyPerformanceMatrix;
+		
+		FuzzyNumber[][] expectedOutput = {
+				{new FuzzyNumber(85.01, 105.06, 121), new FuzzyNumber(0), new FuzzyNumber(0)},
+				{new FuzzyNumber(0), new FuzzyNumber(49.23, 61.5, 73.26), new FuzzyNumber(0)},
+				{new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(8.79, 14.04, 25.63)}
+		};
+		
+		for (int i = 0; i < expectedOutput.length; i++) {
+			for (int j = 0; j < expectedOutput.length; j++) {
+				assertEquals(expectedOutput[i][j].n1, Math.round(output[i][j].n1 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n2, Math.round(output[i][j].n2 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n3, Math.round(output[i][j].n3 * 100.0) / 100.0);
+			}
+		}
 	}
 
 }
