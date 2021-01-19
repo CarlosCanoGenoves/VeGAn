@@ -110,10 +110,6 @@ public class FuzzyNumber {
 
 		if(n>=-100 & n<=100)
 			return new FuzzyNumber(n);
-
-		System.out.println("Saturando: "+ n);
-		System.out.println("Min: "+ min);
-		System.out.println("Max: "+ max);
 		
 		if (n == max) 
 			return new FuzzyNumber(10, 11, 11);
@@ -235,7 +231,18 @@ public class FuzzyNumber {
 		}
 
 	}
+	
+	public static double euclideanDistance(FuzzyNumber fn1, FuzzyNumber fn2)
+	{
+		//Vector distance: sqrt( ((a1-a2)^2 + (b1-b2)^2 (c1-c2)^2)/3 )
+		return Math.sqrt(((Math.pow((fn1.n1-fn2.n1), 2) + Math.pow((fn1.n2-fn2.n2), 2) + Math.pow((fn1.n3-fn2.n3), 2))/3.0));
+	}
 
+	public double euclideanDistance(FuzzyNumber fn2)
+	{
+		return euclideanDistance(this, fn2);
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof FuzzyNumber)
