@@ -166,5 +166,28 @@ class FuzzyNumberTest {
 				assertNotEquals(fn1.n3, fn2.n3);
 		}
 	}
+	
+	@Test
+	void testEuclideanDistance()
+	{
+		assertEquals(0, FuzzyNumber.euclideanDistance(new FuzzyNumber(0), new FuzzyNumber(0)));
+		assertEquals(0, FuzzyNumber.euclideanDistance(new FuzzyNumber(2, 4, 6), new FuzzyNumber(2, 4, 6)));
+		assertEquals(FuzzyNumber.euclideanDistance(new FuzzyNumber(9.67, 10.25, 11), new FuzzyNumber(1, 1.37, 2.33)), FuzzyNumber.euclideanDistance(new FuzzyNumber(1, 1.37, 2.33), new FuzzyNumber(9.67, 10.25, 11)));
+		
+		//VH & PM + M & C
+		assertEquals(4.22, Math.round(FuzzyNumber.euclideanDistance(new FuzzyNumber(9.67, 10.25, 11), new FuzzyNumber(5.6, 6, 6.66))*100)/100.0);
+		
+		//VL & PL + M & C
+		assertEquals(4.52, Math.round(FuzzyNumber.euclideanDistance(new FuzzyNumber(1, 1.37, 2.33), new FuzzyNumber(5.6, 6, 6.66))*100)/100.0);
+		
+		//VL & PL + VH & PM
+		assertEquals(8.74, Math.round(FuzzyNumber.euclideanDistance(new FuzzyNumber(1, 1.37, 2.33), new FuzzyNumber(9.67, 10.25, 11))*100)/100.0);
+		
+		//VL & PL + VL & C
+		assertEquals(0.86, Math.round(FuzzyNumber.euclideanDistance(new FuzzyNumber(1, 1.37, 2.33), new FuzzyNumber(1.78, 2.33, 3.16))*100)/100.0);
+		
+		//VH & P; + VH & C
+		assertEquals(0.71, Math.round(FuzzyNumber.euclideanDistance(new FuzzyNumber(9.67, 10.25, 11), new FuzzyNumber(9.52, 9.67, 9.92))*100)/100.0);
+	}
 
 }
