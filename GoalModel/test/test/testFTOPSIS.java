@@ -14,7 +14,6 @@ import goalModel.GoalModel;
 import goalModel.IntentionalElement;
 
 class testFTOPSIS {
-
 	
 	@Test
 	void testcalculateActorWeight() {
@@ -87,6 +86,90 @@ class testFTOPSIS {
 	}
 	
 	@Test
+	void testherarchizeSimplePM()
+	{
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/simpleCriteriaWeight.xmi");
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
+		
+		double[][] performanceMatrix = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(myLoadedGoalModel, performanceMatrix, ieToPosition);
+		double[][] expectedOutput = {
+				{Double.MAX_VALUE, 0, 0},
+				{0, Double.MAX_VALUE, 0},
+				{0, 0, Double.MAX_VALUE}};
+		
+		assertArrayEquals(expectedOutput, herarchizedPerformanceMatrix);
+	}
+	
+	
+	@Test
+	void testherarchizeComplexPM()
+	{
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight.xmi");
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
+		
+		double[][] performanceMatrix = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(myLoadedGoalModel, performanceMatrix, ieToPosition);
+		double[][] expectedOutput = {
+				{0, Double.MAX_VALUE, Double.MAX_VALUE},
+				{0, Double.MAX_VALUE, 0},
+				{0, 0, Double.MAX_VALUE}};
+		
+		assertArrayEquals(expectedOutput, herarchizedPerformanceMatrix);
+	}
+	
+	@Test
+	void testherarchizeMoreComplexPM()
+	{
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight2.xmi");
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
+		
+		double[][] performanceMatrix = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(myLoadedGoalModel, performanceMatrix, ieToPosition);
+		double[][] expectedOutput = {
+				{0, 0, Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE},
+				{0, 0, 0, Double.MAX_VALUE, Double.MAX_VALUE},
+				{0, 0, Double.MAX_VALUE, 0, 0},
+				{0, 0, 0, Double.MAX_VALUE, 0},
+				{0, 0, 0, 0, Double.MAX_VALUE}};
+		
+		assertArrayEquals(expectedOutput, herarchizedPerformanceMatrix);
+	}
+	
+	@Test
+	void testherarchizePMAddition()
+	{
+		fail("Test NOT designed");
+		//Test what happens when you contribute to parent and child
+		
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight2.xmi");
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
+		
+		double[][] performanceMatrix = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(myLoadedGoalModel, performanceMatrix, ieToPosition);
+		double[][] expectedOutput = {
+				{0, 0, Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE},
+				{0, 0, 0, Double.MAX_VALUE, Double.MAX_VALUE},
+				{0, 0, Double.MAX_VALUE, 0, 0},
+				{0, 0, 0, Double.MAX_VALUE, 0},
+				{0, 0, 0, 0, Double.MAX_VALUE}};
+		
+		assertArrayEquals(expectedOutput, herarchizedPerformanceMatrix);
+	}
+	
+	@Test
 	//Weighted Normalized Fuzzy Performance Matrix
 	void testCalculateSimpleWFNM() {
 		GoalModel goalModel = UsingEMFModel.load("testModels/simpleCriteriaWeight.xmi");
@@ -96,8 +179,10 @@ class testFTOPSIS {
 		double[][] performanceMatrix = tuplePropagation.Item1;
 		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
 		
+		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(goalModel, performanceMatrix, ieToPosition);
+		
 		//Fuzzy Performance Matrix
-		FuzzyNumber[][] fuzzyPerformanceMatrix = FuzzyNumber.fuzzyfy(performanceMatrix);
+		FuzzyNumber[][] fuzzyPerformanceMatrix = FuzzyNumber.fuzzyfy(herarchizedPerformanceMatrix);
 		
 		//Normalized Fuzzy Performance Matrix
 		FuzzyNumber[][] normalizedFuzzyPerformanceMatrix = FTOPSIS.normalizeMatrix(fuzzyPerformanceMatrix);
@@ -138,9 +223,9 @@ class testFTOPSIS {
 		FuzzyNumber[][] expectedOutput = new FuzzyNumber[output.length][output.length];
 		
 		//Calculate WITH ALL THE DECIMALS or there will be a difference
-		expectedOutput[0][0] = new FuzzyNumber(85.01, 105.06, 121);
-		expectedOutput[0][1] = new FuzzyNumber(0);
-		expectedOutput[0][2] = new FuzzyNumber(0);
+		expectedOutput[0][0] = new FuzzyNumber(0);
+		expectedOutput[0][1] = new FuzzyNumber(72.13, 85.53, 89.64);
+		expectedOutput[0][2] = new FuzzyNumber(12.88, 19.53, 31.36);
 		
 		expectedOutput[1][0] = new FuzzyNumber(0);
 		expectedOutput[1][1] = new FuzzyNumber(72.13, 85.53, 89.64);
@@ -167,17 +252,17 @@ class testFTOPSIS {
 		FuzzyNumber[][] expectedOutput = new FuzzyNumber[output.length][output.length];
 		
 		//Calculate WITH ALL THE DECIMALS or there will be a difference
-		expectedOutput[0][0] = new FuzzyNumber(85.01, 105.06, 121);
+		expectedOutput[0][0] = new FuzzyNumber(0);
 		expectedOutput[0][1] = new FuzzyNumber(0);
-		expectedOutput[0][2] = new FuzzyNumber(0);
-		expectedOutput[0][3] = new FuzzyNumber(0);
-		expectedOutput[0][4] = new FuzzyNumber(0);
+		expectedOutput[0][2] = new FuzzyNumber(12.88, 19.53, 31.36);
+		expectedOutput[0][3] = new FuzzyNumber(45.68, 53.95, 55.83);
+		expectedOutput[0][4] = new FuzzyNumber(26.45, 31.58, 33.81);
 		
 		expectedOutput[1][0] = new FuzzyNumber(0);
-		expectedOutput[1][1] = new FuzzyNumber(72.13, 85.53, 89.64);
+		expectedOutput[1][1] = new FuzzyNumber(0);
 		expectedOutput[1][2] = new FuzzyNumber(0);
-		expectedOutput[1][3] = new FuzzyNumber(0);
-		expectedOutput[1][4] = new FuzzyNumber(0);
+		expectedOutput[1][3] = new FuzzyNumber(45.68, 53.95, 55.83);
+		expectedOutput[1][4] = new FuzzyNumber(26.45, 31.58, 33.81);
 		
 		expectedOutput[2][0] = new FuzzyNumber(0);
 		expectedOutput[2][1] = new FuzzyNumber(0);
