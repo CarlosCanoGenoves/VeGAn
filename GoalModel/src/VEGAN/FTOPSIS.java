@@ -15,6 +15,83 @@ import goalModel.IntentionalElement;
 public class FTOPSIS {
 
 	
+	/**
+	 * Hierarchizes the decomposition links
+	 * 
+	 * All the link TO an IE that is decomposed is traspassed to its children
+	 * 
+	 * Example:
+	 * A	B	C
+	 * 100	0	0
+	 * 0	100	0
+	 * 0	0	100
+	 * 
+	 * GOES TO
+	 * 
+	 * A	B	C
+	 * 0	100	100
+	 * 0	100	0
+	 * 0	0	100 
+	 * */
+	public static double[][] hierarchizePerformanceMatrix(GoalModel goalModel, double[][] performanceMatrix, Map<IntentionalElement, Integer> ieToPosition) {
+		double[][] hierarchicaPerformancelMatrix = performanceMatrix.clone();
+		
+		List<IntentionalElement> toVisitIE = new ArrayList<IntentionalElement>();
+		
+		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
+			Actor actor = (Actor) actorIterator.next();
+		
+			for (Iterator<IntentionalElement> ieIterator =actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
+			{
+				IntentionalElement ie = (IntentionalElement) ieIterator.next();
+				if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition))
+					toVisitIE.add(ie);
+			}
+		}
+		
+		while (!toVisitIE.isEmpty()) {
+		
+			IntentionalElement ie = toVisitIE.remove(0);
+			
+			//
+			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition && toVisitIE.contains(link.getSrc())))
+			{
+				toVisitIE.add(ie);
+				continue;
+			}
+			
+			int iePos = ieToPosition.get(ie);
+			
+			for (int i = 0; i < hierarchicaPerformancelMatrix.length; i++)
+			{
+				if(hierarchicaPerformancelMatrix[i][iePos] != 0)
+				{
+					Decomposition dec = (Decomposition) ie.getSrcLinks().stream().filter(link -> link instanceof Decomposition).findAny().get();
+					
+					for (Iterator<IntentionalElement> ieIterator = dec.getTrgs().iterator(); ieIterator.hasNext();)
+					{
+						IntentionalElement child = (IntentionalElement) ieIterator.next();
+						
+						int childPos = ieToPosition.get(child);
+						
+						if(hierarchicaPerformancelMatrix[i][iePos] == Double.MAX_VALUE || hierarchicaPerformancelMatrix[i][childPos] == Double.MAX_VALUE)
+						{
+							hierarchicaPerformancelMatrix[i][childPos] = Double.MAX_VALUE;
+						}
+						else
+						{
+							hierarchicaPerformancelMatrix[i][childPos] = hierarchicaPerformancelMatrix[i][childPos] + hierarchicaPerformancelMatrix[i][iePos];
+						}
+					}
+					hierarchicaPerformancelMatrix[i][iePos] = 0;
+				}
+			}
+		}
+		
+		
+		return hierarchicaPerformancelMatrix;
+	}
+	
 	public static FuzzyNumber[][] normalizeMatrix(FuzzyNumber[][] matrix)
 	{
 		//Fuzzy numbers go from -11 to 11 therefore the Max value is 11
@@ -107,6 +184,8 @@ public class FTOPSIS {
 		return ieWeight;
 	}
 	
+	
+	
 	// Weighted Normalized Fuzzy Performance Matrix
 	public static FuzzyNumber[][] calculateWFNM(GoalModel goalModel, FuzzyNumber[][] NFPM, FuzzyNumber[] actorWeight,
 			FuzzyNumber[] ieWeight, Map<IntentionalElement, Integer> ieToPosition,
@@ -146,8 +225,10 @@ public class FTOPSIS {
 		double[][] performanceMatrix = tuplePropagation.Item1;
 		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
 		
+		double[][] hierarchizePerformanceMatrix = hierarchizePerformanceMatrix(goalModel, performanceMatrix, ieToPosition);
+		
 		//Fuzzy Performance Matrix
-		FuzzyNumber[][] fuzzyPerformanceMatrix = FuzzyNumber.fuzzyfy(performanceMatrix);
+		FuzzyNumber[][] fuzzyPerformanceMatrix = FuzzyNumber.fuzzyfy(hierarchizePerformanceMatrix);
 		
 		//Normalized Fuzzy Performance Matrix
 		FuzzyNumber[][] normalizedFuzzyPerformanceMatrix = normalizeMatrix(fuzzyPerformanceMatrix);
