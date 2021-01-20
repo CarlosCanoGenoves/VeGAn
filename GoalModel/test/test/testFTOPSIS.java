@@ -29,7 +29,8 @@ class testFTOPSIS {
 	}
 	
 	@Test
-	void testcalculateIEWeight() {
+	void testcalculateSimpleIEWeight()
+	{
 		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/simpleCriteriaWeight.xmi");
 		FuzzyNumber[] expectedOutput = {new FuzzyNumber(EImportance.VERY_HIGH, EConfidence.POSSIBLY_MORE), new FuzzyNumber(EImportance.MEDIUM, EConfidence.CONFIDENT), new FuzzyNumber(EImportance.VERY_LOW, EConfidence.POSSIBLY_LESS)};
 		
@@ -39,17 +40,18 @@ class testFTOPSIS {
 		FuzzyNumber[] output = FTOPSIS.calculateIEWeight(myLoadedGoalModel, p.Item2);
 		
 		assertArrayEquals(expectedOutput, output);
-		
-		myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight.xmi");
-		expectedOutput[0] = new FuzzyNumber(EImportance.VERY_HIGH, EConfidence.POSSIBLY_MORE);
-		
-		expectedOutput[1] = new FuzzyNumber(8.2, 8.34, 8.15);
-		
-		expectedOutput[2] = new FuzzyNumber(1.47, 1.91, 2.85);
+	}
+	
+	@Test
+	void testcalculateComplexIEWeight() {
 		
 		
-		p = Propagation.propagate(myLoadedGoalModel);
-		output = FTOPSIS.calculateIEWeight(myLoadedGoalModel, p.Item2);
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight.xmi");
+		
+		FuzzyNumber[] expectedOutput = {new FuzzyNumber(EImportance.VERY_HIGH, EConfidence.POSSIBLY_MORE), new FuzzyNumber(8.2, 8.34, 8.15),  new FuzzyNumber(1.47, 1.91, 2.85)};
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
+		FuzzyNumber[] output = FTOPSIS.calculateIEWeight(myLoadedGoalModel, p.Item2);
 		
 		
 		for(int i=0;i<output.length;i++)
@@ -58,9 +60,12 @@ class testFTOPSIS {
 			assertEquals(expectedOutput[i].n2, Math.round(output[i].n2*100.0)/100.0);
 			assertEquals(expectedOutput[i].n3, Math.round(output[i].n3*100.0)/100.0);
 		}
-		
-		myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight2.xmi");
-		expectedOutput = new FuzzyNumber[5];
+	}
+	
+	@Test
+	void testcalculateMoreComplexIEWeight() {
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight2.xmi");
+		FuzzyNumber[] expectedOutput = new FuzzyNumber[5];
 		
 		expectedOutput[0] = new FuzzyNumber(EImportance.VERY_HIGH, EConfidence.POSSIBLY_MORE);
 		expectedOutput[1] = new FuzzyNumber(8.2, 8.34, 8.15);
@@ -69,8 +74,8 @@ class testFTOPSIS {
 		expectedOutput[3] = new FuzzyNumber(5.2, 5.26 ,5.08);
 		expectedOutput[4] = new FuzzyNumber(3.01, 3.08, 3.07);
 		
-		p = Propagation.propagate(myLoadedGoalModel);
-		output = FTOPSIS.calculateIEWeight(myLoadedGoalModel, p.Item2);
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
+		FuzzyNumber[] output = FTOPSIS.calculateIEWeight(myLoadedGoalModel, p.Item2);
 		
 		
 		for(int i=0;i<output.length;i++)
@@ -83,7 +88,7 @@ class testFTOPSIS {
 	
 	@Test
 	//Weighted Normalized Fuzzy Performance Matrix
-	void testCalculateWFNM() {
+	void testCalculateSimpleWFNM() {
 		GoalModel goalModel = UsingEMFModel.load("testModels/simpleCriteriaWeight.xmi");
 		
 		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(goalModel);
@@ -122,10 +127,15 @@ class testFTOPSIS {
 			}
 		}
 		
-		goalModel = UsingEMFModel.load("testModels/complexCriteriaWeight.xmi");
 		
-		output = FTOPSIS.calculateWFNM(goalModel);
-		expectedOutput = new FuzzyNumber[output.length][output.length];
+	}
+	
+	@Test
+	void testCalculateComplexWFNM() {
+		GoalModel goalModel = UsingEMFModel.load("testModels/complexCriteriaWeight.xmi");
+		
+		FuzzyNumber[][] output = FTOPSIS.calculateWFNM(goalModel);
+		FuzzyNumber[][] expectedOutput = new FuzzyNumber[output.length][output.length];
 		
 		//Calculate WITH ALL THE DECIMALS or there will be a difference
 		expectedOutput[0][0] = new FuzzyNumber(85.01, 105.06, 121);
@@ -139,6 +149,53 @@ class testFTOPSIS {
 		expectedOutput[2][0] = new FuzzyNumber(0);
 		expectedOutput[2][1] = new FuzzyNumber(0);
 		expectedOutput[2][2] = new FuzzyNumber(12.88, 19.53, 31.36);
+		
+		for (int i = 0; i < expectedOutput.length; i++) {
+			for (int j = 0; j < expectedOutput.length; j++) {
+				assertEquals(expectedOutput[i][j].n1, Math.round(output[i][j].n1 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n2, Math.round(output[i][j].n2 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n3, Math.round(output[i][j].n3 * 100.0) / 100.0);
+			}
+		}
+	}
+	
+	@Test
+	void testCalculateMoreComplexWFNM() {
+		GoalModel goalModel = UsingEMFModel.load("testModels/complexCriteriaWeight2.xmi");
+		
+		FuzzyNumber[][] output = FTOPSIS.calculateWFNM(goalModel);
+		FuzzyNumber[][] expectedOutput = new FuzzyNumber[output.length][output.length];
+		
+		//Calculate WITH ALL THE DECIMALS or there will be a difference
+		expectedOutput[0][0] = new FuzzyNumber(85.01, 105.06, 121);
+		expectedOutput[0][1] = new FuzzyNumber(0);
+		expectedOutput[0][2] = new FuzzyNumber(0);
+		expectedOutput[0][3] = new FuzzyNumber(0);
+		expectedOutput[0][4] = new FuzzyNumber(0);
+		
+		expectedOutput[1][0] = new FuzzyNumber(0);
+		expectedOutput[1][1] = new FuzzyNumber(72.13, 85.53, 89.64);
+		expectedOutput[1][2] = new FuzzyNumber(0);
+		expectedOutput[1][3] = new FuzzyNumber(0);
+		expectedOutput[1][4] = new FuzzyNumber(0);
+		
+		expectedOutput[2][0] = new FuzzyNumber(0);
+		expectedOutput[2][1] = new FuzzyNumber(0);
+		expectedOutput[2][2] = new FuzzyNumber(12.88, 19.53, 31.36);
+		expectedOutput[2][3] = new FuzzyNumber(0);
+		expectedOutput[2][4] = new FuzzyNumber(0);
+		
+		expectedOutput[3][0] = new FuzzyNumber(0);
+		expectedOutput[3][1] = new FuzzyNumber(0);
+		expectedOutput[3][2] = new FuzzyNumber(0);
+		expectedOutput[3][3] = new FuzzyNumber(45.68, 53.95, 55.83);
+		expectedOutput[3][4] = new FuzzyNumber(0);
+		
+		expectedOutput[4][0] = new FuzzyNumber(0);
+		expectedOutput[4][1] = new FuzzyNumber(0);
+		expectedOutput[4][2] = new FuzzyNumber(0);
+		expectedOutput[4][3] = new FuzzyNumber(0);
+		expectedOutput[4][4] = new FuzzyNumber(26.45, 31.58, 33.81);
 		
 		for (int i = 0; i < expectedOutput.length; i++) {
 			for (int j = 0; j < expectedOutput.length; j++) {
