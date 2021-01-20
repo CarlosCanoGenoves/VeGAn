@@ -121,6 +121,32 @@ class testFTOPSIS {
 				assertEquals(expectedOutput[i][j].n3, Math.round(output[i][j].n3 * 100.0) / 100.0);
 			}
 		}
+		
+		goalModel = UsingEMFModel.load("testModels/complexCriteriaWeight.xmi");
+		
+		output = FTOPSIS.calculateWFNM(goalModel);
+		expectedOutput = new FuzzyNumber[output.length][output.length];
+		
+		//Calculate WITH ALL THE DECIMALS or there will be a difference
+		expectedOutput[0][0] = new FuzzyNumber(85.01, 105.06, 121);
+		expectedOutput[0][1] = new FuzzyNumber(0);
+		expectedOutput[0][2] = new FuzzyNumber(0);
+		
+		expectedOutput[1][0] = new FuzzyNumber(0);
+		expectedOutput[1][1] = new FuzzyNumber(72.13, 85.53, 89.64);
+		expectedOutput[1][2] = new FuzzyNumber(0);
+		
+		expectedOutput[2][0] = new FuzzyNumber(0);
+		expectedOutput[2][1] = new FuzzyNumber(0);
+		expectedOutput[2][2] = new FuzzyNumber(12.88, 19.53, 31.36);
+		
+		for (int i = 0; i < expectedOutput.length; i++) {
+			for (int j = 0; j < expectedOutput.length; j++) {
+				assertEquals(expectedOutput[i][j].n1, Math.round(output[i][j].n1 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n2, Math.round(output[i][j].n2 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n3, Math.round(output[i][j].n3 * 100.0) / 100.0);
+			}
+		}
 	}
 
 }
