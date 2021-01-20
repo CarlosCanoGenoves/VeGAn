@@ -12,7 +12,7 @@ import goalModel.*;
 
 public class Propagation {
 	
-	//METHOD FOR TESTING, WILL BE REMOVED
+	//Verbose in propagation for help testing
 	public static Tuple<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel)
 	{
 		return propagate(goalModel, false);
@@ -23,6 +23,7 @@ public class Propagation {
 		List<IntentionalElement> toVisitIE = new ArrayList<IntentionalElement>();
 		Map<IntentionalElement, Integer> ieToPosition = new HashMap<IntentionalElement, Integer>();
 		
+		//Gather ALL the intentional elements in a LIST AND identify its position in the array
 		int ieP = 0;
 		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
 			Actor actor = (Actor) actorIterator.next();
@@ -37,7 +38,7 @@ public class Propagation {
 		
 		double[][] propagacion = new double[ieP][ieP];
 		
-		//Inicializamos la matriz
+		//Matrix initialization
 		//EL ARRAY ESTA MAL los elementos que se descomponen NO deberian aparecer en el array ya que estan COMPUESTOS por sus hijos
 		for(int i=0;i<ieP;i++)
 		{
@@ -53,7 +54,7 @@ public class Propagation {
 		if(verbose)
 			System.out.println("Amount of IE: " + toVisitIE.size());
 		
-		//Forzar que la propagacion pare debido a que tarda demasiado. Detecta LOOPS, ¿ Posible error ?
+		//Detec loops if it cost too many time ¿ Maybe an error?
 		int forceStop = ieP*ieP*ieP + 100;
 		
 		List<Link> propagatedLinks = new ArrayList<Link>();
@@ -68,37 +69,37 @@ public class Propagation {
 			
 			IntentionalElement ie = toVisitIE.remove(0);
 
-			boolean puede_propagar = true;
+			boolean can_propagate = true;
 			
-			//Comprobacion de dependencias
+			//Can get impact through a Dependency ?
 			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Dependency && toVisitIE.contains(link.getSrc())))
 				{
 					if(verbose)
 						System.out.println("NOT propagate " + ie.getName() + " due Dependency");
 					
-					puede_propagar = false;
+					can_propagate = false;
 				}
 
-			//Comprobacion de contribucciones
+			//Can get impact through a Contribution ?
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Contribution && toVisitIE.contains(link.getTrgs().get(0))))
 			{
 				if(verbose)
 					System.out.println("NOT propagate " + ie.getName() + " due Contribution");
 				
-				puede_propagar = false;
+				can_propagate = false;
 			}
 
-			//Comprobacion de descomposiciones
-			//Un HIJO no debe propagar ANTES que su padre
+			//Can get impact through a Decomposition ?
+			//A child must spread AFTER his parent has propagated the decomposition
 			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition && !propagatedLinks.contains(link)))
 				{
 				if(verbose)
 					System.out.println("NOT propagate " + ie.getName() + " due Decomposition");
 				
-				puede_propagar = false;
+				can_propagate = false;
 				}
 			
-			if(!puede_propagar)
+			if(!can_propagate)
 			{
 				toVisitIE.add(ie);
 				continue;
@@ -107,12 +108,11 @@ public class Propagation {
 			if(verbose)
 				System.out.println("Propagating: "+ie.getName());
 			
-			//Descomposicion de PADRES a HIJOS
+			//Decomposition parent to child
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition))
 			{
 				int iePos = ieToPosition.get(ie);
 				
-				//SIEMPRE va a ser distinto de NULL debido a la condicion anterior
 				Decomposition dec = (Decomposition)ie.getSrcLinks().stream().filter(link -> link instanceof Decomposition).findFirst().get();
 				
 				if(!propagatedLinks.contains(dec))
@@ -137,7 +137,7 @@ public class Propagation {
 				}
 			}
 			
-			//Un elemento intencional NO puede propagar SI todos sus hijos no han propagado
+			//An IE with decomposition cannot propagate BEFORE its children
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition && link.getTrgs().stream().anyMatch(children -> toVisitIE.contains(children))))
 				{
 					if(verbose)
@@ -147,7 +147,10 @@ public class Propagation {
 					continue;
 				}
 			
-			boolean fin_propagacion = true;
+			//It exist the PARTIAL propagation
+			//An IE can propagate only SOME links one time
+			//And the rest of links in other time
+			boolean end_propagation = true;
 			
 			//Propagate Dependencies
 			for (Iterator<Link> linkIterator = ie.getSrcLinks().iterator(); linkIterator.hasNext();)
@@ -159,10 +162,10 @@ public class Propagation {
 				if(!(link instanceof Dependency) || propagatedLinks.contains(link))
 					continue;
 				
-				//NO PROPAGAR A TARGET PERTENECIENTE A UNA DESCOMPOSICION SIN PROPAGAR				
+				//Cannot propagate to an IE whose belongs to a decomposition not propagated from parent to child
 				if(link.getTrgs().get(0).getTrgLinks().stream().anyMatch(dec -> dec instanceof Decomposition && !propagatedLinks.contains(dec)))
 				{
-					fin_propagacion = false;
+					end_propagation = false;
 					continue;
 				}
 					
@@ -194,10 +197,10 @@ public class Propagation {
 				if(!(link instanceof Contribution) || propagatedLinks.contains(link))
 					continue;
 				
-				//NO PROPAGAR A SOURCE PERTENECIENTE A UNA DESCOMPOSICION SIN PROPAGAR				
+				//Cannot propagate to an IE whose belongs to a decomposition not propagated from parent to child
 				if(link.getSrc().getTrgLinks().stream().anyMatch(dec -> dec instanceof Decomposition && !propagatedLinks.contains(dec)))
 				{
-					fin_propagacion = false;
+					end_propagation = false;
 					continue;
 				}
 				
@@ -223,7 +226,7 @@ public class Propagation {
 				propagatedLinks.add(link);
 			}
 						
-			if(!fin_propagacion)
+			if(!end_propagation)
 			{
 				if(verbose)
 					System.out.println("Partial propagation");

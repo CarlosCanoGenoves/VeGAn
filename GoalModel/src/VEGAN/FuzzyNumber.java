@@ -7,7 +7,7 @@ public class FuzzyNumber {
 	public double n1, n2, n3;
 
 	/**
-	 * Generar el numero fuzzy con n1. n2, n3
+	 * Fuzzy Number (n1, n2, n3)
 	 */
 	public FuzzyNumber(double n1, double n2, double n3) {
 		this.n1 = n1;
@@ -16,7 +16,7 @@ public class FuzzyNumber {
 	}
 
 	/**
-	 * Generar numero fuzzy dado un numero
+	 * Fuzzifies n -> (n1, n2, n3)
 	 */
 	public FuzzyNumber(double n) {
 		if (n == 0) {
@@ -97,11 +97,8 @@ public class FuzzyNumber {
 
 
 	/**
-	 * Generate the fuzzy number
-	 * @param n	Number to Fuzzify
-	 * @param min MIN value
-	 * @param max MAX value
-	 * @return
+	 * Fuzzifies and saturates n
+	 * 
 	 */
 	public static FuzzyNumber fuzzyfy(double n, double min, double max) {
 
@@ -127,6 +124,9 @@ public class FuzzyNumber {
 		}
 	}
 
+	/**
+	 * Fuzzifies & saturates a matrix
+	 */
 	public static FuzzyNumber[][] fuzzyfy(double[][] impactMatrix)
 	{
 		FuzzyNumber[][] fuzzifiedImpactMatrix = new FuzzyNumber[impactMatrix.length][impactMatrix.length];
@@ -154,9 +154,7 @@ public class FuzzyNumber {
 		
 		return fuzzifiedImpactMatrix;
 	}
-	/**
-	 * Gemerar numero fuzzy a partir de la importancia y la certeza
-	 */
+	
 	public FuzzyNumber(EImportance importance, EConfidence confidence) {
 		if (importance == EImportance.VERY_HIGH) {
 			if (confidence == EConfidence.POSSIBLY_MORE) {
