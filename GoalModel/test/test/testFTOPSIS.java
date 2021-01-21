@@ -148,10 +148,9 @@ class testFTOPSIS {
 	@Test
 	void testherarchizePMAddition()
 	{
-		fail("Test NOT designed");
 		//Test what happens when you contribute to parent and child
 		
-		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight2.xmi");
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/hierarchize.xmi");
 		
 		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
 		
@@ -160,11 +159,10 @@ class testFTOPSIS {
 		
 		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(myLoadedGoalModel, performanceMatrix, ieToPosition);
 		double[][] expectedOutput = {
-				{0, 0, Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE},
-				{0, 0, 0, Double.MAX_VALUE, Double.MAX_VALUE},
-				{0, 0, Double.MAX_VALUE, 0, 0},
-				{0, 0, 0, Double.MAX_VALUE, 0},
-				{0, 0, 0, 0, Double.MAX_VALUE}};
+				{0, Double.MAX_VALUE, Double.MAX_VALUE, 0},
+				{0, Double.MAX_VALUE, 0, 0},
+				{0, 0, Double.MAX_VALUE, 0},
+				{0, 50-75, 50, Double.MAX_VALUE}};
 		
 		assertArrayEquals(expectedOutput, herarchizedPerformanceMatrix);
 	}

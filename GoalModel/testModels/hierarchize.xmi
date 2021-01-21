@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<goalModel:GoalModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:goalModel="http://goalModel"
+    xsi:schemaLocation="http://goalModel goalModel.ecore"
+    name="goalModel">
+  <actors name="actor"
+      confidence="Possibly_More">
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="T1"
+        confidence="Possibly_More"
+        trgLinks="//@actors.0/@intentionalelements.3/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="T2"
+        importance="Medium"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0 //@actors.0/@intentionalelements.3/@srcLinks.1"/>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="T3"
+        importance="Very_Low"
+        confidence="Possibly_Less"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0"/>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="T4">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.0"
+          contributionType="p50"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.1"
+          contributionType="n75"/>
+    </intentionalelements>
+  </actors>
+</goalModel:GoalModel>
