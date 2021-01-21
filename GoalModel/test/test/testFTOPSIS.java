@@ -84,10 +84,10 @@ class testFTOPSIS {
 			assertEquals(expectedOutput[i].n3, Math.round(output[i].n3*100.0)/100.0);
 		}
 	}
-	
+
+
 	@Test
-	void testherarchizeSimplePM()
-	{
+	void testherarchizeSimplePM() {
 		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/simpleCriteriaWeight.xmi");
 		
 		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
@@ -104,10 +104,8 @@ class testFTOPSIS {
 		assertArrayEquals(expectedOutput, herarchizedPerformanceMatrix);
 	}
 	
-	
 	@Test
-	void testherarchizeComplexPM()
-	{
+	void testherarchizeComplexPM() {
 		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight.xmi");
 		
 		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
@@ -125,8 +123,7 @@ class testFTOPSIS {
 	}
 	
 	@Test
-	void testherarchizeMoreComplexPM()
-	{
+	void testherarchizeMoreComplexPM() {
 		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/complexCriteriaWeight2.xmi");
 		
 		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(myLoadedGoalModel);
@@ -146,8 +143,7 @@ class testFTOPSIS {
 	}
 	
 	@Test
-	void testherarchizePMAddition()
-	{
+	void testherarchizePMAddition() {
 		//Test what happens when you contribute to parent and child
 		
 		GoalModel myLoadedGoalModel = UsingEMFModel.load("testModels/hierarchize.xmi");
@@ -166,7 +162,8 @@ class testFTOPSIS {
 		
 		assertArrayEquals(expectedOutput, herarchizedPerformanceMatrix);
 	}
-	
+
+
 	@Test
 	//Weighted Normalized Fuzzy Performance Matrix
 	void testCalculateSimpleWFNM() {
@@ -289,4 +286,32 @@ class testFTOPSIS {
 		}
 	}
 
+	@Test
+	void testFTOPSIS_FNIS() {
+		GoalModel goalModel = UsingEMFModel.load("testModels/FPIS_FNIS.xmi");
+		FuzzyNumber[][] WFNM = FTOPSIS.calculateWFNM(goalModel);
+		
+		FuzzyNumber[][] output = FTOPSIS.calculateFPIS_FNIS(WFNM);
+		FuzzyNumber[][] expectedOutput = new FuzzyNumber[2][WFNM.length];
+		
+		expectedOutput[0][0] = new FuzzyNumber(83.69, 99.12, 109.12);
+		expectedOutput[0][1] = new FuzzyNumber(67.69, 82, 93.72);
+		expectedOutput[0][2] = new FuzzyNumber(49.23, 61.50, 73.26);
+		expectedOutput[0][3] = new FuzzyNumber(29.63, 41, 53.46);
+		expectedOutput[0][4] = new FuzzyNumber(15.65, 23.88, 34.76);
+		
+		expectedOutput[1][0] = new FuzzyNumber(-92.06, -90.11, -79.36);
+		expectedOutput[1][1] = new FuzzyNumber(-67.69, -59.64, -51.12);
+		expectedOutput[1][2] = new FuzzyNumber(-39.38, -33.55, -26.64);
+		expectedOutput[1][3] = new FuzzyNumber(-17.78, -14.91, -9.72);
+		expectedOutput[1][4] = new FuzzyNumber(0);
+	
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < WFNM.length; j++) {
+				assertEquals(expectedOutput[i][j].n1, Math.round(output[i][j].n1 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n2, Math.round(output[i][j].n2 * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j].n3, Math.round(output[i][j].n3 * 100.0) / 100.0);
+			}
+		}
+	}
 }
