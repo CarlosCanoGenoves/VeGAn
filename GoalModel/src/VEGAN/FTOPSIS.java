@@ -242,4 +242,31 @@ public class FTOPSIS {
 		
 		return calculateWFNM(goalModel, normalizedFuzzyPerformanceMatrix, actorWeight, ieWeight, ieToPosition, actorToPosition);
 	}
+
+	/**
+	 * 
+	 * @return Matrix [2][?] where [0][X] = FPIS and [1][X] = FNIS
+	 */
+	public static FuzzyNumber[][] calculateFPIS_FNIS(FuzzyNumber[][] WFNM)
+	{
+		FuzzyNumber[][] FPIS_FNIS = new FuzzyNumber[2][WFNM.length];
+		
+		
+		for (int j = 0; j < WFNM.length; j++)
+		{
+			FPIS_FNIS[0][j] = new FuzzyNumber(0);
+			FPIS_FNIS[1][j] = new FuzzyNumber(0);
+			
+			for (int i = 0; i < WFNM.length; i++)
+			{
+				//Only needs to compare one element of the fuzzy number
+				if (WFNM[i][j].n1 > FPIS_FNIS[0][j].n1)
+					FPIS_FNIS[0][j] = WFNM[i][j];
+				else if (WFNM[i][j].n1 < FPIS_FNIS[1][j].n1)
+					FPIS_FNIS[1][j] = WFNM[i][j];
+			}
+		}
+		
+		return FPIS_FNIS;
+	}
 }
