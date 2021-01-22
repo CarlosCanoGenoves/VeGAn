@@ -300,12 +300,21 @@ class testFTOPSIS {
 		expectedOutput[0][3] = new FuzzyNumber(29.63, 41, 53.46);
 		expectedOutput[0][4] = new FuzzyNumber(15.65, 23.88, 34.76);
 		
+		expectedOutput[1][0] = new FuzzyNumber(0);
+		expectedOutput[1][1] = new FuzzyNumber(0);
+		expectedOutput[1][2] = new FuzzyNumber(0);
+		expectedOutput[1][3] = new FuzzyNumber(0);
+		expectedOutput[1][4] = new FuzzyNumber(0);
+		
+		/* This result is obtained with the ORIGINALcalculateFPIS_FNIS
 		expectedOutput[1][0] = new FuzzyNumber(-92.06, -90.11, -79.36);
 		expectedOutput[1][1] = new FuzzyNumber(-67.69, -59.64, -51.12);
 		expectedOutput[1][2] = new FuzzyNumber(-39.38, -33.55, -26.64);
 		expectedOutput[1][3] = new FuzzyNumber(-17.78, -14.91, -9.72);
 		expectedOutput[1][4] = new FuzzyNumber(0);
-	
+		 */
+		
+		
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < WFNM.length; j++) {
 				assertEquals(expectedOutput[i][j].n1, Math.round(output[i][j].n1 * 100.0) / 100.0);
@@ -314,4 +323,17 @@ class testFTOPSIS {
 			}
 		}
 	}
+	
+	@Test
+	void testTotalDistance() {
+		GoalModel goalModel = UsingEMFModel.load("testModels/FPIS_FNIS.xmi");
+		FuzzyNumber[][] WFNM = FTOPSIS.calculateWFNM(goalModel);
+		
+		FuzzyNumber[][] FPIS_FNIS = FTOPSIS.calculateFPIS_FNIS(WFNM);
+		double output = FTOPSIS.totalDistance(FPIS_FNIS);
+		double expectedOutput = 310.27;
+		
+		assertEquals(expectedOutput, Math.round(output*100)/100.0);		
+	}
+	
 }
