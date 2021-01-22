@@ -336,4 +336,92 @@ class testFTOPSIS {
 		assertEquals(expectedOutput, Math.round(output*100)/100.0);		
 	}
 	
+	@Test
+	void testDistanceToFPIS_FNIS() {
+		
+		GoalModel goalModel = UsingEMFModel.load("testModels/FPIS_FNIS.xmi");
+		FuzzyNumber[][] WFNM = FTOPSIS.calculateWFNM(goalModel);
+		
+		FuzzyNumber[][] FPIS_FNIS = FTOPSIS.calculateFPIS_FNIS(WFNM);
+		Tuple<double[][], double[][]> distances = FTOPSIS.calculateDistanceToFPIS_FNIS(WFNM, FPIS_FNIS);
+		
+		double[][] distanceFPIS = distances.Item1;
+		double[][] distanceFNIS = distances.Item2;
+		
+		double[][] expectedDistanceFPIS = {
+				{0, 81.83, 62.11, 42.49, 25.97},
+				{97.87, 0, 62.11, 42.49, 25.97},
+				{97.87, 81.83, 0, 42.49, 25.97},
+				{97.87, 81.83, 62.11, 0, 25.97},
+				{-184.59, -140.67, -94.63, -55.87, 0}};
+		
+		double[][] expectedDistanceFNIS = {
+				{97.87, 0, 0, 0, 0},
+				{0, 81.83, 0, 0, 0},
+				{0, 0, 62.11, 0, 0},
+				{0, 0, 0,  42.49, 0},
+				{-87.35, -59.87, -33.60, -14.52, 25.97}};
+		
+		for (int i = 0; i < distanceFPIS.length; i++) {
+			for (int j = 0; j < distanceFPIS.length; j++) {
+				assertEquals(expectedDistanceFPIS[i][j], Math.round(distanceFPIS[i][j] * 100.0) / 100.0);
+				assertEquals(expectedDistanceFPIS[i][j], Math.round(distanceFPIS[i][j] * 100.0) / 100.0);
+				assertEquals(expectedDistanceFPIS[i][j], Math.round(distanceFPIS[i][j] * 100.0) / 100.0);
+			}
+		}
+		
+		for (int i = 0; i < distanceFNIS.length; i++) {
+			for (int j = 0; j < distanceFPIS.length; j++) {
+				assertEquals(expectedDistanceFNIS[i][j], Math.round(distanceFNIS[i][j] * 100.0) / 100.0);
+				assertEquals(expectedDistanceFNIS[i][j], Math.round(distanceFNIS[i][j] * 100.0) / 100.0);
+				assertEquals(expectedDistanceFNIS[i][j], Math.round(distanceFNIS[i][j] * 100.0) / 100.0);
+			}
+		}
+	}
+	
+	@Test
+	void testCalculateValueToCriteria() {
+		GoalModel goalModel = UsingEMFModel.load("testModels/FPIS_FNIS.xmi");
+		FuzzyNumber[][] WFNM = FTOPSIS.calculateWFNM(goalModel);
+		
+		FuzzyNumber[][] FPIS_FNIS = FTOPSIS.calculateFPIS_FNIS(WFNM);
+		Tuple<double[][], double[][]> distances = FTOPSIS.calculateDistanceToFPIS_FNIS(WFNM, FPIS_FNIS);
+		double totalDistance = FTOPSIS.totalDistance(FPIS_FNIS);
+		double[][] output = FTOPSIS.calculateValueToCriteria(distances.Item2, totalDistance);
+		double[][] expectedOutput = {
+				{31.54, 0, 0, 0, 0},
+				{0, 26.37, 0, 0, 0},
+				{0, 0, 20.02, 0, 0},
+				{0, 0, 0, 13.69, 0},
+				{-28.15, -19.29, -10.83, -4.68, 8.37}};
+	
+		for (int i = 0; i < output.length; i++) {
+			for (int j = 0; j < output.length; j++) {
+				assertEquals(expectedOutput[i][j], Math.round(output[i][j] * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j], Math.round(output[i][j] * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j], Math.round(output[i][j] * 100.0) / 100.0);
+			}
+		}
+	}
+	
+	@Test
+	void testCalculateValueToCriteria2() {
+		GoalModel goalModel = UsingEMFModel.load("testModels/FPIS_FNIS.xmi");
+		
+		double[][] output = FTOPSIS.calculateValueToCriteria(goalModel);
+		double[][] expectedOutput = {
+				{31.54, 0, 0, 0, 0},
+				{0, 26.37, 0, 0, 0},
+				{0, 0, 20.02, 0, 0},
+				{0, 0, 0, 13.69, 0},
+				{-28.15, -19.29, -10.83, -4.68, 8.37}};
+	
+		for (int i = 0; i < output.length; i++) {
+			for (int j = 0; j < output.length; j++) {
+				assertEquals(expectedOutput[i][j], Math.round(output[i][j] * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j], Math.round(output[i][j] * 100.0) / 100.0);
+				assertEquals(expectedOutput[i][j], Math.round(output[i][j] * 100.0) / 100.0);
+			}
+		}
+	}
 }
