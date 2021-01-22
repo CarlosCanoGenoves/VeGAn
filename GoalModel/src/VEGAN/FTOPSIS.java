@@ -291,6 +291,34 @@ public class FTOPSIS {
 		return FPIS_FNIS;
 	}
 	
+	
+	/**
+	 * 
+	 * @param WFNM Matrix[ALTERIATIVE][CRITERIA]
+	 * @param FPIS_FNIS FPIS_FNIS  Matrix [2][?] where [0][X] = FPIS and [1][X] = FNIS
+	 * @return double[ALTERNATIVE][CRITERIA] distance FPIS & distance FNIS
+	 */
+	public static Tuple<double[][], double[][]> calculateDistanceToFPIS_FNIS(FuzzyNumber[][] WFNM, FuzzyNumber[][] FPIS_FNIS)
+	{
+		double[][] distanceFPIS = new double[WFNM.length][WFNM.length];
+		double[][] distanceFNIS = new double[WFNM.length][WFNM.length];
+		
+		for (int i = 0; i < WFNM.length; i++) {
+			for (int j = 0; j < WFNM.length; j++) {
+				distanceFPIS[i][j] = FuzzyNumber.euclideanDistance(WFNM[i][j], FPIS_FNIS[0][j]);
+				distanceFNIS[i][j] = FuzzyNumber.euclideanDistance(WFNM[i][j], FPIS_FNIS[1][j]);
+				
+				if(WFNM[i][j].n1<0)
+				{
+					distanceFPIS[i][j] = distanceFPIS[i][j]*-1;
+					distanceFNIS[i][j] = distanceFNIS[i][j]*-1;
+				}
+			}
+		}
+		
+		return new Tuple<double[][], double[][]>(distanceFPIS, distanceFNIS);
+	}
+	
 	/**
 	 * 
 	 * @param FPIS_FNIS  Matrix [2][?] where [0][X] = FPIS and [1][X] = FNIS
@@ -306,5 +334,27 @@ public class FTOPSIS {
 		}
 		
 		return total;
+	}
+	
+	public static double[][] calculateValueToCriteria(double[][] distanceFNIS, double totalDistance)
+	{
+		double[][] valueToCriteria = new double[distanceFNIS.length][distanceFNIS.length];
+		
+		for (int i = 0; i < distanceFNIS.length; i++) {
+			for (int j = 0; j < distanceFNIS.length; j++) {
+				valueToCriteria[i][j] = (distanceFNIS[i][j] / totalDistance) * 100;
+			}
+		}
+		
+		return valueToCriteria;
+	}
+	
+	public static double[][] calculateValueToCriteria(GoalModel goalmodel) {
+		FuzzyNumber[][] WFNM = calculateWFNM(goalmodel);
+		FuzzyNumber[][] FPIS_FNIS = calculateFPIS_FNIS(WFNM);
+		double totalDistance = totalDistance(FPIS_FNIS);
+		Tuple<double[][], double[][]> distances = calculateDistanceToFPIS_FNIS(WFNM, FPIS_FNIS);
+		
+		return calculateValueToCriteria(distances.Item2, totalDistance);
 	}
 }
