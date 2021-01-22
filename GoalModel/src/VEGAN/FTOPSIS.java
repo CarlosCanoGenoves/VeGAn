@@ -244,10 +244,10 @@ public class FTOPSIS {
 	}
 
 	/**
-	 * 
+	 * The RIGHT code of the FPIS & FNIS calculation
 	 * @return Matrix [2][?] where [0][X] = FPIS and [1][X] = FNIS
 	 */
-	public static FuzzyNumber[][] calculateFPIS_FNIS(FuzzyNumber[][] WFNM)
+	public static FuzzyNumber[][] ORIGINALcalculateFPIS_FNIS(FuzzyNumber[][] WFNM)
 	{
 		FuzzyNumber[][] FPIS_FNIS = new FuzzyNumber[2][WFNM.length];
 		
@@ -268,5 +268,43 @@ public class FTOPSIS {
 		}
 		
 		return FPIS_FNIS;
+	}
+	
+	/**
+	 * Modified version of the FPIS & FNIS calculation for VEGAN
+	 * The difference is that FNIS is ALWAYS 0
+	 * This change has been made to identify NEGATIVE values
+	 * 
+	 * @return Matrix [2][?] where [0][X] = FPIS and [1][X] = FNIS
+	 */
+	public static FuzzyNumber[][] calculateFPIS_FNIS(FuzzyNumber[][] WFNM)
+	{
+		FuzzyNumber[][] FPIS_FNIS = new FuzzyNumber[2][WFNM.length];
+		
+		
+		for (int i = 0; i < WFNM.length; i++)
+		{
+			FPIS_FNIS[0][i] = WFNM[i][i];	//A criteria ALWAYS have the max value with himself
+			FPIS_FNIS[1][i] = new FuzzyNumber(0);//ALWAYS 0
+		}
+		
+		return FPIS_FNIS;
+	}
+	
+	/**
+	 * 
+	 * @param FPIS_FNIS  Matrix [2][?] where [0][X] = FPIS and [1][X] = FNIS
+	 * @return
+	 */
+	public static double totalDistance(FuzzyNumber[][] FPIS_FNIS)
+	{
+		double total = 0;
+
+		for (int i = 0; i < FPIS_FNIS[0].length; i++) {
+			double distance = FuzzyNumber.euclideanDistance(FPIS_FNIS[0][i], FPIS_FNIS[1][i]);
+			total = total + distance;
+		}
+		
+		return total;
 	}
 }
