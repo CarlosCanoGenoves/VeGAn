@@ -17,5 +17,9 @@ Evitar ciclos	-	https://modeling-languages.com/closure-operation-added-to-ocl/
 
 Propagación:
 
-- La propagación de las depedencias debería ser a Double.Max_Value en vez de 100
-	- Es necesario tener en cuenta el impacto sobre una dependencia
+- En la versión actual las decomposciones de tipo OR se tratan como si fueran AND
+
+Otros:
+
+Cuando hay una DEPENDENCIA, las relación se transforma a MAX
+ - ¿Qué pasa si se contribuye (+ o -) a MAX?
