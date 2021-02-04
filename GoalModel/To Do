@@ -18,6 +18,8 @@ Evitar ciclos	-	https://modeling-languages.com/closure-operation-added-to-ocl/
 Propagación:
 
 - En la versión actual las decomposciones de tipo OR se tratan como si fueran AND
+- Calcular el valor Local (se puede hacer con un for y un if)
+- Mejorar la SALIDA para que sea más comprensible
 
 Otros:
 
