@@ -172,8 +172,8 @@ public class Propagation {
 				int eiSrc = ieToPosition.get(link.getSrc());
 				int eiTrg = ieToPosition.get(link.getTrgs().get(0));
 				
-				propagacion[eiTrg][eiSrc] = propagacion[eiSrc][eiTrg]+100;
-				propagateFather(propagacion, 100, eiSrc, link.getTrgs().get(0), ieToPosition);
+				propagacion[eiTrg][eiSrc] = Double.MAX_VALUE;
+				propagateFather(propagacion, Double.MAX_VALUE, eiSrc, link.getTrgs().get(0), ieToPosition);
 				
 				for(int i=0;i<ieP;i++)
 				{
@@ -209,8 +209,12 @@ public class Propagation {
 				
 				double impact = getImpact(((Contribution)link).getContributionType());
 				
-				propagacion[eiSrc][eiTrg] = propagacion[eiSrc][eiTrg] + impact;
-				propagateFather(propagacion, impact, eiTrg, link.getSrc(), ieToPosition);
+				//Not sure if this condition is right due to the father propagation
+				if(propagacion[eiSrc][eiTrg] != Double.MAX_VALUE)
+				{
+					propagacion[eiSrc][eiTrg] = propagacion[eiSrc][eiTrg] + impact;
+					propagateFather(propagacion, impact, eiTrg, link.getSrc(), ieToPosition);
+				}
 				
 				impact=impact/100;
 				

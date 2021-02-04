@@ -55,9 +55,9 @@ class FuzzyPropagation {
 		//La estructura es A -D- B -D- C -D- D
 		double[][] expectedOutput = {
 				{Double.MAX_VALUE, 0, 0, 0},			//A
-				{100, Double.MAX_VALUE, 0, 0},			//B
-				{100, 100,Double.MAX_VALUE, 0},			//C
-				{100, 100, 100, Double.MAX_VALUE} };	//D
+				{Double.MAX_VALUE, Double.MAX_VALUE, 0, 0},			//B
+				{Double.MAX_VALUE, Double.MAX_VALUE,Double.MAX_VALUE, 0},			//C
+				{Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE} };	//D
 		
 		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel);
 		
@@ -68,9 +68,9 @@ class FuzzyPropagation {
 		FuzzyNumber[][] output2 = FuzzyNumber.fuzzyfy(output);
 		FuzzyNumber[][] expectedOutput2 = {
 				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(0), new FuzzyNumber(0)},
-				{new FuzzyNumber(100), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(0)},
-				{new FuzzyNumber(100), new FuzzyNumber(100), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0)},
-				{new FuzzyNumber(100), new FuzzyNumber(100), new FuzzyNumber(100), new FuzzyNumber(Double.MAX_VALUE)}};
+				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0), new FuzzyNumber(0)},
+				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(0)},
+				{new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(Double.MAX_VALUE), new FuzzyNumber(Double.MAX_VALUE)}};
 		
 		if(output.length != output2.length || output2.length != expectedOutput2.length)
 			fail("Incorrect output size");
