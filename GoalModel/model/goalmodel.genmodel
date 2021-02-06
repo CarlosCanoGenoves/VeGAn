@@ -36,7 +36,6 @@
     <genClasses ecoreClass="goalModel.ecore#//GoalModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalModel/actors"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalModel/interActorLinks"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//Actor">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Actor/goalmodel"/>
@@ -48,7 +47,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//IntentionalElement/trgLinks"/>
     </genClasses>
     <genClasses image="false" ecoreClass="goalModel.ecore#//Link">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//Link/goalmodel"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Link/src"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference goalModel.ecore#//Link/trgs"/>
     </genClasses>
@@ -56,8 +54,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/importance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/confidence"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/localValue"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalElement/iterations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/globalValue"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//Contribution">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Contribution/name"/>
@@ -70,8 +69,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Iteration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Importance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Confidence"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Value"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Iteration/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/globalValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/localValue"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//Goal"/>
     <genClasses ecoreClass="goalModel.ecore#//Task"/>

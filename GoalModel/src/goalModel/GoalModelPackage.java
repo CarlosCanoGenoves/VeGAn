@@ -88,22 +88,13 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL_MODEL__ACTORS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Inter Actor Links</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GOAL_MODEL__INTER_ACTOR_LINKS = 2;
-
-	/**
 	 * The number of structural features of the '<em>Goal Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_MODEL_FEATURE_COUNT = 3;
+	int GOAL_MODEL_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Goal Model</em>' class.
@@ -152,13 +143,13 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL_ELEMENT__CONFIDENCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT__VALUE = 3;
+	int GOAL_ELEMENT__LOCAL_VALUE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Iterations</b></em>' containment reference list.
@@ -170,13 +161,22 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL_ELEMENT__ITERATIONS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL_ELEMENT__GLOBAL_VALUE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Goal Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT_FEATURE_COUNT = 5;
+	int GOAL_ELEMENT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Goal Element</em>' class.
@@ -225,13 +225,13 @@ public interface GoalModelPackage extends EPackage {
 	int ACTOR__CONFIDENCE = GOAL_ELEMENT__CONFIDENCE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR__VALUE = GOAL_ELEMENT__VALUE;
+	int ACTOR__LOCAL_VALUE = GOAL_ELEMENT__LOCAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Iterations</b></em>' containment reference list.
@@ -241,6 +241,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__ITERATIONS = GOAL_ELEMENT__ITERATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__GLOBAL_VALUE = GOAL_ELEMENT__GLOBAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Goalmodel</b></em>' container reference.
@@ -316,13 +325,13 @@ public interface GoalModelPackage extends EPackage {
 	int INTENTIONAL_ELEMENT__CONFIDENCE = GOAL_ELEMENT__CONFIDENCE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTENTIONAL_ELEMENT__VALUE = GOAL_ELEMENT__VALUE;
+	int INTENTIONAL_ELEMENT__LOCAL_VALUE = GOAL_ELEMENT__LOCAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Iterations</b></em>' containment reference list.
@@ -332,6 +341,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTENTIONAL_ELEMENT__ITERATIONS = GOAL_ELEMENT__ITERATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTIONAL_ELEMENT__GLOBAL_VALUE = GOAL_ELEMENT__GLOBAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
@@ -389,22 +407,13 @@ public interface GoalModelPackage extends EPackage {
 	int LINK = 3;
 
 	/**
-	 * The feature id for the '<em><b>Goalmodel</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__GOALMODEL = 0;
-
-	/**
 	 * The feature id for the '<em><b>Src</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__SRC = 1;
+	int LINK__SRC = 0;
 
 	/**
 	 * The feature id for the '<em><b>Trgs</b></em>' reference list.
@@ -413,7 +422,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__TRGS = 2;
+	int LINK__TRGS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -422,7 +431,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = 3;
+	int LINK_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Link</em>' class.
@@ -442,15 +451,6 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	int CONTRIBUTION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Goalmodel</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__GOALMODEL = LINK__GOALMODEL;
 
 	/**
 	 * The feature id for the '<em><b>Src</b></em>' container reference.
@@ -515,15 +515,6 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	int DEPENDENCY = 6;
-
-	/**
-	 * The feature id for the '<em><b>Goalmodel</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPENDENCY__GOALMODEL = LINK__GOALMODEL;
 
 	/**
 	 * The feature id for the '<em><b>Src</b></em>' container reference.
@@ -608,22 +599,31 @@ public interface GoalModelPackage extends EPackage {
 	int ITERATION__CONFIDENCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATION__VALUE = 3;
-
-	/**
 	 * The feature id for the '<em><b>Element</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITERATION__ELEMENT = 4;
+	int ITERATION__ELEMENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATION__GLOBAL_VALUE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATION__LOCAL_VALUE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Iteration</em>' class.
@@ -632,7 +632,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITERATION_FEATURE_COUNT = 5;
+	int ITERATION_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Iteration</em>' class.
@@ -681,13 +681,13 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL__CONFIDENCE = INTENTIONAL_ELEMENT__CONFIDENCE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL__VALUE = INTENTIONAL_ELEMENT__VALUE;
+	int GOAL__LOCAL_VALUE = INTENTIONAL_ELEMENT__LOCAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Iterations</b></em>' containment reference list.
@@ -697,6 +697,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int GOAL__ITERATIONS = INTENTIONAL_ELEMENT__ITERATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__GLOBAL_VALUE = INTENTIONAL_ELEMENT__GLOBAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
@@ -781,13 +790,13 @@ public interface GoalModelPackage extends EPackage {
 	int TASK__CONFIDENCE = INTENTIONAL_ELEMENT__CONFIDENCE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__VALUE = INTENTIONAL_ELEMENT__VALUE;
+	int TASK__LOCAL_VALUE = INTENTIONAL_ELEMENT__LOCAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Iterations</b></em>' containment reference list.
@@ -797,6 +806,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TASK__ITERATIONS = INTENTIONAL_ELEMENT__ITERATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__GLOBAL_VALUE = INTENTIONAL_ELEMENT__GLOBAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
@@ -881,13 +899,13 @@ public interface GoalModelPackage extends EPackage {
 	int SOFT_GOAL__CONFIDENCE = INTENTIONAL_ELEMENT__CONFIDENCE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOFT_GOAL__VALUE = INTENTIONAL_ELEMENT__VALUE;
+	int SOFT_GOAL__LOCAL_VALUE = INTENTIONAL_ELEMENT__LOCAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Iterations</b></em>' containment reference list.
@@ -897,6 +915,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFT_GOAL__ITERATIONS = INTENTIONAL_ELEMENT__ITERATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFT_GOAL__GLOBAL_VALUE = INTENTIONAL_ELEMENT__GLOBAL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
@@ -952,15 +979,6 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	int DECOMPOSITION = 11;
-
-	/**
-	 * The feature id for the '<em><b>Goalmodel</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECOMPOSITION__GOALMODEL = LINK__GOALMODEL;
 
 	/**
 	 * The feature id for the '<em><b>Src</b></em>' container reference.
@@ -1081,17 +1099,6 @@ public interface GoalModelPackage extends EPackage {
 	EReference getGoalModel_Actors();
 
 	/**
-	 * Returns the meta object for the reference list '{@link goalModel.GoalModel#getInterActorLinks <em>Inter Actor Links</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Inter Actor Links</em>'.
-	 * @see goalModel.GoalModel#getInterActorLinks()
-	 * @see #getGoalModel()
-	 * @generated
-	 */
-	EReference getGoalModel_InterActorLinks();
-
-	/**
 	 * Returns the meta object for class '{@link goalModel.Actor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1177,17 +1184,6 @@ public interface GoalModelPackage extends EPackage {
 	EClass getLink();
 
 	/**
-	 * Returns the meta object for the reference '{@link goalModel.Link#getGoalmodel <em>Goalmodel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Goalmodel</em>'.
-	 * @see goalModel.Link#getGoalmodel()
-	 * @see #getLink()
-	 * @generated
-	 */
-	EReference getLink_Goalmodel();
-
-	/**
 	 * Returns the meta object for the container reference '{@link goalModel.Link#getSrc <em>Src</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1253,15 +1249,15 @@ public interface GoalModelPackage extends EPackage {
 	EAttribute getGoalElement_Confidence();
 
 	/**
-	 * Returns the meta object for the attribute '{@link goalModel.GoalElement#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link goalModel.GoalElement#getLocalValue <em>Local Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see goalModel.GoalElement#getValue()
+	 * @return the meta object for the attribute '<em>Local Value</em>'.
+	 * @see goalModel.GoalElement#getLocalValue()
 	 * @see #getGoalElement()
 	 * @generated
 	 */
-	EAttribute getGoalElement_Value();
+	EAttribute getGoalElement_LocalValue();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link goalModel.GoalElement#getIterations <em>Iterations</em>}'.
@@ -1273,6 +1269,17 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGoalElement_Iterations();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.GoalElement#getGlobalValue <em>Global Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Global Value</em>'.
+	 * @see goalModel.GoalElement#getGlobalValue()
+	 * @see #getGoalElement()
+	 * @generated
+	 */
+	EAttribute getGoalElement_GlobalValue();
 
 	/**
 	 * Returns the meta object for class '{@link goalModel.Contribution <em>Contribution</em>}'.
@@ -1371,17 +1378,6 @@ public interface GoalModelPackage extends EPackage {
 	EAttribute getIteration_Confidence();
 
 	/**
-	 * Returns the meta object for the attribute '{@link goalModel.Iteration#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see goalModel.Iteration#getValue()
-	 * @see #getIteration()
-	 * @generated
-	 */
-	EAttribute getIteration_Value();
-
-	/**
 	 * Returns the meta object for the container reference '{@link goalModel.Iteration#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1391,6 +1387,28 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIteration_Element();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.Iteration#getGlobalValue <em>Global Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Global Value</em>'.
+	 * @see goalModel.Iteration#getGlobalValue()
+	 * @see #getIteration()
+	 * @generated
+	 */
+	EAttribute getIteration_GlobalValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.Iteration#getLocalValue <em>Local Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Local Value</em>'.
+	 * @see goalModel.Iteration#getLocalValue()
+	 * @see #getIteration()
+	 * @generated
+	 */
+	EAttribute getIteration_LocalValue();
 
 	/**
 	 * Returns the meta object for class '{@link goalModel.Goal <em>Goal</em>}'.
@@ -1533,14 +1551,6 @@ public interface GoalModelPackage extends EPackage {
 		EReference GOAL_MODEL__ACTORS = eINSTANCE.getGoalModel_Actors();
 
 		/**
-		 * The meta object literal for the '<em><b>Inter Actor Links</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GOAL_MODEL__INTER_ACTOR_LINKS = eINSTANCE.getGoalModel_InterActorLinks();
-
-		/**
 		 * The meta object literal for the '{@link goalModel.impl.ActorImpl <em>Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1611,14 +1621,6 @@ public interface GoalModelPackage extends EPackage {
 		EClass LINK = eINSTANCE.getLink();
 
 		/**
-		 * The meta object literal for the '<em><b>Goalmodel</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LINK__GOALMODEL = eINSTANCE.getLink_Goalmodel();
-
-		/**
 		 * The meta object literal for the '<em><b>Src</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1669,12 +1671,12 @@ public interface GoalModelPackage extends EPackage {
 		EAttribute GOAL_ELEMENT__CONFIDENCE = eINSTANCE.getGoalElement_Confidence();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Local Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GOAL_ELEMENT__VALUE = eINSTANCE.getGoalElement_Value();
+		EAttribute GOAL_ELEMENT__LOCAL_VALUE = eINSTANCE.getGoalElement_LocalValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Iterations</b></em>' containment reference list feature.
@@ -1683,6 +1685,14 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GOAL_ELEMENT__ITERATIONS = eINSTANCE.getGoalElement_Iterations();
+
+		/**
+		 * The meta object literal for the '<em><b>Global Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GOAL_ELEMENT__GLOBAL_VALUE = eINSTANCE.getGoalElement_GlobalValue();
 
 		/**
 		 * The meta object literal for the '{@link goalModel.impl.ContributionImpl <em>Contribution</em>}' class.
@@ -1763,20 +1773,28 @@ public interface GoalModelPackage extends EPackage {
 		EAttribute ITERATION__CONFIDENCE = eINSTANCE.getIteration_Confidence();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITERATION__VALUE = eINSTANCE.getIteration_Value();
-
-		/**
 		 * The meta object literal for the '<em><b>Element</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ITERATION__ELEMENT = eINSTANCE.getIteration_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Global Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITERATION__GLOBAL_VALUE = eINSTANCE.getIteration_GlobalValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Local Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITERATION__LOCAL_VALUE = eINSTANCE.getIteration_LocalValue();
 
 		/**
 		 * The meta object literal for the '{@link goalModel.impl.GoalImpl <em>Goal</em>}' class.

@@ -5,8 +5,6 @@ package goalModel.impl;
 import goalModel.Actor;
 import goalModel.GoalModel;
 import goalModel.GoalModelPackage;
-import goalModel.Link;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,7 +19,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link goalModel.impl.GoalModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.impl.GoalModelImpl#getActors <em>Actors</em>}</li>
- *   <li>{@link goalModel.impl.GoalModelImpl#getInterActorLinks <em>Inter Actor Links</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,16 +65,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 	 * @ordered
 	 */
 	protected EList<Actor> actors;
-
-	/**
-	 * The cached value of the '{@link #getInterActorLinks() <em>Inter Actor Links</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInterActorLinks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Link> interActorLinks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,27 +126,12 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<Link> getInterActorLinks() {
-		if (interActorLinks == null) {
-			interActorLinks = new EObjectWithInverseResolvingEList<Link>(Link.class, this, GoalModelPackage.GOAL_MODEL__INTER_ACTOR_LINKS, GoalModelPackage.LINK__GOALMODEL);
-		}
-		return interActorLinks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getActors()).basicAdd(otherEnd, msgs);
-			case GoalModelPackage.GOAL_MODEL__INTER_ACTOR_LINKS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInterActorLinks()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -175,8 +146,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 		switch (featureID) {
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
-			case GoalModelPackage.GOAL_MODEL__INTER_ACTOR_LINKS:
-				return ((InternalEList<?>)getInterActorLinks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -193,8 +162,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 				return getName();
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				return getActors();
-			case GoalModelPackage.GOAL_MODEL__INTER_ACTOR_LINKS:
-				return getInterActorLinks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,10 +182,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 				getActors().clear();
 				getActors().addAll((Collection<? extends Actor>)newValue);
 				return;
-			case GoalModelPackage.GOAL_MODEL__INTER_ACTOR_LINKS:
-				getInterActorLinks().clear();
-				getInterActorLinks().addAll((Collection<? extends Link>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -237,9 +200,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				getActors().clear();
 				return;
-			case GoalModelPackage.GOAL_MODEL__INTER_ACTOR_LINKS:
-				getInterActorLinks().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,8 +216,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				return actors != null && !actors.isEmpty();
-			case GoalModelPackage.GOAL_MODEL__INTER_ACTOR_LINKS:
-				return interActorLinks != null && !interActorLinks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -18,7 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getActor()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueIntentionalElementName'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueIntentionalElementName='self.intentionalelements-&gt;isUnique(name)'"
  * @generated
  */
 public interface Actor extends GoalElement {

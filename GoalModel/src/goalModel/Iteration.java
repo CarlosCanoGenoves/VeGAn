@@ -16,8 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link goalModel.Iteration#getIteration <em>Iteration</em>}</li>
  *   <li>{@link goalModel.Iteration#getImportance <em>Importance</em>}</li>
  *   <li>{@link goalModel.Iteration#getConfidence <em>Confidence</em>}</li>
- *   <li>{@link goalModel.Iteration#getValue <em>Value</em>}</li>
  *   <li>{@link goalModel.Iteration#getElement <em>Element</em>}</li>
+ *   <li>{@link goalModel.Iteration#getGlobalValue <em>Global Value</em>}</li>
+ *   <li>{@link goalModel.Iteration#getLocalValue <em>Local Value</em>}</li>
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getIteration()
@@ -56,7 +57,7 @@ public interface Iteration extends EObject {
 	 * @see goalModel.EImportance
 	 * @see #setImportance(EImportance)
 	 * @see goalModel.GoalModelPackage#getIteration_Importance()
-	 * @model
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
 	EImportance getImportance();
@@ -82,7 +83,7 @@ public interface Iteration extends EObject {
 	 * @see goalModel.EConfidence
 	 * @see #setConfidence(EConfidence)
 	 * @see goalModel.GoalModelPackage#getIteration_Confidence()
-	 * @model default="Confident"
+	 * @model default="Confident" unique="false" ordered="false"
 	 * @generated
 	 */
 	EConfidence getConfidence();
@@ -97,28 +98,6 @@ public interface Iteration extends EObject {
 	 * @generated
 	 */
 	void setConfidence(EConfidence value);
-
-	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(double)
-	 * @see goalModel.GoalModelPackage#getIteration_Value()
-	 * @model required="true"
-	 * @generated
-	 */
-	double getValue();
-
-	/**
-	 * Sets the value of the '{@link goalModel.Iteration#getValue <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
@@ -143,5 +122,49 @@ public interface Iteration extends EObject {
 	 * @generated
 	 */
 	void setElement(GoalElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Global Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Global Value</em>' attribute.
+	 * @see #setGlobalValue(double)
+	 * @see goalModel.GoalModelPackage#getIteration_GlobalValue()
+	 * @model unique="false" ordered="false"
+	 * @generated
+	 */
+	double getGlobalValue();
+
+	/**
+	 * Sets the value of the '{@link goalModel.Iteration#getGlobalValue <em>Global Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Global Value</em>' attribute.
+	 * @see #getGlobalValue()
+	 * @generated
+	 */
+	void setGlobalValue(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Local Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Local Value</em>' attribute.
+	 * @see #setLocalValue(double)
+	 * @see goalModel.GoalModelPackage#getIteration_LocalValue()
+	 * @model unique="false" ordered="false"
+	 * @generated
+	 */
+	double getLocalValue();
+
+	/**
+	 * Sets the value of the '{@link goalModel.Iteration#getLocalValue <em>Local Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Local Value</em>' attribute.
+	 * @see #getLocalValue()
+	 * @generated
+	 */
+	void setLocalValue(double value);
 
 } // Iteration

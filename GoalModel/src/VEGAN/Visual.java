@@ -47,7 +47,7 @@ public class Visual {
 				for (int j = 0; j < output.length; j++) {
 					value = value + output[ieP-1][j];
 				}
-				ie.setValue(value);
+				ie.setGlobalValue(value);
 			}
 		}
 		
@@ -70,7 +70,7 @@ public class Visual {
 			objs.add(posToIE.get(i).getName());
 			objs.add(posToIE.get(i).getImportance().toString());
 			objs.add(posToIE.get(i).getConfidence().toString());
-			objs.add(posToIE.get(i).getValue());
+			objs.add(posToIE.get(i).getGlobalValue());
 			
 			for (int j = 0; j < output.length; j++) {
 				objs.add(Math.round(output[i][j] * 100.0)/100.0); //Round before adding
