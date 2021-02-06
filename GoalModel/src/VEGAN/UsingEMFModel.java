@@ -62,12 +62,14 @@ public class UsingEMFModel {
 		}
 		
 		Propagation.propagate(myGoalModel);
+		
+		save(myGoalModel, "test2.xmi");
 	}
 
 	public static GoalModel load(String file) {
 		ResourceSet resourceSet = new ResourceSetImpl();
 
-		// register UML
+		// register URI
 		Map packageRegistry = resourceSet.getPackageRegistry();
 		packageRegistry.put(GoalModelPackage.eNS_URI, GoalModelPackage.eINSTANCE);
 
@@ -87,5 +89,28 @@ public class UsingEMFModel {
 
 		return (GoalModel) resource.getContents().get(0);
 
+	}
+	
+	public static void save(GoalModel goalmodel, String fileName) {
+		ResourceSet resourceSet = new ResourceSetImpl();
+
+		// register URI
+		Map packageRegistry = resourceSet.getPackageRegistry();
+		packageRegistry.put(GoalModelPackage.eNS_URI, GoalModelPackage.eINSTANCE);
+
+		// Register XML resource as UMLResource.Factory.Instance
+		Map extensionFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
+		extensionFactoryMap.put("xmi", new XMIResourceFactoryImpl());
+		
+		Resource resource = resourceSet.createResource(URI.createURI(fileName));
+			
+		
+		resource.getContents().add(goalmodel);
+		
+		 try {
+	            resource.save(Collections.EMPTY_MAP);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 	}
 }
