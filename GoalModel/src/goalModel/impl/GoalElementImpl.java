@@ -35,8 +35,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link goalModel.impl.GoalElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getImportance <em>Importance</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getConfidence <em>Confidence</em>}</li>
- *   <li>{@link goalModel.impl.GoalElementImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link goalModel.impl.GoalElementImpl#getLocalValue <em>Local Value</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getIterations <em>Iterations</em>}</li>
+ *   <li>{@link goalModel.impl.GoalElementImpl#getGlobalValue <em>Global Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,24 +104,24 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	protected EConfidence confidence = CONFIDENCE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getLocalValue() <em>Local Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getLocalValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double VALUE_EDEFAULT = 0.0;
+	protected static final double LOCAL_VALUE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getLocalValue() <em>Local Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getLocalValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected double value = VALUE_EDEFAULT;
+	protected double localValue = LOCAL_VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getIterations() <em>Iterations</em>}' containment reference list.
@@ -131,6 +132,26 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected EList<Iteration> iterations;
+
+	/**
+	 * The default value of the '{@link #getGlobalValue() <em>Global Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGlobalValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double GLOBAL_VALUE_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getGlobalValue() <em>Global Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGlobalValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected double globalValue = GLOBAL_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,8 +247,8 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public double getValue() {
-		return value;
+	public double getLocalValue() {
+		return localValue;
 	}
 
 	/**
@@ -236,11 +257,11 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public void setValue(double newValue) {
-		double oldValue = value;
-		value = newValue;
+	public void setLocalValue(double newLocalValue) {
+		double oldLocalValue = localValue;
+		localValue = newLocalValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.GOAL_ELEMENT__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE, oldLocalValue, localValue));
 	}
 
 	/**
@@ -254,6 +275,29 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 			iterations = new EObjectContainmentWithInverseEList<Iteration>(Iteration.class, this, GoalModelPackage.GOAL_ELEMENT__ITERATIONS, GoalModelPackage.ITERATION__ELEMENT);
 		}
 		return iterations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public double getGlobalValue() {
+		return globalValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGlobalValue(double newGlobalValue) {
+		double oldGlobalValue = globalValue;
+		globalValue = newGlobalValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE, oldGlobalValue, globalValue));
 	}
 
 	/**
@@ -299,10 +343,12 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 				return getImportance();
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
 				return getConfidence();
-			case GoalModelPackage.GOAL_ELEMENT__VALUE:
-				return getValue();
+			case GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE:
+				return getLocalValue();
 			case GoalModelPackage.GOAL_ELEMENT__ITERATIONS:
 				return getIterations();
+			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
+				return getGlobalValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -325,12 +371,15 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
 				setConfidence((EConfidence)newValue);
 				return;
-			case GoalModelPackage.GOAL_ELEMENT__VALUE:
-				setValue((Double)newValue);
+			case GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE:
+				setLocalValue((Double)newValue);
 				return;
 			case GoalModelPackage.GOAL_ELEMENT__ITERATIONS:
 				getIterations().clear();
 				getIterations().addAll((Collection<? extends Iteration>)newValue);
+				return;
+			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
+				setGlobalValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -353,11 +402,14 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
 				setConfidence(CONFIDENCE_EDEFAULT);
 				return;
-			case GoalModelPackage.GOAL_ELEMENT__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE:
+				setLocalValue(LOCAL_VALUE_EDEFAULT);
 				return;
 			case GoalModelPackage.GOAL_ELEMENT__ITERATIONS:
 				getIterations().clear();
+				return;
+			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
+				setGlobalValue(GLOBAL_VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -377,10 +429,12 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 				return importance != IMPORTANCE_EDEFAULT;
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
 				return confidence != CONFIDENCE_EDEFAULT;
-			case GoalModelPackage.GOAL_ELEMENT__VALUE:
-				return value != VALUE_EDEFAULT;
+			case GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE:
+				return localValue != LOCAL_VALUE_EDEFAULT;
 			case GoalModelPackage.GOAL_ELEMENT__ITERATIONS:
 				return iterations != null && !iterations.isEmpty();
+			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
+				return globalValue != GLOBAL_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -401,8 +455,10 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 		result.append(importance);
 		result.append(", confidence: ");
 		result.append(confidence);
-		result.append(", value: ");
-		result.append(value);
+		result.append(", localValue: ");
+		result.append(localValue);
+		result.append(", globalValue: ");
+		result.append(globalValue);
 		result.append(')');
 		return result.toString();
 	}

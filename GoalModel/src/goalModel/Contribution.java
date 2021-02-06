@@ -29,7 +29,7 @@ public interface Contribution extends Link {
 	 * @see #setName(String)
 	 * @see goalModel.GoalModelPackage#getContribution_Name()
 	 * @model transient="true" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='src.name+\' to \'+trgs-&gt;first().name'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if trgs-&gt;size() &lt;&gt; 0 then src.name+\' to \'+trgs-&gt;first().name else \'\' endif'"
 	 * @generated
 	 */
 	String getName();

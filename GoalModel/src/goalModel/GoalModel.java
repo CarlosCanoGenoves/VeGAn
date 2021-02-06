@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link goalModel.GoalModel#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.GoalModel#getActors <em>Actors</em>}</li>
- *   <li>{@link goalModel.GoalModel#getInterActorLinks <em>Inter Actor Links</em>}</li>
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getGoalModel()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueActorName'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueActorName='self.actors-&gt;isUnique(name)'"
  * @generated
  */
 public interface GoalModel extends EObject {
@@ -60,19 +60,5 @@ public interface GoalModel extends EObject {
 	 * @generated
 	 */
 	EList<Actor> getActors();
-
-	/**
-	 * Returns the value of the '<em><b>Inter Actor Links</b></em>' reference list.
-	 * The list contents are of type {@link goalModel.Link}.
-	 * It is bidirectional and its opposite is '{@link goalModel.Link#getGoalmodel <em>Goalmodel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inter Actor Links</em>' reference list.
-	 * @see goalModel.GoalModelPackage#getGoalModel_InterActorLinks()
-	 * @see goalModel.Link#getGoalmodel
-	 * @model opposite="goalmodel"
-	 * @generated
-	 */
-	EList<Link> getInterActorLinks();
 
 } // GoalModel
