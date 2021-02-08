@@ -46,7 +46,8 @@
         name="Publish book"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
       <srcLinks
-          xsi:type="goalModel:Decomposition"/>
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.1/@intentionalelements.3 //@actors.1/@intentionalelements.4"/>
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
@@ -58,7 +59,8 @@
         trgLinks="//@actors.1/@intentionalelements.3/@srcLinks.1 //@actors.1/@intentionalelements.4/@srcLinks.1"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Publish book on paper">
+        name="Publish book on paper"
+        trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
           trgs="//@actors.1/@intentionalelements.1"
@@ -70,7 +72,8 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Publish book on Amazon">
+        name="Publish book on Amazon"
+        trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
           trgs="//@actors.1/@intentionalelements.1"

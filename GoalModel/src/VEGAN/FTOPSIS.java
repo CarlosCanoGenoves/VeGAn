@@ -357,4 +357,48 @@ public class FTOPSIS {
 		
 		return calculateValueToCriteria(distances.Item2, totalDistance);
 	}
+	
+	public static GoalModel calculateValue(GoalModel goalModel)
+	{
+		double[][] value2Criteria = calculateValueToCriteria(goalModel);
+		
+		Map<Integer, IntentionalElement> positionToIE = new HashMap<Integer, IntentionalElement>();
+		
+		//Identify the position -> Intentional element of the returned array
+		int ieP = 0;
+		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
+			Actor actor = (Actor) actorIterator.next();
+		
+			for (Iterator<IntentionalElement> ieIterator =actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
+			{
+				IntentionalElement ie = (IntentionalElement) ieIterator.next();
+				positionToIE.put(ieP++, ie);
+			}
+		}
+		
+		for(int i=0; i<ieP;i++) {
+			
+			IntentionalElement ie = positionToIE.get(i);
+			double localValue = 0;
+			double globalValue = 0;
+			
+			for(int j=0;j<ieP;j++) {
+				if(value2Criteria[i][j] == 0)
+					continue;
+				
+				globalValue+=value2Criteria[i][j];
+				
+				IntentionalElement criteria = positionToIE.get(j);
+				
+				if(ie.getActor().equals(criteria.getActor()))
+					localValue+=value2Criteria[i][j];
+			}
+			
+			ie.setLocalValue(localValue);
+			ie.setGlobalValue(globalValue);
+			
+		}
+		
+		return goalModel;
+	}
 }

@@ -424,4 +424,22 @@ class testFTOPSIS {
 			}
 		}
 	}
+	
+	@Test
+	void testCalculateValue() {
+		GoalModel goalModel = UsingEMFModel.load("test.xmi");
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(goalModel);
+		
+		double[][] performanceMatrix = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		double[][] temp = FTOPSIS.calculateValueToCriteria(goalModel);
+		
+		GoalModel output = FTOPSIS.calculateValue(goalModel);
+		
+		UsingEMFModel.save(output, "test3.xmi");
+				
+		return;
+	}
 }
