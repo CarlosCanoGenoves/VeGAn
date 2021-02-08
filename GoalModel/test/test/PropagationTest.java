@@ -112,4 +112,16 @@ class PropagationTest {
 		
 		assertArrayEquals(expectedOutput, output);
 	}
+	
+	@Test
+	void testGoalModel() 
+	{
+		GoalModel myLoadedGoalModel = UsingEMFModel.load("test.xmi");
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel, true);
+		
+		double[][] output = p.Item1;
+		
+		return;
+	}
 }

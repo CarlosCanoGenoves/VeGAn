@@ -17,7 +17,7 @@ import goalModel.IntentionalElement;
 
 public class Visual {
 	public static void main(String[] argv) throws Exception {
-		GoalModel goalModel = UsingEMFModel.load("testModels/FPIS_FNIS.xmi");
+		GoalModel goalModel = UsingEMFModel.load("test.xmi");
 
 		double[][] output = FTOPSIS.calculateValueToCriteria(goalModel);
 		

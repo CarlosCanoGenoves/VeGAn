@@ -39,7 +39,6 @@ public class Propagation {
 		double[][] propagacion = new double[ieP][ieP];
 		
 		//Matrix initialization
-		//EL ARRAY ESTA MAL los elementos que se descomponen NO deberian aparecer en el array ya que estan COMPUESTOS por sus hijos
 		for(int i=0;i<ieP;i++)
 		{
 			for(int j=0;j<ieP;j++)
@@ -93,10 +92,10 @@ public class Propagation {
 			//A child must spread AFTER his parent has propagated the decomposition
 			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition && !propagatedLinks.contains(link)))
 				{
-				if(verbose)
-					System.out.println("NOT propagate " + ie.getName() + " due Decomposition");
-				
-				can_propagate = false;
+					if(verbose)
+						System.out.println("NOT propagate " + ie.getName() + " due Decomposition");
+					
+					can_propagate = false;
 				}
 			
 			if(!can_propagate)
@@ -117,8 +116,6 @@ public class Propagation {
 				
 				if(!propagatedLinks.contains(dec))
 				{
-					if(verbose)
-						System.out.println("Decomposition");
 					
 					for (Iterator<IntentionalElement> ieIterator = dec.getTrgs().iterator(); ieIterator.hasNext();)
 					{
@@ -134,6 +131,9 @@ public class Propagation {
 					}
 					
 					propagatedLinks.add(dec);
+					
+					if(verbose)
+						System.out.println("Propagated Decomposition");
 				}
 			}
 			
@@ -154,10 +154,7 @@ public class Propagation {
 			
 			//Propagate Dependencies
 			for (Iterator<Link> linkIterator = ie.getSrcLinks().iterator(); linkIterator.hasNext();)
-			{
-				if(verbose)
-					System.out.println("Dependency");
-				
+			{	
 				Link link = (Link) linkIterator.next();
 				if(!(link instanceof Dependency) || propagatedLinks.contains(link))
 					continue;
@@ -165,6 +162,9 @@ public class Propagation {
 				//Cannot propagate to an IE whose belongs to a decomposition not propagated from parent to child
 				if(link.getTrgs().get(0).getTrgLinks().stream().anyMatch(dec -> dec instanceof Decomposition && !propagatedLinks.contains(dec)))
 				{
+					if(verbose)
+						System.out.println("Not propagated dependency");
+					
 					end_propagation = false;
 					continue;
 				}
@@ -185,14 +185,14 @@ public class Propagation {
 				
 				
 				propagatedLinks.add(link);
+				
+				if(verbose)
+					System.out.println("Propagated dependency");
 			}
 			
 			//Propagate Contributions
 			for (Iterator<Link> linkIterator = ie.getTrgLinks().iterator(); linkIterator.hasNext();)
 			{
-				if(verbose)
-					System.out.println("Contribution");
-				
 				Link link = (Link) linkIterator.next();
 				if(!(link instanceof Contribution) || propagatedLinks.contains(link))
 					continue;
@@ -200,6 +200,9 @@ public class Propagation {
 				//Cannot propagate to an IE whose belongs to a decomposition not propagated from parent to child
 				if(link.getSrc().getTrgLinks().stream().anyMatch(dec -> dec instanceof Decomposition && !propagatedLinks.contains(dec)))
 				{
+					if(verbose)
+						System.out.println("Not propagated contribution");
+					
 					end_propagation = false;
 					continue;
 				}
@@ -228,6 +231,9 @@ public class Propagation {
 				}
 				
 				propagatedLinks.add(link);
+				
+				if(verbose)
+					System.out.println("Propagated contribution");
 			}
 						
 			if(!end_propagation)
