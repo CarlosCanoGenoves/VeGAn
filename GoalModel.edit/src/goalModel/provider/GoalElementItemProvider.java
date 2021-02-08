@@ -66,7 +66,8 @@ public class GoalElementItemProvider
 			addNamePropertyDescriptor(object);
 			addImportancePropertyDescriptor(object);
 			addConfidencePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addLocalValuePropertyDescriptor(object);
+			addGlobalValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,19 +139,41 @@ public class GoalElementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Local Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addLocalValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GoalElement_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GoalElement_value_feature", "_UI_GoalElement_type"),
-				 GoalModelPackage.Literals.GOAL_ELEMENT__VALUE,
+				 getString("_UI_GoalElement_localValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GoalElement_localValue_feature", "_UI_GoalElement_type"),
+				 GoalModelPackage.Literals.GOAL_ELEMENT__LOCAL_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Global Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGlobalValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GoalElement_globalValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GoalElement_globalValue_feature", "_UI_GoalElement_type"),
+				 GoalModelPackage.Literals.GOAL_ELEMENT__GLOBAL_VALUE,
 				 true,
 				 false,
 				 false,
@@ -219,7 +242,8 @@ public class GoalElementItemProvider
 			case GoalModelPackage.GOAL_ELEMENT__NAME:
 			case GoalModelPackage.GOAL_ELEMENT__IMPORTANCE:
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
-			case GoalModelPackage.GOAL_ELEMENT__VALUE:
+			case GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE:
+			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GoalModelPackage.GOAL_ELEMENT__ITERATIONS:
