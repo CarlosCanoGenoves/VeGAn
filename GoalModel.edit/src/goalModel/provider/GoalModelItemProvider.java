@@ -64,7 +64,6 @@ public class GoalModelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addInterActorLinksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,28 +86,6 @@ public class GoalModelItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Inter Actor Links feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInterActorLinksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GoalModel_interActorLinks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GoalModel_interActorLinks_feature", "_UI_GoalModel_type"),
-				 GoalModelPackage.Literals.GOAL_MODEL__INTER_ACTOR_LINKS,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

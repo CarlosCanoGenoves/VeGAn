@@ -57,32 +57,9 @@ public class LinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addGoalmodelPropertyDescriptor(object);
 			addTrgsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Goalmodel feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGoalmodelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Link_goalmodel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_goalmodel_feature", "_UI_Link_type"),
-				 GoalModelPackage.Literals.LINK__GOALMODEL,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

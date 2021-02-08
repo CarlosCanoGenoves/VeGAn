@@ -63,7 +63,8 @@ public class IterationItemProvider
 			addIterationPropertyDescriptor(object);
 			addImportancePropertyDescriptor(object);
 			addConfidencePropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
+			addGlobalValuePropertyDescriptor(object);
+			addLocalValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,19 +136,41 @@ public class IterationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Global Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addGlobalValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Iteration_Value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_Value_feature", "_UI_Iteration_type"),
-				 GoalModelPackage.Literals.ITERATION__VALUE,
+				 getString("_UI_Iteration_globalValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_globalValue_feature", "_UI_Iteration_type"),
+				 GoalModelPackage.Literals.ITERATION__GLOBAL_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Local Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLocalValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Iteration_localValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_localValue_feature", "_UI_Iteration_type"),
+				 GoalModelPackage.Literals.ITERATION__LOCAL_VALUE,
 				 true,
 				 false,
 				 false,
@@ -195,7 +218,8 @@ public class IterationItemProvider
 			case GoalModelPackage.ITERATION__ITERATION:
 			case GoalModelPackage.ITERATION__IMPORTANCE:
 			case GoalModelPackage.ITERATION__CONFIDENCE:
-			case GoalModelPackage.ITERATION__VALUE:
+			case GoalModelPackage.ITERATION__GLOBAL_VALUE:
+			case GoalModelPackage.ITERATION__LOCAL_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
