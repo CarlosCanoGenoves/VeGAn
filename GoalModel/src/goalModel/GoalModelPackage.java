@@ -88,13 +88,22 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL_MODEL__ACTORS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Iteration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL_MODEL__ITERATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Goal Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_MODEL_FEATURE_COUNT = 2;
+	int GOAL_MODEL_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Goal Model</em>' class.
@@ -626,13 +635,22 @@ public interface GoalModelPackage extends EPackage {
 	int ITERATION__LOCAL_VALUE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Valuefrom</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATION__VALUEFROM = 6;
+
+	/**
 	 * The number of structural features of the '<em>Iteration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITERATION_FEATURE_COUNT = 6;
+	int ITERATION_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Iteration</em>' class.
@@ -1026,6 +1044,61 @@ public interface GoalModelPackage extends EPackage {
 	int DECOMPOSITION_OPERATION_COUNT = LINK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link goalModel.impl.ValueFromImpl <em>Value From</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see goalModel.impl.ValueFromImpl
+	 * @see goalModel.impl.GoalModelPackageImpl#getValueFrom()
+	 * @generated
+	 */
+	int VALUE_FROM = 12;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FROM__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FROM__VALUE_FROM = 1;
+
+	/**
+	 * The feature id for the '<em><b>Iteration</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FROM__ITERATION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Value From</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FROM_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Value From</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FROM_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link goalModel.EImportance <em>EImportance</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1033,7 +1106,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @see goalModel.impl.GoalModelPackageImpl#getEImportance()
 	 * @generated
 	 */
-	int EIMPORTANCE = 12;
+	int EIMPORTANCE = 13;
 
 	/**
 	 * The meta object id for the '{@link goalModel.EContribution <em>EContribution</em>}' enum.
@@ -1043,7 +1116,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @see goalModel.impl.GoalModelPackageImpl#getEContribution()
 	 * @generated
 	 */
-	int ECONTRIBUTION = 13;
+	int ECONTRIBUTION = 14;
 
 	/**
 	 * The meta object id for the '{@link goalModel.EConfidence <em>EConfidence</em>}' enum.
@@ -1053,7 +1126,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @see goalModel.impl.GoalModelPackageImpl#getEConfidence()
 	 * @generated
 	 */
-	int ECONFIDENCE = 14;
+	int ECONFIDENCE = 15;
 
 	/**
 	 * The meta object id for the '{@link goalModel.EDecomposition <em>EDecomposition</em>}' enum.
@@ -1063,7 +1136,18 @@ public interface GoalModelPackage extends EPackage {
 	 * @see goalModel.impl.GoalModelPackageImpl#getEDecomposition()
 	 * @generated
 	 */
-	int EDECOMPOSITION = 15;
+	int EDECOMPOSITION = 16;
+
+
+	/**
+	 * The meta object id for the '{@link goalModel.EValueFrom <em>EValue From</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see goalModel.EValueFrom
+	 * @see goalModel.impl.GoalModelPackageImpl#getEValueFrom()
+	 * @generated
+	 */
+	int EVALUE_FROM = 17;
 
 
 	/**
@@ -1097,6 +1181,17 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGoalModel_Actors();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.GoalModel#getIteration <em>Iteration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Iteration</em>'.
+	 * @see goalModel.GoalModel#getIteration()
+	 * @see #getGoalModel()
+	 * @generated
+	 */
+	EAttribute getGoalModel_Iteration();
 
 	/**
 	 * Returns the meta object for class '{@link goalModel.Actor <em>Actor</em>}'.
@@ -1411,6 +1506,17 @@ public interface GoalModelPackage extends EPackage {
 	EAttribute getIteration_LocalValue();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link goalModel.Iteration#getValuefrom <em>Valuefrom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Valuefrom</em>'.
+	 * @see goalModel.Iteration#getValuefrom()
+	 * @see #getIteration()
+	 * @generated
+	 */
+	EReference getIteration_Valuefrom();
+
+	/**
 	 * Returns the meta object for class '{@link goalModel.Goal <em>Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1462,6 +1568,49 @@ public interface GoalModelPackage extends EPackage {
 	EAttribute getDecomposition_DecompositionType();
 
 	/**
+	 * Returns the meta object for class '{@link goalModel.ValueFrom <em>Value From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value From</em>'.
+	 * @see goalModel.ValueFrom
+	 * @generated
+	 */
+	EClass getValueFrom();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.ValueFrom#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see goalModel.ValueFrom#getValue()
+	 * @see #getValueFrom()
+	 * @generated
+	 */
+	EAttribute getValueFrom_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.ValueFrom#getValueFrom <em>Value From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value From</em>'.
+	 * @see goalModel.ValueFrom#getValueFrom()
+	 * @see #getValueFrom()
+	 * @generated
+	 */
+	EAttribute getValueFrom_ValueFrom();
+
+	/**
+	 * Returns the meta object for the container reference '{@link goalModel.ValueFrom#getIteration <em>Iteration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Iteration</em>'.
+	 * @see goalModel.ValueFrom#getIteration()
+	 * @see #getValueFrom()
+	 * @generated
+	 */
+	EReference getValueFrom_Iteration();
+
+	/**
 	 * Returns the meta object for enum '{@link goalModel.EImportance <em>EImportance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1500,6 +1649,16 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getEDecomposition();
+
+	/**
+	 * Returns the meta object for enum '{@link goalModel.EValueFrom <em>EValue From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>EValue From</em>'.
+	 * @see goalModel.EValueFrom
+	 * @generated
+	 */
+	EEnum getEValueFrom();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1549,6 +1708,14 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GOAL_MODEL__ACTORS = eINSTANCE.getGoalModel_Actors();
+
+		/**
+		 * The meta object literal for the '<em><b>Iteration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GOAL_MODEL__ITERATION = eINSTANCE.getGoalModel_Iteration();
 
 		/**
 		 * The meta object literal for the '{@link goalModel.impl.ActorImpl <em>Actor</em>}' class.
@@ -1797,6 +1964,14 @@ public interface GoalModelPackage extends EPackage {
 		EAttribute ITERATION__LOCAL_VALUE = eINSTANCE.getIteration_LocalValue();
 
 		/**
+		 * The meta object literal for the '<em><b>Valuefrom</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITERATION__VALUEFROM = eINSTANCE.getIteration_Valuefrom();
+
+		/**
 		 * The meta object literal for the '{@link goalModel.impl.GoalImpl <em>Goal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1845,6 +2020,40 @@ public interface GoalModelPackage extends EPackage {
 		EAttribute DECOMPOSITION__DECOMPOSITION_TYPE = eINSTANCE.getDecomposition_DecompositionType();
 
 		/**
+		 * The meta object literal for the '{@link goalModel.impl.ValueFromImpl <em>Value From</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see goalModel.impl.ValueFromImpl
+		 * @see goalModel.impl.GoalModelPackageImpl#getValueFrom()
+		 * @generated
+		 */
+		EClass VALUE_FROM = eINSTANCE.getValueFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_FROM__VALUE = eINSTANCE.getValueFrom_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Value From</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_FROM__VALUE_FROM = eINSTANCE.getValueFrom_ValueFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Iteration</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE_FROM__ITERATION = eINSTANCE.getValueFrom_Iteration();
+
+		/**
 		 * The meta object literal for the '{@link goalModel.EImportance <em>EImportance</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1883,6 +2092,16 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum EDECOMPOSITION = eINSTANCE.getEDecomposition();
+
+		/**
+		 * The meta object literal for the '{@link goalModel.EValueFrom <em>EValue From</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see goalModel.EValueFrom
+		 * @see goalModel.impl.GoalModelPackageImpl#getEValueFrom()
+		 * @generated
+		 */
+		EEnum EVALUE_FROM = eINSTANCE.getEValueFrom();
 
 	}
 

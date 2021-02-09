@@ -110,6 +110,8 @@ public class GoalModelValidator extends EObjectValidator {
 				return validateSoftGoal((SoftGoal)value, diagnostics, context);
 			case GoalModelPackage.DECOMPOSITION:
 				return validateDecomposition((Decomposition)value, diagnostics, context);
+			case GoalModelPackage.VALUE_FROM:
+				return validateValueFrom((ValueFrom)value, diagnostics, context);
 			case GoalModelPackage.EIMPORTANCE:
 				return validateEImportance((EImportance)value, diagnostics, context);
 			case GoalModelPackage.ECONTRIBUTION:
@@ -118,6 +120,8 @@ public class GoalModelValidator extends EObjectValidator {
 				return validateEConfidence((EConfidence)value, diagnostics, context);
 			case GoalModelPackage.EDECOMPOSITION:
 				return validateEDecomposition((EDecomposition)value, diagnostics, context);
+			case GoalModelPackage.EVALUE_FROM:
+				return validateEValueFrom((EValueFrom)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -314,6 +318,15 @@ public class GoalModelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateValueFrom(ValueFrom valueFrom, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(valueFrom, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateEImportance(EImportance eImportance, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -342,6 +355,15 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEDecomposition(EDecomposition eDecomposition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEValueFrom(EValueFrom eValueFrom, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

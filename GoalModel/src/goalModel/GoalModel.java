@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link goalModel.GoalModel#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.GoalModel#getActors <em>Actors</em>}</li>
+ *   <li>{@link goalModel.GoalModel#getIteration <em>Iteration</em>}</li>
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getGoalModel()
@@ -60,5 +61,28 @@ public interface GoalModel extends EObject {
 	 * @generated
 	 */
 	EList<Actor> getActors();
+
+	/**
+	 * Returns the value of the '<em><b>Iteration</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Iteration</em>' attribute.
+	 * @see #setIteration(int)
+	 * @see goalModel.GoalModelPackage#getGoalModel_Iteration()
+	 * @model default="0" unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	int getIteration();
+
+	/**
+	 * Sets the value of the '{@link goalModel.GoalModel#getIteration <em>Iteration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iteration</em>' attribute.
+	 * @see #getIteration()
+	 * @generated
+	 */
+	void setIteration(int value);
 
 } // GoalModel

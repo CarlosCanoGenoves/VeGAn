@@ -19,6 +19,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//Actor" containment="true" eOpposite="#//Actor/goalmodel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//GoalElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -112,6 +115,8 @@
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="localValue" ordered="false"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valuefrom" upperBound="-1"
+        eType="#//ValueFrom" containment="true" eOpposite="#//ValueFrom/iteration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EConfidence">
     <eLiterals name="Possibly_More"/>
@@ -129,5 +134,15 @@
     <eLiterals name="AND"/>
     <eLiterals name="IOR" value="1"/>
     <eLiterals name="LITERAL2" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueFrom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueFrom" eType="#//EValueFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iteration" lowerBound="1"
+        eType="#//Iteration" eOpposite="#//Iteration/valuefrom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EValueFrom">
+    <eLiterals name="local"/>
+    <eLiterals name="External" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -116,6 +116,10 @@ public class GoalModelAdapterFactory extends AdapterFactoryImpl {
 				return createDecompositionAdapter();
 			}
 			@Override
+			public Adapter caseValueFrom(ValueFrom object) {
+				return createValueFromAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -300,6 +304,20 @@ public class GoalModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDecompositionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link goalModel.ValueFrom <em>Value From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see goalModel.ValueFrom
+	 * @generated
+	 */
+	public Adapter createValueFromAdapter() {
 		return null;
 	}
 

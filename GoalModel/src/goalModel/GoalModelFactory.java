@@ -103,6 +103,15 @@ public interface GoalModelFactory extends EFactory {
 	Decomposition createDecomposition();
 
 	/**
+	 * Returns a new object of class '<em>Value From</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Value From</em>'.
+	 * @generated
+	 */
+	ValueFrom createValueFrom();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

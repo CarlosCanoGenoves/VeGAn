@@ -33,9 +33,14 @@
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/IOR"/>
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/LITERAL2"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EValueFrom">
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EValueFrom/local"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EValueFrom/External"/>
+    </genEnums>
     <genClasses ecoreClass="goalModel.ecore#//GoalModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalModel/actors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalModel/iteration"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//Actor">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Actor/goalmodel"/>
@@ -72,12 +77,18 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Iteration/element"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/globalValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/localValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//Iteration/valuefrom"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//Goal"/>
     <genClasses ecoreClass="goalModel.ecore#//Task"/>
     <genClasses ecoreClass="goalModel.ecore#//SoftGoal"/>
     <genClasses ecoreClass="goalModel.ecore#//Decomposition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Decomposition/decompositionType"/>
+    </genClasses>
+    <genClasses ecoreClass="goalModel.ecore#//ValueFrom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//ValueFrom/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//ValueFrom/valueFrom"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//ValueFrom/iteration"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
