@@ -140,6 +140,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueFrom" eType="#//EValueFrom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="iteration" lowerBound="1"
         eType="#//Iteration" eOpposite="#//Iteration/valuefrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intentionalelement" lowerBound="1"
+        eType="#//IntentionalElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EValueFrom">
     <eLiterals name="local"/>

@@ -4,6 +4,7 @@ package goalModel.impl;
 
 import goalModel.EValueFrom;
 import goalModel.GoalModelPackage;
+import goalModel.IntentionalElement;
 import goalModel.Iteration;
 import goalModel.ValueFrom;
 
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link goalModel.impl.ValueFromImpl#getValue <em>Value</em>}</li>
  *   <li>{@link goalModel.impl.ValueFromImpl#getValueFrom <em>Value From</em>}</li>
  *   <li>{@link goalModel.impl.ValueFromImpl#getIteration <em>Iteration</em>}</li>
+ *   <li>{@link goalModel.impl.ValueFromImpl#getIntentionalelement <em>Intentionalelement</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +75,16 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 	 * @ordered
 	 */
 	protected EValueFrom valueFrom = VALUE_FROM_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getIntentionalelement() <em>Intentionalelement</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIntentionalelement()
+	 * @generated
+	 * @ordered
+	 */
+	protected IntentionalElement intentionalelement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +200,46 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 	 * @generated
 	 */
 	@Override
+	public IntentionalElement getIntentionalelement() {
+		if (intentionalelement != null && intentionalelement.eIsProxy()) {
+			InternalEObject oldIntentionalelement = (InternalEObject)intentionalelement;
+			intentionalelement = (IntentionalElement)eResolveProxy(oldIntentionalelement);
+			if (intentionalelement != oldIntentionalelement) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GoalModelPackage.VALUE_FROM__INTENTIONALELEMENT, oldIntentionalelement, intentionalelement));
+			}
+		}
+		return intentionalelement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntentionalElement basicGetIntentionalelement() {
+		return intentionalelement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIntentionalelement(IntentionalElement newIntentionalelement) {
+		IntentionalElement oldIntentionalelement = intentionalelement;
+		intentionalelement = newIntentionalelement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.VALUE_FROM__INTENTIONALELEMENT, oldIntentionalelement, intentionalelement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalModelPackage.VALUE_FROM__ITERATION:
@@ -240,6 +292,9 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 				return getValueFrom();
 			case GoalModelPackage.VALUE_FROM__ITERATION:
 				return getIteration();
+			case GoalModelPackage.VALUE_FROM__INTENTIONALELEMENT:
+				if (resolve) return getIntentionalelement();
+				return basicGetIntentionalelement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,6 +315,9 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 				return;
 			case GoalModelPackage.VALUE_FROM__ITERATION:
 				setIteration((Iteration)newValue);
+				return;
+			case GoalModelPackage.VALUE_FROM__INTENTIONALELEMENT:
+				setIntentionalelement((IntentionalElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,6 +340,9 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 			case GoalModelPackage.VALUE_FROM__ITERATION:
 				setIteration((Iteration)null);
 				return;
+			case GoalModelPackage.VALUE_FROM__INTENTIONALELEMENT:
+				setIntentionalelement((IntentionalElement)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -300,6 +361,8 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 				return valueFrom != VALUE_FROM_EDEFAULT;
 			case GoalModelPackage.VALUE_FROM__ITERATION:
 				return getIteration() != null;
+			case GoalModelPackage.VALUE_FROM__INTENTIONALELEMENT:
+				return intentionalelement != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -62,6 +62,7 @@ public class ValueFromItemProvider
 
 			addValuePropertyDescriptor(object);
 			addValueFromPropertyDescriptor(object);
+			addIntentionalelementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,6 +107,28 @@ public class ValueFromItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Intentionalelement feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIntentionalelementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ValueFrom_intentionalelement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueFrom_intentionalelement_feature", "_UI_ValueFrom_type"),
+				 GoalModelPackage.Literals.VALUE_FROM__INTENTIONALELEMENT,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

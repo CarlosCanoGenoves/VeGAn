@@ -436,7 +436,7 @@ class testFTOPSIS {
 		
 		double[][] temp = FTOPSIS.calculateValueToCriteria(goalModel);
 		
-		GoalModel output = FTOPSIS.calculateValue(goalModel);
+		GoalModel output = FTOPSIS.calculateValue(goalModel).Item1;
 		
 		UsingEMFModel.save(output, "test3.xmi");
 				

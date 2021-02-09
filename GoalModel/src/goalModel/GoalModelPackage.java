@@ -1081,13 +1081,22 @@ public interface GoalModelPackage extends EPackage {
 	int VALUE_FROM__ITERATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Intentionalelement</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FROM__INTENTIONALELEMENT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Value From</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FROM_FEATURE_COUNT = 3;
+	int VALUE_FROM_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Value From</em>' class.
@@ -1611,6 +1620,17 @@ public interface GoalModelPackage extends EPackage {
 	EReference getValueFrom_Iteration();
 
 	/**
+	 * Returns the meta object for the reference '{@link goalModel.ValueFrom#getIntentionalelement <em>Intentionalelement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Intentionalelement</em>'.
+	 * @see goalModel.ValueFrom#getIntentionalelement()
+	 * @see #getValueFrom()
+	 * @generated
+	 */
+	EReference getValueFrom_Intentionalelement();
+
+	/**
 	 * Returns the meta object for enum '{@link goalModel.EImportance <em>EImportance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2052,6 +2072,14 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VALUE_FROM__ITERATION = eINSTANCE.getValueFrom_Iteration();
+
+		/**
+		 * The meta object literal for the '<em><b>Intentionalelement</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE_FROM__INTENTIONALELEMENT = eINSTANCE.getValueFrom_Intentionalelement();
 
 		/**
 		 * The meta object literal for the '{@link goalModel.EImportance <em>EImportance</em>}' enum.

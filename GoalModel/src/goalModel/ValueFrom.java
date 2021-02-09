@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link goalModel.ValueFrom#getValue <em>Value</em>}</li>
  *   <li>{@link goalModel.ValueFrom#getValueFrom <em>Value From</em>}</li>
  *   <li>{@link goalModel.ValueFrom#getIteration <em>Iteration</em>}</li>
+ *   <li>{@link goalModel.ValueFrom#getIntentionalelement <em>Intentionalelement</em>}</li>
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getValueFrom()
@@ -93,5 +94,27 @@ public interface ValueFrom extends EObject {
 	 * @generated
 	 */
 	void setIteration(Iteration value);
+
+	/**
+	 * Returns the value of the '<em><b>Intentionalelement</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Intentionalelement</em>' reference.
+	 * @see #setIntentionalelement(IntentionalElement)
+	 * @see goalModel.GoalModelPackage#getValueFrom_Intentionalelement()
+	 * @model required="true"
+	 * @generated
+	 */
+	IntentionalElement getIntentionalelement();
+
+	/**
+	 * Sets the value of the '{@link goalModel.ValueFrom#getIntentionalelement <em>Intentionalelement</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Intentionalelement</em>' reference.
+	 * @see #getIntentionalelement()
+	 * @generated
+	 */
+	void setIntentionalelement(IntentionalElement value);
 
 } // ValueFrom
