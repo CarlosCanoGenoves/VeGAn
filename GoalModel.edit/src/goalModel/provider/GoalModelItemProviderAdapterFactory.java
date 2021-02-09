@@ -279,6 +279,29 @@ public class GoalModelItemProviderAdapterFactory extends GoalModelAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link goalModel.ValueFrom} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueFromItemProvider valueFromItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link goalModel.ValueFrom}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueFromAdapter() {
+		if (valueFromItemProvider == null) {
+			valueFromItemProvider = new ValueFromItemProvider(this);
+		}
+
+		return valueFromItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +415,7 @@ public class GoalModelItemProviderAdapterFactory extends GoalModelAdapterFactory
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (softGoalItemProvider != null) softGoalItemProvider.dispose();
 		if (decompositionItemProvider != null) decompositionItemProvider.dispose();
+		if (valueFromItemProvider != null) valueFromItemProvider.dispose();
 	}
 
 }

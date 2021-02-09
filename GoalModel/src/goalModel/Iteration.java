@@ -2,6 +2,7 @@
  */
 package goalModel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link goalModel.Iteration#getElement <em>Element</em>}</li>
  *   <li>{@link goalModel.Iteration#getGlobalValue <em>Global Value</em>}</li>
  *   <li>{@link goalModel.Iteration#getLocalValue <em>Local Value</em>}</li>
+ *   <li>{@link goalModel.Iteration#getValuefrom <em>Valuefrom</em>}</li>
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getIteration()
@@ -166,5 +168,19 @@ public interface Iteration extends EObject {
 	 * @generated
 	 */
 	void setLocalValue(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Valuefrom</b></em>' containment reference list.
+	 * The list contents are of type {@link goalModel.ValueFrom}.
+	 * It is bidirectional and its opposite is '{@link goalModel.ValueFrom#getIteration <em>Iteration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Valuefrom</em>' containment reference list.
+	 * @see goalModel.GoalModelPackage#getIteration_Valuefrom()
+	 * @see goalModel.ValueFrom#getIteration
+	 * @model opposite="iteration" containment="true"
+	 * @generated
+	 */
+	EList<ValueFrom> getValuefrom();
 
 } // Iteration

@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link goalModel.impl.GoalModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.impl.GoalModelImpl#getActors <em>Actors</em>}</li>
+ *   <li>{@link goalModel.impl.GoalModelImpl#getIteration <em>Iteration</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +66,26 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 	 * @ordered
 	 */
 	protected EList<Actor> actors;
+
+	/**
+	 * The default value of the '{@link #getIteration() <em>Iteration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIteration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ITERATION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getIteration() <em>Iteration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIteration()
+	 * @generated
+	 * @ordered
+	 */
+	protected int iteration = ITERATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,6 +147,29 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public int getIteration() {
+		return iteration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIteration(int newIteration) {
+		int oldIteration = iteration;
+		iteration = newIteration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.GOAL_MODEL__ITERATION, oldIteration, iteration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -162,6 +206,8 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 				return getName();
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				return getActors();
+			case GoalModelPackage.GOAL_MODEL__ITERATION:
+				return getIteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,6 +228,9 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 				getActors().clear();
 				getActors().addAll((Collection<? extends Actor>)newValue);
 				return;
+			case GoalModelPackage.GOAL_MODEL__ITERATION:
+				setIteration((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -200,6 +249,9 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				getActors().clear();
 				return;
+			case GoalModelPackage.GOAL_MODEL__ITERATION:
+				setIteration(ITERATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -216,6 +268,8 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GoalModelPackage.GOAL_MODEL__ACTORS:
 				return actors != null && !actors.isEmpty();
+			case GoalModelPackage.GOAL_MODEL__ITERATION:
+				return iteration != ITERATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -232,6 +286,8 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", iteration: ");
+		result.append(iteration);
 		result.append(')');
 		return result.toString();
 	}

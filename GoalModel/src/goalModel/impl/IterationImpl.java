@@ -8,16 +8,21 @@ import goalModel.GoalElement;
 import goalModel.GoalModelPackage;
 import goalModel.Iteration;
 
+import goalModel.ValueFrom;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +38,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link goalModel.impl.IterationImpl#getElement <em>Element</em>}</li>
  *   <li>{@link goalModel.impl.IterationImpl#getGlobalValue <em>Global Value</em>}</li>
  *   <li>{@link goalModel.impl.IterationImpl#getLocalValue <em>Local Value</em>}</li>
+ *   <li>{@link goalModel.impl.IterationImpl#getValuefrom <em>Valuefrom</em>}</li>
  * </ul>
  *
  * @generated
@@ -137,6 +143,16 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	 * @ordered
 	 */
 	protected double localValue = LOCAL_VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValuefrom() <em>Valuefrom</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValuefrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValueFrom> valuefrom;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -321,12 +337,28 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	 * @generated
 	 */
 	@Override
+	public EList<ValueFrom> getValuefrom() {
+		if (valuefrom == null) {
+			valuefrom = new EObjectContainmentWithInverseEList<ValueFrom>(ValueFrom.class, this, GoalModelPackage.ITERATION__VALUEFROM, GoalModelPackage.VALUE_FROM__ITERATION);
+		}
+		return valuefrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GoalModelPackage.ITERATION__ELEMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetElement((GoalElement)otherEnd, msgs);
+			case GoalModelPackage.ITERATION__VALUEFROM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getValuefrom()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -341,6 +373,8 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 		switch (featureID) {
 			case GoalModelPackage.ITERATION__ELEMENT:
 				return basicSetElement(null, msgs);
+			case GoalModelPackage.ITERATION__VALUEFROM:
+				return ((InternalEList<?>)getValuefrom()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -379,6 +413,8 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 				return getGlobalValue();
 			case GoalModelPackage.ITERATION__LOCAL_VALUE:
 				return getLocalValue();
+			case GoalModelPackage.ITERATION__VALUEFROM:
+				return getValuefrom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -388,6 +424,7 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -408,6 +445,10 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 				return;
 			case GoalModelPackage.ITERATION__LOCAL_VALUE:
 				setLocalValue((Double)newValue);
+				return;
+			case GoalModelPackage.ITERATION__VALUEFROM:
+				getValuefrom().clear();
+				getValuefrom().addAll((Collection<? extends ValueFrom>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -439,6 +480,9 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 			case GoalModelPackage.ITERATION__LOCAL_VALUE:
 				setLocalValue(LOCAL_VALUE_EDEFAULT);
 				return;
+			case GoalModelPackage.ITERATION__VALUEFROM:
+				getValuefrom().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -463,6 +507,8 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 				return globalValue != GLOBAL_VALUE_EDEFAULT;
 			case GoalModelPackage.ITERATION__LOCAL_VALUE:
 				return localValue != LOCAL_VALUE_EDEFAULT;
+			case GoalModelPackage.ITERATION__VALUEFROM:
+				return valuefrom != null && !valuefrom.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

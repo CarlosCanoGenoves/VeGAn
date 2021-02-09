@@ -10,6 +10,7 @@ import goalModel.EConfidence;
 import goalModel.EContribution;
 import goalModel.EDecomposition;
 import goalModel.EImportance;
+import goalModel.EValueFrom;
 import goalModel.Goal;
 import goalModel.GoalElement;
 import goalModel.GoalModel;
@@ -21,6 +22,7 @@ import goalModel.Link;
 import goalModel.SoftGoal;
 import goalModel.Task;
 
+import goalModel.ValueFrom;
 import goalModel.util.GoalModelValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -127,6 +129,13 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass valueFromEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum eImportanceEEnum = null;
 
 	/**
@@ -149,6 +158,13 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	private EEnum eDecompositionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum eValueFromEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -249,6 +265,16 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	@Override
 	public EReference getGoalModel_Actors() {
 		return (EReference)goalModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGoalModel_Iteration() {
+		return (EAttribute)goalModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -547,6 +573,16 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getIteration_Valuefrom() {
+		return (EReference)iterationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGoal() {
 		return goalEClass;
 	}
@@ -597,6 +633,46 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getValueFrom() {
+		return valueFromEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueFrom_Value() {
+		return (EAttribute)valueFromEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueFrom_ValueFrom() {
+		return (EAttribute)valueFromEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getValueFrom_Iteration() {
+		return (EReference)valueFromEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getEImportance() {
 		return eImportanceEEnum;
 	}
@@ -637,6 +713,16 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EEnum getEValueFrom() {
+		return eValueFromEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public GoalModelFactory getGoalModelFactory() {
 		return (GoalModelFactory)getEFactoryInstance();
 	}
@@ -663,6 +749,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		goalModelEClass = createEClass(GOAL_MODEL);
 		createEAttribute(goalModelEClass, GOAL_MODEL__NAME);
 		createEReference(goalModelEClass, GOAL_MODEL__ACTORS);
+		createEAttribute(goalModelEClass, GOAL_MODEL__ITERATION);
 
 		actorEClass = createEClass(ACTOR);
 		createEReference(actorEClass, ACTOR__GOALMODEL);
@@ -699,6 +786,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		createEReference(iterationEClass, ITERATION__ELEMENT);
 		createEAttribute(iterationEClass, ITERATION__GLOBAL_VALUE);
 		createEAttribute(iterationEClass, ITERATION__LOCAL_VALUE);
+		createEReference(iterationEClass, ITERATION__VALUEFROM);
 
 		goalEClass = createEClass(GOAL);
 
@@ -709,11 +797,17 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		decompositionEClass = createEClass(DECOMPOSITION);
 		createEAttribute(decompositionEClass, DECOMPOSITION__DECOMPOSITION_TYPE);
 
+		valueFromEClass = createEClass(VALUE_FROM);
+		createEAttribute(valueFromEClass, VALUE_FROM__VALUE);
+		createEAttribute(valueFromEClass, VALUE_FROM__VALUE_FROM);
+		createEReference(valueFromEClass, VALUE_FROM__ITERATION);
+
 		// Create enums
 		eImportanceEEnum = createEEnum(EIMPORTANCE);
 		eContributionEEnum = createEEnum(ECONTRIBUTION);
 		eConfidenceEEnum = createEEnum(ECONFIDENCE);
 		eDecompositionEEnum = createEEnum(EDECOMPOSITION);
+		eValueFromEEnum = createEEnum(EVALUE_FROM);
 	}
 
 	/**
@@ -757,6 +851,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEClass(goalModelEClass, GoalModel.class, "GoalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGoalModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGoalModel_Actors(), this.getActor(), this.getActor_Goalmodel(), "actors", null, 0, -1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoalModel_Iteration(), ecorePackage.getEInt(), "iteration", "0", 1, 1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(actorEClass, Actor.class, "Actor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActor_Goalmodel(), this.getGoalModel(), this.getGoalModel_Actors(), "goalmodel", null, 1, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -793,6 +888,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEReference(getIteration_Element(), this.getGoalElement(), this.getGoalElement_Iterations(), "element", null, 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIteration_GlobalValue(), ecorePackage.getEDouble(), "globalValue", null, 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getIteration_LocalValue(), ecorePackage.getEDouble(), "localValue", null, 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIteration_Valuefrom(), this.getValueFrom(), this.getValueFrom_Iteration(), "valuefrom", null, 0, -1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(goalEClass, Goal.class, "Goal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -802,6 +898,11 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 
 		initEClass(decompositionEClass, Decomposition.class, "Decomposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDecomposition_DecompositionType(), this.getEDecomposition(), "decompositionType", "AND", 0, 1, Decomposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueFromEClass, ValueFrom.class, "ValueFrom", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getValueFrom_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, ValueFrom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueFrom_ValueFrom(), this.getEValueFrom(), "valueFrom", null, 0, 1, ValueFrom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValueFrom_Iteration(), this.getIteration(), this.getIteration_Valuefrom(), "iteration", null, 1, 1, ValueFrom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(eImportanceEEnum, EImportance.class, "EImportance");
@@ -831,6 +932,10 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		addEEnumLiteral(eDecompositionEEnum, EDecomposition.AND);
 		addEEnumLiteral(eDecompositionEEnum, EDecomposition.IOR);
 		addEEnumLiteral(eDecompositionEEnum, EDecomposition.LITERAL2);
+
+		initEEnum(eValueFromEEnum, EValueFrom.class, "EValueFrom");
+		addEEnumLiteral(eValueFromEEnum, EValueFrom.LOCAL);
+		addEEnumLiteral(eValueFromEEnum, EValueFrom.EXTERNAL);
 
 		// Create resource
 		createResource(eNS_URI);

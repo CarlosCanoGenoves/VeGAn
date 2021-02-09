@@ -66,6 +66,7 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 			case GoalModelPackage.TASK: return createTask();
 			case GoalModelPackage.SOFT_GOAL: return createSoftGoal();
 			case GoalModelPackage.DECOMPOSITION: return createDecomposition();
+			case GoalModelPackage.VALUE_FROM: return createValueFrom();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,6 +88,8 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 				return createEConfidenceFromString(eDataType, initialValue);
 			case GoalModelPackage.EDECOMPOSITION:
 				return createEDecompositionFromString(eDataType, initialValue);
+			case GoalModelPackage.EVALUE_FROM:
+				return createEValueFromFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,6 +111,8 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 				return convertEConfidenceToString(eDataType, instanceValue);
 			case GoalModelPackage.EDECOMPOSITION:
 				return convertEDecompositionToString(eDataType, instanceValue);
+			case GoalModelPackage.EVALUE_FROM:
+				return convertEValueFromToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -217,6 +222,17 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public ValueFrom createValueFrom() {
+		ValueFromImpl valueFrom = new ValueFromImpl();
+		return valueFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EImportance createEImportanceFromString(EDataType eDataType, String initialValue) {
 		EImportance result = EImportance.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -289,6 +305,26 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 	 * @generated
 	 */
 	public String convertEDecompositionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EValueFrom createEValueFromFromString(EDataType eDataType, String initialValue) {
+		EValueFrom result = EValueFrom.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEValueFromToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
