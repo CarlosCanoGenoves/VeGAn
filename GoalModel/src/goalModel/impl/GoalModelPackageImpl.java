@@ -943,7 +943,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEEnum(eDecompositionEEnum, EDecomposition.class, "EDecomposition");
 		addEEnumLiteral(eDecompositionEEnum, EDecomposition.AND);
 		addEEnumLiteral(eDecompositionEEnum, EDecomposition.IOR);
-		addEEnumLiteral(eDecompositionEEnum, EDecomposition.LITERAL2);
+		addEEnumLiteral(eDecompositionEEnum, EDecomposition.XOR);
 
 		initEEnum(eValueFromEEnum, EValueFrom.class, "EValueFrom");
 		addEEnumLiteral(eValueFromEEnum, EValueFrom.LOCAL);

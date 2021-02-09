@@ -4,7 +4,7 @@
     <semanticResources>goalModel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_BA0QYFGpEeuuANx23tsyOw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BpVo8FGpEeuuANx23tsyOw" name="goalModel class diagram" repPath="#_BoYmsFGpEeuuANx23tsyOw" changeId="18fb02cc-3e3d-488f-8493-b49d00fb3be8">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BpVo8FGpEeuuANx23tsyOw" name="goalModel class diagram" repPath="#_BoYmsFGpEeuuANx23tsyOw" changeId="0ff5c8f9-08f5-408e-a53f-51c5e733d7cc">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="goalModel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1067,9 +1067,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_COEts1GpEeuuANx23tsyOw" name="LITERAL2" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="goalModel.ecore#//EDecomposition/LITERAL2"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="goalModel.ecore#//EDecomposition/LITERAL2"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_COEts1GpEeuuANx23tsyOw" name="XOR" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="goalModel.ecore#//EDecomposition/XOR"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="goalModel.ecore#//EDecomposition/XOR"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_COFUwFGpEeuuANx23tsyOw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>

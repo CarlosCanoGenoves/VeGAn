@@ -31,7 +31,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EDecomposition">
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/AND"/>
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/IOR"/>
-      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/LITERAL2"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/XOR"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EValueFrom">
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EValueFrom/local"/>
