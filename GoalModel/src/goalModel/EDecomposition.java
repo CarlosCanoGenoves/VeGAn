@@ -39,14 +39,14 @@ public enum EDecomposition implements Enumerator {
 	IOR(1, "IOR", "IOR"),
 
 	/**
-	 * The '<em><b>LITERAL2</b></em>' literal object.
+	 * The '<em><b>XOR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #LITERAL2_VALUE
+	 * @see #XOR_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	LITERAL2(2, "LITERAL2", "LITERAL2");
+	XOR(2, "XOR", "XOR");
 
 	/**
 	 * The '<em><b>AND</b></em>' literal value.
@@ -71,15 +71,15 @@ public enum EDecomposition implements Enumerator {
 	public static final int IOR_VALUE = 1;
 
 	/**
-	 * The '<em><b>LITERAL2</b></em>' literal value.
+	 * The '<em><b>XOR</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #LITERAL2
+	 * @see #XOR
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LITERAL2_VALUE = 2;
+	public static final int XOR_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>EDecomposition</b></em>' enumerators.
@@ -91,7 +91,7 @@ public enum EDecomposition implements Enumerator {
 		new EDecomposition[] {
 			AND,
 			IOR,
-			LITERAL2,
+			XOR,
 		};
 
 	/**
@@ -150,7 +150,7 @@ public enum EDecomposition implements Enumerator {
 		switch (value) {
 			case AND_VALUE: return AND;
 			case IOR_VALUE: return IOR;
-			case LITERAL2_VALUE: return LITERAL2;
+			case XOR_VALUE: return XOR;
 		}
 		return null;
 	}

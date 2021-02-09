@@ -133,7 +133,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="EDecomposition">
     <eLiterals name="AND"/>
     <eLiterals name="IOR" value="1"/>
-    <eLiterals name="LITERAL2" value="2"/>
+    <eLiterals name="XOR" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueFrom">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
