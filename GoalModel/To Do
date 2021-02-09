@@ -17,6 +17,10 @@ Todos los elementos de una descomposición deben estar en el mismo actor
 Solo las descomposiciones pueden tener más de un target
 Evitar ciclos	-	https://modeling-languages.com/closure-operation-added-to-ocl/
 
+Que el nombre de las contribuciones incluya el impacto
+El nombre de los elementos intencionales incluya la importancia certeza y valor
+	Nota: Sería demasiado largo (?) Ej: Satisfacción (Very Low Importance & Possibly More) [57]
+
 Propagación:
 
 - En la versión actual las descomposciones de tipo OR se tratan como si fueran AND
