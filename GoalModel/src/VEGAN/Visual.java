@@ -24,7 +24,7 @@ public class Visual {
 	public static void main(String[] argv) throws Exception {
 		GoalModel goalModel = UsingEMFModel.load("test.xmi");
 
-		goalModel = FTOPSIS.calculateValue(goalModel);
+		goalModel = FTOPSIS.calculateValue(goalModel).Item1;
 		
 		ArrayList<String> cols = new ArrayList<String>();
 
@@ -34,7 +34,6 @@ public class Visual {
 		cols.add("Confidence");
 		cols.add("Global Value");
 		cols.add("Local Value");
-		
 		
 		
 		JFrame frame = new JFrame();

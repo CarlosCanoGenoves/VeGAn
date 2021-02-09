@@ -673,6 +673,16 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getValueFrom_Intentionalelement() {
+		return (EReference)valueFromEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getEImportance() {
 		return eImportanceEEnum;
 	}
@@ -801,6 +811,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		createEAttribute(valueFromEClass, VALUE_FROM__VALUE);
 		createEAttribute(valueFromEClass, VALUE_FROM__VALUE_FROM);
 		createEReference(valueFromEClass, VALUE_FROM__ITERATION);
+		createEReference(valueFromEClass, VALUE_FROM__INTENTIONALELEMENT);
 
 		// Create enums
 		eImportanceEEnum = createEEnum(EIMPORTANCE);
@@ -903,6 +914,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEAttribute(getValueFrom_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, ValueFrom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValueFrom_ValueFrom(), this.getEValueFrom(), "valueFrom", null, 0, 1, ValueFrom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValueFrom_Iteration(), this.getIteration(), this.getIteration_Valuefrom(), "iteration", null, 1, 1, ValueFrom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValueFrom_Intentionalelement(), this.getIntentionalElement(), null, "intentionalelement", null, 1, 1, ValueFrom.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(eImportanceEEnum, EImportance.class, "EImportance");

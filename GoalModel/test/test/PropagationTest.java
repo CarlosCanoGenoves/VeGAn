@@ -113,14 +113,13 @@ class PropagationTest {
 		assertArrayEquals(expectedOutput, output);
 	}
 	
+	//The importance of this test is the console output, it is to check if it is propagated in the right order
 	@Test
 	void testGoalModel() 
 	{
 		GoalModel myLoadedGoalModel = UsingEMFModel.load("test.xmi");
 		
 		Tuple<double[][], Map<IntentionalElement, Integer>> p = Propagation.propagate(myLoadedGoalModel, true);
-		
-		double[][] output = p.Item1;
 		
 		return;
 	}

@@ -6,11 +6,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.omg.CORBA.portable.ValueBase;
+
 import goalModel.Actor;
 import goalModel.Decomposition;
+import goalModel.EValueFrom;
 import goalModel.Goal;
 import goalModel.GoalModel;
+import goalModel.GoalModelFactory;
 import goalModel.IntentionalElement;
+import goalModel.Iteration;
+import goalModel.ValueFrom;
 
 public class FTOPSIS {
 
@@ -358,8 +364,10 @@ public class FTOPSIS {
 		return calculateValueToCriteria(distances.Item2, totalDistance);
 	}
 	
-	public static GoalModel calculateValue(GoalModel goalModel)
+	public static Tuple<GoalModel, Map<Integer, IntentionalElement>> calculateValue(GoalModel goalModel)
 	{
+		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
+		
 		double[][] value2Criteria = calculateValueToCriteria(goalModel);
 		
 		Map<Integer, IntentionalElement> positionToIE = new HashMap<Integer, IntentionalElement>();
@@ -376,11 +384,21 @@ public class FTOPSIS {
 			}
 		}
 		
+		goalModel.setIteration(goalModel.getIteration() + 1);
+		int iterationNumber = goalModel.getIteration();
+		
 		for(int i=0; i<ieP;i++) {
 			
 			IntentionalElement ie = positionToIE.get(i);
 			double localValue = 0;
 			double globalValue = 0;
+			
+			Iteration iteration = factory.createIteration();
+			ie.getIterations().add(iteration);
+			
+			iteration.setIteration(iterationNumber);
+			iteration.setImportance(ie.getImportance());
+			iteration.setConfidence(ie.getConfidence());
 			
 			for(int j=0;j<ieP;j++) {
 				if(value2Criteria[i][j] == 0)
@@ -392,13 +410,25 @@ public class FTOPSIS {
 				
 				if(ie.getActor().equals(criteria.getActor()))
 					localValue+=value2Criteria[i][j];
+				
+				ValueFrom valueFrom = factory.createValueFrom();
+				valueFrom.setIteration(iteration);
+				valueFrom.setValue(value2Criteria[i][j]);
+				valueFrom.setIntentionalelement(criteria);
+				
+				if(ie.getActor().equals(criteria.getActor()))
+					valueFrom.setValueFrom(EValueFrom.LOCAL);
+				else
+					valueFrom.setValueFrom(EValueFrom.EXTERNAL);
 			}
 			
 			ie.setLocalValue(localValue);
 			ie.setGlobalValue(globalValue);
 			
+			iteration.setLocalValue(localValue);
+			iteration.setGlobalValue(globalValue);
 		}
 		
-		return goalModel;
+		return new Tuple<GoalModel, Map<Integer, IntentionalElement>>(goalModel, positionToIE);
 	}
 }
