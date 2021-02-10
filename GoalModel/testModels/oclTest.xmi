@@ -11,7 +11,8 @@
   <actors name="UniqueActorName">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        name="NotUniqueIEName"/>
+        name="NotUniqueIEName"
+        trgLinks="//@actors.4/@intentionalelements.1/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:Task"
         name="NotUniqueIEName"/>
@@ -20,5 +21,48 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="UniqueIEName"/>
+  </actors>
+  <actors name="SeveralTest">
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="MultipleTargets"
+        trgLinks="//@actors.4/@intentionalelements.2/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.4/@intentionalelements.1"
+          contributionType="n100"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.4/@intentionalelements.1 //@actors.4/@intentionalelements.2"/>
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.4/@intentionalelements.1 //@actors.4/@intentionalelements.2"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="Different Actors"
+        trgLinks="//@actors.4/@intentionalelements.0/@srcLinks.0 //@actors.4/@intentionalelements.0/@srcLinks.1 //@actors.4/@intentionalelements.0/@srcLinks.2 //@actors.4/@intentionalelements.1/@srcLinks.0 //@actors.4/@intentionalelements.2/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.2/@intentionalelements.0 //@actors.4/@intentionalelements.1"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="T3"
+        trgLinks="//@actors.4/@intentionalelements.0/@srcLinks.1 //@actors.4/@intentionalelements.0/@srcLinks.2 //@actors.4/@intentionalelements.3/@srcLinks.0 //@actors.4/@intentionalelements.3/@srcLinks.1">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.4/@intentionalelements.0 //@actors.4/@intentionalelements.1"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        name="MultipleDecomposition">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.4/@intentionalelements.2"/>
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.4/@intentionalelements.2"/>
+    </intentionalelements>
   </actors>
 </goalModel:GoalModel>

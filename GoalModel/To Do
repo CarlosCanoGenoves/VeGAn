@@ -5,19 +5,18 @@ OCL:
 
 Existentes:
 
-1- Generar los nombres de las Contribuciones y las dependencias
+1- Generar los nombres de las contribuciones y las dependencias INCLUYENDO impacto
 2- Los nombres los actores son UNICOS
 3- Los nombres de los elementos intencionales DENTRO de un mismo actor son UNICOS
+4- Solo las descomposiciones pueden tener más de un target
+5- Todos los elementos de una descomposición deben estar en el mismo actor
+6- Un elemento intencional puede estar en una única relación de Descomposición como PADRE (Source)
+7- Un elemento intencional puede estar en una única relación de descomposición como HIJO (target)
 
 Por añadir:
 
-Un elemento intencional puede estar en una única relación de Descomposición como PADRE (Source)
-Un elemento intencional puede estar en una única relación de descomposición como HIJO (target)
-Todos los elementos de una descomposición deben estar en el mismo actor
-Solo las descomposiciones pueden tener más de un target
 Evitar ciclos	-	https://modeling-languages.com/closure-operation-added-to-ocl/
 
-Que el nombre de las contribuciones incluya el impacto
 El nombre de los elementos intencionales incluya la importancia certeza y valor
 	Nota: Sería demasiado largo (?) Ej: Satisfacción (Very Low Importance & Possibly More) [57]
 
