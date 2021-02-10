@@ -442,4 +442,45 @@ class testFTOPSIS {
 				
 		return;
 	}
+	
+	//Test designed to check in debug mode
+	@Test
+	void testHopeModel() {
+		GoalModel goalModel = UsingEMFModel.load("hope.xmi");
+		
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(goalModel);
+		
+		double[][] performanceMatrix = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		/*
+		for(IntentionalElement key : ieToPosition.keySet())
+			System.out.println(ieToPosition.get(key) + " - " + key.getName());
+		*/
+		
+		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(goalModel, performanceMatrix, ieToPosition);
+		
+		//Fuzzy Performance Matrix
+		FuzzyNumber[][] fuzzyPerformanceMatrix = FuzzyNumber.fuzzyfy(herarchizedPerformanceMatrix);
+		
+		//Normalized Fuzzy Performance Matrix
+		FuzzyNumber[][] normalizedFuzzyPerformanceMatrix = FTOPSIS.normalizeMatrix(fuzzyPerformanceMatrix);
+		
+		Tuple<FuzzyNumber[], Map<Actor, Integer>> tupleActorWeight = FTOPSIS.calculateActorWeight(goalModel);
+		
+		FuzzyNumber[] actorWeight = tupleActorWeight.Item1;
+		Map<Actor, Integer> actorToPosition = tupleActorWeight.Item2;
+		
+		FuzzyNumber[] ieWeight = FTOPSIS.calculateIEWeight(goalModel, ieToPosition);
+		
+		FuzzyNumber[][] WFNM = FTOPSIS.calculateWFNM(goalModel, normalizedFuzzyPerformanceMatrix, actorWeight, ieWeight, ieToPosition, actorToPosition);
+		
+		FuzzyNumber[][] FPIS_FNIS = FTOPSIS.calculateFPIS_FNIS(WFNM);
+		
+		Tuple<double[][], double[][]> distances = FTOPSIS.calculateDistanceToFPIS_FNIS(WFNM, FPIS_FNIS);
+		double totalDistance = FTOPSIS.totalDistance(FPIS_FNIS);
+		double[][] valueToCriteria = FTOPSIS.calculateValueToCriteria(distances.Item2, totalDistance);
+		
+		return;
+	}
 }
