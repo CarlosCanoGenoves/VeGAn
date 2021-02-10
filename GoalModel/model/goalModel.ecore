@@ -19,9 +19,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//Actor" containment="true" eOpposite="#//Actor/goalmodel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" ordered="false"
-        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//GoalElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -37,6 +36,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntentionalElement" abstract="true"
       eSuperTypes="#//GoalElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="onlyOneDecomposition"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="onlyOneDecomposition" value="self.srcLinks->collect(oclIsTypeOf(Decomposition))->size() &lt; 2 and self.trgLinks->collect(oclIsTypeOf(Decomposition))->size() &lt; 2"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"
         eOpposite="#//Actor/intentionalelements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="srcLinks" upperBound="-1"
@@ -59,28 +64,39 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoalElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importance" ordered="false"
-        unique="false" eType="#//EImportance"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" ordered="false"
-        unique="false" eType="#//EConfidence" defaultValueLiteral="Confident"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localValue" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importance" eType="#//EImportance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="#//EConfidence"
+        defaultValueLiteral="Confident"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="iterations" upperBound="-1"
         eType="#//Iteration" containment="true" eOpposite="#//Iteration/element"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="globalValue" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="globalValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//Link">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="oneTarget"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="oneTarget" value="self.trgs->size() &lt;2"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="if trgs->size() &lt;> 0 then src.name+' to '+trgs->first().name else '' endif"/>
+        <details key="derivation" value="let impact : Integer = if self.contributionType = EContribution::p100 then 100 elseif self.contributionType = EContribution::p75 then 75 &#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::p50 then 50 elseif self.contributionType = EContribution::p25 then 25&#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::n25 then -25 elseif self.contributionType = EContribution::n50 then -50 &#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::n75 then -75 elseif self.contributionType = EContribution::n100 then -100 else 0 endif&#xA;&#x9;&#x9;&#x9;in if trgs->size() &lt;> 0 then src.name + ' to ' + trgs->first().name + ' (' + impact.toString() + ')' else '' endif"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" eType="#//EContribution"
         defaultValueLiteral="p0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dependency" eSuperTypes="#//Link">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="oneTarget"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="oneTarget" value="self.trgs->size() &lt;2"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
@@ -105,16 +121,15 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Iteration" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Importance" ordered="false"
-        unique="false" eType="#//EImportance"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Confidence" ordered="false"
-        unique="false" eType="#//EConfidence" defaultValueLiteral="Confident"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Importance" eType="#//EImportance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Confidence" eType="#//EConfidence"
+        defaultValueLiteral="Confident"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//GoalElement"
         eOpposite="#//GoalElement/iterations"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="globalValue" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localValue" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="globalValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valuefrom" upperBound="-1"
         eType="#//ValueFrom" containment="true" eOpposite="#//ValueFrom/iteration"/>
   </eClassifiers>
@@ -127,6 +142,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//IntentionalElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SoftGoal" eSuperTypes="#//IntentionalElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Decomposition" eSuperTypes="#//Link">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="sameActor"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="sameActor" value="self.trgs->forAll(actor = self.src.actor)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="decompositionType" eType="#//EDecomposition"
         defaultValueLiteral="AND"/>
   </eClassifiers>
@@ -136,7 +157,7 @@
     <eLiterals name="XOR" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueFrom">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueFrom" eType="#//EValueFrom"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="iteration" lowerBound="1"
         eType="#//Iteration" eOpposite="#//Iteration/valuefrom"/>
