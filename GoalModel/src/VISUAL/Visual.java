@@ -28,7 +28,7 @@ import goalModel.ValueFrom;
 
 public class Visual {
 	public static void main(String[] argv) throws Exception {
-		GoalModel goalModel = UsingEMFModel.load("test.xmi");
+		GoalModel goalModel = UsingEMFModel.load("hope.xmi");
 
 		goalModel = FTOPSIS.calculateValue(goalModel).Item1;
 		
