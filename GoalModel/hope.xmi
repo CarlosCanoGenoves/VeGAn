@@ -14,6 +14,9 @@
           xsi:type="goalModel:Decomposition"
           trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2 //@actors.0/@intentionalelements.3"
           decompositionType="IOR"/>
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.2/@intentionalelements.0"/>
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
@@ -80,7 +83,8 @@
   <actors name="Orientador">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        name="Proveer ayuda">
+        name="Proveer ayuda"
+        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Decomposition"
           trgs="//@actors.1/@intentionalelements.1 //@actors.1/@intentionalelements.2 //@actors.1/@intentionalelements.3"
@@ -160,11 +164,15 @@
   <actors name="Telefono de la esperanza">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        name="Ofrecer ayuda emocional">
+        name="Ofrecer ayuda emocional"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Decomposition"
           trgs="//@actors.2/@intentionalelements.1 //@actors.2/@intentionalelements.2 //@actors.2/@intentionalelements.3"
           decompositionType="IOR"/>
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.1/@intentionalelements.0"/>
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
