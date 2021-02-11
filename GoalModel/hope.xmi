@@ -160,10 +160,16 @@
   <actors name="Telefono de la esperanza">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        name="Ofrecer ayuda emocional"/>
+        name="Ofrecer ayuda emocional">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.2/@intentionalelements.1 //@actors.2/@intentionalelements.2 //@actors.2/@intentionalelements.3"
+          decompositionType="IOR"/>
+    </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Telefono">
+        name="Telefono"
+        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
           trgs="//@actors.2/@intentionalelements.4"
@@ -175,7 +181,8 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Chat">
+        name="Chat"
+        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
           trgs="//@actors.2/@intentionalelements.4"
@@ -187,7 +194,8 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="VideoChat">
+        name="VideoChat"
+        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
           trgs="//@actors.2/@intentionalelements.4"
