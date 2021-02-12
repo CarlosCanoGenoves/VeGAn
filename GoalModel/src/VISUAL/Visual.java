@@ -1,7 +1,6 @@
 package VISUAL;
 
 
-import java.awt.Container;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -17,7 +16,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import VEGAN.FTOPSIS;
-import VEGAN.Tuple;
 import VEGAN.UsingEMFModel;
 import goalModel.Actor;
 import goalModel.EValueFrom;
@@ -31,6 +29,8 @@ public class Visual {
 		GoalModel goalModel = UsingEMFModel.load("hope.xmi");
 
 		goalModel = FTOPSIS.calculateValue(goalModel).Item1;
+		
+		UsingEMFModel.save(goalModel, "hope.xmi");
 		
 		ArrayList<String> cols = new ArrayList<String>();
 
