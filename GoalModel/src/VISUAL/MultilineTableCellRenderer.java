@@ -56,7 +56,8 @@ implements TableCellRenderer {
             setBorder(new EmptyBorder(1, 2, 1, 2));
         }
         if (value != null) {
-            setText(shortener(value.toString()));
+            //setText(shortener(value.toString()));
+        	setText(value.toString());
         } else {
             setText("");
         }

@@ -23,8 +23,8 @@ El nombre de los elementos intencionales incluya la importancia certeza y valor
 Propagación:
 
 - En la versión actual las descomposciones de tipo OR se tratan como si fueran AND
-- La salida debe incluir de donde viene el valor en la interfaz gráfica
 - El valor PROPIO de un elemento que se descompone debe ser la suma de sus hijos y eliminar a sus hijos.
+- Contribuir a un "padre" no debería aparecer visualmente como contribuir a todos sus hijos. (¿Problema recursividad?)
 
 
 Otros:
