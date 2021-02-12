@@ -453,10 +453,10 @@ class testFTOPSIS {
 		double[][] performanceMatrix = tuplePropagation.Item1;
 		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
 		
-		/*
+		
 		for(IntentionalElement key : ieToPosition.keySet())
 			System.out.println(ieToPosition.get(key) + " - " + key.getName());
-		*/
+		
 		
 		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(goalModel, performanceMatrix, ieToPosition);
 		
@@ -480,6 +480,8 @@ class testFTOPSIS {
 		Tuple<double[][], double[][]> distances = FTOPSIS.calculateDistanceToFPIS_FNIS(WFNM, FPIS_FNIS);
 		double totalDistance = FTOPSIS.totalDistance(FPIS_FNIS);
 		double[][] valueToCriteria = FTOPSIS.calculateValueToCriteria(distances.Item2, totalDistance);
+		
+		GoalModel output = FTOPSIS.calculateValue(goalModel).Item1;
 		
 		return;
 	}
