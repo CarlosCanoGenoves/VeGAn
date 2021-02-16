@@ -29,9 +29,5 @@ Propagación:
 
 Otros:
 
-*************************************************
-* ieToPosition DEBE pasarse A todos los métodos *
-*************************************************
-
 Cuando hay una DEPENDENCIA, las relación se transforma a MAX
  - ¿Qué pasa si se contribuye (+ o -) a MAX?

@@ -4,7 +4,7 @@
     <semanticResources>goalModel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_BA0QYFGpEeuuANx23tsyOw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BpVo8FGpEeuuANx23tsyOw" name="goalModel class diagram" repPath="#_BoYmsFGpEeuuANx23tsyOw" changeId="0ff5c8f9-08f5-408e-a53f-51c5e733d7cc">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BpVo8FGpEeuuANx23tsyOw" name="goalModel class diagram" repPath="#_BoYmsFGpEeuuANx23tsyOw" changeId="6b68c3f0-5558-483b-b873-d052b9c191a5">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="goalModel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -775,16 +775,16 @@
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_CM8FQFGpEeuuANx23tsyOw" name="localValue : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="goalModel.ecore#//GoalElement/localValue"/>
         <semanticElements xmi:type="ecore:EAttribute" href="goalModel.ecore#//GoalElement/localValue"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_SHvMAWjJEeuRvZjLQPjQFQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_GM7WkW1NEeuVLYrOtd069g" labelAlignment="LEFT" description="_CM8sUFGpEeuuANx23tsyOw">
+          <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_FCDIIGjJEeuRvZjLQPjQFQ" name="globalValue : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="goalModel.ecore#//GoalElement/globalValue"/>
         <semanticElements xmi:type="ecore:EAttribute" href="goalModel.ecore#//GoalElement/globalValue"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_Qri61WjJEeuRvZjLQPjQFQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_GM8ksW1NEeuVLYrOtd069g" labelAlignment="LEFT" description="_CM8sUFGpEeuuANx23tsyOw">
+          <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
@@ -949,16 +949,16 @@
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_XNtAQ2jJEeuRvZjLQPjQFQ" name="globalValue : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/globalValue"/>
         <semanticElements xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/globalValue"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_XNtnUGjJEeuRvZjLQPjQFQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_GO2pMW1NEeuVLYrOtd069g" labelAlignment="LEFT" description="_CM8sUFGpEeuuANx23tsyOw">
+          <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_XNtnUWjJEeuRvZjLQPjQFQ" name="localValue : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/localValue"/>
         <semanticElements xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/localValue"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_XNuOYGjJEeuRvZjLQPjQFQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_GO3QQW1NEeuVLYrOtd069g" labelAlignment="LEFT" description="_CM8sUFGpEeuuANx23tsyOw">
+          <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
@@ -1236,8 +1236,8 @@
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_hcuu8GsMEeuma_fpoWEYpA" name="value : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="goalModel.ecore#//ValueFrom/value"/>
         <semanticElements xmi:type="ecore:EAttribute" href="goalModel.ecore#//ValueFrom/value"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_kq4tBmsMEeuma_fpoWEYpA" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_GO5FcW1NEeuVLYrOtd069g" labelAlignment="LEFT" description="_CM8sUFGpEeuuANx23tsyOw">
+          <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>

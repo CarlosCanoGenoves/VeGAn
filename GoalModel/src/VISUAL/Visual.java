@@ -19,9 +19,12 @@ import VEGAN.FTOPSIS;
 import VEGAN.UsingEMFModel;
 import goalModel.Actor;
 import goalModel.EValueFrom;
+import goalModel.Goal;
 import goalModel.GoalModel;
 import goalModel.IntentionalElement;
 import goalModel.Iteration;
+import goalModel.SoftGoal;
+import goalModel.Task;
 import goalModel.ValueFrom;
 
 public class Visual {
@@ -68,7 +71,7 @@ public class Visual {
 				IntentionalElement ie = (IntentionalElement) ieIterator.next();
 				
 				ArrayList<Object> objs = new ArrayList<Object>();
-				objs.add(ie.getName());
+				objs.add(ie.getName() + " " + getIntentionalType(ie));
 				objs.add(ie.getImportance().toString());
 				objs.add(ie.getConfidence().toString());
 				objs.add(Math.round(ie.getGlobalValue()*100.0)/100.0);
@@ -90,11 +93,11 @@ public class Visual {
 						
 						if(valueFrom.getValueFrom()==EValueFrom.LOCAL)
 						{
-							intra_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getName() + "\r\n";
+							intra_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getName() + " " + getIntentionalType(valueFrom.getIntentionalelement()) + "\r\n";
 						}
 						else
 						{
-							inter_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getName() + "\r\n";
+							inter_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getName() + " " + getIntentionalType(valueFrom.getIntentionalelement()) + "\r\n";
 
 						}
 					}
@@ -128,5 +131,17 @@ public class Visual {
 		frame.pack();
 		
 		frame.setVisible(true);
+	}
+	
+	private static String getIntentionalType(IntentionalElement ie)
+	{
+		if(ie instanceof Goal)
+			return "(G)";
+		else if(ie instanceof SoftGoal)
+			return "(S)";
+		else if(ie instanceof Task)
+			return "(T)";
+		
+		return "(U)";	//Unknown
 	}
 }
