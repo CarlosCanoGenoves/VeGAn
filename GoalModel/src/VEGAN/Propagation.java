@@ -17,7 +17,7 @@ public class Propagation {
 	{
 		return propagate(goalModel, false);
 	}
-	
+
 	public static Tuple<double[][], Map<IntentionalElement, Integer>> propagate(GoalModel goalModel, boolean verbose)
 	{
 		List<IntentionalElement> toVisitIE = new ArrayList<IntentionalElement>();
@@ -249,7 +249,7 @@ public class Propagation {
 		
 		return result;
 	}
-	
+
 	public static double getImpact(EContribution contributionType)
 	{
 		switch (contributionType) {
@@ -266,7 +266,7 @@ public class Propagation {
 		
 		return 0;
 	}
-	
+
 	private static void propagateFather(double[][] result, double impact, int target, IntentionalElement child, Map<IntentionalElement, Integer> ieToPosition)
 	{
 		if(!child.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition) || impact == 0)
