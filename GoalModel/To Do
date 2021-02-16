@@ -44,7 +44,7 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
 		- Aplicación		- El desarrollo del plugin de la opción anterior es obligatorio, por lo que puede hacerse AMBAS opciones
 		- Aplicación web	- DESCARTADO: Está en desarrollo, no es totalmente funcional, no puede ejcutarse código / crearse plugins ni usarse OCL. Desarrolo actual: https://github.com/eclipse-emfcloud/coffee-editor
 
- 	M/A-	Inter & intra value to father instead of children
+H 	M/A-	Inter & intra value to father instead of children
 
  	M 	-	OCL generar nombre de Value From
 

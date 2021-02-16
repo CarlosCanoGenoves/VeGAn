@@ -6,12 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.omg.CORBA.portable.ValueBase;
-
 import goalModel.Actor;
 import goalModel.Decomposition;
 import goalModel.EValueFrom;
-import goalModel.Goal;
 import goalModel.GoalModel;
 import goalModel.GoalModelFactory;
 import goalModel.IntentionalElement;
@@ -116,8 +113,8 @@ public class FTOPSIS {
 				
 		return matrix;
 	}
-	
-	
+
+
 	public static Tuple<FuzzyNumber[], Map<Actor, Integer>> calculateActorWeight(GoalModel goalModel)
 	{
 		FuzzyNumber[] actorWeight = new FuzzyNumber[goalModel.getActors().size()];
@@ -135,7 +132,7 @@ public class FTOPSIS {
 		
 		return tuple;
 	}
-	
+
 	public static FuzzyNumber[] calculateIEWeight(GoalModel goalModel, Map<IntentionalElement, Integer> ieToPosition)
 	{
 		FuzzyNumber[] ieWeight = new FuzzyNumber[ieToPosition.size()];
@@ -189,8 +186,7 @@ public class FTOPSIS {
 		
 		return ieWeight;
 	}
-	
-	
+
 	
 	// Weighted Normalized Fuzzy Performance Matrix
 	public static FuzzyNumber[][] calculateWFNM(GoalModel goalModel, FuzzyNumber[][] NFPM, FuzzyNumber[] actorWeight,
@@ -223,8 +219,8 @@ public class FTOPSIS {
 		
 		return WFNPM;
 	}
-	
-	
+
+
 	public static FuzzyNumber[][] calculateWFNM(GoalModel goalModel) {
 		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(goalModel);
 		
@@ -275,7 +271,7 @@ public class FTOPSIS {
 		
 		return FPIS_FNIS;
 	}
-	
+
 	/**
 	 * Modified version of the FPIS & FNIS calculation for VEGAN
 	 * The difference is that FNIS is ALWAYS 0
@@ -296,7 +292,7 @@ public class FTOPSIS {
 		
 		return FPIS_FNIS;
 	}
-	
+
 	
 	/**
 	 * 
@@ -341,7 +337,7 @@ public class FTOPSIS {
 		
 		return total;
 	}
-	
+
 	public static double[][] calculateValueToCriteria(double[][] distanceFNIS, double totalDistance)
 	{
 		double[][] valueToCriteria = new double[distanceFNIS.length][distanceFNIS.length];
@@ -354,7 +350,7 @@ public class FTOPSIS {
 		
 		return valueToCriteria;
 	}
-	
+
 	public static double[][] calculateValueToCriteria(GoalModel goalmodel) {
 		FuzzyNumber[][] WFNM = calculateWFNM(goalmodel);
 		FuzzyNumber[][] FPIS_FNIS = calculateFPIS_FNIS(WFNM);
@@ -363,12 +359,9 @@ public class FTOPSIS {
 		
 		return calculateValueToCriteria(distances.Item2, totalDistance);
 	}
-	
-	public static Tuple<GoalModel, Map<Integer, IntentionalElement>> calculateValue(GoalModel goalModel)
-	{
+
+	public static Tuple<GoalModel, Map<Integer, IntentionalElement>> calculateValue(GoalModel goalModel) {
 		GoalModelFactory factory = GoalModelFactory.eINSTANCE;
-		
-		double[][] value2Criteria = calculateValueToCriteria(goalModel);
 		
 		Map<Integer, IntentionalElement> positionToIE = new HashMap<Integer, IntentionalElement>();
 		
@@ -383,6 +376,8 @@ public class FTOPSIS {
 				positionToIE.put(ieP++, ie);
 			}
 		}
+		
+		double[][] value2Criteria = de_hierarchize(goalModel, calculateValueToCriteria(goalModel), positionToIE);
 		
 		goalModel.setIteration(goalModel.getIteration() + 1);
 		int iterationNumber = goalModel.getIteration();
@@ -430,5 +425,56 @@ public class FTOPSIS {
 		}
 		
 		return new Tuple<GoalModel, Map<Integer, IntentionalElement>>(goalModel, positionToIE);
+	}
+	
+	private static double[][] de_hierarchize(GoalModel goalModel, double[][] value2Criteria, Map<Integer, IntentionalElement> positionToIE) {
+		Tuple<double[][], Map<IntentionalElement, Integer>> tuplePropagation = Propagation.propagate(goalModel);
+		
+		//NON hierarchized
+		double[][] performance = tuplePropagation.Item1;
+		Map<IntentionalElement, Integer> ieToPosition = tuplePropagation.Item2;
+		
+		double[][] value2CriteriaDeHierarchize = value2Criteria.clone();
+		
+		List<IntentionalElement> toVisitIE = new ArrayList<IntentionalElement>();
+		
+		//Detect CRITERIA to dehierarchize
+		for(int i = 0; i < value2Criteria.length; i++)
+			for(int j = 0; j < value2Criteria.length; j++) {
+				if(performance[i][j] != 0 && value2Criteria[i][j] == 0)
+					if(!toVisitIE.contains(positionToIE.get(j)))
+						toVisitIE.add(positionToIE.get(j));
+			}
+
+		while (!toVisitIE.isEmpty()) {
+			IntentionalElement ie = toVisitIE.remove(0);
+			
+			Decomposition decomposition = (Decomposition) ie.getSrcLinks().stream().filter(link -> link instanceof Decomposition).findAny().get();
+			
+			//Anidation of decomposition
+			if(decomposition.getTrgs().stream().anyMatch(child -> toVisitIE.contains(child)))
+				toVisitIE.add(ie);
+			
+			int fatherPosition = ieToPosition.get(ie);
+			
+			//This is inefficient
+			for(int i = 0; i < value2Criteria.length; i++)
+			{
+				for (Iterator<IntentionalElement> decompositionIterator = decomposition.getTrgs().iterator(); decompositionIterator.hasNext();)
+				{
+					IntentionalElement child = decompositionIterator.next();
+					int childposition = ieToPosition.get(child);
+					
+					//Exception: Not to dehierarchize child
+					if(i == childposition)
+						break;
+					
+					value2CriteriaDeHierarchize[i][fatherPosition] += value2CriteriaDeHierarchize[i][childposition];
+					value2CriteriaDeHierarchize[i][childposition] = 0;
+				}
+			}
+		}
+		
+		return value2CriteriaDeHierarchize;
 	}
 }
