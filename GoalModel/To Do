@@ -31,3 +31,41 @@ Otros:
 
 Cuando hay una DEPENDENCIA, las relación se transforma a MAX
  - ¿Qué pasa si se contribuye (+ o -) a MAX?
+ 
+ 
+ ------------------------------------------------
+ Nuevos requisitos REUNION 12-02
+ ------------------------------------------------
+ 
+ H	A -		En la salida de la tabla indicar si es Goal Task o SoftGoal (Igual una letra sirve)
+
+ 	A/M	-	Exportar el eclipse entero como aplicación (?)
+		- Plugin
+		- Aplicación		- El desarrollo del plugin de la opción anterior es obligatorio, por lo que puede hacerse AMBAS opciones
+		- Aplicación web	- DESCARTADO: Está en desarrollo, no es totalmente funcional, no puede ejcutarse código / crearse plugins ni usarse OCL. Desarrolo actual: https://github.com/eclipse-emfcloud/coffee-editor
+
+ 	M/A-	Inter & intra value to father instead of children
+
+ 	M 	-	OCL generar nombre de Value From
+
+ 	M	-	Importance & Confidence & value in the name of the IE
+
+	M	-	Texto mensajes de error OCL
+
+	M	-	Hacer página web para la herramienta
+
+	M/B	-	Decomposition of type != AND
+			- Configuación: Max, Media, Combinatoria...
+
+	M/B	-	Visual: Añadir un List para seleccionar que iteración ver
+
+	B	-	Crear importancia de no asignar importancia -> No Defined & lo mismo para Confidence
+
+	B	-	Añadir documentación
+
+	B	-	Generar M2M de Amyot al nuestro
+
+	B	-	Tabla de visual: Cuando se hace click en Value intra-actor / inter organizar de mayor a menor los elementos dentro de la row, NO organizar todas las rows
+			- El primero siempre él mismo
+
+H	B	-		Probar OTRAS versiones de Eclipse. Funciona con la última versión
