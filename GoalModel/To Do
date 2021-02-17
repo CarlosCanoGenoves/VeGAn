@@ -39,7 +39,7 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
  
  H	A -		En la salida de la tabla indicar si es Goal Task o SoftGoal (Igual una letra sirve)
 
- 	A/M	-	Exportar el eclipse entero como aplicación (?)
+~ 	A/M	-	Exportar el eclipse entero como aplicación (?)
 		- Plugin
 		- Aplicación		- El desarrollo del plugin de la opción anterior es obligatorio, por lo que puede hacerse AMBAS opciones
 		- Aplicación web	- DESCARTADO: Está en desarrollo, no es totalmente funcional, no puede ejcutarse código / crearse plugins ni usarse OCL. Desarrolo actual: https://github.com/eclipse-emfcloud/coffee-editor
@@ -47,6 +47,7 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
 H 	M/A-	Inter & intra value to father instead of children
 
 H 	M 	-	OCL generar nombre de Value From
+				-Error: Value < X size
 
  	M	-	Importance & Confidence & value in the name of the IE
 
@@ -57,7 +58,7 @@ H	M	-	Texto mensajes de error OCL
 	M/B	-	Decomposition of type != AND
 			- Configuación: Max, Media, Combinatoria...
 
-	M/B	-	Visual: Añadir un List para seleccionar que iteración ver
+H	M/B	-	Visual: Añadir un List para seleccionar que iteración ver
 
 	B	-	Crear importancia de no asignar importancia -> No Defined & lo mismo para Confidence
 
@@ -68,4 +69,4 @@ H	M	-	Texto mensajes de error OCL
 	B	-	Tabla de visual: Cuando se hace click en Value intra-actor / inter organizar de mayor a menor los elementos dentro de la row, NO organizar todas las rows
 			- El primero siempre él mismo
 
-H	B	-		Probar OTRAS versiones de Eclipse. Funciona con la última versión
+H	B	-	Probar OTRAS versiones de Eclipse. Funciona con la última versión

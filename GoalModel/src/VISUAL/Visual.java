@@ -1,17 +1,23 @@
 package VISUAL;
 
 
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +40,22 @@ public class Visual {
 		goalModel = FTOPSIS.calculateValue(goalModel).Item1;
 		
 		UsingEMFModel.save(goalModel, "hope.xmi");
+				
+		JFrame frame = new JFrame();
+		frame.add(new JScrollPane(showLastIteration(goalModel)));
+		frame.pack();
 		
+		frame.setVisible(true);
+	}
+
+	/*
+	 * By default SHOW the LAST iteration
+	 */
+	private static JPanel showLastIteration(GoalModel goalModel) {
+		return showIteration(goalModel, goalModel.getIteration());
+	}
+	
+	private static JPanel showIteration(GoalModel goalModel, int selectedIteration) {
 		ArrayList<String> cols = new ArrayList<String>();
 
 		cols.add("Intentional Element");
@@ -45,9 +66,36 @@ public class Visual {
 		cols.add("Value intra-actor");
 		cols.add("Value inter-actor");
 		
-		JFrame frame = new JFrame();
+		
 		JPanel jpanel = new JPanel();
 		jpanel.setLayout(new BoxLayout(jpanel, BoxLayout.Y_AXIS));
+		
+		JComboBox myList = new JComboBox();
+		
+		 for(int i = 1; i <= goalModel.getIteration(); i++)
+			 myList.addItem("Iteration: "+i);
+		 
+		 myList.setSelectedIndex(selectedIteration-1);
+		 
+		 myList.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.out.println(myList.getSelectedIndex());
+					
+					JPanel newJpanel = showIteration(goalModel, myList.getSelectedIndex()+1);
+					
+					JFrame jframe = (JFrame)SwingUtilities.getRoot(myList);
+					jframe.getContentPane().removeAll();
+					jframe.getContentPane().add(new JScrollPane(newJpanel));
+					jframe.update(jframe.getGraphics());
+					
+					jframe.setVisible(true);
+
+				}
+			});
+
+		 
+		 jpanel.add(myList);
 		
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
@@ -84,7 +132,7 @@ public class Visual {
 				{
 					Iteration iteration = iterationIterator.next();
 					
-					if(iteration.getIteration() != goalModel.getIteration())
+					if(iteration.getIteration() != selectedIteration)
 						continue;
 					
 					for (Iterator<ValueFrom> valueFromIterator = iteration.getValuefrom().iterator(); valueFromIterator.hasNext();)
@@ -127,10 +175,7 @@ public class Visual {
 			jpanel.add(Box.createVerticalStrut(20));
 		}
 		
-		frame.add(new JScrollPane(jpanel));
-		frame.pack();
-		
-		frame.setVisible(true);
+		return jpanel;
 	}
 	
 	private static String getIntentionalType(IntentionalElement ie)
