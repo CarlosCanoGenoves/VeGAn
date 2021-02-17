@@ -70,7 +70,7 @@ public interface GoalModel extends EObject {
 	 * @return the value of the '<em>Iteration</em>' attribute.
 	 * @see #setIteration(int)
 	 * @see goalModel.GoalModelPackage#getGoalModel_Iteration()
-	 * @model default="0" unique="false" required="true" ordered="false"
+	 * @model default="0" required="true"
 	 * @generated
 	 */
 	int getIteration();

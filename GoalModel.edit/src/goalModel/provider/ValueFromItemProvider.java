@@ -60,11 +60,34 @@ public class ValueFromItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 			addValueFromPropertyDescriptor(object);
 			addIntentionalelementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ValueFrom_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueFrom_name_feature", "_UI_ValueFrom_type"),
+				 GoalModelPackage.Literals.VALUE_FROM__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -152,8 +175,10 @@ public class ValueFromItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ValueFrom valueFrom = (ValueFrom)object;
-		return getString("_UI_ValueFrom_type") + " " + valueFrom.getValue();
+		String label = ((ValueFrom)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ValueFrom_type") :
+			getString("_UI_ValueFrom_type") + " " + label;
 	}
 
 
@@ -169,6 +194,7 @@ public class ValueFromItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ValueFrom.class)) {
+			case GoalModelPackage.VALUE_FROM__NAME:
 			case GoalModelPackage.VALUE_FROM__VALUE:
 			case GoalModelPackage.VALUE_FROM__VALUE_FROM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

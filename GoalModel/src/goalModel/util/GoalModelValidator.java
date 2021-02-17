@@ -229,7 +229,76 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateIntentionalElement(IntentionalElement intentionalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(intentionalElement, diagnostics, context);
+		if (!validate_NoCircularContainment(intentionalElement, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(intentionalElement, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the onlyOneDecomposition constraint of '<em>Intentional Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String INTENTIONAL_ELEMENT__ONLY_ONE_DECOMPOSITION__EEXPRESSION = "self.srcLinks->select(oclIsTypeOf(Decomposition))->size() < 2";
+
+	/**
+	 * Validates the onlyOneDecomposition constraint of '<em>Intentional Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntentionalElement_onlyOneDecomposition(IntentionalElement intentionalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.INTENTIONAL_ELEMENT,
+				 intentionalElement,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "onlyOneDecomposition",
+				 INTENTIONAL_ELEMENT__ONLY_ONE_DECOMPOSITION__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the onlyOneFather constraint of '<em>Intentional Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String INTENTIONAL_ELEMENT__ONLY_ONE_FATHER__EEXPRESSION = "self.trgLinks->select(oclIsTypeOf(Decomposition))->size() < 2";
+
+	/**
+	 * Validates the onlyOneFather constraint of '<em>Intentional Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntentionalElement_onlyOneFather(IntentionalElement intentionalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.INTENTIONAL_ELEMENT,
+				 intentionalElement,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "onlyOneFather",
+				 INTENTIONAL_ELEMENT__ONLY_ONE_FATHER__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -256,7 +325,46 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateContribution(Contribution contribution, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(contribution, diagnostics, context);
+		if (!validate_NoCircularContainment(contribution, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validateContribution_oneTarget(contribution, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the oneTarget constraint of '<em>Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String CONTRIBUTION__ONE_TARGET__EEXPRESSION = "self.trgs->size() <2";
+
+	/**
+	 * Validates the oneTarget constraint of '<em>Contribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateContribution_oneTarget(Contribution contribution, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.CONTRIBUTION,
+				 contribution,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "oneTarget",
+				 CONTRIBUTION__ONE_TARGET__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -265,7 +373,46 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDependency(Dependency dependency, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(dependency, diagnostics, context);
+		if (!validate_NoCircularContainment(dependency, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDependency_oneTarget(dependency, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the oneTarget constraint of '<em>Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String DEPENDENCY__ONE_TARGET__EEXPRESSION = "self.trgs->size() <2";
+
+	/**
+	 * Validates the oneTarget constraint of '<em>Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDependency_oneTarget(Dependency dependency, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.DEPENDENCY,
+				 dependency,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "oneTarget",
+				 DEPENDENCY__ONE_TARGET__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -283,7 +430,18 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGoal(Goal goal, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(goal, diagnostics, context);
+		if (!validate_NoCircularContainment(goal, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(goal, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -292,7 +450,18 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTask(Task task, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(task, diagnostics, context);
+		if (!validate_NoCircularContainment(task, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(task, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -301,7 +470,18 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSoftGoal(SoftGoal softGoal, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(softGoal, diagnostics, context);
+		if (!validate_NoCircularContainment(softGoal, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(softGoal, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -310,7 +490,46 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDecomposition(Decomposition decomposition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(decomposition, diagnostics, context);
+		if (!validate_NoCircularContainment(decomposition, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDecomposition_sameActor(decomposition, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the sameActor constraint of '<em>Decomposition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String DECOMPOSITION__SAME_ACTOR__EEXPRESSION = "self.trgs->forAll(actor = self.src.actor)";
+
+	/**
+	 * Validates the sameActor constraint of '<em>Decomposition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDecomposition_sameActor(Decomposition decomposition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.DECOMPOSITION,
+				 decomposition,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "sameActor",
+				 DECOMPOSITION__SAME_ACTOR__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

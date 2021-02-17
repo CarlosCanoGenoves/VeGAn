@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link goalModel.impl.ValueFromImpl#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.impl.ValueFromImpl#getValue <em>Value</em>}</li>
  *   <li>{@link goalModel.impl.ValueFromImpl#getValueFrom <em>Value From</em>}</li>
  *   <li>{@link goalModel.impl.ValueFromImpl#getIteration <em>Iteration</em>}</li>
@@ -36,6 +38,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class ValueFromImpl extends MinimalEObjectImpl.Container implements ValueFrom {
+	/**
+	 * The cached setting delegate for the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate NAME__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GoalModelPackage.Literals.VALUE_FROM__NAME).getSettingDelegate();
+
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,6 +115,26 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 	@Override
 	protected EClass eStaticClass() {
 		return GoalModelPackage.Literals.VALUE_FROM;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return (String)NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		NAME__ESETTING_DELEGATE.dynamicSet(this, null, 0, newName);
 	}
 
 	/**
@@ -286,6 +318,8 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GoalModelPackage.VALUE_FROM__NAME:
+				return getName();
 			case GoalModelPackage.VALUE_FROM__VALUE:
 				return getValue();
 			case GoalModelPackage.VALUE_FROM__VALUE_FROM:
@@ -307,6 +341,9 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GoalModelPackage.VALUE_FROM__NAME:
+				setName((String)newValue);
+				return;
 			case GoalModelPackage.VALUE_FROM__VALUE:
 				setValue((Double)newValue);
 				return;
@@ -331,6 +368,9 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GoalModelPackage.VALUE_FROM__NAME:
+				NAME__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
 			case GoalModelPackage.VALUE_FROM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
@@ -355,6 +395,8 @@ public class ValueFromImpl extends MinimalEObjectImpl.Container implements Value
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GoalModelPackage.VALUE_FROM__NAME:
+				return NAME__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GoalModelPackage.VALUE_FROM__VALUE:
 				return value != VALUE_EDEFAULT;
 			case GoalModelPackage.VALUE_FROM__VALUE_FROM:
