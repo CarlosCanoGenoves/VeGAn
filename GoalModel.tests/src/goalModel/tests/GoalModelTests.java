@@ -33,6 +33,7 @@ public class GoalModelTests extends TestSuite {
 		TestSuite suite = new GoalModelTests("goalModel Tests");
 		suite.addTestSuite(ContributionTest.class);
 		suite.addTestSuite(DependencyTest.class);
+		suite.addTestSuite(ValueFromTest.class);
 		return suite;
 	}
 

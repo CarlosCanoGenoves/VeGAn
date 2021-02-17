@@ -86,6 +86,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Decomposition/decompositionType"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//ValueFrom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//ValueFrom/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//ValueFrom/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//ValueFrom/valueFrom"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//ValueFrom/iteration"/>

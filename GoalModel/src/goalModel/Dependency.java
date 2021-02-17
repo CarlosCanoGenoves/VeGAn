@@ -16,7 +16,8 @@ package goalModel;
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getDependency()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='oneTarget'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot oneTarget='self.trgs-&gt;size() &lt;2'"
  * @generated
  */
 public interface Dependency extends Link {

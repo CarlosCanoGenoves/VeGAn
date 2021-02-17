@@ -20,6 +20,8 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see goalModel.GoalModelPackage#getIntentionalElement()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='onlyOneDecomposition onlyOneFather'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot onlyOneDecomposition='self.srcLinks-&gt;select(oclIsTypeOf(Decomposition))-&gt;size() &lt; 2' onlyOneFather='self.trgLinks-&gt;select(oclIsTypeOf(Decomposition))-&gt;size() &lt; 2'"
  * @generated
  */
 public interface IntentionalElement extends GoalElement {

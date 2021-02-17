@@ -59,7 +59,7 @@ public interface GoalElement extends EObject {
 	 * @see goalModel.EImportance
 	 * @see #setImportance(EImportance)
 	 * @see goalModel.GoalModelPackage#getGoalElement_Importance()
-	 * @model unique="false" ordered="false"
+	 * @model
 	 * @generated
 	 */
 	EImportance getImportance();
@@ -85,7 +85,7 @@ public interface GoalElement extends EObject {
 	 * @see goalModel.EConfidence
 	 * @see #setConfidence(EConfidence)
 	 * @see goalModel.GoalModelPackage#getGoalElement_Confidence()
-	 * @model default="Confident" unique="false" ordered="false"
+	 * @model default="Confident"
 	 * @generated
 	 */
 	EConfidence getConfidence();
@@ -108,7 +108,7 @@ public interface GoalElement extends EObject {
 	 * @return the value of the '<em>Local Value</em>' attribute.
 	 * @see #setLocalValue(double)
 	 * @see goalModel.GoalModelPackage#getGoalElement_LocalValue()
-	 * @model unique="false" ordered="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	double getLocalValue();
@@ -144,7 +144,7 @@ public interface GoalElement extends EObject {
 	 * @return the value of the '<em>Global Value</em>' attribute.
 	 * @see #setGlobalValue(double)
 	 * @see goalModel.GoalModelPackage#getGoalElement_GlobalValue()
-	 * @model unique="false" ordered="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	double getGlobalValue();

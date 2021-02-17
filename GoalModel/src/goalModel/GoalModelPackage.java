@@ -1054,13 +1054,22 @@ public interface GoalModelPackage extends EPackage {
 	int VALUE_FROM = 12;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FROM__NAME = 0;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FROM__VALUE = 0;
+	int VALUE_FROM__VALUE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Value From</b></em>' attribute.
@@ -1069,7 +1078,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FROM__VALUE_FROM = 1;
+	int VALUE_FROM__VALUE_FROM = 2;
 
 	/**
 	 * The feature id for the '<em><b>Iteration</b></em>' container reference.
@@ -1078,7 +1087,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FROM__ITERATION = 2;
+	int VALUE_FROM__ITERATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Intentionalelement</b></em>' reference.
@@ -1087,7 +1096,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FROM__INTENTIONALELEMENT = 3;
+	int VALUE_FROM__INTENTIONALELEMENT = 4;
 
 	/**
 	 * The number of structural features of the '<em>Value From</em>' class.
@@ -1096,7 +1105,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FROM_FEATURE_COUNT = 4;
+	int VALUE_FROM_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Value From</em>' class.
@@ -1587,6 +1596,17 @@ public interface GoalModelPackage extends EPackage {
 	EClass getValueFrom();
 
 	/**
+	 * Returns the meta object for the attribute '{@link goalModel.ValueFrom#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see goalModel.ValueFrom#getName()
+	 * @see #getValueFrom()
+	 * @generated
+	 */
+	EAttribute getValueFrom_Name();
+
+	/**
 	 * Returns the meta object for the attribute '{@link goalModel.ValueFrom#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2048,6 +2068,14 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VALUE_FROM = eINSTANCE.getValueFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_FROM__NAME = eINSTANCE.getValueFrom_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.

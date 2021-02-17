@@ -3,9 +3,8 @@
   <actors name="Reader">
     <intentionalelements xsi:type="goalModel:Goal" name="Read Books" localValue="38.36196360866394" globalValue="38.36196360866394">
       <iterations Iteration="1" globalValue="38.36196360866394" localValue="38.36196360866394">
+        <valuefrom value="20.0" intentionalelement="//@actors.0/@intentionalelements.0"/>
         <valuefrom value="18.361963608663945" intentionalelement="//@actors.0/@intentionalelements.1"/>
-        <valuefrom value="10.0" intentionalelement="//@actors.0/@intentionalelements.2"/>
-        <valuefrom value="10.0" intentionalelement="//@actors.0/@intentionalelements.3"/>
       </iterations>
       <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.0/@intentionalelements.2 //@actors.0/@intentionalelements.3"/>
       <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.1/@intentionalelements.0"/>
@@ -31,15 +30,13 @@
     </intentionalelements>
   </actors>
   <actors name="Writer">
-    <intentionalelements xsi:type="goalModel:Goal" name="Publish book" localValue="56.72392721732789" globalValue="95.08589082599183" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
-      <iterations Iteration="1" globalValue="95.08589082599183" localValue="56.72392721732789">
+    <intentionalelements xsi:type="goalModel:Goal" name="Publish book" localValue="56.72392721732788" globalValue="95.08589082599183" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
+      <iterations Iteration="1" globalValue="95.08589082599183" localValue="56.72392721732788">
+        <valuefrom value="20.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
         <valuefrom value="18.361963608663945" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.1"/>
-        <valuefrom value="10.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.2"/>
-        <valuefrom value="10.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="20.0" intentionalelement="//@actors.1/@intentionalelements.0"/>
         <valuefrom value="18.361963608663945" intentionalelement="//@actors.1/@intentionalelements.1"/>
         <valuefrom value="18.361963608663945" intentionalelement="//@actors.1/@intentionalelements.2"/>
-        <valuefrom value="10.0" intentionalelement="//@actors.1/@intentionalelements.3"/>
-        <valuefrom value="10.0" intentionalelement="//@actors.1/@intentionalelements.4"/>
       </iterations>
       <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.1/@intentionalelements.3 //@actors.1/@intentionalelements.4"/>
     </intentionalelements>
@@ -55,9 +52,8 @@
     </intentionalelements>
     <intentionalelements xsi:type="goalModel:Task" name="Publish book on paper" localValue="33.729810519033855" globalValue="72.09177412769779" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <iterations Iteration="1" globalValue="72.09177412769779" localValue="33.729810519033855">
+        <valuefrom value="20.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
         <valuefrom value="18.361963608663945" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.1"/>
-        <valuefrom value="10.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.2"/>
-        <valuefrom value="10.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.3"/>
         <valuefrom value="15.46231270649863" intentionalelement="//@actors.1/@intentionalelements.1"/>
         <valuefrom value="8.267497812535227" intentionalelement="//@actors.1/@intentionalelements.2"/>
         <valuefrom value="10.0" intentionalelement="//@actors.1/@intentionalelements.3"/>
@@ -67,9 +63,8 @@
     </intentionalelements>
     <intentionalelements xsi:type="goalModel:Task" name="Publish book on Amazon" localValue="33.729810519033855" globalValue="72.09177412769779" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <iterations Iteration="1" globalValue="72.09177412769779" localValue="33.729810519033855">
+        <valuefrom value="20.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
         <valuefrom value="18.361963608663945" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.1"/>
-        <valuefrom value="10.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.2"/>
-        <valuefrom value="10.0" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.3"/>
         <valuefrom value="8.267497812535227" intentionalelement="//@actors.1/@intentionalelements.1"/>
         <valuefrom value="15.46231270649863" intentionalelement="//@actors.1/@intentionalelements.2"/>
         <valuefrom value="10.0" intentionalelement="//@actors.1/@intentionalelements.4"/>

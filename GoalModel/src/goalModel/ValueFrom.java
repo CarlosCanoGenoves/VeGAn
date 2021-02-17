@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link goalModel.ValueFrom#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.ValueFrom#getValue <em>Value</em>}</li>
  *   <li>{@link goalModel.ValueFrom#getValueFrom <em>Value From</em>}</li>
  *   <li>{@link goalModel.ValueFrom#getIteration <em>Iteration</em>}</li>
@@ -25,13 +26,36 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ValueFrom extends EObject {
 	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see goalModel.GoalModelPackage#getValueFrom_Name()
+	 * @model transient="true" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='let reducedValue : String = if value &lt; 0 then value.toString().substring(1, 5) else value.toString().substring(1, 4) endif \n\t\t\t\t\tin reducedValue + \' - \' + intentionalelement.name'"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link goalModel.ValueFrom#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(double)
 	 * @see goalModel.GoalModelPackage#getValueFrom_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getValue();
