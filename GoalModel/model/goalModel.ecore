@@ -11,10 +11,10 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="GoalModel">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="uniqueActorName"/>
+      <details key="constraints" value="The_name_of_the_actor_must_be_unique"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="uniqueActorName" value="self.actors->isUnique(name)"/>
+      <details key="The_name_of_the_actor_must_be_unique" value="self.actors->isUnique(name)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
@@ -24,10 +24,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//GoalElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="uniqueIntentionalElementName"/>
+      <details key="constraints" value="The_name_of_the_intentional_element_must_be_unique"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="uniqueIntentionalElementName" value="self.intentionalelements->isUnique(name)"/>
+      <details key="The_name_of_the_intentional_element_must_be_unique" value="self.intentionalelements->isUnique(name)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goalmodel" lowerBound="1"
         eType="#//GoalModel" eOpposite="#//GoalModel/actors"/>
@@ -37,11 +37,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="IntentionalElement" abstract="true"
       eSuperTypes="#//GoalElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="onlyOneDecomposition onlyOneFather"/>
+      <details key="constraints" value="An_intentional_element_can_only_have_one_decomposition An_intentional_element_can_only_decompose_one_element"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="onlyOneDecomposition" value="self.srcLinks->select(oclIsTypeOf(Decomposition))->size() &lt; 2"/>
-      <details key="onlyOneFather" value="self.trgLinks->select(oclIsTypeOf(Decomposition))->size() &lt; 2"/>
+      <details key="An_intentional_element_can_only_have_one_decomposition" value="self.srcLinks->select(oclIsTypeOf(Decomposition))->size() &lt; 2"/>
+      <details key="An_intentional_element_can_only_decompose_one_element" value="self.trgLinks->select(oclIsTypeOf(Decomposition))->size() &lt; 2"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"
         eOpposite="#//Actor/intentionalelements"/>
@@ -77,10 +77,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//Link">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="oneTarget"/>
+      <details key="constraints" value="Only_one_target"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="oneTarget" value="self.trgs->size() &lt;2"/>
+      <details key="Only_one_target" value="self.trgs->size() &lt;2"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" transient="true" derived="true">
@@ -93,10 +93,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dependency" eSuperTypes="#//Link">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="oneTarget"/>
+      <details key="constraints" value="Only_one_target"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="oneTarget" value="self.trgs->size() &lt;2"/>
+      <details key="Only_one_target" value="self.trgs->size() &lt;2"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" transient="true" derived="true">
@@ -144,10 +144,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="SoftGoal" eSuperTypes="#//IntentionalElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Decomposition" eSuperTypes="#//Link">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="sameActor"/>
+      <details key="constraints" value="All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="sameActor" value="self.trgs->forAll(actor = self.src.actor)"/>
+      <details key="All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor"
+          value="self.trgs->forAll(actor = self.src.actor)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="decompositionType" eType="#//EDecomposition"
         defaultValueLiteral="AND"/>
