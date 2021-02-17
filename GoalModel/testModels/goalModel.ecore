@@ -162,7 +162,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="let reducedValue : String = if value &lt; 0 then value.toString().substring(1, 5) else value.toString().substring(1, 4) endif &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;in reducedValue + ' - ' + intentionalelement.name"/>
+        <details key="derivation" value="let reducedValue : String = if value &lt; 0 then (if value.toString().size() >5 then value.toString().substring(1, 5) else value.toString() endif) else (if value.toString().size() > 4 then value.toString().substring(1, 4) else value.toString() endif) endif &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;in reducedValue + ' - ' + intentionalelement.name"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
