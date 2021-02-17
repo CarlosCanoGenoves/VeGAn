@@ -47,7 +47,7 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
 H 	M/A-	Inter & intra value to father instead of children
 
 H 	M 	-	OCL generar nombre de Value From
-				-Error: Value < X size
+H				-Error: Value < X size
 
  	M	-	Importance & Confidence & value in the name of the IE
 
