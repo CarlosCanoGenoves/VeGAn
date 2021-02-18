@@ -6,10 +6,14 @@
     xmlns:goalModel="http://goalModel"
     xsi:schemaLocation="http://goalModel model/goalModel.ecore"
     name="Hope">
-  <actors name="Usuario">
+  <actors name="Usuario"
+      importance="Very_High"
+      confidence="Confident">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        name="Recibir ayuda">
+        name="Recibir ayuda"
+        importance="Very_High"
+        confidence="Confident">
       <srcLinks
           xsi:type="goalModel:Decomposition"
           trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2 //@actors.0/@intentionalelements.3"
@@ -21,6 +25,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="Telefono"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -34,6 +40,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="Chat"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -47,6 +55,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="VideoChat"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -60,6 +70,8 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Atencion inmediata"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.0 //@actors.0/@intentionalelements.2/@srcLinks.0 //@actors.0/@intentionalelements.3/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -69,10 +81,14 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Confortable"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.4/@srcLinks.0 //@actors.0/@intentionalelements.6/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Anonimato"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.1 //@actors.0/@intentionalelements.2/@srcLinks.1 //@actors.0/@intentionalelements.3/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -80,10 +96,14 @@
           contributionType="p50"/>
     </intentionalelements>
   </actors>
-  <actors name="Orientador">
+  <actors name="Orientador"
+      importance="Very_High"
+      confidence="Confident">
     <intentionalelements
         xsi:type="goalModel:Goal"
         name="Proveer ayuda"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Decomposition"
@@ -93,6 +113,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="Telefono"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -106,6 +128,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="Chat"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -119,6 +143,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="Videochat"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -132,6 +158,8 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Ayuda de calidad"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.0 //@actors.1/@intentionalelements.2/@srcLinks.0 //@actors.1/@intentionalelements.3/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -141,10 +169,14 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Sentirse satisfecho con la ayuda prestada"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.1/@intentionalelements.4/@srcLinks.0 //@actors.1/@intentionalelements.6/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Evitar estresarse"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.1/@intentionalelements.7/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -154,6 +186,8 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Ayudar a muchos"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.1 //@actors.1/@intentionalelements.2/@srcLinks.1 //@actors.1/@intentionalelements.3/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -161,10 +195,14 @@
           contributionType="n50"/>
     </intentionalelements>
   </actors>
-  <actors name="Telefono de la esperanza">
+  <actors name="Telefono de la esperanza"
+      importance="Very_High"
+      confidence="Confident">
     <intentionalelements
         xsi:type="goalModel:Goal"
         name="Ofrecer ayuda emocional"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Decomposition"
@@ -177,6 +215,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="Telefono"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -190,6 +230,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="Chat"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -203,6 +245,8 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         name="VideoChat"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -216,6 +260,8 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Inmediatez"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.0 //@actors.2/@intentionalelements.2/@srcLinks.0 //@actors.2/@intentionalelements.3/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -225,14 +271,20 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Ofrecer ayuda de calidad"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.4/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Ayudar a tanta gente como sea posible"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.7/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Incrementar fondos"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.8/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -242,6 +294,8 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Evitar escandalos"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.9/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -251,6 +305,8 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         name="Seguridad"
+        importance="Very_High"
+        confidence="Confident"
         trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.1 //@actors.2/@intentionalelements.2/@srcLinks.1 //@actors.2/@intentionalelements.3/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Contribution"

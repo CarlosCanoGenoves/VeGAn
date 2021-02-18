@@ -33,7 +33,7 @@ public interface ValueFrom extends EObject {
 	 * @see #setName(String)
 	 * @see goalModel.GoalModelPackage#getValueFrom_Name()
 	 * @model transient="true" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='let reducedValue : String = if value &lt; 0 then value.toString().substring(1, 5) else value.toString().substring(1, 4) endif \n\t\t\t\t\tin reducedValue + \' - \' + intentionalelement.name'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='let reducedValue : String = if value &lt; 0 then (if value.toString().size() &gt;5 then value.toString().substring(1, 5) else value.toString() endif) else (if value.toString().size() &gt; 4 then value.toString().substring(1, 4) else value.toString() endif) endif \n\t\t\t\t\tin reducedValue + \' - \' + intentionalelement.name'"
 	 * @generated
 	 */
 	String getName();

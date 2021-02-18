@@ -11,6 +11,7 @@
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Medium"/>
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Low"/>
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Very_Low"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EImportance/Not_Defined"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EContribution">
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EContribution/p100"/>
@@ -27,6 +28,7 @@
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EConfidence/Possibly_More"/>
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EConfidence/Confident"/>
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EConfidence/Possibly_Less"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EConfidence/Not_Defined"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EDecomposition">
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EDecomposition/AND"/>

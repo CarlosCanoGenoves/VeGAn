@@ -16,8 +16,8 @@ package goalModel;
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getDecomposition()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='sameActor'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot sameActor='self.trgs-&gt;forAll(actor = self.src.actor)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor='self.trgs-&gt;forAll(actor = self.src.actor)'"
  * @generated
  */
 public interface Decomposition extends Link {

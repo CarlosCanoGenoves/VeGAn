@@ -17,8 +17,8 @@ package goalModel;
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getContribution()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='oneTarget'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot oneTarget='self.trgs-&gt;size() &lt;2'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='Only_one_target'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot Only_one_target='self.trgs-&gt;size() &lt;2'"
  * @generated
  */
 public interface Contribution extends Link {

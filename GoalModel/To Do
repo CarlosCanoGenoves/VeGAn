@@ -60,7 +60,8 @@ H	M	-	Texto mensajes de error OCL
 
 H	M/B	-	Visual: Añadir un List para seleccionar que iteración ver
 
-	B	-	Crear importancia de no asignar importancia -> No Defined & lo mismo para Confidence
+H	B	-	Crear importancia de no asignar importancia -> No Defined & lo mismo para Confidence
+H			- OCL para comprobar que se ha asignado importancia
 
 	B	-	Añadir documentación
 

@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getGoalModel()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueActorName'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueActorName='self.actors-&gt;isUnique(name)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='The_name_of_the_actor_must_be_unique'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot The_name_of_the_actor_must_be_unique='self.actors-&gt;isUnique(name)'"
  * @generated
  */
 public interface GoalModel extends EObject {

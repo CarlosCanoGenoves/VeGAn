@@ -66,7 +66,15 @@ public enum EImportance implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VERY_LOW(4, "Very_Low", "Very_Low");
+	VERY_LOW(4, "Very_Low", "Very_Low"), /**
+	 * The '<em><b>Not Defined</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_DEFINED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOT_DEFINED(5, "Not_Defined", "Not_Defined");
 
 	/**
 	 * The '<em><b>Very High</b></em>' literal value.
@@ -124,6 +132,17 @@ public enum EImportance implements Enumerator {
 	public static final int VERY_LOW_VALUE = 4;
 
 	/**
+	 * The '<em><b>Not Defined</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_DEFINED
+	 * @model name="Not_Defined"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOT_DEFINED_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>EImportance</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,6 +155,7 @@ public enum EImportance implements Enumerator {
 			MEDIUM,
 			LOW,
 			VERY_LOW,
+			NOT_DEFINED,
 		};
 
 	/**
@@ -197,6 +217,7 @@ public enum EImportance implements Enumerator {
 			case MEDIUM_VALUE: return MEDIUM;
 			case LOW_VALUE: return LOW;
 			case VERY_LOW_VALUE: return VERY_LOW;
+			case NOT_DEFINED_VALUE: return NOT_DEFINED;
 		}
 		return null;
 	}

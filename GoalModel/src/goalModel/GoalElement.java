@@ -52,6 +52,7 @@ public interface GoalElement extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Importance</b></em>' attribute.
+	 * The default value is <code>"Not_Defined"</code>.
 	 * The literals are from the enumeration {@link goalModel.EImportance}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,7 +60,7 @@ public interface GoalElement extends EObject {
 	 * @see goalModel.EImportance
 	 * @see #setImportance(EImportance)
 	 * @see goalModel.GoalModelPackage#getGoalElement_Importance()
-	 * @model
+	 * @model default="Not_Defined"
 	 * @generated
 	 */
 	EImportance getImportance();
@@ -77,7 +78,7 @@ public interface GoalElement extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Confidence</b></em>' attribute.
-	 * The default value is <code>"Confident"</code>.
+	 * The default value is <code>"Not_Defined"</code>.
 	 * The literals are from the enumeration {@link goalModel.EConfidence}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,7 +86,7 @@ public interface GoalElement extends EObject {
 	 * @see goalModel.EConfidence
 	 * @see #setConfidence(EConfidence)
 	 * @see goalModel.GoalModelPackage#getGoalElement_Confidence()
-	 * @model default="Confident"
+	 * @model default="Not_Defined"
 	 * @generated
 	 */
 	EConfidence getConfidence();
