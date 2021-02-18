@@ -18,8 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getActor()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='uniqueIntentionalElementName'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot uniqueIntentionalElementName='self.intentionalelements-&gt;isUnique(name)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='The_name_of_the_intentional_element_must_be_unique Importance_not_defined Confidence_not_defined'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot The_name_of_the_intentional_element_must_be_unique='self.intentionalelements-&gt;isUnique(name)' Importance_not_defined='importance &lt;&gt; EImportance::Not_Defined' Confidence_not_defined='confidence &lt;&gt; EConfidence::Not_Defined'"
  * @generated
  */
 public interface Actor extends GoalElement {

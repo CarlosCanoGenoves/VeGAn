@@ -890,8 +890,8 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 
 		initEClass(goalElementEClass, GoalElement.class, "GoalElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGoalElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGoalElement_Importance(), this.getEImportance(), "importance", null, 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGoalElement_Confidence(), this.getEConfidence(), "confidence", "Confident", 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoalElement_Importance(), this.getEImportance(), "importance", "Not_Defined", 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoalElement_Confidence(), this.getEConfidence(), "confidence", "Not_Defined", 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGoalElement_LocalValue(), ecorePackage.getEDouble(), "localValue", null, 1, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGoalElement_Iterations(), this.getIteration(), this.getIteration_Element(), "iterations", null, 0, -1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGoalElement_GlobalValue(), ecorePackage.getEDouble(), "globalValue", null, 1, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -935,6 +935,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		addEEnumLiteral(eImportanceEEnum, EImportance.MEDIUM);
 		addEEnumLiteral(eImportanceEEnum, EImportance.LOW);
 		addEEnumLiteral(eImportanceEEnum, EImportance.VERY_LOW);
+		addEEnumLiteral(eImportanceEEnum, EImportance.NOT_DEFINED);
 
 		initEEnum(eContributionEEnum, EContribution.class, "EContribution");
 		addEEnumLiteral(eContributionEEnum, EContribution.P100);
@@ -951,6 +952,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		addEEnumLiteral(eConfidenceEEnum, EConfidence.POSSIBLY_MORE);
 		addEEnumLiteral(eConfidenceEEnum, EConfidence.CONFIDENT);
 		addEEnumLiteral(eConfidenceEEnum, EConfidence.POSSIBLY_LESS);
+		addEEnumLiteral(eConfidenceEEnum, EConfidence.NOT_DEFINED);
 
 		initEEnum(eDecompositionEEnum, EDecomposition.class, "EDecomposition");
 		addEEnumLiteral(eDecompositionEEnum, EDecomposition.AND);
@@ -1011,37 +1013,37 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		  (goalModelEClass,
 		   source,
 		   new String[] {
-			   "constraints", "uniqueActorName"
+			   "constraints", "The_name_of_the_actor_must_be_unique"
 		   });
 		addAnnotation
 		  (actorEClass,
 		   source,
 		   new String[] {
-			   "constraints", "uniqueIntentionalElementName"
+			   "constraints", "The_name_of_the_intentional_element_must_be_unique Importance_not_defined Confidence_not_defined"
 		   });
 		addAnnotation
 		  (intentionalElementEClass,
 		   source,
 		   new String[] {
-			   "constraints", "onlyOneDecomposition onlyOneFather"
+			   "constraints", "An_intentional_element_can_only_have_one_decomposition An_intentional_element_can_only_decompose_one_element"
 		   });
 		addAnnotation
 		  (contributionEClass,
 		   source,
 		   new String[] {
-			   "constraints", "oneTarget"
+			   "constraints", "Only_one_target"
 		   });
 		addAnnotation
 		  (dependencyEClass,
 		   source,
 		   new String[] {
-			   "constraints", "oneTarget"
+			   "constraints", "Only_one_target"
 		   });
 		addAnnotation
 		  (decompositionEClass,
 		   source,
 		   new String[] {
-			   "constraints", "sameActor"
+			   "constraints", "All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor"
 		   });
 	}
 
@@ -1057,26 +1059,28 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		  (goalModelEClass,
 		   source,
 		   new String[] {
-			   "uniqueActorName", "self.actors->isUnique(name)"
+			   "The_name_of_the_actor_must_be_unique", "self.actors->isUnique(name)"
 		   });
 		addAnnotation
 		  (actorEClass,
 		   source,
 		   new String[] {
-			   "uniqueIntentionalElementName", "self.intentionalelements->isUnique(name)"
+			   "The_name_of_the_intentional_element_must_be_unique", "self.intentionalelements->isUnique(name)",
+			   "Importance_not_defined", "importance <> EImportance::Not_Defined",
+			   "Confidence_not_defined", "confidence <> EConfidence::Not_Defined"
 		   });
 		addAnnotation
 		  (intentionalElementEClass,
 		   source,
 		   new String[] {
-			   "onlyOneDecomposition", "self.srcLinks->select(oclIsTypeOf(Decomposition))->size() < 2",
-			   "onlyOneFather", "self.trgLinks->select(oclIsTypeOf(Decomposition))->size() < 2"
+			   "An_intentional_element_can_only_have_one_decomposition", "self.srcLinks->select(oclIsTypeOf(Decomposition))->size() < 2",
+			   "An_intentional_element_can_only_decompose_one_element", "self.trgLinks->select(oclIsTypeOf(Decomposition))->size() < 2"
 		   });
 		addAnnotation
 		  (contributionEClass,
 		   source,
 		   new String[] {
-			   "oneTarget", "self.trgs->size() <2"
+			   "Only_one_target", "self.trgs->size() <2"
 		   });
 		addAnnotation
 		  (getContribution_Name(),
@@ -1088,7 +1092,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		  (dependencyEClass,
 		   source,
 		   new String[] {
-			   "oneTarget", "self.trgs->size() <2"
+			   "Only_one_target", "self.trgs->size() <2"
 		   });
 		addAnnotation
 		  (getDependency_Name(),
@@ -1100,13 +1104,13 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		  (decompositionEClass,
 		   source,
 		   new String[] {
-			   "sameActor", "self.trgs->forAll(actor = self.src.actor)"
+			   "All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor", "self.trgs->forAll(actor = self.src.actor)"
 		   });
 		addAnnotation
 		  (getValueFrom_Name(),
 		   source,
 		   new String[] {
-			   "derivation", "let reducedValue : String = if value < 0 then value.toString().substring(1, 5) else value.toString().substring(1, 4) endif \n\t\t\t\t\tin reducedValue + \' - \' + intentionalelement.name"
+			   "derivation", "let reducedValue : String = if value < 0 then (if value.toString().size() >5 then value.toString().substring(1, 5) else value.toString() endif) else (if value.toString().size() > 4 then value.toString().substring(1, 4) else value.toString() endif) endif \n\t\t\t\t\tin reducedValue + \' - \' + intentionalelement.name"
 		   });
 	}
 

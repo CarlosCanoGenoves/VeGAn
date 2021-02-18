@@ -7,15 +7,18 @@
     xsi:schemaLocation="http://goalModel goalModel.ecore"
     name="goalModel">
   <actors name="actor"
+      importance="Very_High"
       confidence="Possibly_More">
     <intentionalelements
         xsi:type="goalModel:Task"
         name="T1"
+        importance="Very_High"
         confidence="Possibly_More"/>
     <intentionalelements
         xsi:type="goalModel:Task"
         name="T2"
-        importance="Medium"/>
+        importance="Medium"
+        confidence="Confident"/>
     <intentionalelements
         xsi:type="goalModel:Task"
         name="T3"

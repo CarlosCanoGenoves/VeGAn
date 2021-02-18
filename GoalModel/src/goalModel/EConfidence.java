@@ -46,7 +46,15 @@ public enum EConfidence implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POSSIBLY_LESS(2, "Possibly_Less", "Possibly_Less");
+	POSSIBLY_LESS(2, "Possibly_Less", "Possibly_Less"), /**
+	 * The '<em><b>Not Defined</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_DEFINED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOT_DEFINED(3, "Not_Defined", "Not_Defined");
 
 	/**
 	 * The '<em><b>Possibly More</b></em>' literal value.
@@ -82,6 +90,17 @@ public enum EConfidence implements Enumerator {
 	public static final int POSSIBLY_LESS_VALUE = 2;
 
 	/**
+	 * The '<em><b>Not Defined</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOT_DEFINED
+	 * @model name="Not_Defined"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOT_DEFINED_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>EConfidence</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +111,7 @@ public enum EConfidence implements Enumerator {
 			POSSIBLY_MORE,
 			CONFIDENT,
 			POSSIBLY_LESS,
+			NOT_DEFINED,
 		};
 
 	/**
@@ -151,6 +171,7 @@ public enum EConfidence implements Enumerator {
 			case POSSIBLY_MORE_VALUE: return POSSIBLY_MORE;
 			case CONFIDENT_VALUE: return CONFIDENT;
 			case POSSIBLY_LESS_VALUE: return POSSIBLY_LESS;
+			case NOT_DEFINED_VALUE: return NOT_DEFINED;
 		}
 		return null;
 	}

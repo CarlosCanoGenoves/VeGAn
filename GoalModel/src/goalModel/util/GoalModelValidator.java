@@ -142,25 +142,25 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(goalModel, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(goalModel, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(goalModel, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGoalModel_uniqueActorName(goalModel, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalModel_The_name_of_the_actor_must_be_unique(goalModel, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the uniqueActorName constraint of '<em>Goal Model</em>'.
+	 * The cached validation expression for the The_name_of_the_actor_must_be_unique constraint of '<em>Goal Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String GOAL_MODEL__UNIQUE_ACTOR_NAME__EEXPRESSION = "self.actors->isUnique(name)";
+	protected static final String GOAL_MODEL__THE_NAME_OF_THE_ACTOR_MUST_BE_UNIQUE__EEXPRESSION = "self.actors->isUnique(name)";
 
 	/**
-	 * Validates the uniqueActorName constraint of '<em>Goal Model</em>'.
+	 * Validates the The_name_of_the_actor_must_be_unique constraint of '<em>Goal Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGoalModel_uniqueActorName(GoalModel goalModel, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateGoalModel_The_name_of_the_actor_must_be_unique(GoalModel goalModel, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(GoalModelPackage.Literals.GOAL_MODEL,
@@ -168,8 +168,8 @@ public class GoalModelValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "uniqueActorName",
-				 GOAL_MODEL__UNIQUE_ACTOR_NAME__EEXPRESSION,
+				 "The_name_of_the_actor_must_be_unique",
+				 GOAL_MODEL__THE_NAME_OF_THE_ACTOR_MUST_BE_UNIQUE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -190,25 +190,27 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(actor, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(actor, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(actor, diagnostics, context);
-		if (result || diagnostics != null) result &= validateActor_uniqueIntentionalElementName(actor, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActor_The_name_of_the_intentional_element_must_be_unique(actor, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActor_Importance_not_defined(actor, diagnostics, context);
+		if (result || diagnostics != null) result &= validateActor_Confidence_not_defined(actor, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the uniqueIntentionalElementName constraint of '<em>Actor</em>'.
+	 * The cached validation expression for the The_name_of_the_intentional_element_must_be_unique constraint of '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String ACTOR__UNIQUE_INTENTIONAL_ELEMENT_NAME__EEXPRESSION = "self.intentionalelements->isUnique(name)";
+	protected static final String ACTOR__THE_NAME_OF_THE_INTENTIONAL_ELEMENT_MUST_BE_UNIQUE__EEXPRESSION = "self.intentionalelements->isUnique(name)";
 
 	/**
-	 * Validates the uniqueIntentionalElementName constraint of '<em>Actor</em>'.
+	 * Validates the The_name_of_the_intentional_element_must_be_unique constraint of '<em>Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateActor_uniqueIntentionalElementName(Actor actor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateActor_The_name_of_the_intentional_element_must_be_unique(Actor actor, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(GoalModelPackage.Literals.ACTOR,
@@ -216,8 +218,66 @@ public class GoalModelValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "uniqueIntentionalElementName",
-				 ACTOR__UNIQUE_INTENTIONAL_ELEMENT_NAME__EEXPRESSION,
+				 "The_name_of_the_intentional_element_must_be_unique",
+				 ACTOR__THE_NAME_OF_THE_INTENTIONAL_ELEMENT_MUST_BE_UNIQUE__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the Importance_not_defined constraint of '<em>Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ACTOR__IMPORTANCE_NOT_DEFINED__EEXPRESSION = "importance <> EImportance::Not_Defined";
+
+	/**
+	 * Validates the Importance_not_defined constraint of '<em>Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActor_Importance_not_defined(Actor actor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.ACTOR,
+				 actor,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "Importance_not_defined",
+				 ACTOR__IMPORTANCE_NOT_DEFINED__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the Confidence_not_defined constraint of '<em>Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String ACTOR__CONFIDENCE_NOT_DEFINED__EEXPRESSION = "confidence <> EConfidence::Not_Defined";
+
+	/**
+	 * Validates the Confidence_not_defined constraint of '<em>Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateActor_Confidence_not_defined(Actor actor, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.ACTOR,
+				 actor,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "Confidence_not_defined",
+				 ACTOR__CONFIDENCE_NOT_DEFINED__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -238,26 +298,26 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(intentionalElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(intentionalElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(intentionalElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(intentionalElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(intentionalElement, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the onlyOneDecomposition constraint of '<em>Intentional Element</em>'.
+	 * The cached validation expression for the An_intentional_element_can_only_have_one_decomposition constraint of '<em>Intentional Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String INTENTIONAL_ELEMENT__ONLY_ONE_DECOMPOSITION__EEXPRESSION = "self.srcLinks->select(oclIsTypeOf(Decomposition))->size() < 2";
+	protected static final String INTENTIONAL_ELEMENT__AN_INTENTIONAL_ELEMENT_CAN_ONLY_HAVE_ONE_DECOMPOSITION__EEXPRESSION = "self.srcLinks->select(oclIsTypeOf(Decomposition))->size() < 2";
 
 	/**
-	 * Validates the onlyOneDecomposition constraint of '<em>Intentional Element</em>'.
+	 * Validates the An_intentional_element_can_only_have_one_decomposition constraint of '<em>Intentional Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIntentionalElement_onlyOneDecomposition(IntentionalElement intentionalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(IntentionalElement intentionalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(GoalModelPackage.Literals.INTENTIONAL_ELEMENT,
@@ -265,28 +325,28 @@ public class GoalModelValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "onlyOneDecomposition",
-				 INTENTIONAL_ELEMENT__ONLY_ONE_DECOMPOSITION__EEXPRESSION,
+				 "An_intentional_element_can_only_have_one_decomposition",
+				 INTENTIONAL_ELEMENT__AN_INTENTIONAL_ELEMENT_CAN_ONLY_HAVE_ONE_DECOMPOSITION__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
 	}
 
 	/**
-	 * The cached validation expression for the onlyOneFather constraint of '<em>Intentional Element</em>'.
+	 * The cached validation expression for the An_intentional_element_can_only_decompose_one_element constraint of '<em>Intentional Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String INTENTIONAL_ELEMENT__ONLY_ONE_FATHER__EEXPRESSION = "self.trgLinks->select(oclIsTypeOf(Decomposition))->size() < 2";
+	protected static final String INTENTIONAL_ELEMENT__AN_INTENTIONAL_ELEMENT_CAN_ONLY_DECOMPOSE_ONE_ELEMENT__EEXPRESSION = "self.trgLinks->select(oclIsTypeOf(Decomposition))->size() < 2";
 
 	/**
-	 * Validates the onlyOneFather constraint of '<em>Intentional Element</em>'.
+	 * Validates the An_intentional_element_can_only_decompose_one_element constraint of '<em>Intentional Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIntentionalElement_onlyOneFather(IntentionalElement intentionalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(IntentionalElement intentionalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(GoalModelPackage.Literals.INTENTIONAL_ELEMENT,
@@ -294,8 +354,8 @@ public class GoalModelValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "onlyOneFather",
-				 INTENTIONAL_ELEMENT__ONLY_ONE_FATHER__EEXPRESSION,
+				 "An_intentional_element_can_only_decompose_one_element",
+				 INTENTIONAL_ELEMENT__AN_INTENTIONAL_ELEMENT_CAN_ONLY_DECOMPOSE_ONE_ELEMENT__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -334,25 +394,25 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(contribution, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(contribution, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(contribution, diagnostics, context);
-		if (result || diagnostics != null) result &= validateContribution_oneTarget(contribution, diagnostics, context);
+		if (result || diagnostics != null) result &= validateContribution_Only_one_target(contribution, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the oneTarget constraint of '<em>Contribution</em>'.
+	 * The cached validation expression for the Only_one_target constraint of '<em>Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String CONTRIBUTION__ONE_TARGET__EEXPRESSION = "self.trgs->size() <2";
+	protected static final String CONTRIBUTION__ONLY_ONE_TARGET__EEXPRESSION = "self.trgs->size() <2";
 
 	/**
-	 * Validates the oneTarget constraint of '<em>Contribution</em>'.
+	 * Validates the Only_one_target constraint of '<em>Contribution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateContribution_oneTarget(Contribution contribution, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateContribution_Only_one_target(Contribution contribution, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(GoalModelPackage.Literals.CONTRIBUTION,
@@ -360,8 +420,8 @@ public class GoalModelValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "oneTarget",
-				 CONTRIBUTION__ONE_TARGET__EEXPRESSION,
+				 "Only_one_target",
+				 CONTRIBUTION__ONLY_ONE_TARGET__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -382,25 +442,25 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(dependency, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dependency, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dependency, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDependency_oneTarget(dependency, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDependency_Only_one_target(dependency, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the oneTarget constraint of '<em>Dependency</em>'.
+	 * The cached validation expression for the Only_one_target constraint of '<em>Dependency</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String DEPENDENCY__ONE_TARGET__EEXPRESSION = "self.trgs->size() <2";
+	protected static final String DEPENDENCY__ONLY_ONE_TARGET__EEXPRESSION = "self.trgs->size() <2";
 
 	/**
-	 * Validates the oneTarget constraint of '<em>Dependency</em>'.
+	 * Validates the Only_one_target constraint of '<em>Dependency</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDependency_oneTarget(Dependency dependency, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateDependency_Only_one_target(Dependency dependency, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(GoalModelPackage.Literals.DEPENDENCY,
@@ -408,8 +468,8 @@ public class GoalModelValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "oneTarget",
-				 DEPENDENCY__ONE_TARGET__EEXPRESSION,
+				 "Only_one_target",
+				 DEPENDENCY__ONLY_ONE_TARGET__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -439,8 +499,8 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(goal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(goal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(goal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(goal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(goal, diagnostics, context);
 		return result;
 	}
 
@@ -459,8 +519,8 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(task, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(task, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(task, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(task, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(task, diagnostics, context);
 		return result;
 	}
 
@@ -479,8 +539,8 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(softGoal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(softGoal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(softGoal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneDecomposition(softGoal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateIntentionalElement_onlyOneFather(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(softGoal, diagnostics, context);
 		return result;
 	}
 
@@ -499,25 +559,25 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(decomposition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(decomposition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(decomposition, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDecomposition_sameActor(decomposition, diagnostics, context);
+		if (result || diagnostics != null) result &= validateDecomposition_All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor(decomposition, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the sameActor constraint of '<em>Decomposition</em>'.
+	 * The cached validation expression for the All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor constraint of '<em>Decomposition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String DECOMPOSITION__SAME_ACTOR__EEXPRESSION = "self.trgs->forAll(actor = self.src.actor)";
+	protected static final String DECOMPOSITION__ALL_THE_INTENTIONAL_ELEMENTS_OF_ADECOMPOSITION_MUST_BELONG_TO_THE_SAME_ACTOR__EEXPRESSION = "self.trgs->forAll(actor = self.src.actor)";
 
 	/**
-	 * Validates the sameActor constraint of '<em>Decomposition</em>'.
+	 * Validates the All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor constraint of '<em>Decomposition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDecomposition_sameActor(Decomposition decomposition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateDecomposition_All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor(Decomposition decomposition, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(GoalModelPackage.Literals.DECOMPOSITION,
@@ -525,8 +585,8 @@ public class GoalModelValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "sameActor",
-				 DECOMPOSITION__SAME_ACTOR__EEXPRESSION,
+				 "All_the_intentional_elements_of_a_decomposition_must_belong_to_the_same_actor",
+				 DECOMPOSITION__ALL_THE_INTENTIONAL_ELEMENTS_OF_ADECOMPOSITION_MUST_BELONG_TO_THE_SAME_ACTOR__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

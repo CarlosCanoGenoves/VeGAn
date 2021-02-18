@@ -71,7 +71,7 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EImportance IMPORTANCE_EDEFAULT = EImportance.VERY_HIGH;
+	protected static final EImportance IMPORTANCE_EDEFAULT = EImportance.NOT_DEFINED;
 
 	/**
 	 * The cached value of the '{@link #getImportance() <em>Importance</em>}' attribute.
@@ -91,7 +91,7 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EConfidence CONFIDENCE_EDEFAULT = EConfidence.CONFIDENT;
+	protected static final EConfidence CONFIDENCE_EDEFAULT = EConfidence.NOT_DEFINED;
 
 	/**
 	 * The cached value of the '{@link #getConfidence() <em>Confidence</em>}' attribute.
