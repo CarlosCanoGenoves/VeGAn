@@ -71,3 +71,7 @@ H			- OCL para comprobar que se ha asignado importancia
 			- El primero siempre él mismo
 
 H	B	-	Probar OTRAS versiones de Eclipse. Funciona con la última versión
+
+H	?	-	Probar en otros SO
+~				- MAC: Parece que la aplicación funciona, pero la validación en OCL da error, podría ser debido al plugin de OCL
+				- LINUX
