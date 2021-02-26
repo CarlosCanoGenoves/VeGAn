@@ -1,7 +1,6 @@
 package VISUAL;
 
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
@@ -40,6 +38,21 @@ public class Visual {
 		goalModel = FTOPSIS.calculateValue(goalModel).Item1;
 		
 		UsingEMFModel.save(goalModel, "hope.xmi");
+				
+		JFrame frame = new JFrame();
+		frame.add(new JScrollPane(showLastIteration(goalModel)));
+		frame.pack();
+		
+		frame.setVisible(true);
+	}
+	
+	public static void showVisual(String location)
+	{
+		GoalModel goalModel = UsingEMFModel.load(location);
+
+		goalModel = FTOPSIS.calculateValue(goalModel).Item1;
+		
+		UsingEMFModel.save(goalModel, location);
 				
 		JFrame frame = new JFrame();
 		frame.add(new JScrollPane(showLastIteration(goalModel)));

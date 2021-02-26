@@ -63,7 +63,7 @@ H	M/B	-	Visual: Añadir un List para seleccionar que iteración ver
 H	B	-	Crear importancia de no asignar importancia -> No Defined & lo mismo para Confidence
 H			- OCL para comprobar que se ha asignado importancia
 
-	B	-	Añadir documentación
+~	B	-	Añadir documentación
 
 	B	-	Generar M2M de Amyot al nuestro
 
@@ -72,6 +72,6 @@ H			- OCL para comprobar que se ha asignado importancia
 
 H	B	-	Probar OTRAS versiones de Eclipse. Funciona con la última versión
 
-H	?	-	Probar en otros SO
+~	?	-	Probar en otros SO
 ~				- MAC: Parece que la aplicación funciona, pero la validación en OCL da error, podría ser debido al plugin de OCL
 				- LINUX
