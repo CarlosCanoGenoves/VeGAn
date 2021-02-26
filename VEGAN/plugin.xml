@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.goalmodel"
+            id="VEGAN.menu.samplePopup">
+         <action
+               class="vegan.actions.SampleAction"
+               enablesFor="?"
+               id="VEGAN.menu.samplePopup.Action"
+               icon="icons/vegan.png"
+               label="Calculate Value"
+               menubarPath="additions"/>
+      </objectContribution>
+   </extension>
+</plugin>

@@ -8,7 +8,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: goalModel,
+Export-Package: VISUAL,
+ goalModel,
  goalModel.impl,
  goalModel.util
 Require-Bundle: org.eclipse.core.runtime,
