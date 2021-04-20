@@ -74,7 +74,7 @@ public class Propagation {
 			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Dependency && toVisitIE.contains(link.getSrc())))
 				{
 					if(verbose)
-						System.out.println("NOT propagate " + ie.getName() + " due Dependency");
+						System.out.println("NOT propagate " + ie.getElementName() + " due Dependency");
 					
 					can_propagate = false;
 				}
@@ -83,7 +83,7 @@ public class Propagation {
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Contribution && toVisitIE.contains(link.getTrgs().get(0))))
 			{
 				if(verbose)
-					System.out.println("NOT propagate " + ie.getName() + " due Contribution");
+					System.out.println("NOT propagate " + ie.getElementName() + " due Contribution");
 				
 				can_propagate = false;
 			}
@@ -93,7 +93,7 @@ public class Propagation {
 			if(ie.getTrgLinks().stream().anyMatch(link -> link instanceof Decomposition && !propagatedLinks.contains(link)))
 				{
 					if(verbose)
-						System.out.println("NOT propagate " + ie.getName() + " due Decomposition");
+						System.out.println("NOT propagate " + ie.getElementName() + " due Decomposition");
 					
 					can_propagate = false;
 				}
@@ -105,7 +105,7 @@ public class Propagation {
 			}
 			
 			if(verbose)
-				System.out.println("Propagating: "+ie.getName());
+				System.out.println("Propagating: "+ie.getElementName());
 			
 			//Decomposition parent to child
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition))
@@ -141,7 +141,7 @@ public class Propagation {
 			if(ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition && link.getTrgs().stream().anyMatch(children -> toVisitIE.contains(children))))
 				{
 					if(verbose)
-						System.out.println("NOT propagate " + ie.getName() + " due Decomposition");
+						System.out.println("NOT propagate " + ie.getElementName() + " due Decomposition");
 					
 					toVisitIE.add(ie);
 					continue;

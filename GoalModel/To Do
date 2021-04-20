@@ -45,10 +45,6 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
 			- No Eficiente -> Generar exe
 		- Aplicación web	- DESCARTADO: Está en desarrollo, no es totalmente funcional, no puede ejcutarse código / crearse plugins ni usarse OCL. Desarrolo actual: https://github.com/eclipse-emfcloud/coffee-editor
 
- 	M	-	Importance & Confidence & value in the name of the IE
- 				- ¿Crear otra variable name?
- 					- Cambiar OCL del nombre a la nueva variable de nombre
-
 	M	-	Hacer página web para la herramienta
 			- HACER A LARGO PLAZO
 
@@ -61,7 +57,6 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
 				- HACER A LARGO PLAZO
 			- Alternativa piStar ( https://github.com/CarlosCanoGenoves/piStar )
 	
-
 	B	-	Tabla de visual: Cuando se hace click en Value intra-actor / inter organizar de mayor a menor los elementos dentro de la row, NO organizar todas las rows
 			- El primero siempre él mismo
 
@@ -71,12 +66,10 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
 
 --------------------------
 
-H	?	-	Revisar la restricción de Not Defined (Estaba puesta en Solo en los actores)
-
 	?	-	Ordenar las propiedades de los elementos intencionales: https://wiki.eclipse.org/EMF/FAQ#How_do_I_preserve_my_property_order.2C_i._e._the_order_in_the_ecore_model.2C_in_Property_Sheet_of_the_generated_editor_instead_of_default_alphabetical_ordering.3F
-
-H	?	-	Mostrar el valor Global a la derecha de la Iteración: Iteración X Valor
 
 	?	-	Añadir cómo evaluar
 
 	?	-	Agrupar las iteraciones
+	
+	M	-	PROBLEMA Importance & Confidence & value in the name of the IE: Si el elementName no está definido el name falla y no se puede cambiar la propiedades del elemento

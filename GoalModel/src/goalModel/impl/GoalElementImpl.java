@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link goalModel.impl.GoalElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link goalModel.impl.GoalElementImpl#getElementName <em>Element Name</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getImportance <em>Importance</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getConfidence <em>Confidence</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getLocalValue <em>Local Value</em>}</li>
@@ -44,24 +46,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class GoalElementImpl extends MinimalEObjectImpl.Container implements GoalElement {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached setting delegate for the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected EStructuralFeature.Internal.SettingDelegate NAME__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GoalModelPackage.Literals.GOAL_ELEMENT__NAME).getSettingDelegate();
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getElementName() <em>Element Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getElementName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected static final String ELEMENT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getElementName() <em>Element Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String elementName = ELEMENT_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getImportance() <em>Importance</em>}' attribute.
@@ -179,7 +191,7 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public String getName() {
-		return name;
+		return (String)NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
 
 	/**
@@ -189,10 +201,30 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+		NAME__ESETTING_DELEGATE.dynamicSet(this, null, 0, newName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getElementName() {
+		return elementName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setElementName(String newElementName) {
+		String oldElementName = elementName;
+		elementName = newElementName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.GOAL_ELEMENT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.GOAL_ELEMENT__ELEMENT_NAME, oldElementName, elementName));
 	}
 
 	/**
@@ -339,6 +371,8 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID) {
 			case GoalModelPackage.GOAL_ELEMENT__NAME:
 				return getName();
+			case GoalModelPackage.GOAL_ELEMENT__ELEMENT_NAME:
+				return getElementName();
 			case GoalModelPackage.GOAL_ELEMENT__IMPORTANCE:
 				return getImportance();
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
@@ -364,6 +398,9 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 		switch (featureID) {
 			case GoalModelPackage.GOAL_ELEMENT__NAME:
 				setName((String)newValue);
+				return;
+			case GoalModelPackage.GOAL_ELEMENT__ELEMENT_NAME:
+				setElementName((String)newValue);
 				return;
 			case GoalModelPackage.GOAL_ELEMENT__IMPORTANCE:
 				setImportance((EImportance)newValue);
@@ -394,7 +431,10 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GoalModelPackage.GOAL_ELEMENT__NAME:
-				setName(NAME_EDEFAULT);
+				NAME__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
+			case GoalModelPackage.GOAL_ELEMENT__ELEMENT_NAME:
+				setElementName(ELEMENT_NAME_EDEFAULT);
 				return;
 			case GoalModelPackage.GOAL_ELEMENT__IMPORTANCE:
 				setImportance(IMPORTANCE_EDEFAULT);
@@ -424,7 +464,9 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case GoalModelPackage.GOAL_ELEMENT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case GoalModelPackage.GOAL_ELEMENT__ELEMENT_NAME:
+				return ELEMENT_NAME_EDEFAULT == null ? elementName != null : !ELEMENT_NAME_EDEFAULT.equals(elementName);
 			case GoalModelPackage.GOAL_ELEMENT__IMPORTANCE:
 				return importance != IMPORTANCE_EDEFAULT;
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
@@ -449,8 +491,8 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (elementName: ");
+		result.append(elementName);
 		result.append(", importance: ");
 		result.append(importance);
 		result.append(", confidence: ");

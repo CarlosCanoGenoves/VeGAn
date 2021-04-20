@@ -6,22 +6,22 @@
     xmlns:goalModel="http://goalModel"
     xsi:schemaLocation="http://goalModel goalModel.ecore"
     name="goalModel">
-  <actors name="actor"
+  <actors elementName="actor"
       importance="Very_High"
       confidence="Possibly_More">
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T1"
+        elementName="T1"
         importance="Very_High"
         confidence="Possibly_More"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T2"
+        elementName="T2"
         importance="Medium"
         confidence="Confident"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T3"
+        elementName="T3"
         importance="Very_Low"
         confidence="Possibly_Less"/>
   </actors>

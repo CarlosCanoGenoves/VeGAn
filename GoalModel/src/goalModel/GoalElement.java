@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link goalModel.GoalElement#getName <em>Name</em>}</li>
+ *   <li>{@link goalModel.GoalElement#getElementName <em>Element Name</em>}</li>
  *   <li>{@link goalModel.GoalElement#getImportance <em>Importance</em>}</li>
  *   <li>{@link goalModel.GoalElement#getConfidence <em>Confidence</em>}</li>
  *   <li>{@link goalModel.GoalElement#getLocalValue <em>Local Value</em>}</li>
@@ -37,7 +38,8 @@ public interface GoalElement extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see goalModel.GoalModelPackage#getGoalElement_Name()
-	 * @model
+	 * @model transient="true" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='let imp : String = if self.importance = EImportance::Very_High then \'Very High\' \n\t\t\telseif self.importance = EImportance::High then \'High\'\n\t\t\telseif self.importance = EImportance::Medium then \'Medium\'\n\t\t\telseif self.importance = EImportance::Low then \'Low\' \n\t\t\telseif self.importance = EImportance::Very_Low then \'Very Low\'\n\t\t\telse \'Not Defined\' endif\n\t\t\tin let conf : String = if self.confidence = EConfidence::Possibly_More then \'Possibly More\' \n\t\t\telseif self.confidence = EConfidence::Confident then \'Confident\' \n\t\t\telseif self.confidence = EConfidence::Possibly_Less then \'Possibly Less\' \n\t\t\telse \'Not Defined\' endif\n\t\t\tin elementName + \' \' + imp + \' \' + conf'"
 	 * @generated
 	 */
 	String getName();
@@ -51,6 +53,28 @@ public interface GoalElement extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Element Name</em>' attribute.
+	 * @see #setElementName(String)
+	 * @see goalModel.GoalModelPackage#getGoalElement_ElementName()
+	 * @model
+	 * @generated
+	 */
+	String getElementName();
+
+	/**
+	 * Sets the value of the '{@link goalModel.GoalElement#getElementName <em>Element Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Element Name</em>' attribute.
+	 * @see #getElementName()
+	 * @generated
+	 */
+	void setElementName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Importance</b></em>' attribute.

@@ -6,36 +6,36 @@
     xmlns:goalModel="http://goalModel"
     xsi:schemaLocation="http://goalModel goalModel.ecore"
     name="goalModel">
-  <actors name="actor1"
+  <actors elementName="actor1"
       importance="Very_High"
       confidence="Possibly_More">
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T1"
+        elementName="T1"
         importance="Very_High"
         confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.4/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T2"
+        elementName="T2"
         importance="High"
         confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.4/@srcLinks.1"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T3"
+        elementName="T3"
         importance="Medium"
         confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.4/@srcLinks.2"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T4"
+        elementName="T4"
         importance="Low"
         confidence="Confident"
         trgLinks="//@actors.0/@intentionalelements.4/@srcLinks.3"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="T5"
+        elementName="T5"
         importance="Very_Low"
         confidence="Confident">
       <srcLinks

@@ -31,9 +31,13 @@ public class GoalModelTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new GoalModelTests("goalModel Tests");
+		suite.addTestSuite(ActorTest.class);
 		suite.addTestSuite(ContributionTest.class);
 		suite.addTestSuite(DependencyTest.class);
 		suite.addTestSuite(IterationTest.class);
+		suite.addTestSuite(GoalTest.class);
+		suite.addTestSuite(TaskTest.class);
+		suite.addTestSuite(SoftGoalTest.class);
 		suite.addTestSuite(ValueFromTest.class);
 		return suite;
 	}

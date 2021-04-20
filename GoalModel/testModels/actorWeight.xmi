@@ -6,13 +6,13 @@
     xmlns:goalModel="http://goalModel"
     xsi:schemaLocation="http://goalModel goalModel.ecore"
     name="goalModel">
-  <actors name="actor1"
+  <actors elementName="actor1"
       importance="Very_High"
       confidence="Possibly_More"/>
-  <actors name="actor2"
+  <actors elementName="actor2"
       importance="Medium"
       confidence="Confident"/>
-  <actors name="actor3"
+  <actors elementName="actor3"
       importance="Very_Low"
       confidence="Possibly_Less"/>
 </goalModel:GoalModel>
