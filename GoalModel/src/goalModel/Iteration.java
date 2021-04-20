@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link goalModel.Iteration#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.Iteration#getIteration <em>Iteration</em>}</li>
  *   <li>{@link goalModel.Iteration#getImportance <em>Importance</em>}</li>
  *   <li>{@link goalModel.Iteration#getConfidence <em>Confidence</em>}</li>
@@ -28,6 +29,29 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Iteration extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see goalModel.GoalModelPackage#getIteration_Name()
+	 * @model transient="true" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='iteration.toString() + \'- Value: \' + globalValue.toString()'"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link goalModel.Iteration#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Iteration</b></em>' attribute.
 	 * <!-- begin-user-doc -->

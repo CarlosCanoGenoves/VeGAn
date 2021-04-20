@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link goalModel.impl.IterationImpl#getName <em>Name</em>}</li>
  *   <li>{@link goalModel.impl.IterationImpl#getIteration <em>Iteration</em>}</li>
  *   <li>{@link goalModel.impl.IterationImpl#getImportance <em>Importance</em>}</li>
  *   <li>{@link goalModel.impl.IterationImpl#getConfidence <em>Confidence</em>}</li>
@@ -44,6 +46,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class IterationImpl extends MinimalEObjectImpl.Container implements Iteration {
+	/**
+	 * The cached setting delegate for the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate NAME__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GoalModelPackage.Literals.ITERATION__NAME).getSettingDelegate();
+
 	/**
 	 * The default value of the '{@link #getIteration() <em>Iteration</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -171,6 +183,26 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	@Override
 	protected EClass eStaticClass() {
 		return GoalModelPackage.Literals.ITERATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return (String)NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		NAME__ESETTING_DELEGATE.dynamicSet(this, null, 0, newName);
 	}
 
 	/**
@@ -401,6 +433,8 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GoalModelPackage.ITERATION__NAME:
+				return getName();
 			case GoalModelPackage.ITERATION__ITERATION:
 				return getIteration();
 			case GoalModelPackage.ITERATION__IMPORTANCE:
@@ -428,6 +462,9 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GoalModelPackage.ITERATION__NAME:
+				setName((String)newValue);
+				return;
 			case GoalModelPackage.ITERATION__ITERATION:
 				setIteration((Integer)newValue);
 				return;
@@ -462,6 +499,9 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GoalModelPackage.ITERATION__NAME:
+				NAME__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
 			case GoalModelPackage.ITERATION__ITERATION:
 				setIteration(ITERATION_EDEFAULT);
 				return;
@@ -495,6 +535,8 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GoalModelPackage.ITERATION__NAME:
+				return NAME__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GoalModelPackage.ITERATION__ITERATION:
 				return iteration != ITERATION_EDEFAULT;
 			case GoalModelPackage.ITERATION__IMPORTANCE:
@@ -523,11 +565,11 @@ public class IterationImpl extends MinimalEObjectImpl.Container implements Itera
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Iteration: ");
+		result.append(" (iteration: ");
 		result.append(iteration);
-		result.append(", Importance: ");
+		result.append(", importance: ");
 		result.append(importance);
-		result.append(", Confidence: ");
+		result.append(", confidence: ");
 		result.append(confidence);
 		result.append(", globalValue: ");
 		result.append(globalValue);

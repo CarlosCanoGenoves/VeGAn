@@ -513,7 +513,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIteration_Iteration() {
+	public EAttribute getIteration_Name() {
 		return (EAttribute)iterationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -523,7 +523,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIteration_Importance() {
+	public EAttribute getIteration_Iteration() {
 		return (EAttribute)iterationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -533,7 +533,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getIteration_Confidence() {
+	public EAttribute getIteration_Importance() {
 		return (EAttribute)iterationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -543,8 +543,18 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIteration_Confidence() {
+		return (EAttribute)iterationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getIteration_Element() {
-		return (EReference)iterationEClass.getEStructuralFeatures().get(3);
+		return (EReference)iterationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -554,16 +564,6 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 */
 	@Override
 	public EAttribute getIteration_GlobalValue() {
-		return (EAttribute)iterationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIteration_LocalValue() {
 		return (EAttribute)iterationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -573,8 +573,18 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIteration_LocalValue() {
+		return (EAttribute)iterationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getIteration_Valuefrom() {
-		return (EReference)iterationEClass.getEStructuralFeatures().get(6);
+		return (EReference)iterationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -800,6 +810,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		createEAttribute(dependencyEClass, DEPENDENCY__NAME);
 
 		iterationEClass = createEClass(ITERATION);
+		createEAttribute(iterationEClass, ITERATION__NAME);
 		createEAttribute(iterationEClass, ITERATION__ITERATION);
 		createEAttribute(iterationEClass, ITERATION__IMPORTANCE);
 		createEAttribute(iterationEClass, ITERATION__CONFIDENCE);
@@ -904,9 +915,10 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEAttribute(getDependency_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dependency.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(iterationEClass, Iteration.class, "Iteration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIteration_Iteration(), ecorePackage.getEInt(), "Iteration", null, 1, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIteration_Importance(), this.getEImportance(), "Importance", null, 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIteration_Confidence(), this.getEConfidence(), "Confidence", "Confident", 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIteration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Iteration.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIteration_Iteration(), ecorePackage.getEInt(), "iteration", null, 1, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIteration_Importance(), this.getEImportance(), "importance", null, 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIteration_Confidence(), this.getEConfidence(), "confidence", "Confident", 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIteration_Element(), this.getGoalElement(), this.getGoalElement_Iterations(), "element", null, 0, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIteration_GlobalValue(), ecorePackage.getEDouble(), "globalValue", null, 1, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIteration_LocalValue(), ecorePackage.getEDouble(), "localValue", null, 1, 1, Iteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1019,13 +1031,19 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		  (actorEClass,
 		   source,
 		   new String[] {
-			   "constraints", "The_name_of_the_intentional_element_must_be_unique Importance_not_defined Confidence_not_defined"
+			   "constraints", "The_name_of_the_intentional_element_must_be_unique"
 		   });
 		addAnnotation
 		  (intentionalElementEClass,
 		   source,
 		   new String[] {
 			   "constraints", "An_intentional_element_can_only_have_one_decomposition An_intentional_element_can_only_decompose_one_element"
+		   });
+		addAnnotation
+		  (goalElementEClass,
+		   source,
+		   new String[] {
+			   "constraints", "Importance_not_defined Confidence_not_defined"
 		   });
 		addAnnotation
 		  (contributionEClass,
@@ -1065,9 +1083,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		  (actorEClass,
 		   source,
 		   new String[] {
-			   "The_name_of_the_intentional_element_must_be_unique", "self.intentionalelements->isUnique(name)",
-			   "Importance_not_defined", "importance <> EImportance::Not_Defined",
-			   "Confidence_not_defined", "confidence <> EConfidence::Not_Defined"
+			   "The_name_of_the_intentional_element_must_be_unique", "self.intentionalelements->isUnique(name)"
 		   });
 		addAnnotation
 		  (intentionalElementEClass,
@@ -1075,6 +1091,13 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		   new String[] {
 			   "An_intentional_element_can_only_have_one_decomposition", "self.srcLinks->select(oclIsTypeOf(Decomposition))->size() < 2",
 			   "An_intentional_element_can_only_decompose_one_element", "self.trgLinks->select(oclIsTypeOf(Decomposition))->size() < 2"
+		   });
+		addAnnotation
+		  (goalElementEClass,
+		   source,
+		   new String[] {
+			   "Importance_not_defined", "importance <> EImportance::Not_Defined",
+			   "Confidence_not_defined", "confidence <> EConfidence::Not_Defined"
 		   });
 		addAnnotation
 		  (contributionEClass,
@@ -1099,6 +1122,12 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		   source,
 		   new String[] {
 			   "derivation", "if trgs->size() <> 0 then src.name+\' to \'+trgs->first().name else \'\' endif"
+		   });
+		addAnnotation
+		  (getIteration_Name(),
+		   source,
+		   new String[] {
+			   "derivation", "iteration.toString() + \'- Value: \' + globalValue.toString()"
 		   });
 		addAnnotation
 		  (decompositionEClass,

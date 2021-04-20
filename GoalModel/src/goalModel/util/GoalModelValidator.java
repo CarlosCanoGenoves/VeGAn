@@ -190,9 +190,9 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(actor, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(actor, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(actor, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Importance_not_defined(actor, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Confidence_not_defined(actor, diagnostics, context);
 		if (result || diagnostics != null) result &= validateActor_The_name_of_the_intentional_element_must_be_unique(actor, diagnostics, context);
-		if (result || diagnostics != null) result &= validateActor_Importance_not_defined(actor, diagnostics, context);
-		if (result || diagnostics != null) result &= validateActor_Confidence_not_defined(actor, diagnostics, context);
 		return result;
 	}
 
@@ -226,64 +226,6 @@ public class GoalModelValidator extends EObjectValidator {
 	}
 
 	/**
-	 * The cached validation expression for the Importance_not_defined constraint of '<em>Actor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String ACTOR__IMPORTANCE_NOT_DEFINED__EEXPRESSION = "importance <> EImportance::Not_Defined";
-
-	/**
-	 * Validates the Importance_not_defined constraint of '<em>Actor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateActor_Importance_not_defined(Actor actor, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(GoalModelPackage.Literals.ACTOR,
-				 actor,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "Importance_not_defined",
-				 ACTOR__IMPORTANCE_NOT_DEFINED__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the Confidence_not_defined constraint of '<em>Actor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String ACTOR__CONFIDENCE_NOT_DEFINED__EEXPRESSION = "confidence <> EConfidence::Not_Defined";
-
-	/**
-	 * Validates the Confidence_not_defined constraint of '<em>Actor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateActor_Confidence_not_defined(Actor actor, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(GoalModelPackage.Literals.ACTOR,
-				 actor,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "Confidence_not_defined",
-				 ACTOR__CONFIDENCE_NOT_DEFINED__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -298,6 +240,8 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(intentionalElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(intentionalElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Importance_not_defined(intentionalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Confidence_not_defined(intentionalElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(intentionalElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(intentionalElement, diagnostics, context);
 		return result;
@@ -376,7 +320,76 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGoalElement(GoalElement goalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(goalElement, diagnostics, context);
+		if (!validate_NoCircularContainment(goalElement, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Importance_not_defined(goalElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Confidence_not_defined(goalElement, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the Importance_not_defined constraint of '<em>Goal Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GOAL_ELEMENT__IMPORTANCE_NOT_DEFINED__EEXPRESSION = "importance <> EImportance::Not_Defined";
+
+	/**
+	 * Validates the Importance_not_defined constraint of '<em>Goal Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGoalElement_Importance_not_defined(GoalElement goalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.GOAL_ELEMENT,
+				 goalElement,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "Importance_not_defined",
+				 GOAL_ELEMENT__IMPORTANCE_NOT_DEFINED__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the Confidence_not_defined constraint of '<em>Goal Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String GOAL_ELEMENT__CONFIDENCE_NOT_DEFINED__EEXPRESSION = "confidence <> EConfidence::Not_Defined";
+
+	/**
+	 * Validates the Confidence_not_defined constraint of '<em>Goal Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGoalElement_Confidence_not_defined(GoalElement goalElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GoalModelPackage.Literals.GOAL_ELEMENT,
+				 goalElement,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "Confidence_not_defined",
+				 GOAL_ELEMENT__CONFIDENCE_NOT_DEFINED__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -499,6 +512,8 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(goal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(goal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Importance_not_defined(goal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Confidence_not_defined(goal, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(goal, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(goal, diagnostics, context);
 		return result;
@@ -519,6 +534,8 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(task, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(task, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Importance_not_defined(task, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Confidence_not_defined(task, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(task, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(task, diagnostics, context);
 		return result;
@@ -539,6 +556,8 @@ public class GoalModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(softGoal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(softGoal, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Importance_not_defined(softGoal, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGoalElement_Confidence_not_defined(softGoal, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_have_one_decomposition(softGoal, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIntentionalElement_An_intentional_element_can_only_decompose_one_element(softGoal, diagnostics, context);
 		return result;

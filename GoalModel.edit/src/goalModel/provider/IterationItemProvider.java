@@ -62,6 +62,7 @@ public class IterationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addIterationPropertyDescriptor(object);
 			addImportancePropertyDescriptor(object);
 			addConfidencePropertyDescriptor(object);
@@ -69,6 +70,28 @@ public class IterationItemProvider
 			addLocalValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Iteration_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_name_feature", "_UI_Iteration_type"),
+				 GoalModelPackage.Literals.ITERATION__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -82,8 +105,8 @@ public class IterationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Iteration_Iteration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_Iteration_feature", "_UI_Iteration_type"),
+				 getString("_UI_Iteration_iteration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_iteration_feature", "_UI_Iteration_type"),
 				 GoalModelPackage.Literals.ITERATION__ITERATION,
 				 true,
 				 false,
@@ -104,8 +127,8 @@ public class IterationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Iteration_Importance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_Importance_feature", "_UI_Iteration_type"),
+				 getString("_UI_Iteration_importance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_importance_feature", "_UI_Iteration_type"),
 				 GoalModelPackage.Literals.ITERATION__IMPORTANCE,
 				 true,
 				 false,
@@ -126,8 +149,8 @@ public class IterationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Iteration_Confidence_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_Confidence_feature", "_UI_Iteration_type"),
+				 getString("_UI_Iteration_confidence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Iteration_confidence_feature", "_UI_Iteration_type"),
 				 GoalModelPackage.Literals.ITERATION__CONFIDENCE,
 				 true,
 				 false,
@@ -230,8 +253,10 @@ public class IterationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Iteration iteration = (Iteration)object;
-		return getString("_UI_Iteration_type") + " " + iteration.getIteration();
+		String label = ((Iteration)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Iteration_type") :
+			getString("_UI_Iteration_type") + " " + label;
 	}
 
 
@@ -247,6 +272,7 @@ public class IterationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Iteration.class)) {
+			case GoalModelPackage.ITERATION__NAME:
 			case GoalModelPackage.ITERATION__ITERATION:
 			case GoalModelPackage.ITERATION__IMPORTANCE:
 			case GoalModelPackage.ITERATION__CONFIDENCE:

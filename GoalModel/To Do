@@ -12,6 +12,8 @@ Existentes:
 5- Todos los elementos de una descomposición deben estar en el mismo actor
 6- Un elemento intencional puede estar en una única relación de Descomposición como PADRE (Source)
 7- Un elemento intencional puede estar en una única relación de descomposición como HIJO (target)
+8- Comprobar que se asignado importancia / confianza a cada elemento
+9- Generar el nombre de los elementos de tipo Value From
 
 Por añadir:
 
@@ -37,41 +39,44 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
  Nuevos requisitos REUNION 12-02
  ------------------------------------------------
  
- H	A -		En la salida de la tabla indicar si es Goal Task o SoftGoal (Igual una letra sirve)
-
 ~ 	A/M	-	Exportar el eclipse entero como aplicación (?)
 		- Plugin
 		- Aplicación		- El desarrollo del plugin de la opción anterior es obligatorio, por lo que puede hacerse AMBAS opciones
+			- No Eficiente -> Generar exe
 		- Aplicación web	- DESCARTADO: Está en desarrollo, no es totalmente funcional, no puede ejcutarse código / crearse plugins ni usarse OCL. Desarrolo actual: https://github.com/eclipse-emfcloud/coffee-editor
 
-H 	M/A-	Inter & intra value to father instead of children
-
-H 	M 	-	OCL generar nombre de Value From
-H				-Error: Value < X size
-
  	M	-	Importance & Confidence & value in the name of the IE
-
-H	M	-	Texto mensajes de error OCL
+ 				- ¿Crear otra variable name?
+ 					- Cambiar OCL del nombre a la nueva variable de nombre
 
 	M	-	Hacer página web para la herramienta
+			- HACER A LARGO PLAZO
 
 	M/B	-	Decomposition of type != AND
 			- Configuación: Max, Media, Combinatoria...
 
-H	M/B	-	Visual: Añadir un List para seleccionar que iteración ver
-
-H	B	-	Crear importancia de no asignar importancia -> No Defined & lo mismo para Confidence
-H			- OCL para comprobar que se ha asignado importancia
-
 ~	B	-	Añadir documentación
 
-	B	-	Generar M2M de Amyot al nuestro
+	M	-	Generar M2M de Amyot al nuestro (Prototipo)
+				- HACER A LARGO PLAZO
+			- Alternativa piStar ( https://github.com/CarlosCanoGenoves/piStar )
+	
 
 	B	-	Tabla de visual: Cuando se hace click en Value intra-actor / inter organizar de mayor a menor los elementos dentro de la row, NO organizar todas las rows
 			- El primero siempre él mismo
 
-H	B	-	Probar OTRAS versiones de Eclipse. Funciona con la última versión
-
 ~	?	-	Probar en otros SO
 ~				- MAC: Parece que la aplicación funciona, pero la validación en OCL da error, podría ser debido al plugin de OCL
-				- LINUX
+?				- LINUX
+
+--------------------------
+
+H	?	-	Revisar la restricción de Not Defined (Estaba puesta en Solo en los actores)
+
+	?	-	Ordenar las propiedades de los elementos intencionales: https://wiki.eclipse.org/EMF/FAQ#How_do_I_preserve_my_property_order.2C_i._e._the_order_in_the_ecore_model.2C_in_Property_Sheet_of_the_generated_editor_instead_of_default_alphabetical_ordering.3F
+
+H	?	-	Mostrar el valor Global a la derecha de la Iteración: Iteración X Valor
+
+	?	-	Añadir cómo evaluar
+
+	?	-	Agrupar las iteraciones
