@@ -64,6 +64,7 @@ public class GoalElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addElementNamePropertyDescriptor(object);
 			addImportancePropertyDescriptor(object);
 			addConfidencePropertyDescriptor(object);
 			addLocalValuePropertyDescriptor(object);
@@ -86,6 +87,28 @@ public class GoalElementItemProvider
 				 getString("_UI_GoalElement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GoalElement_name_feature", "_UI_GoalElement_type"),
 				 GoalModelPackage.Literals.GOAL_ELEMENT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Element Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addElementNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GoalElement_elementName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GoalElement_elementName_feature", "_UI_GoalElement_type"),
+				 GoalModelPackage.Literals.GOAL_ELEMENT__ELEMENT_NAME,
 				 true,
 				 false,
 				 false,
@@ -240,6 +263,7 @@ public class GoalElementItemProvider
 
 		switch (notification.getFeatureID(GoalElement.class)) {
 			case GoalModelPackage.GOAL_ELEMENT__NAME:
+			case GoalModelPackage.GOAL_ELEMENT__ELEMENT_NAME:
 			case GoalModelPackage.GOAL_ELEMENT__IMPORTANCE:
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
 			case GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE:

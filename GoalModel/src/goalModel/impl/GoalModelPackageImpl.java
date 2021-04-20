@@ -403,7 +403,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGoalElement_Importance() {
+	public EAttribute getGoalElement_ElementName() {
 		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -413,7 +413,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGoalElement_Confidence() {
+	public EAttribute getGoalElement_Importance() {
 		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -423,7 +423,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGoalElement_LocalValue() {
+	public EAttribute getGoalElement_Confidence() {
 		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -433,8 +433,18 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGoalElement_LocalValue() {
+		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getGoalElement_Iterations() {
-		return (EReference)goalElementEClass.getEStructuralFeatures().get(4);
+		return (EReference)goalElementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -444,7 +454,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 */
 	@Override
 	public EAttribute getGoalElement_GlobalValue() {
-		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -796,6 +806,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 
 		goalElementEClass = createEClass(GOAL_ELEMENT);
 		createEAttribute(goalElementEClass, GOAL_ELEMENT__NAME);
+		createEAttribute(goalElementEClass, GOAL_ELEMENT__ELEMENT_NAME);
 		createEAttribute(goalElementEClass, GOAL_ELEMENT__IMPORTANCE);
 		createEAttribute(goalElementEClass, GOAL_ELEMENT__CONFIDENCE);
 		createEAttribute(goalElementEClass, GOAL_ELEMENT__LOCAL_VALUE);
@@ -900,7 +911,8 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEReference(getLink_Trgs(), this.getIntentionalElement(), this.getIntentionalElement_TrgLinks(), "trgs", null, 1, -1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(goalElementEClass, GoalElement.class, "GoalElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGoalElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoalElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, GoalElement.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoalElement_ElementName(), ecorePackage.getEString(), "elementName", null, 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGoalElement_Importance(), this.getEImportance(), "importance", "Not_Defined", 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGoalElement_Confidence(), this.getEConfidence(), "confidence", "Not_Defined", 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGoalElement_LocalValue(), ecorePackage.getEDouble(), "localValue", null, 1, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1100,6 +1112,12 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 			   "Confidence_not_defined", "confidence <> EConfidence::Not_Defined"
 		   });
 		addAnnotation
+		  (getGoalElement_Name(),
+		   source,
+		   new String[] {
+			   "derivation", "let imp : String = if self.importance = EImportance::Very_High then \'Very High\' \n\t\t\telseif self.importance = EImportance::High then \'High\'\n\t\t\telseif self.importance = EImportance::Medium then \'Medium\'\n\t\t\telseif self.importance = EImportance::Low then \'Low\' \n\t\t\telseif self.importance = EImportance::Very_Low then \'Very Low\'\n\t\t\telse \'Not Defined\' endif\n\t\t\tin let conf : String = if self.confidence = EConfidence::Possibly_More then \'Possibly More\' \n\t\t\telseif self.confidence = EConfidence::Confident then \'Confident\' \n\t\t\telseif self.confidence = EConfidence::Possibly_Less then \'Possibly Less\' \n\t\t\telse \'Not Defined\' endif\n\t\t\tin elementName + \' \' + imp + \' \' + conf"
+		   });
+		addAnnotation
 		  (contributionEClass,
 		   source,
 		   new String[] {
@@ -1127,7 +1145,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		  (getIteration_Name(),
 		   source,
 		   new String[] {
-			   "derivation", "iteration.toString() + \'- Value: \' + globalValue.toString()"
+			   "derivation", "let reducedValue : String = if globalValue < 0 then (if globalValue.toString().size() >5 then globalValue.toString().substring(1, 5) else globalValue.toString() endif) else (if globalValue.toString().size() > 4 then globalValue.toString().substring(1, 4) else globalValue.toString() endif) endif \n\t\t\t\t\tin iteration.toString() + \'- Value: \' + reducedValue"
 		   });
 		addAnnotation
 		  (decompositionEClass,

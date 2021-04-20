@@ -6,10 +6,10 @@
     xmlns:goalModel="http://goalModel"
     xsi:schemaLocation="http://goalModel goalModel.ecore"
     name="goalModel">
-  <actors name="actor">
+  <actors elementName="actor">
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="A">
+        elementName="A">
       <srcLinks
           xsi:type="goalModel:Decomposition"
           trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2"/>
@@ -20,15 +20,15 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="B"
+        elementName="B"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="C"
+        elementName="C"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="D"
+        elementName="D"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1"/>
   </actors>
 </goalModel:GoalModel>

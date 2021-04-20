@@ -6,10 +6,10 @@
     xmlns:goalModel="http://goalModel"
     xsi:schemaLocation="http://goalModel model/goalModel.ecore"
     name="Amazon Kindle">
-  <actors name="Reader">
+  <actors elementName="Reader">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        name="Read Books">
+        elementName="Read Books">
       <srcLinks
           xsi:type="goalModel:Decomposition"
           trgs="//@actors.0/@intentionalelements.2 //@actors.0/@intentionalelements.3"/>
@@ -19,11 +19,11 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
-        name="Low Cost"
+        elementName="Low Cost"
         trgLinks="//@actors.0/@intentionalelements.2/@srcLinks.0 //@actors.0/@intentionalelements.3/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Buy paper book"
+        elementName="Buy paper book"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -32,7 +32,7 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Subscribe to Amazon Kindle Unlimited"
+        elementName="Subscribe to Amazon Kindle Unlimited"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -40,10 +40,10 @@
           contributionType="p75"/>
     </intentionalelements>
   </actors>
-  <actors name="Writer">
+  <actors elementName="Writer">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        name="Publish book"
+        elementName="Publish book"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Decomposition"
@@ -51,15 +51,15 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
-        name="Benefits"
+        elementName="Benefits"
         trgLinks="//@actors.1/@intentionalelements.3/@srcLinks.0 //@actors.1/@intentionalelements.4/@srcLinks.0"/>
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
-        name="Increase readers"
+        elementName="Increase readers"
         trgLinks="//@actors.1/@intentionalelements.3/@srcLinks.1 //@actors.1/@intentionalelements.4/@srcLinks.1"/>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Publish book on paper"
+        elementName="Publish book on paper"
         trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -72,7 +72,7 @@
     </intentionalelements>
     <intentionalelements
         xsi:type="goalModel:Task"
-        name="Publish book on Amazon"
+        elementName="Publish book on Amazon"
         trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"

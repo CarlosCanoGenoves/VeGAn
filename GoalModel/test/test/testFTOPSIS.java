@@ -455,7 +455,7 @@ class testFTOPSIS {
 		
 		
 		for(IntentionalElement key : ieToPosition.keySet())
-			System.out.println(ieToPosition.get(key) + " - " + key.getName());
+			System.out.println(ieToPosition.get(key) + " - " + key.getElementName());
 		
 		
 		double[][] herarchizedPerformanceMatrix = FTOPSIS.hierarchizePerformanceMatrix(goalModel, performanceMatrix, ieToPosition);

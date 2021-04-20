@@ -72,7 +72,13 @@
       <details key="Importance_not_defined" value="importance &lt;> EImportance::Not_Defined"/>
       <details key="Confidence_not_defined" value="confidence &lt;> EConfidence::Not_Defined"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="let imp : String = if self.importance = EImportance::Very_High then 'Very High' &#xA;&#x9;&#x9;&#x9;elseif self.importance = EImportance::High then 'High'&#xA;&#x9;&#x9;&#x9;elseif self.importance = EImportance::Medium then 'Medium'&#xA;&#x9;&#x9;&#x9;elseif self.importance = EImportance::Low then 'Low' &#xA;&#x9;&#x9;&#x9;elseif self.importance = EImportance::Very_Low then 'Very Low'&#xA;&#x9;&#x9;&#x9;else 'Not Defined' endif&#xA;&#x9;&#x9;&#x9;in let conf : String = if self.confidence = EConfidence::Possibly_More then 'Possibly More' &#xA;&#x9;&#x9;&#x9;elseif self.confidence = EConfidence::Confident then 'Confident' &#xA;&#x9;&#x9;&#x9;elseif self.confidence = EConfidence::Possibly_Less then 'Possibly Less' &#xA;&#x9;&#x9;&#x9;else 'Not Defined' endif&#xA;&#x9;&#x9;&#x9;in elementName + ' ' + imp + ' ' + conf"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importance" eType="#//EImportance"
         defaultValueLiteral="Not_Defined"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="#//EConfidence"

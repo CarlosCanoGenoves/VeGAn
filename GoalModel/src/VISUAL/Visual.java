@@ -132,7 +132,7 @@ public class Visual {
 				IntentionalElement ie = (IntentionalElement) ieIterator.next();
 				
 				ArrayList<Object> objs = new ArrayList<Object>();
-				objs.add(ie.getName() + " " + getIntentionalType(ie));
+				objs.add(ie.getElementName() + " " + getIntentionalType(ie));
 				objs.add(ie.getImportance().toString());
 				objs.add(ie.getConfidence().toString());
 				objs.add(Math.round(ie.getGlobalValue()*100.0)/100.0);
@@ -154,11 +154,11 @@ public class Visual {
 						
 						if(valueFrom.getValueFrom()==EValueFrom.LOCAL)
 						{
-							intra_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getName() + " " + getIntentionalType(valueFrom.getIntentionalelement()) + "\r\n";
+							intra_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getElementName() + " " + getIntentionalType(valueFrom.getIntentionalelement()) + "\r\n";
 						}
 						else
 						{
-							inter_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getName() + " " + getIntentionalType(valueFrom.getIntentionalelement()) + "\r\n";
+							inter_actor += Math.round(valueFrom.getValue()*100.0)/100.0 + " - " + valueFrom.getIntentionalelement().getElementName() + " " + getIntentionalType(valueFrom.getIntentionalelement()) + "\r\n";
 
 						}
 					}
@@ -182,7 +182,7 @@ public class Visual {
 			table.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);	//Global Value
 			table.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);	//Local Value
 
-			jpanel.add(new JLabel(actor.getName()));
+			jpanel.add(new JLabel(actor.getElementName()));
 			jpanel.add(table.getTableHeader());
 			jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
 			jpanel.add(Box.createVerticalStrut(20));

@@ -59,6 +59,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="goalModel.ecore#//GoalElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/elementName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/importance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/confidence"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/localValue"/>

@@ -37,7 +37,7 @@ public interface Iteration extends EObject {
 	 * @see #setName(String)
 	 * @see goalModel.GoalModelPackage#getIteration_Name()
 	 * @model transient="true" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='iteration.toString() + \'- Value: \' + globalValue.toString()'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='let reducedValue : String = if globalValue &lt; 0 then (if globalValue.toString().size() &gt;5 then globalValue.toString().substring(1, 5) else globalValue.toString() endif) else (if globalValue.toString().size() &gt; 4 then globalValue.toString().substring(1, 4) else globalValue.toString() endif) endif \n\t\t\t\t\tin iteration.toString() + \'- Value: \' + reducedValue'"
 	 * @generated
 	 */
 	String getName();

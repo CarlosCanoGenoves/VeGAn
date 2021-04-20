@@ -134,13 +134,22 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL_ELEMENT__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL_ELEMENT__ELEMENT_NAME = 1;
+
+	/**
 	 * The feature id for the '<em><b>Importance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT__IMPORTANCE = 1;
+	int GOAL_ELEMENT__IMPORTANCE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Confidence</b></em>' attribute.
@@ -149,7 +158,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT__CONFIDENCE = 2;
+	int GOAL_ELEMENT__CONFIDENCE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Local Value</b></em>' attribute.
@@ -158,7 +167,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT__LOCAL_VALUE = 3;
+	int GOAL_ELEMENT__LOCAL_VALUE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Iterations</b></em>' containment reference list.
@@ -167,7 +176,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT__ITERATIONS = 4;
+	int GOAL_ELEMENT__ITERATIONS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Global Value</b></em>' attribute.
@@ -176,7 +185,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT__GLOBAL_VALUE = 5;
+	int GOAL_ELEMENT__GLOBAL_VALUE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Goal Element</em>' class.
@@ -185,7 +194,7 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT_FEATURE_COUNT = 6;
+	int GOAL_ELEMENT_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Goal Element</em>' class.
@@ -214,6 +223,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__NAME = GOAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__ELEMENT_NAME = GOAL_ELEMENT__ELEMENT_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Importance</b></em>' attribute.
@@ -314,6 +332,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTENTIONAL_ELEMENT__NAME = GOAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTIONAL_ELEMENT__ELEMENT_NAME = GOAL_ELEMENT__ELEMENT_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Importance</b></em>' attribute.
@@ -690,6 +717,15 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL__NAME = INTENTIONAL_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__ELEMENT_NAME = INTENTIONAL_ELEMENT__ELEMENT_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Importance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -799,6 +835,15 @@ public interface GoalModelPackage extends EPackage {
 	int TASK__NAME = INTENTIONAL_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__ELEMENT_NAME = INTENTIONAL_ELEMENT__ELEMENT_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Importance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -906,6 +951,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFT_GOAL__NAME = INTENTIONAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFT_GOAL__ELEMENT_NAME = INTENTIONAL_ELEMENT__ELEMENT_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Importance</b></em>' attribute.
@@ -1347,6 +1401,17 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGoalElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.GoalElement#getElementName <em>Element Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Element Name</em>'.
+	 * @see goalModel.GoalElement#getElementName()
+	 * @see #getGoalElement()
+	 * @generated
+	 */
+	EAttribute getGoalElement_ElementName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link goalModel.GoalElement#getImportance <em>Importance</em>}'.
@@ -1880,6 +1945,14 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GOAL_ELEMENT__NAME = eINSTANCE.getGoalElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Element Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GOAL_ELEMENT__ELEMENT_NAME = eINSTANCE.getGoalElement_ElementName();
 
 		/**
 		 * The meta object literal for the '<em><b>Importance</b></em>' attribute feature.
