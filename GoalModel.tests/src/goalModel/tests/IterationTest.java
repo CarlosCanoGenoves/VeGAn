@@ -13,6 +13,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Iteration</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link goalModel.Iteration#getName() <em>Name</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class IterationTest extends TestCase {
@@ -84,6 +90,32 @@ public class IterationTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link goalModel.Iteration#getName() <em>Name</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see goalModel.Iteration#getName()
+	 * @generated
+	 */
+	public void testGetName() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link goalModel.Iteration#setName(java.lang.String) <em>Name</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see goalModel.Iteration#setName(java.lang.String)
+	 * @generated
+	 */
+	public void testSetName() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //IterationTest

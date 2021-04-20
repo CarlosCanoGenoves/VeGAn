@@ -73,9 +73,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Dependency/name"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//Iteration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Iteration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Importance"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/Confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/iteration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/importance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/confidence"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference goalModel.ecore#//Iteration/element"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/globalValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Iteration/localValue"/>

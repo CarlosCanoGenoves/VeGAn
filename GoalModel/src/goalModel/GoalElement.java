@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see goalModel.GoalModelPackage#getGoalElement()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='Importance_not_defined Confidence_not_defined'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot Importance_not_defined='importance &lt;&gt; EImportance::Not_Defined' Confidence_not_defined='confidence &lt;&gt; EConfidence::Not_Defined'"
  * @generated
  */
 public interface GoalElement extends EObject {

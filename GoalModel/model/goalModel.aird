@@ -4,7 +4,7 @@
     <semanticResources>goalModel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_BA0QYFGpEeuuANx23tsyOw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BpVo8FGpEeuuANx23tsyOw" name="goalModel class diagram" repPath="#_BoYmsFGpEeuuANx23tsyOw" changeId="3032ea39-ea93-45ce-a0c8-ad0510ec4b06">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BpVo8FGpEeuuANx23tsyOw" name="goalModel class diagram" repPath="#_BoYmsFGpEeuuANx23tsyOw" changeId="cb3b7c5c-e6b2-4d21-9c52-0c2e7d5c56ec">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="goalModel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -22,12 +22,6 @@
   <diagram:DSemanticDiagram uid="_BoYmsFGpEeuuANx23tsyOw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_BpR-kFGpEeuuANx23tsyOw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_BpR-kVGpEeuuANx23tsyOw">
-        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_CMjqwFGpEeuuANx23tsyOw" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='PartyPlaceThingColor']"/>
-        </computedStyleDescriptions>
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_CM8sUFGpEeuuANx23tsyOw" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelFormat>bold</labelFormat>
@@ -57,6 +51,12 @@
           <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_R9dAsmsQEeuu-rhFjjdlRA" labelSize="6" showIcon="false" labelExpression="service:eKeysLabel">
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
           </endLabelStyleDescription>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_yicYMaG-EeuoGMmzir54IA" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='PartyPlaceThingColor']"/>
         </computedStyleDescriptions>
       </data>
     </ownedAnnotationEntries>
@@ -265,6 +265,10 @@
             <children xmi:type="notation:Node" xmi:id="_XN5NgGjJEeuRvZjLQPjQFQ" type="3010" element="_XNtnUWjJEeuRvZjLQPjQFQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_XN5NgWjJEeuRvZjLQPjQFQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_XN5NgmjJEeuRvZjLQPjQFQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_wg3iAKG-EeuoGMmzir54IA" type="3010" element="_wgix4KG-EeuoGMmzir54IA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_wg3iAaG-EeuoGMmzir54IA" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_wg3iAqG-EeuoGMmzir54IA"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_COdIOVGpEeuuANx23tsyOw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_COdIOlGpEeuuANx23tsyOw"/>
@@ -940,7 +944,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_CMjqwVGpEeuuANx23tsyOw" description="_CMjqwFGpEeuuANx23tsyOw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="180,230,180"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_yicYM6G-EeuoGMmzir54IA" description="_yicYMaG-EeuoGMmzir54IA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="180,230,180"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_CN68sFGpEeuuANx23tsyOw" name="Iteration : EInt" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/Iteration"/>
@@ -979,6 +983,14 @@
         <semanticElements xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/localValue"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_GO3QQW1NEeuVLYrOtd069g" labelAlignment="LEFT" description="_CM8sUFGpEeuuANx23tsyOw">
           <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wgix4KG-EeuoGMmzir54IA" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="goalModel.ecore#//Iteration/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_yigCkaG-EeuoGMmzir54IA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
