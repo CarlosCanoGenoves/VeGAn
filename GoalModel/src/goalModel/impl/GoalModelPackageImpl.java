@@ -9,6 +9,7 @@ import goalModel.Dependency;
 import goalModel.EConfidence;
 import goalModel.EContribution;
 import goalModel.EDecomposition;
+import goalModel.EEvaluation;
 import goalModel.EImportance;
 import goalModel.EValueFrom;
 import goalModel.Goal;
@@ -165,6 +166,13 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	private EEnum eValueFromEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum eEvaluationEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -455,6 +463,16 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	@Override
 	public EAttribute getGoalElement_GlobalValue() {
 		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGoalElement_Evaluation() {
+		return (EAttribute)goalElementEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -763,6 +781,16 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 	 * @generated
 	 */
 	@Override
+	public EEnum getEEvaluation() {
+		return eEvaluationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public GoalModelFactory getGoalModelFactory() {
 		return (GoalModelFactory)getEFactoryInstance();
 	}
@@ -812,6 +840,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		createEAttribute(goalElementEClass, GOAL_ELEMENT__LOCAL_VALUE);
 		createEReference(goalElementEClass, GOAL_ELEMENT__ITERATIONS);
 		createEAttribute(goalElementEClass, GOAL_ELEMENT__GLOBAL_VALUE);
+		createEAttribute(goalElementEClass, GOAL_ELEMENT__EVALUATION);
 
 		contributionEClass = createEClass(CONTRIBUTION);
 		createEAttribute(contributionEClass, CONTRIBUTION__NAME);
@@ -852,6 +881,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		eConfidenceEEnum = createEEnum(ECONFIDENCE);
 		eDecompositionEEnum = createEEnum(EDECOMPOSITION);
 		eValueFromEEnum = createEEnum(EVALUE_FROM);
+		eEvaluationEEnum = createEEnum(EEVALUATION);
 	}
 
 	/**
@@ -918,6 +948,7 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEAttribute(getGoalElement_LocalValue(), ecorePackage.getEDouble(), "localValue", null, 1, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGoalElement_Iterations(), this.getIteration(), this.getIteration_Element(), "iterations", null, 0, -1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGoalElement_GlobalValue(), ecorePackage.getEDouble(), "globalValue", null, 1, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGoalElement_Evaluation(), this.getEEvaluation(), "evaluation", "Not_Defined", 0, 1, GoalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contributionEClass, Contribution.class, "Contribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getContribution_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contribution.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -986,6 +1017,14 @@ public class GoalModelPackageImpl extends EPackageImpl implements GoalModelPacka
 		initEEnum(eValueFromEEnum, EValueFrom.class, "EValueFrom");
 		addEEnumLiteral(eValueFromEEnum, EValueFrom.LOCAL);
 		addEEnumLiteral(eValueFromEEnum, EValueFrom.EXTERNAL);
+
+		initEEnum(eEvaluationEEnum, EEvaluation.class, "EEvaluation");
+		addEEnumLiteral(eEvaluationEEnum, EEvaluation.STRONGLY_AGREE);
+		addEEnumLiteral(eEvaluationEEnum, EEvaluation.AGREE);
+		addEEnumLiteral(eEvaluationEEnum, EEvaluation.NEUTRAL);
+		addEEnumLiteral(eEvaluationEEnum, EEvaluation.DISAGREE);
+		addEEnumLiteral(eEvaluationEEnum, EEvaluation.STRONGLY_DISAGREE);
+		addEEnumLiteral(eEvaluationEEnum, EEvaluation.NOT_DEFINED);
 
 		// Create resource
 		createResource(eNS_URI);

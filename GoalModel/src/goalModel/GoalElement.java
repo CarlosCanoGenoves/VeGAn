@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link goalModel.GoalElement#getLocalValue <em>Local Value</em>}</li>
  *   <li>{@link goalModel.GoalElement#getIterations <em>Iterations</em>}</li>
  *   <li>{@link goalModel.GoalElement#getGlobalValue <em>Global Value</em>}</li>
+ *   <li>{@link goalModel.GoalElement#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
  *
  * @see goalModel.GoalModelPackage#getGoalElement()
@@ -185,5 +186,31 @@ public interface GoalElement extends EObject {
 	 * @generated
 	 */
 	void setGlobalValue(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Evaluation</b></em>' attribute.
+	 * The default value is <code>"Not_Defined"</code>.
+	 * The literals are from the enumeration {@link goalModel.EEvaluation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Evaluation</em>' attribute.
+	 * @see goalModel.EEvaluation
+	 * @see #setEvaluation(EEvaluation)
+	 * @see goalModel.GoalModelPackage#getGoalElement_Evaluation()
+	 * @model default="Not_Defined"
+	 * @generated
+	 */
+	EEvaluation getEvaluation();
+
+	/**
+	 * Sets the value of the '{@link goalModel.GoalElement#getEvaluation <em>Evaluation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Evaluation</em>' attribute.
+	 * @see goalModel.EEvaluation
+	 * @see #getEvaluation()
+	 * @generated
+	 */
+	void setEvaluation(EEvaluation value);
 
 } // GoalElement

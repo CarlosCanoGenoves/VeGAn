@@ -3,6 +3,7 @@
 package goalModel.impl;
 
 import goalModel.EConfidence;
+import goalModel.EEvaluation;
 import goalModel.EImportance;
 import goalModel.GoalElement;
 import goalModel.GoalModelPackage;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link goalModel.impl.GoalElementImpl#getLocalValue <em>Local Value</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getIterations <em>Iterations</em>}</li>
  *   <li>{@link goalModel.impl.GoalElementImpl#getGlobalValue <em>Global Value</em>}</li>
+ *   <li>{@link goalModel.impl.GoalElementImpl#getEvaluation <em>Evaluation</em>}</li>
  * </ul>
  *
  * @generated
@@ -164,6 +166,26 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected double globalValue = GLOBAL_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEvaluation() <em>Evaluation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvaluation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EEvaluation EVALUATION_EDEFAULT = EEvaluation.NOT_DEFINED;
+
+	/**
+	 * The cached value of the '{@link #getEvaluation() <em>Evaluation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvaluation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EEvaluation evaluation = EVALUATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -337,6 +359,29 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EEvaluation getEvaluation() {
+		return evaluation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEvaluation(EEvaluation newEvaluation) {
+		EEvaluation oldEvaluation = evaluation;
+		evaluation = newEvaluation == null ? EVALUATION_EDEFAULT : newEvaluation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GoalModelPackage.GOAL_ELEMENT__EVALUATION, oldEvaluation, evaluation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -383,6 +428,8 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 				return getIterations();
 			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
 				return getGlobalValue();
+			case GoalModelPackage.GOAL_ELEMENT__EVALUATION:
+				return getEvaluation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -418,6 +465,9 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
 				setGlobalValue((Double)newValue);
 				return;
+			case GoalModelPackage.GOAL_ELEMENT__EVALUATION:
+				setEvaluation((EEvaluation)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -451,6 +501,9 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
 				setGlobalValue(GLOBAL_VALUE_EDEFAULT);
 				return;
+			case GoalModelPackage.GOAL_ELEMENT__EVALUATION:
+				setEvaluation(EVALUATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -477,6 +530,8 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 				return iterations != null && !iterations.isEmpty();
 			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
 				return globalValue != GLOBAL_VALUE_EDEFAULT;
+			case GoalModelPackage.GOAL_ELEMENT__EVALUATION:
+				return evaluation != EVALUATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -501,6 +556,8 @@ public abstract class GoalElementImpl extends MinimalEObjectImpl.Container imple
 		result.append(localValue);
 		result.append(", globalValue: ");
 		result.append(globalValue);
+		result.append(", evaluation: ");
+		result.append(evaluation);
 		result.append(')');
 		return result.toString();
 	}

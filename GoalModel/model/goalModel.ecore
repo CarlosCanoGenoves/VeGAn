@@ -89,6 +89,8 @@
         eType="#//Iteration" containment="true" eOpposite="#//Iteration/element"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="globalValue" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluation" eType="#//EEvaluation"
+        defaultValueLiteral="Not_Defined"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//Link">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -100,7 +102,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="let impact : Integer = if self.contributionType = EContribution::p100 then 100 elseif self.contributionType = EContribution::p75 then 75 &#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::p50 then 50 elseif self.contributionType = EContribution::p25 then 25&#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::n25 then -25 elseif self.contributionType = EContribution::n50 then -50 &#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::n75 then -75 elseif self.contributionType = EContribution::n100 then -100 else 0 endif&#xA;&#x9;&#x9;&#x9;in if trgs->size() &lt;> 0 then src.name + ' to ' + trgs->first().name + ' (' + impact.toString() + ')' else '' endif"/>
+        <details key="derivation" value="let impact : Integer = if self.contributionType = EContribution::p100 then 100 elseif self.contributionType = EContribution::p75 then 75 &#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::p50 then 50 elseif self.contributionType = EContribution::p25 then 25&#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::n25 then -25 elseif self.contributionType = EContribution::n50 then -50 &#xA;&#x9;&#x9;&#x9;elseif self.contributionType = EContribution::n75 then -75 elseif self.contributionType = EContribution::n100 then -100 else 0 endif&#xA;&#x9;&#x9;&#x9;in if trgs->size() &lt;> 0 then src.elementName + ' to ' + trgs->first().elementName + ' (' + impact.toString() + ')' else '' endif"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contributionType" eType="#//EContribution"
@@ -116,7 +118,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="derivation" value="if trgs->size() &lt;> 0 then src.name+' to '+trgs->first().name else '' endif"/>
+        <details key="derivation" value="if trgs->size() &lt;> 0 then src.elementName+' to '+trgs->first().elementName else '' endif"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -197,5 +199,13 @@
   <eClassifiers xsi:type="ecore:EEnum" name="EValueFrom">
     <eLiterals name="local"/>
     <eLiterals name="External" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EEvaluation">
+    <eLiterals name="Strongly_Agree"/>
+    <eLiterals name="Agree" value="1"/>
+    <eLiterals name="Neutral" value="2"/>
+    <eLiterals name="Disagree" value="3"/>
+    <eLiterals name="Strongly_Disagree" value="4"/>
+    <eLiterals name="Not_Defined" value="5"/>
   </eClassifiers>
 </ecore:EPackage>

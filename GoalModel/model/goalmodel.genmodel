@@ -39,6 +39,14 @@
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EValueFrom/local"/>
       <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EValueFrom/External"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="goalModel.ecore#//EEvaluation">
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EEvaluation/Strongly_Agree"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EEvaluation/Agree"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EEvaluation/Neutral"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EEvaluation/Disagree"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EEvaluation/Strongly_Disagree"/>
+      <genEnumLiterals ecoreEnumLiteral="goalModel.ecore#//EEvaluation/Not_Defined"/>
+    </genEnums>
     <genClasses ecoreClass="goalModel.ecore#//GoalModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalModel/actors"/>
@@ -65,6 +73,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/localValue"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference goalModel.ecore#//GoalElement/iterations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/globalValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//GoalElement/evaluation"/>
     </genClasses>
     <genClasses ecoreClass="goalModel.ecore#//Contribution">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute goalModel.ecore#//Contribution/name"/>

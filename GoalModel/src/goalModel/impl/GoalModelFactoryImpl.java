@@ -90,6 +90,8 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 				return createEDecompositionFromString(eDataType, initialValue);
 			case GoalModelPackage.EVALUE_FROM:
 				return createEValueFromFromString(eDataType, initialValue);
+			case GoalModelPackage.EEVALUATION:
+				return createEEvaluationFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +115,8 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 				return convertEDecompositionToString(eDataType, instanceValue);
 			case GoalModelPackage.EVALUE_FROM:
 				return convertEValueFromToString(eDataType, instanceValue);
+			case GoalModelPackage.EEVALUATION:
+				return convertEEvaluationToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -325,6 +329,26 @@ public class GoalModelFactoryImpl extends EFactoryImpl implements GoalModelFacto
 	 * @generated
 	 */
 	public String convertEValueFromToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEvaluation createEEvaluationFromString(EDataType eDataType, String initialValue) {
+		EEvaluation result = EEvaluation.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEEvaluationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
