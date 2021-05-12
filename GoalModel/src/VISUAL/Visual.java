@@ -1,6 +1,7 @@
 package VISUAL;
 
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -8,20 +9,28 @@ import java.util.Iterator;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+
+import org.eclipse.emf.ecore.util.Switch;
 
 import VEGAN.FTOPSIS;
 import VEGAN.UsingEMFModel;
 import goalModel.Actor;
+import goalModel.EEvaluation;
 import goalModel.EValueFrom;
 import goalModel.Goal;
 import goalModel.GoalModel;
@@ -40,7 +49,7 @@ public class Visual {
 		UsingEMFModel.save(goalModel, "hope.xmi");
 				
 		JFrame frame = new JFrame();
-		frame.add(new JScrollPane(showLastIteration(goalModel)));
+		frame.add(new JScrollPane(showLastIteration(goalModel, "hope.xmi")));
 		frame.pack();
 		
 		frame.setVisible(true);
@@ -55,7 +64,7 @@ public class Visual {
 		UsingEMFModel.save(goalModel, location);
 				
 		JFrame frame = new JFrame();
-		frame.add(new JScrollPane(showLastIteration(goalModel)));
+		frame.add(new JScrollPane(showLastIteration(goalModel, location)));
 		frame.pack();
 		
 		frame.setVisible(true);
@@ -64,11 +73,11 @@ public class Visual {
 	/*
 	 * By default SHOW the LAST iteration
 	 */
-	private static JPanel showLastIteration(GoalModel goalModel) {
-		return showIteration(goalModel, goalModel.getIteration());
+	private static JPanel showLastIteration(GoalModel goalModel, String location) {
+		return showIteration(goalModel, goalModel.getIteration(), location);
 	}
 	
-	private static JPanel showIteration(GoalModel goalModel, int selectedIteration) {
+	private static JPanel showIteration(GoalModel goalModel, int selectedIteration, String location) {
 		ArrayList<String> cols = new ArrayList<String>();
 
 		cols.add("Intentional Element");
@@ -78,6 +87,7 @@ public class Visual {
 		cols.add("Local Value");
 		cols.add("Value intra-actor");
 		cols.add("Value inter-actor");
+		cols.add("Evaluation");
 		
 		
 		JPanel jpanel = new JPanel();
@@ -95,7 +105,7 @@ public class Visual {
 				public void actionPerformed(ActionEvent e) {
 					System.out.println(myList.getSelectedIndex());
 					
-					JPanel newJpanel = showIteration(goalModel, myList.getSelectedIndex()+1);
+					JPanel newJpanel = showIteration(goalModel, myList.getSelectedIndex()+1, location);
 					
 					JFrame jframe = (JFrame)SwingUtilities.getRoot(myList);
 					jframe.getContentPane().removeAll();
@@ -126,6 +136,16 @@ public class Visual {
 					return Double.class;
 				}
 			};
+			
+			tableModel.addTableModelListener(new TableModelListener() {
+				
+				@Override
+				public void tableChanged(TableModelEvent e) {
+					
+					//JOptionPane.showMessageDialog(null, combo.getSelectedItem());
+					
+				}
+			});
 			
 			for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
 			{
@@ -166,11 +186,13 @@ public class Visual {
 				
 				objs.add(intra_actor.trim());
 				objs.add(inter_actor.trim());
+				objs.add(ie.getEvaluation());
 				
 				tableModel.addRow(objs.toArray());
 			}
 			
 			JTable table = new JTable(tableModel);
+			table.setName(actor.getElementName());
 			table.setAutoCreateRowSorter(true);
 			
 			table.setDefaultRenderer(String.class, new MultilineTableCellRenderer());
@@ -182,6 +204,51 @@ public class Visual {
 			table.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);	//Global Value
 			table.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);	//Local Value
 
+			String[] evaluations = {"Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly disagree"};
+			JComboBox combo = new JComboBox<String>(evaluations);
+			combo.addActionListener( new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					int row = table.getSelectedRow();
+					int col = table.getSelectedColumn();
+					
+					//Use the name of the IE as ID (is UNIQUE per Actor)
+					String ieName = (String) table.getValueAt(row, 0);
+					ieName = ieName.substring(0, ieName.lastIndexOf(" ")).trim();
+					
+					JOptionPane.showMessageDialog(null, "IE: " + ieName + " R: " + row +" C: "+ col +" Value:"+ combo.getSelectedIndex());
+					
+					for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
+					{
+						IntentionalElement ie = (IntentionalElement) ieIterator.next();
+						
+						if(ie.getElementName().equals(ieName))
+						{
+							switch(combo.getSelectedIndex())
+							{
+								case 0:		ie.setEvaluation(EEvaluation.STRONGLY_AGREE);	break;
+								case 1:		ie.setEvaluation(EEvaluation.AGREE);	break;
+								case 2:		ie.setEvaluation(EEvaluation.NEUTRAL);	break;
+								case 3:		ie.setEvaluation(EEvaluation.DISAGREE);	break;
+								case 4:		ie.setEvaluation(EEvaluation.STRONGLY_DISAGREE);	break;
+								default:	ie.setEvaluation(EEvaluation.NOT_DEFINED);	break;
+							}
+							UsingEMFModel.save(goalModel, location);
+							
+							break;
+						}
+					}
+					
+					}
+				});
+			
+			
+			TableColumn col = table.getColumnModel().getColumn(7);
+			col.setCellEditor(new DefaultCellEditor(combo));
+			
+			
 			jpanel.add(new JLabel(actor.getElementName()));
 			jpanel.add(table.getTableHeader());
 			jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");

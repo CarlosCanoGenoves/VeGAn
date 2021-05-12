@@ -188,13 +188,22 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL_ELEMENT__GLOBAL_VALUE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Evaluation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL_ELEMENT__EVALUATION = 7;
+
+	/**
 	 * The number of structural features of the '<em>Goal Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GOAL_ELEMENT_FEATURE_COUNT = 7;
+	int GOAL_ELEMENT_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Goal Element</em>' class.
@@ -277,6 +286,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTOR__GLOBAL_VALUE = GOAL_ELEMENT__GLOBAL_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Evaluation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__EVALUATION = GOAL_ELEMENT__EVALUATION;
 
 	/**
 	 * The feature id for the '<em><b>Goalmodel</b></em>' container reference.
@@ -386,6 +404,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTENTIONAL_ELEMENT__GLOBAL_VALUE = GOAL_ELEMENT__GLOBAL_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Evaluation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTENTIONAL_ELEMENT__EVALUATION = GOAL_ELEMENT__EVALUATION;
 
 	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
@@ -771,6 +798,15 @@ public interface GoalModelPackage extends EPackage {
 	int GOAL__GLOBAL_VALUE = INTENTIONAL_ELEMENT__GLOBAL_VALUE;
 
 	/**
+	 * The feature id for the '<em><b>Evaluation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOAL__EVALUATION = INTENTIONAL_ELEMENT__EVALUATION;
+
+	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -889,6 +925,15 @@ public interface GoalModelPackage extends EPackage {
 	int TASK__GLOBAL_VALUE = INTENTIONAL_ELEMENT__GLOBAL_VALUE;
 
 	/**
+	 * The feature id for the '<em><b>Evaluation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__EVALUATION = INTENTIONAL_ELEMENT__EVALUATION;
+
+	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1005,6 +1050,15 @@ public interface GoalModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOFT_GOAL__GLOBAL_VALUE = INTENTIONAL_ELEMENT__GLOBAL_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Evaluation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFT_GOAL__EVALUATION = INTENTIONAL_ELEMENT__EVALUATION;
 
 	/**
 	 * The feature id for the '<em><b>Actor</b></em>' container reference.
@@ -1229,6 +1283,17 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	int EVALUE_FROM = 17;
+
+
+	/**
+	 * The meta object id for the '{@link goalModel.EEvaluation <em>EEvaluation</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see goalModel.EEvaluation
+	 * @see goalModel.impl.GoalModelPackageImpl#getEEvaluation()
+	 * @generated
+	 */
+	int EEVALUATION = 18;
 
 
 	/**
@@ -1467,6 +1532,17 @@ public interface GoalModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGoalElement_GlobalValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link goalModel.GoalElement#getEvaluation <em>Evaluation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Evaluation</em>'.
+	 * @see goalModel.GoalElement#getEvaluation()
+	 * @see #getGoalElement()
+	 * @generated
+	 */
+	EAttribute getGoalElement_Evaluation();
 
 	/**
 	 * Returns the meta object for class '{@link goalModel.Contribution <em>Contribution</em>}'.
@@ -1786,6 +1862,16 @@ public interface GoalModelPackage extends EPackage {
 	EEnum getEValueFrom();
 
 	/**
+	 * Returns the meta object for enum '{@link goalModel.EEvaluation <em>EEvaluation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>EEvaluation</em>'.
+	 * @see goalModel.EEvaluation
+	 * @generated
+	 */
+	EEnum getEEvaluation();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1993,6 +2079,14 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GOAL_ELEMENT__GLOBAL_VALUE = eINSTANCE.getGoalElement_GlobalValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Evaluation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GOAL_ELEMENT__EVALUATION = eINSTANCE.getGoalElement_Evaluation();
 
 		/**
 		 * The meta object literal for the '{@link goalModel.impl.ContributionImpl <em>Contribution</em>}' class.
@@ -2259,6 +2353,16 @@ public interface GoalModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum EVALUE_FROM = eINSTANCE.getEValueFrom();
+
+		/**
+		 * The meta object literal for the '{@link goalModel.EEvaluation <em>EEvaluation</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see goalModel.EEvaluation
+		 * @see goalModel.impl.GoalModelPackageImpl#getEEvaluation()
+		 * @generated
+		 */
+		EEnum EEVALUATION = eINSTANCE.getEEvaluation();
 
 	}
 

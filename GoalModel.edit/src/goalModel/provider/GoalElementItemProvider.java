@@ -69,6 +69,7 @@ public class GoalElementItemProvider
 			addConfidencePropertyDescriptor(object);
 			addLocalValuePropertyDescriptor(object);
 			addGlobalValuePropertyDescriptor(object);
+			addEvaluationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -206,6 +207,28 @@ public class GoalElementItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Evaluation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEvaluationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GoalElement_evaluation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GoalElement_evaluation_feature", "_UI_GoalElement_type"),
+				 GoalModelPackage.Literals.GOAL_ELEMENT__EVALUATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -268,6 +291,7 @@ public class GoalElementItemProvider
 			case GoalModelPackage.GOAL_ELEMENT__CONFIDENCE:
 			case GoalModelPackage.GOAL_ELEMENT__LOCAL_VALUE:
 			case GoalModelPackage.GOAL_ELEMENT__GLOBAL_VALUE:
+			case GoalModelPackage.GOAL_ELEMENT__EVALUATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GoalModelPackage.GOAL_ELEMENT__ITERATIONS:

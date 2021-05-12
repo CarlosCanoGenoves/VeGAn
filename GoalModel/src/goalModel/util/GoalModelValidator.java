@@ -122,6 +122,8 @@ public class GoalModelValidator extends EObjectValidator {
 				return validateEDecomposition((EDecomposition)value, diagnostics, context);
 			case GoalModelPackage.EVALUE_FROM:
 				return validateEValueFrom((EValueFrom)value, diagnostics, context);
+			case GoalModelPackage.EEVALUATION:
+				return validateEEvaluation((EEvaluation)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -662,6 +664,15 @@ public class GoalModelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEValueFrom(EValueFrom eValueFrom, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEEvaluation(EEvaluation eEvaluation, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
