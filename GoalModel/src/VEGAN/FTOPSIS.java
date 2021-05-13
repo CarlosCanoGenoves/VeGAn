@@ -531,6 +531,9 @@ public class FTOPSIS {
 				}
 			}
 			
+			if(maxChild == null)
+				continue;
+			
 			int childPosition = ieToPosition.get(maxChild);
 			
 			//Parent Value comes from MAXCHILD
