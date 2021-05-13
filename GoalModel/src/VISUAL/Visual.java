@@ -218,8 +218,6 @@ public class Visual {
 					String ieName = (String) table.getValueAt(row, 0);
 					ieName = ieName.substring(0, ieName.lastIndexOf(" ")).trim();
 					
-					JOptionPane.showMessageDialog(null, "IE: " + ieName + " R: " + row +" C: "+ col +" Value:"+ combo.getSelectedIndex());
-					
 					for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
 					{
 						IntentionalElement ie = (IntentionalElement) ieIterator.next();
