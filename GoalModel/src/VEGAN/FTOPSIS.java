@@ -8,6 +8,7 @@ import java.util.Map;
 
 import goalModel.Actor;
 import goalModel.Decomposition;
+import goalModel.EDecomposition;
 import goalModel.EValueFrom;
 import goalModel.GoalModel;
 import goalModel.GoalModelFactory;
@@ -379,6 +380,8 @@ public class FTOPSIS {
 		
 		double[][] value2Criteria = de_hierarchize(goalModel, calculateValueToCriteria(goalModel), positionToIE);
 		
+		value2Criteria = MaxOrDecomposition(goalModel, value2Criteria, Propagation.propagate(goalModel).Item2);
+		
 		goalModel.setIteration(goalModel.getIteration() + 1);
 		int iterationNumber = goalModel.getIteration();
 		
@@ -423,7 +426,7 @@ public class FTOPSIS {
 			iteration.setLocalValue(localValue);
 			iteration.setGlobalValue(globalValue);
 		}
-		
+				
 		return new Tuple<GoalModel, Map<Integer, IntentionalElement>>(goalModel, positionToIE);
 	}
 	
@@ -476,5 +479,69 @@ public class FTOPSIS {
 		}
 		
 		return value2CriteriaDeHierarchize;
+	}
+	
+	/**
+	 * A parent of a decomposition ONLY takes the VALUE from the MAX child
+	 * 
+	 * PROBLEM:
+	 * 	1- It doesn't consider decomposition of a decomposition
+	 *  2- It is advisable to implement several strategies and allow to choose which one to use. Ex: Choose the child instead of Max, OR mean
+	 *  
+	 * PS: It takes into account the parent's links because they propagate to the child
+	 */
+	private static double[][] MaxOrDecomposition(GoalModel goalModel, double[][] value2Criteria, Map<IntentionalElement, Integer> ieToPosition)
+	{
+		double[][] value2CriteriaMaxOR = value2Criteria.clone();
+		
+		
+		//Look for decompositions
+		for(IntentionalElement ie : ieToPosition.keySet())
+		{
+			if(!ie.getSrcLinks().stream().anyMatch(link -> link instanceof Decomposition))
+				continue;
+			
+			Decomposition decomposition = (Decomposition) ie.getSrcLinks().stream().filter(link -> link instanceof Decomposition).findAny().get();
+			
+			//Look for NOT AND decompositions
+			if(decomposition == null || decomposition.getDecompositionType() == EDecomposition.AND)
+				continue;
+			
+			//Identify MAX child
+			int i = ieToPosition.get(ie);
+			double maxValue = Double.MIN_VALUE;
+			IntentionalElement maxChild = null;
+			
+			for (Iterator<IntentionalElement> decompositionIterator = decomposition.getTrgs().iterator(); decompositionIterator.hasNext();)
+			{
+				IntentionalElement child = decompositionIterator.next();
+				
+				int childPosition = ieToPosition.get(child);
+				double currentValue = 0;
+				
+				for(int j=0;j<ieToPosition.size();j++)
+				{
+					currentValue += value2Criteria[childPosition][j];
+				}
+					
+				if(child.getGlobalValue() > maxValue)
+				{
+					maxValue = child.getGlobalValue();
+					maxChild = child;
+				}
+			}
+			
+			int childPosition = ieToPosition.get(maxChild);
+			
+			//Parent Value comes from MAXCHILD
+			for(int j=0;j<ieToPosition.size();j++)
+			{
+				if(j != childPosition && j != i)
+					value2CriteriaMaxOR[i][j] = value2Criteria[childPosition][j];
+			}
+		}
+		
+		
+		return value2CriteriaMaxOR;
 	}
 }

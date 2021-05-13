@@ -118,7 +118,7 @@ public class Visual {
 			});
 
 		 
-		 jpanel.add(myList);
+		 //jpanel.add(myList);
 		
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
