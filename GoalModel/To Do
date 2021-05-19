@@ -73,3 +73,14 @@ Cuando hay una DEPENDENCIA, las relación se transforma a MAX
 	?	-	Agrupar las iteraciones
 	
 	M	-	PROBLEMA Importance & Confidence & value in the name of the IE: Si el elementName no está definido el name falla y no se puede cambiar la propiedades del elemento
+
+-------------------------
+
+v2: De la herramienta
+
+Generar JAR:
+1- Seleccionar XMI
+2- Leer XMI
+3- Tabla con Importancia & Confidence
+4- Botón PROPAGAR
+5- Generar tabla de propagación con evaluación
