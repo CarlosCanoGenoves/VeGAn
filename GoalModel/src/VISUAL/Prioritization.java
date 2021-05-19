@@ -1,6 +1,8 @@
 package VISUAL;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -9,11 +11,13 @@ import java.util.Iterator;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -23,6 +27,7 @@ import javax.swing.table.TableColumn;
 import VEGAN.UsingEMFModel;
 import goalModel.Actor;
 import goalModel.EConfidence;
+import goalModel.EEvaluation;
 import goalModel.EImportance;
 import goalModel.Goal;
 import goalModel.GoalModel;
@@ -51,99 +56,103 @@ public class Prioritization extends JFrame{
         
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e){
-            	
-            	for(int i=0;i< actors.size();i++)
-            	{
-            		Actor actor = actors.get(i);
-            		JTable table = tables.get(i);
-            		
-            		if(actor == null)
-            		{
-            			for(int j = 0;j< table.getRowCount();j++)
-                		{
-                			String aName = (String) table.getValueAt(j, 0);
-                		
-                			String importance = (String) table.getValueAt(j, 1);
-                			String confidence = (String) table.getValueAt(j, 2);
-                			
-                			
-                			for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
-                				actor = (Actor) actorIterator.next();
-        						
-        						if(actor.getElementName().equals(aName))
-        						{
-        							switch(importance)
-        							{
-        								case "Very_High":	actor.setImportance(EImportance.VERY_HIGH);		break;
-        								case "High":		actor.setImportance(EImportance.HIGH);			break;
-        								case "Medium":		actor.setImportance(EImportance.MEDIUM);		break;
-        								case "Low":			actor.setImportance(EImportance.LOW);			break;
-        								case "Very_Low":	actor.setImportance(EImportance.VERY_LOW);		break;
-        								default:			actor.setImportance(EImportance.NOT_DEFINED);	break;
-        							}
-        							
-        							switch(confidence)
-        							{
-        								case "Possibly_More":	actor.setConfidence(EConfidence.POSSIBLY_MORE);	break;
-        								case "Confident":		actor.setConfidence(EConfidence.CONFIDENT);		break;
-        								case "Possibly_Less":	actor.setConfidence(EConfidence.POSSIBLY_LESS);	break;
-        								default:				actor.setConfidence(EConfidence.NOT_DEFINED);	break;
-        							}
-        							
-        							break;
-        						}
-        					}
-                		}
-            		}
-            		else
-            		{
-            			for(int j = 0;j< table.getRowCount();j++)
-                		{
-                			String ieName = (String) table.getValueAt(j, 0);
-                			ieName = ieName.substring(0, ieName.lastIndexOf(" ")).trim();
-                		
-                			String importance = (String) table.getValueAt(j, 1);
-                			String confidence = (String) table.getValueAt(j, 2);
-                			
-                			
-                			for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
-        					{
-        						IntentionalElement ie = (IntentionalElement) ieIterator.next();
-        						
-        						if(ie.getElementName().equals(ieName))
-        						{
-        							switch(importance)
-        							{
-        								case "Very_High":	ie.setImportance(EImportance.VERY_HIGH);	break;
-        								case "High":		ie.setImportance(EImportance.HIGH);			break;
-        								case "Medium":		ie.setImportance(EImportance.MEDIUM);		break;
-        								case "Low":			ie.setImportance(EImportance.LOW);			break;
-        								case "Very_Low":	ie.setImportance(EImportance.VERY_LOW);		break;
-        								default:			ie.setImportance(EImportance.NOT_DEFINED);	break;
-        							}
-        							
-        							switch(confidence)
-        							{
-        								case "Possibly_More":	ie.setConfidence(EConfidence.POSSIBLY_MORE);	break;
-        								case "Confident":		ie.setConfidence(EConfidence.CONFIDENT);		break;
-        								case "Possibly_Less":	ie.setConfidence(EConfidence.POSSIBLY_LESS);	break;
-        								default:				ie.setConfidence(EConfidence.NOT_DEFINED);		break;
-        							}
-        							
-        							break;
-        						}
-        					}
-                		}
-            		}
-            		
-            	}
-            	
-                	UsingEMFModel.save(goalModel, location);
+            	saveGoalModel();
+                UsingEMFModel.save(goalModel, location);
             }
         });
         
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	private void saveGoalModel()
+	{
+		for(int i=0;i< actors.size();i++)
+    	{
+    		Actor actor = actors.get(i);
+    		JTable table = tables.get(i);
+    		
+    		if(actor == null)
+    		{
+    			for(int j = 0;j< table.getRowCount();j++)
+        		{
+        			String aName = (String) table.getValueAt(j, 0);
+        		
+        			String importance = (String) table.getValueAt(j, 1);
+        			String confidence = (String) table.getValueAt(j, 2);
+        			
+        			
+        			for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
+        				actor = (Actor) actorIterator.next();
+						
+						if(actor.getElementName().equals(aName))
+						{
+							switch(importance)
+							{
+								case "Very_High":	actor.setImportance(EImportance.VERY_HIGH);		break;
+								case "High":		actor.setImportance(EImportance.HIGH);			break;
+								case "Medium":		actor.setImportance(EImportance.MEDIUM);		break;
+								case "Low":			actor.setImportance(EImportance.LOW);			break;
+								case "Very_Low":	actor.setImportance(EImportance.VERY_LOW);		break;
+								default:			actor.setImportance(EImportance.NOT_DEFINED);	break;
+							}
+							
+							switch(confidence)
+							{
+								case "Possibly_More":	actor.setConfidence(EConfidence.POSSIBLY_MORE);	break;
+								case "Confident":		actor.setConfidence(EConfidence.CONFIDENT);		break;
+								case "Possibly_Less":	actor.setConfidence(EConfidence.POSSIBLY_LESS);	break;
+								default:				actor.setConfidence(EConfidence.NOT_DEFINED);	break;
+							}
+							
+							break;
+						}
+					}
+        		}
+    		}
+    		else
+    		{
+    			for(int j = 0;j< table.getRowCount();j++)
+        		{
+        			String ieName = (String) table.getValueAt(j, 0);
+        			ieName = ieName.substring(0, ieName.lastIndexOf(" ")).trim();
+        		
+        			String importance = (String) table.getValueAt(j, 1);
+        			String confidence = (String) table.getValueAt(j, 2);
+        			
+        			
+        			for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
+					{
+						IntentionalElement ie = (IntentionalElement) ieIterator.next();
+						
+						if(ie.getElementName().equals(ieName))
+						{
+							switch(importance)
+							{
+								case "Very_High":	ie.setImportance(EImportance.VERY_HIGH);	break;
+								case "High":		ie.setImportance(EImportance.HIGH);			break;
+								case "Medium":		ie.setImportance(EImportance.MEDIUM);		break;
+								case "Low":			ie.setImportance(EImportance.LOW);			break;
+								case "Very_Low":	ie.setImportance(EImportance.VERY_LOW);		break;
+								default:			ie.setImportance(EImportance.NOT_DEFINED);	break;
+							}
+							
+							switch(confidence)
+							{
+								case "Possibly_More":	ie.setConfidence(EConfidence.POSSIBLY_MORE);	break;
+								case "Confident":		ie.setConfidence(EConfidence.CONFIDENT);		break;
+								case "Possibly_Less":	ie.setConfidence(EConfidence.POSSIBLY_LESS);	break;
+								default:				ie.setConfidence(EConfidence.NOT_DEFINED);		break;
+							}
+							
+							break;
+						}
+					}
+        		}
+    		}
+    		
+    	}
+		
 	}
 	
 	private JPanel generateTables() {
@@ -213,9 +222,10 @@ public class Prioritization extends JFrame{
 			
 			
 			jpanel.add(new JLabel("Actor: " + actor.getElementName()));
-			jpanel.add(table.getTableHeader());
-			jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
-			//jpanel.add(Box.createVerticalStrut(20));
+			//jpanel.add(table.getTableHeader());
+			jpanel.add(table);
+			//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
+			jpanel.add(Box.createVerticalStrut(20));
 			
 			actors.add(actor);
 			tables.add(table);
@@ -274,12 +284,62 @@ public class Prioritization extends JFrame{
 		TableColumn colConfident = table.getColumnModel().getColumn(2);
 		colConfident.setCellEditor(new DefaultCellEditor(comboConfidence));
 		
+		jpanel.add(Box.createVerticalStrut(40));
 		jpanel.add(table.getTableHeader());
-		jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
-		jpanel.add(Box.createVerticalStrut(20));
+		jpanel.add(table);
+		//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
+		//jpanel.add(Box.createVerticalStrut(20));
 		
 		tables.add(table);
 		actors.add(null);
+		
+		JButton buttonPropagation = new JButton("Propagation");
+		
+		buttonPropagation.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						saveGoalModel();
+						boolean allPrioritized = true;
+						
+						for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
+							Actor actor = (Actor) actorIterator.next();
+							
+							if(actor.getImportance() == EImportance.NOT_DEFINED || actor.getConfidence() == EConfidence.NOT_DEFINED)
+							{
+								System.out.println("Not prioritized: "+ actor.getElementName());
+								allPrioritized = false;
+								break;
+							}
+							
+							for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
+							{
+								IntentionalElement ie = (IntentionalElement) ieIterator.next();
+								
+								if(ie.getImportance() == EImportance.NOT_DEFINED || ie.getConfidence() == EConfidence.NOT_DEFINED)
+								{
+									System.out.println("Not prioritized: "+ actor.getElementName() + " - " + ie.getElementName());
+									allPrioritized = false;
+									break;
+								}
+							}
+						}
+						
+						if(!allPrioritized)
+						{
+							 JOptionPane.showMessageDialog(null, "A level of importance and confidence must be assigned to all intentional elements and actors.");
+						}
+						else
+						{
+							new Propagation(location);
+							dispose();
+						}
+						
+					}
+				});
+		
+		jpanel.add(Box.createVerticalStrut(40));
+		jpanel.add(buttonPropagation);
 		
 		return jpanel;
 	}
