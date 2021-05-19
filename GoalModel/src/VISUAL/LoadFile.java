@@ -3,6 +3,7 @@ package VISUAL;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -21,7 +22,7 @@ public class LoadFile extends JFrame{
 	public LoadFile()
 	{
 		setTitle("VeGAn");
-        setSize(400, 400);
+        setSize(200, 200);
 
         JButton buttonSelectFile = new JButton("Select File");
         //JLabel labelSelectedFile = new JLabel("Select File");
@@ -72,6 +73,7 @@ public class LoadFile extends JFrame{
         
         // Add button to JPanel
         panel.add(buttonSelectFile);
+        panel.add(Box.createVerticalStrut(20));
         //panel.add(labelSelectedFile);
         panel.add(buttonPrioritization);
 

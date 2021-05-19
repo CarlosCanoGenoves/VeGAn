@@ -48,7 +48,7 @@ public class Propagation extends JFrame{
 	{
 		this.location = location;
 		setTitle("VeGAn");
-		setSize(400, 400);
+		setSize(800, 400);
 		
 		goalModel = UsingEMFModel.load(location);
 		
@@ -220,7 +220,8 @@ public class Propagation extends JFrame{
 			
 			jpanel.add(new JLabel("Actor: " + actor.getElementName()));
 			jpanel.add(table.getTableHeader());
-			jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
+			jpanel.add(table);
+			//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
 			jpanel.add(Box.createVerticalStrut(20));
 			
 			actors.add(actor);
@@ -244,7 +245,7 @@ public class Propagation extends JFrame{
 	
 	public static void main(String[] argv) throws Exception {
 			
-			Propagation prio = new Propagation("hope.xmi");
+			Propagation prop = new Propagation("hope.xmi");
 	
 		}
 }
