@@ -91,7 +91,7 @@ public class UsingEMFModel {
 
 	}
 	
-	public static void save(GoalModel goalmodel, String fileName) {
+	public static void save(GoalModel goalmodel, String file) {
 		ResourceSet resourceSet = new ResourceSetImpl();
 
 		// register URI
@@ -102,8 +102,7 @@ public class UsingEMFModel {
 		Map extensionFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 		extensionFactoryMap.put("xmi", new XMIResourceFactoryImpl());
 		
-		Resource resource = resourceSet.createResource(URI.createURI(fileName));
-			
+		XMIResource resource = new XMIResourceImpl(URI.createURI(file));
 		
 		resource.getContents().add(goalmodel);
 		

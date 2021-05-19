@@ -1,320 +1,1691 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<goalModel:GoalModel
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:goalModel="http://goalModel"
-    xsi:schemaLocation="http://goalModel model/goalModel.ecore"
-    name="Hope">
-  <actors
-      elementName="Usuario"
-      importance="Very_High"
-      confidence="Confident">
-    <intentionalelements
-        xsi:type="goalModel:Goal"
-        elementName="Recibir ayuda"
-        importance="Very_High"
-        confidence="Confident">
-      <srcLinks
-          xsi:type="goalModel:Decomposition"
-          trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2 //@actors.0/@intentionalelements.3"
-          decompositionType="IOR"/>
-      <srcLinks
-          xsi:type="goalModel:Dependency"
-          trgs="//@actors.2/@intentionalelements.0"/>
+<?xml version="1.0" encoding="ASCII"?>
+<goalModel:GoalModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:goalModel="http://goalModel" name="Hope" iteration="8">
+  <actors elementName="Usuario" importance="Medium" confidence="Possibly_More">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Recibir ayuda" importance="Medium" confidence="Confident" localValue="25.851443427512436" globalValue="25.851443427512436" evaluation="Agree">
+      <iterations iteration="1" globalValue="21.026175163801334" localValue="21.026175163801334">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="2" globalValue="21.65205906926913" localValue="21.65205906926913">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.738113627707483" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="3" globalValue="34.46376504754097" localValue="34.46376504754097">
+        <valuefrom value="9.78967832835422" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.774585124881309" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="9.124916469424129" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" globalValue="25.851443427512436" localValue="25.851443427512436">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" globalValue="25.851443427512436" localValue="25.851443427512436">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" globalValue="25.851443427512436" localValue="25.851443427512436">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" globalValue="25.851443427512436" localValue="25.851443427512436">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" globalValue="25.851443427512436" localValue="25.851443427512436">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2 //@actors.0/@intentionalelements.3" decompositionType="IOR"/>
+      <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.2/@intentionalelements.0"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="Telefono"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.4"
-          contributionType="p50"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.6"
-          contributionType="p25"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Telefono" importance="Medium" confidence="Confident" localValue="13.481004069046692" globalValue="13.481004069046692" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="10.94472190918836" localValue="10.94472190918836">
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="2" globalValue="10.94472190918836" localValue="10.94472190918836">
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="3" globalValue="17.775820446066763" localValue="17.775820446066763">
+        <valuefrom value="3.2632261094514066" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="5.998811005684663" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.256891665465347" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.256891665465347" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" globalValue="13.481004069046692" localValue="13.481004069046692">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" globalValue="13.481004069046692" localValue="13.481004069046692">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" globalValue="13.481004069046692" localValue="13.481004069046692">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" globalValue="13.481004069046692" localValue="13.481004069046692">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" globalValue="13.481004069046692" localValue="13.481004069046692">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.4" contributionType="p50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.6" contributionType="p25"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="Chat"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.4"
-          contributionType="p75"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.6"
-          contributionType="p100"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Chat" importance="Medium" confidence="Confident" localValue="20.999328150845432" globalValue="20.999328150845432" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="17.48539240260246" localValue="17.48539240260246">
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.738113627707483" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="2" globalValue="17.48539240260246" localValue="17.48539240260246">
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.738113627707483" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="3" globalValue="27.937312828638152" localValue="27.937312828638152">
+        <valuefrom value="3.2632261094514066" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="7.774585124881309" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="9.124916469424129" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" globalValue="20.999328150845432" localValue="20.999328150845432">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" globalValue="20.999328150845432" localValue="20.999328150845432">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" globalValue="20.999328150845432" localValue="20.999328150845432">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" globalValue="20.999328150845432" localValue="20.999328150845432">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" globalValue="20.999328150845432" localValue="20.999328150845432">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.837660926382331" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.4" contributionType="p75"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.6" contributionType="p100"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="VideoChat"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.4"
-          contributionType="p50"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.6"
-          contributionType="n75"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="VideoChat" importance="Medium" confidence="Confident" localValue="-0.6446911638252493" globalValue="-0.6446911638252493" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="-1.3924489704073073" localValue="-1.3924489704073073">
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-4.705691709023673" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="2" globalValue="-1.3924489704073073" localValue="-1.3924489704073073">
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-4.705691709023673" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="3" globalValue="-1.3165537317489298" localValue="-1.3165537317489298">
+        <valuefrom value="3.2632261094514066" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="5.998811005684663" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-3.5497936343849354" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-7.0287972125000655" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" globalValue="-0.6446911638252493" localValue="-0.6446911638252493">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.5219567017276328" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-5.097930458919539" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" globalValue="-0.6446911638252493" localValue="-0.6446911638252493">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.5219567017276328" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-5.097930458919539" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" globalValue="-0.6446911638252493" localValue="-0.6446911638252493">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.5219567017276328" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-5.097930458919539" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" globalValue="-0.6446911638252493" localValue="-0.6446911638252493">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.5219567017276328" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-5.097930458919539" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" globalValue="-0.6446911638252493" localValue="-0.6446911638252493">
+        <valuefrom value="2.4260576383335026" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.5219567017276328" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="-5.097930458919539" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.4" contributionType="p50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.6" contributionType="n75"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Atencion inmediata"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.0 //@actors.0/@intentionalelements.2/@srcLinks.0 //@actors.0/@intentionalelements.3/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.5"
-          contributionType="p25"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Atencion inmediata" importance="Medium" confidence="Confident" localValue="10.531076951112892" globalValue="10.531076951112892" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.0 //@actors.0/@intentionalelements.2/@srcLinks.0 //@actors.0/@intentionalelements.3/@srcLinks.0">
+      <iterations iteration="1" globalValue="8.833593066417261" localValue="8.833593066417261">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="2" globalValue="8.833593066417261" localValue="8.833593066417261">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="3" globalValue="14.046569993819567" localValue="14.046569993819567">
+        <valuefrom value="9.78967832835422" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.256891665465347" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" globalValue="10.531076951112892" localValue="10.531076951112892">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" globalValue="10.531076951112892" localValue="10.531076951112892">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" globalValue="10.531076951112892" localValue="10.531076951112892">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" globalValue="10.531076951112892" localValue="10.531076951112892">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" globalValue="10.531076951112892" localValue="10.531076951112892">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="3.2529040361123847" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.5" contributionType="p25"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Confortable"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.0/@intentionalelements.4/@srcLinks.0 //@actors.0/@intentionalelements.6/@srcLinks.0"/>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Anonimato"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.1 //@actors.0/@intentionalelements.2/@srcLinks.1 //@actors.0/@intentionalelements.3/@srcLinks.1">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.0/@intentionalelements.5"
-          contributionType="p50"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Confortable" importance="Medium" confidence="Confident" localValue="7.278172915000508" globalValue="7.278172915000508" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.4/@srcLinks.0 //@actors.0/@intentionalelements.6/@srcLinks.0">
+      <iterations iteration="1" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="2" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="3" globalValue="9.78967832835422" localValue="9.78967832835422">
+        <valuefrom value="9.78967832835422" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" globalValue="7.278172915000508" localValue="7.278172915000508">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" globalValue="7.278172915000508" localValue="7.278172915000508">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" globalValue="7.278172915000508" localValue="7.278172915000508">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" globalValue="7.278172915000508" localValue="7.278172915000508">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" globalValue="7.278172915000508" localValue="7.278172915000508">
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Anonimato" importance="Medium" confidence="Confident" localValue="11.827311273488927" globalValue="11.827311273488927" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.1 //@actors.0/@intentionalelements.2/@srcLinks.1 //@actors.0/@intentionalelements.3/@srcLinks.1">
+      <iterations iteration="1" globalValue="9.944202443020512" localValue="9.944202443020512">
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="2" globalValue="9.944202443020512" localValue="9.944202443020512">
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="3" globalValue="15.788489334038884" localValue="15.788489334038884">
+        <valuefrom value="5.998811005684663" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="9.78967832835422" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" globalValue="11.827311273488927" localValue="11.827311273488927">
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" globalValue="11.827311273488927" localValue="11.827311273488927">
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" globalValue="11.827311273488927" localValue="11.827311273488927">
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" globalValue="11.827311273488927" localValue="11.827311273488927">
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" globalValue="11.827311273488927" localValue="11.827311273488927">
+        <valuefrom value="4.5491383584884195" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="7.278172915000508" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.5" contributionType="p50"/>
     </intentionalelements>
   </actors>
-  <actors 
-      elementName="Orientador"
-      importance="Very_High"
-      confidence="Confident">
-    <intentionalelements
-        xsi:type="goalModel:Goal"
-        elementName="Proveer ayuda"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.1">
-      <srcLinks
-          xsi:type="goalModel:Decomposition"
-          trgs="//@actors.1/@intentionalelements.1 //@actors.1/@intentionalelements.2 //@actors.1/@intentionalelements.3"
-          decompositionType="IOR"/>
+  <actors elementName="Orientador" importance="Medium" confidence="Possibly_More">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Proveer ayuda" importance="Very_Low" confidence="Possibly_Less" localValue="5.694353070994439" globalValue="70.2912048052668" trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.1">
+      <iterations iteration="1" globalValue="64.36438912063717" localValue="15.63697380054775">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-4.705691709023673" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="63.47514282269812" localValue="14.747727502608708">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="72.24829520855711" localValue="4.88735961062741">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="1.8099867893410635" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="1.5521247103809683" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.8995841450638982" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.27392017922241807" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="0.8995841450638982" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="7.398764677125397" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="7.398764677125398" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="6.9825705383847785" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.348869111819798" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="4.668172779710554" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="70.2912048052668" localValue="5.694353070994439">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.1088490828323834" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="70.2912048052668" localValue="5.694353070994439">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.1088490828323834" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="70.2912048052668" localValue="5.694353070994439">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.1088490828323834" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="70.2912048052668" localValue="5.694353070994439">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.1088490828323834" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="70.2912048052668" localValue="5.694353070994439">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.1088490828323834" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.1/@intentionalelements.1 //@actors.1/@intentionalelements.2 //@actors.1/@intentionalelements.3" decompositionType="IOR"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="Telefono"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.4"
-          contributionType="p50"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.7"
-          contributionType="p50"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Telefono" importance="Very_Low" confidence="Possibly_Less" localValue="3.662125486662429" globalValue="68.2589772209348" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="57.327526011297714" localValue="8.600110691208293">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="57.327526011297714" localValue="8.600110691208293">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="70.50407125696209" localValue="3.1431356590323873">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.6033289297803545" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="1.224521049559136" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.5835551099377214" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.4927904798039605" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.224521049559136" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="7.398764677125397" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="7.398764677125398" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="6.9825705383847785" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.348869111819798" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="4.668172779710554" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="68.2589772209348" localValue="3.662125486662429">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.6799108510744063" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="68.2589772209348" localValue="3.662125486662429">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.6799108510744063" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="68.2589772209348" localValue="3.662125486662429">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.6799108510744063" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="68.2589772209348" localValue="3.662125486662429">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.6799108510744063" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="68.2589772209348" localValue="3.662125486662429">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.6799108510744063" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.4" contributionType="p50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.7" contributionType="p50"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="Chat"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.4"
-          contributionType="p25"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.7"
-          contributionType="p75"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Chat" importance="Very_Low" confidence="Possibly_Less" localValue="2.666172255910073" globalValue="67.26302399018243" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="54.260590051876726" localValue="5.533174731787304">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="54.260590051876726" localValue="5.533174731787304">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="69.64926272412855" localValue="2.2883271261988423">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.6033289297803545" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="0.8995841450638982" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-0.27392017922241807" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.4927904798039605" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.5521247103809683" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="7.398764677125397" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="7.398764677125398" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="6.9825705383847785" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.348869111819798" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="4.668172779710554" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="67.26302399018243" localValue="2.666172255910073">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="67.26302399018243" localValue="2.666172255910073">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="67.26302399018243" localValue="2.666172255910073">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="67.26302399018243" localValue="2.666172255910073">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="67.26302399018243" localValue="2.666172255910073">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.4" contributionType="p25"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.7" contributionType="p75"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="Videochat"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.4"
-          contributionType="p75"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.7"
-          contributionType="p25"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Videochat" importance="Very_Low" confidence="Possibly_Less" localValue="4.288453682439517" globalValue="68.88530541671187" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="59.30847615603146" localValue="10.58106083594204">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="59.30847615603146" localValue="10.58106083594204">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="71.0416373489964" localValue="3.680701751066701">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.6033289297803545" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="1.5521247103809683" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="0.8995841450638982" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.27392017922241807" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="0.8995841450638982" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="7.398764677125397" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="7.398764677125398" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="6.9825705383847785" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.348869111819798" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="4.668172779710554" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="68.88530541671187" localValue="4.288453682439517">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="68.88530541671187" localValue="4.288453682439517">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="68.88530541671187" localValue="4.288453682439517">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="68.88530541671187" localValue="4.288453682439517">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="68.88530541671187" localValue="4.288453682439517">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="0.7029496942774611" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.31914946679405204" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.0481221246588224" intentionalelement="//@actors.1/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="8.620437560833722" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="8.135522072537313" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="3.9018293374162907" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.438974440570165" valueFrom="External" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.4" contributionType="p75"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.7" contributionType="p25"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Ayuda de calidad"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.0 //@actors.1/@intentionalelements.2/@srcLinks.0 //@actors.1/@intentionalelements.3/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.5"
-          contributionType="p50"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Ayuda de calidad" importance="Very_Low" confidence="Possibly_Less" localValue="3.535561204422976" globalValue="3.535561204422976" trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.0 //@actors.1/@intentionalelements.2/@srcLinks.0 //@actors.1/@intentionalelements.3/@srcLinks.0">
+      <iterations iteration="1" globalValue="9.944202443020512" localValue="9.944202443020512">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="2" globalValue="9.944202443020512" localValue="9.944202443020512">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="3.0345078389001996" localValue="3.0345078389001996">
+        <valuefrom value="1.8099867893410635" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.224521049559136" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="3.535561204422976" localValue="3.535561204422976">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="3.535561204422976" localValue="3.535561204422976">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="3.535561204422976" localValue="3.535561204422976">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="3.535561204422976" localValue="3.535561204422976">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="3.535561204422976" localValue="3.535561204422976">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="1.4267121215905918" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.5" contributionType="p50"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Sentirse satisfecho con la ayuda prestada"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.1/@intentionalelements.4/@srcLinks.0 //@actors.1/@intentionalelements.6/@srcLinks.0"/>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Evitar estresarse"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.1/@intentionalelements.7/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.5"
-          contributionType="p75"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Sentirse satisfecho con la ayuda prestada" importance="Very_Low" confidence="Possibly_Less" localValue="2.108849082832384" globalValue="2.108849082832384" trgLinks="//@actors.1/@intentionalelements.4/@srcLinks.0 //@actors.1/@intentionalelements.6/@srcLinks.0">
+      <iterations iteration="1" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="2" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="1.8099867893410635" localValue="1.8099867893410635">
+        <valuefrom value="1.8099867893410635" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="2.108849082832384" localValue="2.108849082832384">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="2.108849082832384" localValue="2.108849082832384">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="2.108849082832384" localValue="2.108849082832384">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="2.108849082832384" localValue="2.108849082832384">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="2.108849082832384" localValue="2.108849082832384">
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Ayudar a muchos"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.1 //@actors.1/@intentionalelements.2/@srcLinks.1 //@actors.1/@intentionalelements.3/@srcLinks.1">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.1/@intentionalelements.6"
-          contributionType="n50"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Evitar estresarse" importance="Very_Low" confidence="Possibly_Less" localValue="3.9172582884708467" globalValue="3.9172582884708467" trgLinks="//@actors.1/@intentionalelements.7/@srcLinks.0">
+      <iterations iteration="1" globalValue="11.081972720780824" localValue="11.081972720780824">
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="2" globalValue="11.081972720780824" localValue="11.081972720780824">
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="3.362111499722032" localValue="3.362111499722032">
+        <valuefrom value="1.5521247103809683" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="1.8099867893410635" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="3.9172582884708467" localValue="3.9172582884708467">
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="3.9172582884708467" localValue="3.9172582884708467">
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="3.9172582884708467" localValue="3.9172582884708467">
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="3.9172582884708467" localValue="3.9172582884708467">
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="3.9172582884708467" localValue="3.9172582884708467">
+        <valuefrom value="1.8084092056384629" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.5" contributionType="p75"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Ayudar a muchos" importance="Very_Low" confidence="Possibly_Less" localValue="0.5954582591944293" globalValue="0.5954582591944293" trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.1 //@actors.1/@intentionalelements.2/@srcLinks.1 //@actors.1/@intentionalelements.3/@srcLinks.1">
+      <iterations iteration="1" globalValue="0.21585931081830623" localValue="0.21585931081830623">
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-3.5698476514442183" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="2" globalValue="0.21585931081830623" localValue="0.21585931081830623">
+        <valuefrom value="-2.4642930377374768" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-3.5698476514442183" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="3" importance="Very_Low" confidence="Possibly_Less" globalValue="0.5110709872602144" localValue="0.5110709872602144">
+        <valuefrom value="-0.4927904798039605" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.8061253222768886" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="1.8099867893410635" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="4" importance="Very_Low" confidence="Possibly_Less" globalValue="0.5954582591944293" localValue="0.5954582591944293">
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.939231521767333" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="5" importance="Very_Low" confidence="Possibly_Less" globalValue="0.5954582591944293" localValue="0.5954582591944293">
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.939231521767333" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="6" importance="Very_Low" confidence="Possibly_Less" globalValue="0.5954582591944293" localValue="0.5954582591944293">
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.939231521767333" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="7" importance="Very_Low" confidence="Possibly_Less" globalValue="0.5954582591944293" localValue="0.5954582591944293">
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.939231521767333" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="8" importance="Very_Low" confidence="Possibly_Less" globalValue="0.5954582591944293" localValue="0.5954582591944293">
+        <valuefrom value="-0.5741593018706214" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="-0.939231521767333" intentionalelement="//@actors.1/@intentionalelements.6"/>
+        <valuefrom value="2.108849082832384" intentionalelement="//@actors.1/@intentionalelements.7"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.6" contributionType="n50"/>
     </intentionalelements>
   </actors>
-  <actors 
-      elementName="Telefono de la esperanza"
-      importance="Very_High"
-      confidence="Confident">
-    <intentionalelements
-        xsi:type="goalModel:Goal"
-        elementName="Ofrecer ayuda emocional"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
-      <srcLinks
-          xsi:type="goalModel:Decomposition"
-          trgs="//@actors.2/@intentionalelements.1 //@actors.2/@intentionalelements.2 //@actors.2/@intentionalelements.3"
-          decompositionType="IOR"/>
-      <srcLinks
-          xsi:type="goalModel:Dependency"
-          trgs="//@actors.1/@intentionalelements.0"/>
+  <actors elementName="Telefono de la esperanza" importance="Medium" confidence="Possibly_More">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Ofrecer ayuda emocional" importance="Medium" confidence="Possibly_More" localValue="39.5630968803042" globalValue="64.53638586185843" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
+      <iterations iteration="1" globalValue="48.72741532008942" localValue="27.701240156288087">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.738113627707483" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="48.44715831863055" localValue="27.420983154829223">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.738113627707483" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="67.30903884004117" localValue="33.95628605276676">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="7.398764677125397" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.0075203494737135" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.348869111819798" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.0075203494737135" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="6.9825705383847785" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="64.53638586185843" localValue="39.5630968803042">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="64.53638586185843" localValue="39.5630968803042">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="64.53638586185843" localValue="39.5630968803042">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="64.53638586185843" localValue="39.5630968803042">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="64.53638586185843" localValue="39.5630968803042">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.2/@intentionalelements.1 //@actors.2/@intentionalelements.2 //@actors.2/@intentionalelements.3" decompositionType="IOR"/>
+      <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.1/@intentionalelements.0"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="Telefono"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.4"
-          contributionType="p50"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.9"
-          contributionType="p25"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Telefono" importance="Medium" confidence="Possibly_More" localValue="23.475654973137694" globalValue="48.448943954691934" trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="36.74889360170395" localValue="15.722718437902614">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="36.74889360170395" localValue="15.722718437902614">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="53.50148022273372" localValue="20.148727435459318">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.4662548923751326" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="4.668172779710554" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.348869111819798" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.348869111819798" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="48.448943954691934" localValue="23.475654973137694">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="48.448943954691934" localValue="23.475654973137694">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="48.448943954691934" localValue="23.475654973137694">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="48.448943954691934" localValue="23.475654973137694">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="48.448943954691934" localValue="23.475654973137694">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.4" contributionType="p50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.9" contributionType="p25"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="Chat"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.4"
-          contributionType="p75"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.9"
-          contributionType="p100"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Chat" importance="Medium" confidence="Possibly_More" localValue="33.81613850641505" globalValue="58.78942748796929" trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="44.28049165196389" localValue="23.25431648816256">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.738113627707483" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="44.28049165196389" localValue="23.25431648816256">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="5.738113627707483" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="62.3765290552909" localValue="29.02377626801649">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.4662548923751326" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="6.0075203494737135" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.348869111819798" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.0075203494737135" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="6.9825705383847785" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="58.78942748796929" localValue="33.81613850641505">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="58.78942748796929" localValue="33.81613850641505">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="58.78942748796929" localValue="33.81613850641505">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="58.78942748796929" localValue="33.81613850641505">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="58.78942748796929" localValue="33.81613850641505">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.135522072537313" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.4" contributionType="p75"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.9" contributionType="p100"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:Task"
-        elementName="VideoChat"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.4"
-          contributionType="p50"/>
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.9"
-          contributionType="n75"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="VideoChat" importance="Medium" confidence="Possibly_More" localValue="-1.432618059773012" globalValue="23.540670921781224" trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" globalValue="18.10890194409128" localValue="-2.9172732197100575">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-3.5698476514442183" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-4.705691709023673" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="18.10890194409128" localValue="-2.9172732197100575">
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="6.250000000000002" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.831972720780822" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.694202443020509" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.083333333333334" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.5014313510066337" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-3.5698476514442183" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-4.705691709023673" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="32.123162778454095" localValue="-1.229590008820311">
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="9.78967832835422" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.774585124881309" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.998811005684663" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.4662548923751326" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="4.668172779710554" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.348869111819798" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.4304806564739896" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.4304806564739896" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-3.7621301927441793" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-5.089795287033639" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="23.540670921781224" localValue="-1.432618059773012">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-4.383327465805934" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-5.930214621496279" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="23.540670921781224" localValue="-1.432618059773012">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-4.383327465805934" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-5.930214621496279" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="23.540670921781224" localValue="-1.432618059773012">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-4.383327465805934" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-5.930214621496279" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="23.540670921781224" localValue="-1.432618059773012">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-4.383327465805934" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-5.930214621496279" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="23.540670921781224" localValue="-1.432618059773012">
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="7.278172915000508" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.867804793064799" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="4.5491383584884195" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="2.8734791869445737" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.6666794687009152" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="-4.383327465805934" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="-5.930214621496279" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.4" contributionType="p50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.9" contributionType="n75"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Inmediatez"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.0 //@actors.2/@intentionalelements.2/@srcLinks.0 //@actors.2/@intentionalelements.3/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.5"
-          contributionType="p50"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Inmediatez" importance="Medium" confidence="Possibly_More" localValue="14.059412001403887" globalValue="14.059412001403887" trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.0 //@actors.2/@intentionalelements.2/@srcLinks.0 //@actors.2/@intentionalelements.3/@srcLinks.0">
+      <iterations iteration="1" globalValue="9.944202443020512" localValue="9.944202443020512">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="2" globalValue="9.944202443020512" localValue="9.944202443020512">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.694202443020509" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="12.066937456835952" localValue="12.066937456835952">
+        <valuefrom value="7.398764677125398" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="4.668172779710554" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="14.059412001403887" localValue="14.059412001403887">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="14.059412001403887" localValue="14.059412001403887">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="14.059412001403887" localValue="14.059412001403887">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="14.059412001403887" localValue="14.059412001403887">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="14.059412001403887" localValue="14.059412001403887">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="5.438974440570165" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.5" contributionType="p50"/>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Ofrecer ayuda de calidad"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.4/@srcLinks.0"/>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Ayudar a tanta gente como sea posible"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.7/@srcLinks.0"/>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Incrementar fondos"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.8/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.6"
-          contributionType="p75"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Ofrecer ayuda de calidad" importance="Medium" confidence="Possibly_More" localValue="8.620437560833722" globalValue="8.620437560833722" trgLinks="//@actors.2/@intentionalelements.4/@srcLinks.0">
+      <iterations iteration="1" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="2" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="7.398764677125398" localValue="7.398764677125398">
+        <valuefrom value="7.398764677125398" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Evitar escandalos"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.9/@srcLinks.0">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.7"
-          contributionType="p25"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Ayudar a tanta gente como sea posible" importance="Medium" confidence="Possibly_More" localValue="8.620437560833722" globalValue="8.620437560833722" trgLinks="//@actors.2/@intentionalelements.7/@srcLinks.0">
+      <iterations iteration="1" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="2" globalValue="6.250000000000002" localValue="6.250000000000002">
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="7.398764677125398" localValue="7.398764677125398">
+        <valuefrom value="7.398764677125398" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="8.620437560833722" localValue="8.620437560833722">
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
     </intentionalelements>
-    <intentionalelements
-        xsi:type="goalModel:SoftGoal"
-        elementName="Seguridad"
-        importance="Very_High"
-        confidence="Confident"
-        trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.1 //@actors.2/@intentionalelements.2/@srcLinks.1 //@actors.2/@intentionalelements.3/@srcLinks.1">
-      <srcLinks
-          xsi:type="goalModel:Contribution"
-          trgs="//@actors.2/@intentionalelements.8"
-          contributionType="p75"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Incrementar fondos" importance="Medium" confidence="Possibly_More" localValue="15.6199106253287" globalValue="15.6199106253287" trgLinks="//@actors.2/@intentionalelements.8/@srcLinks.0">
+      <iterations iteration="1" globalValue="11.081972720780824" localValue="11.081972720780824">
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="2" globalValue="11.081972720780824" localValue="11.081972720780824">
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="13.406285026599111" localValue="13.406285026599111">
+        <valuefrom value="6.0075203494737135" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="7.398764677125398" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="15.6199106253287" localValue="15.6199106253287">
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="15.6199106253287" localValue="15.6199106253287">
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="15.6199106253287" localValue="15.6199106253287">
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="15.6199106253287" localValue="15.6199106253287">
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="15.6199106253287" localValue="15.6199106253287">
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.6" contributionType="p75"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Evitar escandalos" importance="Medium" confidence="Possibly_More" localValue="14.97544778851347" globalValue="14.97544778851347" trgLinks="//@actors.2/@intentionalelements.9/@srcLinks.0">
+      <iterations iteration="1" globalValue="10.42625857598868" localValue="10.42625857598868">
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <iterations iteration="2" globalValue="10.42625857598868" localValue="10.42625857598868">
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.583593066417259" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="12.853154302189875" localValue="12.853154302189875">
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="3.348869111819798" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="7.398764677125398" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="14.97544778851347" localValue="14.97544778851347">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="14.97544778851347" localValue="14.97544778851347">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="14.97544778851347" localValue="14.97544778851347">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="14.97544778851347" localValue="14.97544778851347">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="14.97544778851347" localValue="14.97544778851347">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="3.9018293374162907" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.8"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.7" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Seguridad" importance="Medium" confidence="Possibly_More" localValue="20.526272405855618" globalValue="20.526272405855618" trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.1 //@actors.2/@intentionalelements.2/@srcLinks.1 //@actors.2/@intentionalelements.3/@srcLinks.1">
+      <iterations iteration="1" globalValue="14.267303739923662" localValue="14.267303739923662">
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="2" globalValue="14.267303739923662" localValue="14.267303739923662">
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="1.5926655095714188" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="4.831972720780822" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="6.250000000000002" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="3" importance="Medium" confidence="Possibly_More" globalValue="17.61732605308847" localValue="17.61732605308847">
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.105520513244678" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.0075203494737135" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="7.398764677125398" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="4" importance="Medium" confidence="Possibly_More" globalValue="20.526272405855618" localValue="20.526272405855618">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="5" importance="Medium" confidence="Possibly_More" globalValue="20.526272405855618" localValue="20.526272405855618">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="6" importance="Medium" confidence="Possibly_More" globalValue="20.526272405855618" localValue="20.526272405855618">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="7" importance="Medium" confidence="Possibly_More" globalValue="20.526272405855618" localValue="20.526272405855618">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <iterations iteration="8" importance="Medium" confidence="Possibly_More" globalValue="20.526272405855618" localValue="20.526272405855618">
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="2.453180890263458" intentionalelement="//@actors.2/@intentionalelements.7"/>
+        <valuefrom value="6.999473064494979" intentionalelement="//@actors.2/@intentionalelements.8"/>
+        <valuefrom value="8.620437560833722" intentionalelement="//@actors.2/@intentionalelements.9"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.8" contributionType="p75"/>
     </intentionalelements>
   </actors>
 </goalModel:GoalModel>
