@@ -13,8 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.eclipse.emf.common.util.URI;
-
 public class LoadFile extends JFrame{
 
 	public static String XMIFile = "";
@@ -22,11 +20,12 @@ public class LoadFile extends JFrame{
 	public LoadFile()
 	{
 		setTitle("VeGAn");
-        setSize(200, 200);
+        setSize(500, 200);
 
-        JButton buttonSelectFile = new JButton("Select File");
-        //JLabel labelSelectedFile = new JLabel("Select File");
-        JButton buttonPrioritization = new JButton("Prioritization");
+        JButton buttonSelectFile = new JButton("Select Goal Model (XMI file)");
+        JLabel labelSelectedFile = new JLabel("File selected: None");
+        JButton buttonPrioritization = new JButton("Prioritization of Goal Model");
+        JButton buttonExit = new JButton("Exit");
         
         buttonSelectFile.addActionListener(new ActionListener() {
 			
@@ -42,8 +41,8 @@ public class LoadFile extends JFrame{
 		        int returnValue = jfc.showOpenDialog(null);
 		        if (returnValue == JFileChooser.APPROVE_OPTION) {
 		        	XMIFile = jfc.getSelectedFile().getAbsolutePath();
-		        	JOptionPane.showMessageDialog(null, "File selected: " + XMIFile);
-		        	//labelSelectedFile.setText(XMIFile);
+		        	//JOptionPane.showMessageDialog(null, "File selected: " + XMIFile);
+		        	labelSelectedFile.setText("File selected: " + XMIFile);
 		        }
 		        
 			}
@@ -67,15 +66,37 @@ public class LoadFile extends JFrame{
 			}
 		});
 
+        buttonExit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to close the application?");
+				
+				if(result==0)
+				{
+					dispose();
+				}
+				
+			}
+		});
         
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         
+        JPanel topPanel = new JPanel();
+        
         // Add button to JPanel
-        panel.add(buttonSelectFile);
-        panel.add(Box.createVerticalStrut(20));
-        //panel.add(labelSelectedFile);
-        panel.add(buttonPrioritization);
+        topPanel.add(buttonSelectFile);
+        topPanel.add(buttonPrioritization);
+        topPanel.add(buttonExit);
+        
+        panel.add(topPanel);
+        
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.add(labelSelectedFile);
+        
+        panel.add(bottomPanel);
+
 
         add(panel);
         

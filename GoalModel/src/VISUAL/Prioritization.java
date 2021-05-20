@@ -27,7 +27,6 @@ import javax.swing.table.TableColumn;
 import VEGAN.UsingEMFModel;
 import goalModel.Actor;
 import goalModel.EConfidence;
-import goalModel.EEvaluation;
 import goalModel.EImportance;
 import goalModel.Goal;
 import goalModel.GoalModel;
@@ -56,9 +55,7 @@ public class Prioritization extends JFrame{
         
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e){
-            	saveGoalModel();
-                UsingEMFModel.save(goalModel, location);
-            }
+            	saveGoalModel();            }
         });
         
         setVisible(true);
@@ -89,19 +86,19 @@ public class Prioritization extends JFrame{
 						{
 							switch(importance)
 							{
-								case "Very_High":	actor.setImportance(EImportance.VERY_HIGH);		break;
+								case "Very High":	actor.setImportance(EImportance.VERY_HIGH);		break;
 								case "High":		actor.setImportance(EImportance.HIGH);			break;
 								case "Medium":		actor.setImportance(EImportance.MEDIUM);		break;
 								case "Low":			actor.setImportance(EImportance.LOW);			break;
-								case "Very_Low":	actor.setImportance(EImportance.VERY_LOW);		break;
+								case "Very Low":	actor.setImportance(EImportance.VERY_LOW);		break;
 								default:			actor.setImportance(EImportance.NOT_DEFINED);	break;
 							}
 							
 							switch(confidence)
 							{
-								case "Possibly_More":	actor.setConfidence(EConfidence.POSSIBLY_MORE);	break;
+								case "Possibly More":	actor.setConfidence(EConfidence.POSSIBLY_MORE);	break;
 								case "Confident":		actor.setConfidence(EConfidence.CONFIDENT);		break;
-								case "Possibly_Less":	actor.setConfidence(EConfidence.POSSIBLY_LESS);	break;
+								case "Possibly Less":	actor.setConfidence(EConfidence.POSSIBLY_LESS);	break;
 								default:				actor.setConfidence(EConfidence.NOT_DEFINED);	break;
 							}
 							
@@ -129,19 +126,19 @@ public class Prioritization extends JFrame{
 						{
 							switch(importance)
 							{
-								case "Very_High":	ie.setImportance(EImportance.VERY_HIGH);	break;
+								case "Very High":	ie.setImportance(EImportance.VERY_HIGH);	break;
 								case "High":		ie.setImportance(EImportance.HIGH);			break;
 								case "Medium":		ie.setImportance(EImportance.MEDIUM);		break;
 								case "Low":			ie.setImportance(EImportance.LOW);			break;
-								case "Very_Low":	ie.setImportance(EImportance.VERY_LOW);		break;
+								case "Very Low":	ie.setImportance(EImportance.VERY_LOW);		break;
 								default:			ie.setImportance(EImportance.NOT_DEFINED);	break;
 							}
 							
 							switch(confidence)
 							{
-								case "Possibly_More":	ie.setConfidence(EConfidence.POSSIBLY_MORE);	break;
+								case "Possibly More":	ie.setConfidence(EConfidence.POSSIBLY_MORE);	break;
 								case "Confident":		ie.setConfidence(EConfidence.CONFIDENT);		break;
-								case "Possibly_Less":	ie.setConfidence(EConfidence.POSSIBLY_LESS);	break;
+								case "Possibly Less":	ie.setConfidence(EConfidence.POSSIBLY_LESS);	break;
 								default:				ie.setConfidence(EConfidence.NOT_DEFINED);		break;
 							}
 							
@@ -153,6 +150,7 @@ public class Prioritization extends JFrame{
     		
     	}
 		
+		UsingEMFModel.save(goalModel, location);
 	}
 	
 	private JPanel generateTables() {
@@ -167,139 +165,29 @@ public class Prioritization extends JFrame{
 		JPanel jpanel = new JPanel();
 		jpanel.setLayout(new BoxLayout(jpanel, BoxLayout.Y_AXIS));
 		
+		JPanel topPanel = new JPanel();
 		
-		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		JButton buttonBack = new JButton("Back to Goal Model selection");
+		JButton buttonPropagation = new JButton("Propagation of Goal Model");
+		JButton buttonExit = new JButton("Exit");
 		
-		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
-			Actor actor = (Actor) actorIterator.next();
-		
-			DefaultTableModel tableModel = new DefaultTableModel(cols.toArray(), 0) {
-				//This make the shorter work correctly
-				@Override
-				public Class<?> getColumnClass(int columnIndex) {
-					if(columnIndex < 3 || columnIndex > 4)	//4 if actor name is included
-						return String.class;
-					
-					return Double.class;
-				}
-			};
+		buttonBack.addActionListener(new ActionListener() {
 			
-			for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
-			{
-				IntentionalElement ie = (IntentionalElement) ieIterator.next();
-				
-				ArrayList<Object> objs = new ArrayList<Object>();
-				objs.add(ie.getElementName() + " " + getIntentionalType(ie));
-				objs.add(ie.getImportance().toString());
-				objs.add(ie.getConfidence().toString());
-				
-				tableModel.addRow(objs.toArray());
-			}
-			
-			JTable table = new JTable(tableModel);
-			table.setName(actor.getElementName());
-			table.setAutoCreateRowSorter(true);
-			
-			table.setDefaultRenderer(String.class, new MultilineTableCellRenderer());
-			
-			
-			//Aling without actor
-			table.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);	//Importance
-			table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);	//Confidence
-
-			String[] importances = {"Very_High", "High", "Medium", "Low", "Very_Low"};
-			JComboBox comboImportance = new JComboBox<String>(importances);
-			
-			TableColumn colImportance = table.getColumnModel().getColumn(1);
-			colImportance.setCellEditor(new DefaultCellEditor(comboImportance));
-			
-			String[] confidences = {"Possibly_More", "Confident", "Possibly_Less"};
-			JComboBox comboConfidence = new JComboBox<String>(confidences);
-			
-			TableColumn colConfident = table.getColumnModel().getColumn(2);
-			colConfident.setCellEditor(new DefaultCellEditor(comboConfidence));
-			
-			
-			jpanel.add(new JLabel("Actor: " + actor.getElementName()));
-			//jpanel.add(table.getTableHeader());
-			jpanel.add(table);
-			//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
-			jpanel.add(Box.createVerticalStrut(20));
-			
-			actors.add(actor);
-			tables.add(table);
-		}
-		
-		ArrayList<String> cols2 = new ArrayList<String>();
-
-		cols2.add("Actor");
-		cols2.add("Importance");
-		cols2.add("Confidence");
-		
-		DefaultTableModel tableModel = new DefaultTableModel(cols2.toArray(), 0) {
-			//This make the shorter work correctly
 			@Override
-			public Class<?> getColumnClass(int columnIndex) {
-				if(columnIndex < 3 || columnIndex > 4)	//4 if actor name is included
-					return String.class;
+			public void actionPerformed(ActionEvent e) {
+				saveGoalModel();
 				
-				return Double.class;
+				new LoadFile();
+				dispose();
 			}
-		};
-		
-		
-		
-		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
-			Actor actor = (Actor) actorIterator.next();
-			
-			ArrayList<Object> objs = new ArrayList<Object>();
-			
-			objs.add(actor.getElementName());
-			objs.add(actor.getImportance().toString());
-			objs.add(actor.getConfidence().toString());
-			
-			tableModel.addRow(objs.toArray());
-		}
-		
-		
-		
-		JTable table = new JTable(tableModel);
-		table.setName("Actors");
-		table.setAutoCreateRowSorter(true);
-		
-		//Aling without actor
-		table.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);	//Importance
-		table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);	//Confidence
-		
-		String[] importances = {"Very_High", "High", "Medium", "Low", "Very_Low"};
-		JComboBox comboImportance = new JComboBox<String>(importances);
-		
-		TableColumn colImportance = table.getColumnModel().getColumn(1);
-		colImportance.setCellEditor(new DefaultCellEditor(comboImportance));
-		
-		String[] confidences = {"Possibly_More", "Confident", "Possibly_Less"};
-		JComboBox comboConfidence = new JComboBox<String>(confidences);
-		
-		TableColumn colConfident = table.getColumnModel().getColumn(2);
-		colConfident.setCellEditor(new DefaultCellEditor(comboConfidence));
-		
-		jpanel.add(Box.createVerticalStrut(40));
-		jpanel.add(table.getTableHeader());
-		jpanel.add(table);
-		//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
-		//jpanel.add(Box.createVerticalStrut(20));
-		
-		tables.add(table);
-		actors.add(null);
-		
-		JButton buttonPropagation = new JButton("Propagation");
+		});
 		
 		buttonPropagation.addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						saveGoalModel();
+						
 						boolean allPrioritized = true;
 						
 						for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
@@ -338,9 +226,153 @@ public class Prioritization extends JFrame{
 					}
 				});
 		
-		jpanel.add(Box.createVerticalStrut(40));
-		jpanel.add(buttonPropagation);
+		buttonExit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to close the application?");
+				
+				if(result==0)
+				{
+					dispose();
+				}
+				
+			}
+		});
 		
+		topPanel.add(buttonBack);
+		topPanel.add(buttonPropagation);
+		topPanel.add(buttonExit);
+		
+		jpanel.add(topPanel);
+		jpanel.add(Box.createVerticalStrut(20));
+		
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		
+		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
+			Actor actor = (Actor) actorIterator.next();
+		
+			DefaultTableModel tableModel = new DefaultTableModel(cols.toArray(), 0) {
+				//This make the shorter work correctly
+				@Override
+				public Class<?> getColumnClass(int columnIndex) {
+					if(columnIndex < 3 || columnIndex > 4)	//4 if actor name is included
+						return String.class;
+					
+					return Double.class;
+				}
+			};
+			
+			for (Iterator<IntentionalElement> ieIterator = actor.getIntentionalelements().iterator(); ieIterator.hasNext();)
+			{
+				IntentionalElement ie = (IntentionalElement) ieIterator.next();
+				
+				ArrayList<Object> objs = new ArrayList<Object>();
+				objs.add(ie.getElementName() + " " + getIntentionalType(ie));
+				objs.add(ie.getImportance().toString().replace('_', ' '));
+				objs.add(ie.getConfidence().toString().replace('_', ' '));
+				
+				tableModel.addRow(objs.toArray());
+			}
+			
+			JTable table = new JTable(tableModel);
+			table.setName(actor.getElementName());
+			table.setAutoCreateRowSorter(true);
+			
+			table.setDefaultRenderer(String.class, new MultilineTableCellRenderer());
+			
+			
+			//Aling without actor
+			table.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);	//Importance
+			table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);	//Confidence
+
+			String[] importances = {"Very High", "High", "Medium", "Low", "Very Low", "Not Defined"};
+			JComboBox comboImportance = new JComboBox<String>(importances);
+			
+			TableColumn colImportance = table.getColumnModel().getColumn(1);
+			colImportance.setCellEditor(new DefaultCellEditor(comboImportance));
+			
+			String[] confidences = {"Possibly More", "Confident", "Possibly Less", "Not Defined"};
+			JComboBox comboConfidence = new JComboBox<String>(confidences);
+			
+			TableColumn colConfident = table.getColumnModel().getColumn(2);
+			colConfident.setCellEditor(new DefaultCellEditor(comboConfidence));
+			
+			
+			jpanel.add(new JLabel("Prioritize the intentional elements of actor: " + actor.getElementName()));
+			jpanel.add(table.getTableHeader());
+			jpanel.add(table);
+			//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
+			jpanel.add(Box.createVerticalStrut(20));
+			
+			actors.add(actor);
+			tables.add(table);
+		}
+		
+		ArrayList<String> cols2 = new ArrayList<String>();
+
+		cols2.add("Actor");
+		cols2.add("Importance");
+		cols2.add("Confidence");
+		
+		DefaultTableModel tableModel = new DefaultTableModel(cols2.toArray(), 0) {
+			//This make the shorter work correctly
+			@Override
+			public Class<?> getColumnClass(int columnIndex) {
+				if(columnIndex < 3 || columnIndex > 4)	//4 if actor name is included
+					return String.class;
+				
+				return Double.class;
+			}
+		};
+		
+		
+		
+		for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
+			Actor actor = (Actor) actorIterator.next();
+			
+			ArrayList<Object> objs = new ArrayList<Object>();
+			
+			objs.add(actor.getElementName());
+			objs.add(actor.getImportance().toString().replace('_', ' '));
+			objs.add(actor.getConfidence().toString().replace('_', ' '));
+			
+			tableModel.addRow(objs.toArray());
+		}
+		
+		
+		
+		JTable table = new JTable(tableModel);
+		table.setName("Actors");
+		table.setAutoCreateRowSorter(true);
+		
+		//Aling without actor
+		table.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);	//Importance
+		table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);	//Confidence
+		
+		String[] importances = {"Very High", "High", "Medium", "Low", "Very Low", "Not Defined"};
+		JComboBox comboImportance = new JComboBox<String>(importances);
+		
+		TableColumn colImportance = table.getColumnModel().getColumn(1);
+		colImportance.setCellEditor(new DefaultCellEditor(comboImportance));
+		
+		String[] confidences = {"Possibly More", "Confident", "Possibly Less", "Not Defined"};
+		JComboBox comboConfidence = new JComboBox<String>(confidences);
+		
+		TableColumn colConfident = table.getColumnModel().getColumn(2);
+		colConfident.setCellEditor(new DefaultCellEditor(comboConfidence));
+		
+		jpanel.add(Box.createVerticalStrut(40));
+		jpanel.add(new JLabel("Prioritize the actors of the goal model:"));
+		jpanel.add(table.getTableHeader());
+		jpanel.add(table);
+		//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
+		jpanel.add(Box.createVerticalStrut(40));
+		
+		tables.add(table);
+		actors.add(null);
+				
 		return jpanel;
 	}
 	
