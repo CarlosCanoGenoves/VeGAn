@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<goalModel:GoalModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:goalModel="http://goalModel"
+    xsi:schemaLocation="http://goalModel ../model/goalModel.ecore"
+    name="edX">
+  <actors elementName="Usuario">
+    <intentionalelements
+        xsi:type="goalModel:Goal"
+        elementName="Aprender">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2"
+          decompositionType="IOR"/>
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.2/@intentionalelements.0"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        elementName="Presencial"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.3"
+          contributionType="n25"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.5"
+          contributionType="n50"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.6"
+          contributionType="p75"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        elementName="Online"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.3"
+          contributionType="p50"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.5"
+          contributionType="p75"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.6"
+          contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Horario flexible"
+        trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.0 //@actors.0/@intentionalelements.2/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.4"
+          contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Satisfacion con el curso"
+        trgLinks="//@actors.0/@intentionalelements.3/@srcLinks.0 //@actors.0/@intentionalelements.5/@srcLinks.0 //@actors.0/@intentionalelements.6/@srcLinks.0"/>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Evitar desplazamiento"
+        trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.1 //@actors.0/@intentionalelements.2/@srcLinks.1">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.4"
+          contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Calidad del curso"
+        trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.2 //@actors.0/@intentionalelements.2/@srcLinks.2">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.0/@intentionalelements.4"
+          contributionType="p50"/>
+    </intentionalelements>
+  </actors>
+  <actors elementName="Compañia">
+    <intentionalelements
+        xsi:type="goalModel:Goal"
+        elementName="Formar trabajadores">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.1/@intentionalelements.1 //@actors.1/@intentionalelements.2"
+          decompositionType="IOR"/>
+      <srcLinks
+          xsi:type="goalModel:Dependency"
+          trgs="//@actors.2/@intentionalelements.0"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        elementName="Presencial"
+        trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.1/@intentionalelements.3"
+          contributionType="n25"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.1/@intentionalelements.5"
+          contributionType="p75"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        elementName="Online"
+        trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.1/@intentionalelements.3"
+          contributionType="p75"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.1/@intentionalelements.5"
+          contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Reducir costes"
+        trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.0 //@actors.1/@intentionalelements.2/@srcLinks.0"/>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Aumentar productividad"
+        trgLinks="//@actors.1/@intentionalelements.5/@srcLinks.0"/>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Formacion de calidad"
+        trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.1 //@actors.1/@intentionalelements.2/@srcLinks.1">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.1/@intentionalelements.4"
+          contributionType="p50"/>
+    </intentionalelements>
+  </actors>
+  <actors elementName="Profesor">
+    <intentionalelements
+        xsi:type="goalModel:Goal"
+        elementName="Proveer curso"
+        trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1 //@actors.1/@intentionalelements.0/@srcLinks.1">
+      <srcLinks
+          xsi:type="goalModel:Decomposition"
+          trgs="//@actors.2/@intentionalelements.1 //@actors.2/@intentionalelements.2"
+          decompositionType="IOR"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        elementName="Presencial"
+        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.3"
+          contributionType="n25"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.5"
+          contributionType="n50"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.7"
+          contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:Task"
+        elementName="Online"
+        trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.3"
+          contributionType="p100"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.5"
+          contributionType="p75"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.7"
+          contributionType="n25"/>
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.6"
+          contributionType="n75"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Cualquier lugar"
+        trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.0 //@actors.2/@intentionalelements.2/@srcLinks.0">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.4"
+          contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Mejorar acceso a la educacion"
+        trgLinks="//@actors.2/@intentionalelements.3/@srcLinks.0 //@actors.2/@intentionalelements.5/@srcLinks.0"/>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Cualquier hora"
+        trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.1 //@actors.2/@intentionalelements.2/@srcLinks.1">
+      <srcLinks
+          xsi:type="goalModel:Contribution"
+          trgs="//@actors.2/@intentionalelements.4"
+          contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Problemas tecnicos"
+        trgLinks="//@actors.2/@intentionalelements.2/@srcLinks.3"/>
+    <intentionalelements
+        xsi:type="goalModel:SoftGoal"
+        elementName="Participacion alumnos en clase"
+        trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.2 //@actors.2/@intentionalelements.2/@srcLinks.2"/>
+  </actors>
+</goalModel:GoalModel>
