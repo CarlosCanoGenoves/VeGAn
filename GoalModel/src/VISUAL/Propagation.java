@@ -1,6 +1,9 @@
 package VISUAL;
 
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -11,6 +14,7 @@ import java.util.Iterator;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultCellEditor;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -43,24 +47,30 @@ import goalModel.ValueFrom;
 
 public class Propagation extends JFrame{
 
-	public String location = "hope.xmi";
+	public String pictureFile = "";
+	public String goalModelFile = "hope.xmi";
 	public GoalModel goalModel;
 	
 	private ArrayList<Actor> actors = new ArrayList<Actor>();
 	private ArrayList<JTable> tables = new ArrayList<JTable>();
 	
-	
-	public Propagation(String location)
+	public Propagation(String goalModelFile)
 	{
-		this.location = location;
+		this(goalModelFile, "None");
+	}
+	
+	public Propagation(String goalModelFile, String pictureFile)
+	{
+		this.goalModelFile = goalModelFile;
+		this.pictureFile = pictureFile;
 		setTitle("VeGAn");
 		setSize(800, 400);
 		
-		goalModel = UsingEMFModel.load(location);
+		goalModel = UsingEMFModel.load(goalModelFile);
 		
 		goalModel = FTOPSIS.calculateValue(goalModel).Item1;
 		
-		UsingEMFModel.save(goalModel, location);
+		UsingEMFModel.save(goalModel, goalModelFile);
 		
 		add(new JScrollPane(generateTables()));
         
@@ -69,6 +79,8 @@ public class Propagation extends JFrame{
             	saveGoalModel();
             }
         });
+        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -113,7 +125,7 @@ public class Propagation extends JFrame{
     		
     	}
 		
-		UsingEMFModel.save(goalModel, location);
+		UsingEMFModel.save(goalModel, goalModelFile);
 	}
 	
 	private JPanel generateTables() {
@@ -122,11 +134,11 @@ public class Propagation extends JFrame{
 		
 		ArrayList<String> cols = new ArrayList<String>();
 
-		cols.add("Intentional Element");
-		cols.add("Importance");
-		cols.add("Confidence");
-		cols.add("Global Value");
-		cols.add("Local Value");
+		cols.add("Intentional element");
+		cols.add("Importance level");
+		cols.add("Confidence level");
+		cols.add("Global value");
+		cols.add("Local value");
 		cols.add("Value intra-actor");
 		cols.add("Value inter-actor");
 		cols.add("Evaluation");
@@ -137,6 +149,9 @@ public class Propagation extends JFrame{
 		
 		
 		JPanel topPanel = new JPanel();
+		Dimension d = getMaximumSize();
+		d.height = 100;
+		topPanel.setMaximumSize(d);
 		
 		JButton buttonBack = new JButton("Back to Prioritization of Goal Model");
 		JButton buttonSave = new JButton("Save Goal Model");
@@ -148,7 +163,7 @@ public class Propagation extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				saveGoalModel();
 				
-				new Prioritization(location);
+				new Prioritization(goalModelFile, pictureFile);
 				dispose();
 			}
 		});
@@ -213,12 +228,12 @@ public class Propagation extends JFrame{
 				
 				if(!allEvaluated)
 				{
-					 JOptionPane.showMessageDialog(null, "All intentional elements of all actors must be evaluated.");
+					 JOptionPane.showMessageDialog(null, "Saved. However, all the intentional elements of all the actors must be evaluated.");
 				}
 				
-				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to close the application?");
+				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to save and close the application?", null, JOptionPane.YES_NO_OPTION);
 				
-				if(result==0)
+				if(result == JOptionPane.YES_OPTION)
 				{
 					dispose();
 				}
@@ -288,6 +303,9 @@ public class Propagation extends JFrame{
 					}
 				}
 				
+				if(inter_actor.equals(""))
+					inter_actor = "None";
+				
 				objs.add(intra_actor.trim());
 				objs.add(inter_actor.trim());
 				objs.add(ie.getEvaluation().toString().replace('_', ' '));
@@ -311,12 +329,28 @@ public class Propagation extends JFrame{
 			String[] evaluations = {"Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree", "Not Defined"};
 			JComboBox combo = new JComboBox<String>(evaluations);
 			
+			TableColumn colEvaluation = table.getColumnModel().getColumn(7);
+			colEvaluation.setCellEditor(new DefaultCellEditor(combo));
 			
-			TableColumn col = table.getColumnModel().getColumn(7);
-			col.setCellEditor(new DefaultCellEditor(combo));
+			colEvaluation.setCellRenderer(
+			        new DefaultTableCellRenderer() {			        	
+			            public Component getTableCellRendererComponent(JTable table, 
+			                                                           Object value, 
+			                                                           boolean isSelected, 
+			                                                           boolean hasFocus, 
+			                                                           int row, 
+			                                                           int column) {
+			                setText(value.toString());
+			                setBackground(Color.CYAN);
+			                return this;
+			            }
+			        });
 			
+			Box  b1 = Box.createHorizontalBox();
+			b1.add( new JLabel("Actor: " + actor.getElementName() + " ( Importance level: " + actor.getImportance().toString().replace('_', ' ') + ", Confidence level: " + actor.getConfidence().toString().replace('_', ' ') + " )") );
+			b1.add( Box.createHorizontalGlue() );
+			jpanel.add( b1 );
 			
-			jpanel.add(new JLabel("Actor: " + actor.getElementName() + " - " + actor.getImportance().toString().replace('_', ' ') + " " + actor.getConfidence().toString().replace('_', ' ')));
 			jpanel.add(table.getTableHeader());
 			jpanel.add(table);
 			//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
@@ -325,6 +359,14 @@ public class Propagation extends JFrame{
 			actors.add(actor);
 			tables.add(table);
 		}
+		
+		if(!pictureFile.equals("None"))
+		{
+			ImageIcon image = new ImageIcon(pictureFile);
+			jpanel.add(new JLabel(image));
+		}
+		
+		jpanel.add(new JPanel());
 		
 		return jpanel;
 	}

@@ -1,6 +1,9 @@
 package VISUAL;
 
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -11,6 +14,7 @@ import java.util.Iterator;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultCellEditor;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -22,6 +26,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import VEGAN.UsingEMFModel;
@@ -36,20 +41,26 @@ import goalModel.Task;
 
 public class Prioritization extends JFrame{
 
-	public String location = "hope.xmi";
+	public String pictureFile = "";
+	public String goalModelFile = "hope.xmi";
 	public GoalModel goalModel;
 	
 	private ArrayList<Actor> actors = new ArrayList<Actor>();
 	private ArrayList<JTable> tables = new ArrayList<JTable>();
 	
-	
-	public Prioritization(String location)
+	public Prioritization(String goalModelFile)
 	{
-		this.location = location;
+		this(goalModelFile, "None");
+	}
+	
+	public Prioritization(String goalModelFile, String pictureFile)
+	{
+		this.goalModelFile = goalModelFile;
+		this.pictureFile = pictureFile;
 		setTitle("VeGAn");
 		setSize(800, 400);
 		
-		goalModel = UsingEMFModel.load(location);
+		goalModel = UsingEMFModel.load(goalModelFile);
 
 		add(new JScrollPane(generateTables()));
         
@@ -58,6 +69,8 @@ public class Prioritization extends JFrame{
             	saveGoalModel();            }
         });
         
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
@@ -150,7 +163,7 @@ public class Prioritization extends JFrame{
     		
     	}
 		
-		UsingEMFModel.save(goalModel, location);
+		UsingEMFModel.save(goalModel, goalModelFile);
 	}
 	
 	private JPanel generateTables() {
@@ -158,18 +171,21 @@ public class Prioritization extends JFrame{
 		ArrayList<String> cols = new ArrayList<String>();
 
 		cols.add("Intentional Element");
-		cols.add("Importance");
-		cols.add("Confidence");
+		cols.add("Importance level");
+		cols.add("Confidence level");
 		
 		
 		JPanel jpanel = new JPanel();
 		jpanel.setLayout(new BoxLayout(jpanel, BoxLayout.Y_AXIS));
 		
 		JPanel topPanel = new JPanel();
+		Dimension d = getMaximumSize();
+		d.height = 100;
+		topPanel.setMaximumSize(d);
 		
 		JButton buttonBack = new JButton("Back to Goal Model selection");
 		JButton buttonPropagation = new JButton("Propagation of Goal Model");
-		JButton buttonExit = new JButton("Exit");
+		JButton buttonExit = new JButton("Save and Exit");
 		
 		buttonBack.addActionListener(new ActionListener() {
 			
@@ -177,7 +193,7 @@ public class Prioritization extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				saveGoalModel();
 				
-				new LoadFile();
+				new LoadFile(goalModelFile);
 				dispose();
 			}
 		});
@@ -219,7 +235,7 @@ public class Prioritization extends JFrame{
 						}
 						else
 						{
-							new Propagation(location);
+							new Propagation(goalModelFile, pictureFile);
 							dispose();
 						}
 						
@@ -230,9 +246,9 @@ public class Prioritization extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to close the application?");
+				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to save and close the application?", null, JOptionPane.YES_NO_OPTION);
 				
-				if(result==0)
+				if(result == JOptionPane.YES_OPTION)
 				{
 					dispose();
 				}
@@ -293,14 +309,47 @@ public class Prioritization extends JFrame{
 			TableColumn colImportance = table.getColumnModel().getColumn(1);
 			colImportance.setCellEditor(new DefaultCellEditor(comboImportance));
 			
+			colImportance.setCellRenderer(
+			        new DefaultTableCellRenderer() {			        	
+			            public Component getTableCellRendererComponent(JTable table, 
+			                                                           Object value, 
+			                                                           boolean isSelected, 
+			                                                           boolean hasFocus, 
+			                                                           int row, 
+			                                                           int column) {
+			                setText(value.toString());
+			                setBackground(Color.CYAN);
+			                return this;
+			            }
+			        });
+			
 			String[] confidences = {"Possibly More", "Confident", "Possibly Less", "Not Defined"};
 			JComboBox comboConfidence = new JComboBox<String>(confidences);
+			
+			
 			
 			TableColumn colConfident = table.getColumnModel().getColumn(2);
 			colConfident.setCellEditor(new DefaultCellEditor(comboConfidence));
 			
+			colConfident.setCellRenderer(
+			        new DefaultTableCellRenderer() {			        	
+			            public Component getTableCellRendererComponent(JTable table, 
+			                                                           Object value, 
+			                                                           boolean isSelected, 
+			                                                           boolean hasFocus, 
+			                                                           int row, 
+			                                                           int column) {
+			                setText(value.toString());
+			                setBackground(Color.CYAN);
+			                return this;
+			            }
+			        });
 			
-			jpanel.add(new JLabel("Prioritize the intentional elements of actor: " + actor.getElementName()));
+			Box  b1 = Box.createHorizontalBox();
+			b1.add( new JLabel("Prioritize the intentional elements of actor: " + actor.getElementName()));
+			b1.add( Box.createHorizontalGlue() );
+			jpanel.add( b1 );
+			
 			jpanel.add(table.getTableHeader());
 			jpanel.add(table);
 			//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
@@ -313,8 +362,8 @@ public class Prioritization extends JFrame{
 		ArrayList<String> cols2 = new ArrayList<String>();
 
 		cols2.add("Actor");
-		cols2.add("Importance");
-		cols2.add("Confidence");
+		cols2.add("Importance level");
+		cols2.add("Confidence level");
 		
 		DefaultTableModel tableModel = new DefaultTableModel(cols2.toArray(), 0) {
 			//This make the shorter work correctly
@@ -357,22 +406,63 @@ public class Prioritization extends JFrame{
 		TableColumn colImportance = table.getColumnModel().getColumn(1);
 		colImportance.setCellEditor(new DefaultCellEditor(comboImportance));
 		
+		colImportance.setCellRenderer(
+		        new DefaultTableCellRenderer() {			        	
+		            public Component getTableCellRendererComponent(JTable table, 
+		                                                           Object value, 
+		                                                           boolean isSelected, 
+		                                                           boolean hasFocus, 
+		                                                           int row, 
+		                                                           int column) {
+		                setText(value.toString());
+		                setBackground(Color.CYAN);
+		                return this;
+		            }
+		        });
+		
 		String[] confidences = {"Possibly More", "Confident", "Possibly Less", "Not Defined"};
 		JComboBox comboConfidence = new JComboBox<String>(confidences);
 		
 		TableColumn colConfident = table.getColumnModel().getColumn(2);
 		colConfident.setCellEditor(new DefaultCellEditor(comboConfidence));
 		
+		colConfident.setCellRenderer(
+		        new DefaultTableCellRenderer() {			        	
+		            public Component getTableCellRendererComponent(JTable table, 
+		                                                           Object value, 
+		                                                           boolean isSelected, 
+		                                                           boolean hasFocus, 
+		                                                           int row, 
+		                                                           int column) {
+		                setText(value.toString());
+		                setBackground(Color.CYAN);
+		                return this;
+		            }
+		        });
+		
 		jpanel.add(Box.createVerticalStrut(40));
-		jpanel.add(new JLabel("Prioritize the actors of the goal model:"));
+		
+		Box  b2 = Box.createHorizontalBox();
+		b2.add( new JLabel("Prioritize the actors of the goal model:") );
+		b2.add( Box.createHorizontalGlue() );
+		jpanel.add( b2 );
+		
 		jpanel.add(table.getTableHeader());
 		jpanel.add(table);
 		//jpanel.add(new JScrollPane(table), "growx,wrap,hmax 300");
 		jpanel.add(Box.createVerticalStrut(40));
 		
+		if(!pictureFile.equals("None"))
+		{
+			  ImageIcon image = new ImageIcon(pictureFile);
+			jpanel.add(new JLabel(image));
+		}
+		
 		tables.add(table);
 		actors.add(null);
-				
+		
+		jpanel.add(new JPanel());
+		
 		return jpanel;
 	}
 	
