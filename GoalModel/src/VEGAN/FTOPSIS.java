@@ -524,9 +524,9 @@ public class FTOPSIS {
 					currentValue += value2Criteria[childPosition][j];
 				}
 					
-				if(child.getGlobalValue() > maxValue)
+				if(currentValue > maxValue)
 				{
-					maxValue = child.getGlobalValue();
+					maxValue = currentValue;
 					maxChild = child;
 				}
 			}
