@@ -15,19 +15,29 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class LoadFile extends JFrame{
 
-	public static String XMIFile = "";
+	public static String imageFile = "None";
+	public static String XMIFile = "None";
+	
 	
 	public LoadFile()
 	{
+		this("None");
+	}
+	
+	public LoadFile(String location)
+	{
+		XMIFile = location;
 		setTitle("VeGAn");
-        setSize(500, 200);
+        setSize(700, 200);
 
-        JButton buttonSelectFile = new JButton("Select Goal Model (XMI file)");
-        JLabel labelSelectedFile = new JLabel("File selected: None");
+        JButton buttonSelectGoalModel = new JButton("Load Goal Model (XMI file)...");
+        JButton buttonSelectImage = new JButton("Load Goal Model Image...");
+        JLabel labelSelectedFile = new JLabel("Goal Model selected: " + XMIFile.replace("file://", ""));
+        JLabel labelSelectedImage = new JLabel("Image selected: " + imageFile);
         JButton buttonPrioritization = new JButton("Prioritization of Goal Model");
         JButton buttonExit = new JButton("Exit");
         
-        buttonSelectFile.addActionListener(new ActionListener() {
+        buttonSelectGoalModel.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -40,9 +50,29 @@ public class LoadFile extends JFrame{
 				
 		        int returnValue = jfc.showOpenDialog(null);
 		        if (returnValue == JFileChooser.APPROVE_OPTION) {
-		        	XMIFile = jfc.getSelectedFile().getAbsolutePath();
+		        	XMIFile = "file://" + jfc.getSelectedFile().getAbsolutePath();
 		        	//JOptionPane.showMessageDialog(null, "File selected: " + XMIFile);
-		        	labelSelectedFile.setText("File selected: " + XMIFile);
+		        	labelSelectedFile.setText("Goal Model selected: " + XMIFile.replace("file://", ""));
+		        }
+		        
+			}
+		});
+        
+        buttonSelectImage.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				JFileChooser jfc = new JFileChooser();
+		        jfc.setDialogTitle("Select a Image");
+		        jfc.setAcceptAllFileFilterUsed(false);
+		        FileNameExtensionFilter filter = new FileNameExtensionFilter("Image file", "jpg");
+		        jfc.addChoosableFileFilter(filter);
+				
+		        int returnValue = jfc.showOpenDialog(null);
+		        if (returnValue == JFileChooser.APPROVE_OPTION) {
+		        	imageFile = jfc.getSelectedFile().getAbsolutePath();
+		        	labelSelectedImage.setText("Image selected: " + imageFile);
 		        }
 		        
 			}
@@ -52,14 +82,14 @@ public class LoadFile extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(XMIFile.equals(""))
+				if(XMIFile.equals("None"))
 				{
 					 JOptionPane.showMessageDialog(null, "You must select a file");
 				}
 				else
 				{
 					//JOptionPane.showMessageDialog(null, "Trying to open: "+XMIFile);
-					new Prioritization("file://" + XMIFile);
+					new Prioritization(XMIFile, imageFile);
 					dispose();
 				}
 				
@@ -70,9 +100,9 @@ public class LoadFile extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to close the application?");
+				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to close the application?", null, JOptionPane.YES_NO_OPTION);
 				
-				if(result==0)
+				if(result == JOptionPane.YES_OPTION)
 				{
 					dispose();
 				}
@@ -86,7 +116,8 @@ public class LoadFile extends JFrame{
         JPanel topPanel = new JPanel();
         
         // Add button to JPanel
-        topPanel.add(buttonSelectFile);
+        topPanel.add(buttonSelectGoalModel);
+        topPanel.add(buttonSelectImage);
         topPanel.add(buttonPrioritization);
         topPanel.add(buttonExit);
         
@@ -96,6 +127,11 @@ public class LoadFile extends JFrame{
         bottomPanel.add(labelSelectedFile);
         
         panel.add(bottomPanel);
+        
+        JPanel bottomPane2 = new JPanel();
+        bottomPane2.add(labelSelectedImage);
+        
+        panel.add(bottomPane2);
 
 
         add(panel);
@@ -107,7 +143,7 @@ public class LoadFile extends JFrame{
 	
 	public static void main(String[] argv) throws Exception {
 		
-		LoadFile lf = new LoadFile();
+		LoadFile lf = new LoadFile("None");
 	}
 	
 }
