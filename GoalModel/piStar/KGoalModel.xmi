@@ -14,9 +14,11 @@
       <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.6" contributionType="p25"/>
     </intentionalelements>
     <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Quality" trgLinks="//@actors.0/@intentionalelements.5/@srcLinks.0"/>
-    <intentionalelements xsi:type="goalModel:Goal" elementName="Depender"/>
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Depender">
+      <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.1/@intentionalelements.0"/>
+    </intentionalelements>
   </actors>
   <actors elementName="ActorDep">
-    <intentionalelements xsi:type="goalModel:Goal" elementName="Dependee"/>
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Dependee" trgLinks="//@actors.0/@intentionalelements.7/@srcLinks.0"/>
   </actors>
 </goalModel:GoalModel>
