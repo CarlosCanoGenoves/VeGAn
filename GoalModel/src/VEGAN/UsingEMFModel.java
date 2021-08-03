@@ -36,12 +36,12 @@ public class UsingEMFModel {
 		myGoalModel.setName("myGoalModel");
 
 		Actor actor = factory.createActor();
-		actor.setName("MyActor");
+		actor.setElementName("Actor");
 		myGoalModel.getActors().add(actor);
 
 		System.out.println("GoalModelName: " + myGoalModel.getName());
 		System.out.println("AmountOfActors: " + myGoalModel.getActors().size());
-		System.out.println("ActorName: " + myGoalModel.getActors().get(0).getName());
+		System.out.println("ActorName: " + myGoalModel.getActors().get(0).getElementName());
 
 		myGoalModel = load("test.xmi");
 
@@ -52,13 +52,13 @@ public class UsingEMFModel {
 		// Iteration test:
 
 		myGoalModel.getActors().forEach((temp) -> {
-			System.out.println(temp.getName());
+			System.out.println(temp.getElementName());
 		});
 
 		for (Iterator iterator = myGoalModel.getActors().iterator(); iterator.hasNext();) {
 			Actor type = (Actor) iterator.next();
 
-			System.out.println(type.getName());
+			System.out.println(type.getElementName());
 		}
 		
 		Propagation.propagate(myGoalModel);
@@ -90,6 +90,7 @@ public class UsingEMFModel {
 		return (GoalModel) resource.getContents().get(0);
 
 	}
+	
 	
 	public static void save(GoalModel goalmodel, String file) {
 		ResourceSet resourceSet = new ResourceSetImpl();

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<goalModel:GoalModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:goalModel="http://goalModel" name="goalModel">
+  <actors elementName="actor" importance="Very_High" confidence="Possibly_More">
+    <intentionalelements xsi:type="goalModel:Task" elementName="T1" importance="Very_High" confidence="Possibly_More"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="T2" importance="Medium" confidence="Confident"/>
+    <intentionalelements xsi:type="goalModel:Task" elementName="T3" importance="Very_Low" confidence="Possibly_Less"/>
+  </actors>
+</goalModel:GoalModel>
