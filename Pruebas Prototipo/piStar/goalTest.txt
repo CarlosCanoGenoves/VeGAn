@@ -1,0 +1,184 @@
+{
+  "actors": [
+    {
+      "id": "55df937a-026e-4dee-a67f-76b9da8923a0",
+      "text": "Actor",
+      "type": "istar.Actor",
+      "x": 189,
+      "y": 193,
+      "customProperties": {
+        "Description": ""
+      },
+      "nodes": [
+        {
+          "id": "c1bfb664-b4a7-4cdd-9fef-38ccd5862cb2",
+          "text": "GoalAND",
+          "type": "istar.Goal",
+          "x": 273,
+          "y": 208,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "23d7cf2a-77a8-467b-9eb8-4087e7b638bc",
+          "text": "TaskAND1",
+          "type": "istar.Task",
+          "x": 198,
+          "y": 300,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "f446135b-8f1b-437d-8386-62d4ab33035e",
+          "text": "TaskAND2",
+          "type": "istar.Task",
+          "x": 321.5,
+          "y": 294,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "77f5dd81-8fe3-4fe7-b668-88d4d3bf120c",
+          "text": "TaskOR",
+          "type": "istar.Task",
+          "x": 453,
+          "y": 296,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "1c5f52aa-9323-46b4-9915-9a6715c44534",
+          "text": "GoalOR",
+          "type": "istar.Goal",
+          "x": 452,
+          "y": 212,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "6da6cd74-2d3d-4ba7-b3b9-54fc1ad9b226",
+          "text": "Task",
+          "type": "istar.Task",
+          "x": 224,
+          "y": 392,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "bc71073d-a230-4a89-91cc-70d8cb52da65",
+          "text": "Quality",
+          "type": "istar.Quality",
+          "x": 386,
+          "y": 382.5,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "b32ea1a4-ca29-41cd-bae0-254922e9bc25",
+          "text": "Depender",
+          "type": "istar.Goal",
+          "x": 480,
+          "y": 382,
+          "customProperties": {
+            "Description": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "69dd9827-8eb7-4dc9-9489-a0df0bfeafe0",
+      "text": "ActorDep",
+      "type": "istar.Actor",
+      "x": 816,
+      "y": 329,
+      "customProperties": {
+        "Description": ""
+      },
+      "nodes": [
+        {
+          "id": "a134682d-f0ca-4681-a668-9194b15544bb",
+          "text": "Dependee",
+          "type": "istar.Goal",
+          "x": 863,
+          "y": 378,
+          "customProperties": {
+            "Description": ""
+          }
+        }
+      ]
+    }
+  ],
+  "orphans": [],
+  "dependencies": [
+    {
+      "id": "8d592537-ce77-4e17-a897-47603820bebe",
+      "text": "Dependum",
+      "type": "istar.Resource",
+      "x": 647.5,
+      "y": 371.5,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "b32ea1a4-ca29-41cd-bae0-254922e9bc25",
+      "target": "a134682d-f0ca-4681-a668-9194b15544bb"
+    }
+  ],
+  "links": [
+    {
+      "id": "aac9146f-fa4c-4699-97cb-d1b8dc6b9cac",
+      "type": "istar.AndRefinementLink",
+      "source": "23d7cf2a-77a8-467b-9eb8-4087e7b638bc",
+      "target": "c1bfb664-b4a7-4cdd-9fef-38ccd5862cb2"
+    },
+    {
+      "id": "e10ef906-508e-4891-8255-df32cab201f5",
+      "type": "istar.AndRefinementLink",
+      "source": "f446135b-8f1b-437d-8386-62d4ab33035e",
+      "target": "c1bfb664-b4a7-4cdd-9fef-38ccd5862cb2"
+    },
+    {
+      "id": "6a8be6a8-e3ac-42f2-8084-3a8b092e0d0f",
+      "type": "istar.OrRefinementLink",
+      "source": "77f5dd81-8fe3-4fe7-b668-88d4d3bf120c",
+      "target": "1c5f52aa-9323-46b4-9915-9a6715c44534"
+    },
+    {
+      "id": "06b36cf9-6721-4e33-b2f7-1a1e6062847f",
+      "type": "istar.ContributionLink",
+      "source": "6da6cd74-2d3d-4ba7-b3b9-54fc1ad9b226",
+      "target": "bc71073d-a230-4a89-91cc-70d8cb52da65",
+      "label": "help"
+    },
+    {
+      "id": "47ef2859-040d-4c04-b8b3-60e3c5f56897",
+      "type": "istar.DependencyLink",
+      "source": "b32ea1a4-ca29-41cd-bae0-254922e9bc25",
+      "target": "8d592537-ce77-4e17-a897-47603820bebe"
+    },
+    {
+      "id": "36d150a9-337a-4904-9748-4840c0fdc439",
+      "type": "istar.DependencyLink",
+      "source": "8d592537-ce77-4e17-a897-47603820bebe",
+      "target": "a134682d-f0ca-4681-a668-9194b15544bb"
+    }
+  ],
+  "display": {},
+  "tool": "pistar.2.0.0",
+  "istar": "2.0",
+  "saveDate": "Sat, 17 Jul 2021 13:43:54 GMT",
+  "diagram": {
+    "width": 2000,
+    "height": 1300,
+    "name": "Welcome Model",
+    "customProperties": {
+      "Description": "Welcome to the piStar tool! This model describe some of the recent improvements in the tool.\n\nFor help using this tool, please check the Help menu above"
+    }
+  }
+}
