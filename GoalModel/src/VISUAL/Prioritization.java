@@ -246,6 +246,7 @@ public class Prioritization extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				saveGoalModel();
 				int result= JOptionPane.showConfirmDialog(null, "Are you sure you want to save and close the application?", null, JOptionPane.YES_NO_OPTION);
 				
 				if(result == JOptionPane.YES_OPTION)

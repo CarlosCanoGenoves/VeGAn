@@ -6,10 +6,16 @@
     xmlns:goalModel="http://goalModel"
     xsi:schemaLocation="http://goalModel ../model/goalModel.ecore"
     name="Kindle">
-  <actors elementName="Lector">
+  <actors elementName="Lector"
+      importance="Very_High"
+      confidence="Confident">
     <intentionalelements
         xsi:type="goalModel:Goal"
-        elementName="Leer libros">
+        elementName="Leer libros"
+        importance="Very_High"
+        confidence="Confident"
+        localValue="41.3303734766435"
+        globalValue="41.3303734766435">
       <srcLinks
           xsi:type="goalModel:Decomposition"
           trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2"
@@ -21,6 +27,10 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         elementName="Libro en papel"
+        importance="Medium"
+        confidence="Confident"
+        localValue="21.089706359733416"
+        globalValue="21.089706359733416"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -30,6 +40,10 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         elementName="Kindle"
+        importance="Low"
+        confidence="Possibly_More"
+        localValue="25.6236303217771"
+        globalValue="25.6236303217771"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -39,12 +53,22 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         elementName="Bajo Coste"
+        importance="High"
+        confidence="Possibly_Less"
+        localValue="18.162338733672634"
+        globalValue="18.162338733672634"
         trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.0 //@actors.0/@intentionalelements.2/@srcLinks.0"/>
   </actors>
-  <actors elementName="Autor">
+  <actors elementName="Autor"
+      importance="High"
+      confidence="Possibly_More">
     <intentionalelements
         xsi:type="goalModel:Goal"
         elementName="Publicar Libro"
+        importance="Very_High"
+        confidence="Confident"
+        localValue="51.36891165626204"
+        globalValue="92.69928513290556"
         trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1">
       <srcLinks
           xsi:type="goalModel:Decomposition"
@@ -54,6 +78,10 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         elementName="Libro en papel"
+        importance="Medium"
+        confidence="Possibly_Less"
+        localValue="27.22084075324919"
+        globalValue="68.5512142298927"
         trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -67,6 +95,10 @@
     <intentionalelements
         xsi:type="goalModel:Task"
         elementName="Kindle"
+        importance="Medium"
+        confidence="Possibly_More"
+        localValue="30.74505286079553"
+        globalValue="72.07542633743903"
         trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -76,6 +108,10 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         elementName="Aumentar lectores"
+        importance="Very_High"
+        confidence="Possibly_Less"
+        localValue="21.683225676784428"
+        globalValue="21.683225676784428"
         trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.0 //@actors.1/@intentionalelements.2/@srcLinks.0">
       <srcLinks
           xsi:type="goalModel:Contribution"
@@ -85,6 +121,10 @@
     <intentionalelements
         xsi:type="goalModel:SoftGoal"
         elementName="Beneficios"
+        importance="Low"
+        confidence="Possibly_More"
+        localValue="12.760533276997647"
+        globalValue="12.760533276997647"
         trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.1 //@actors.1/@intentionalelements.3/@srcLinks.0"/>
   </actors>
 </goalModel:GoalModel>

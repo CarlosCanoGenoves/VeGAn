@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="ASCII"?>
+<goalModel:GoalModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:goalModel="http://goalModel" name="edX" iteration="1">
+  <actors elementName="Usuario" importance="High" confidence="Confident">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Aprender" importance="Very_High" confidence="Confident" localValue="22.41982073307475" globalValue="22.41982073307475" evaluation="Strongly_Agree">
+      <iterations iteration="1" globalValue="22.41982073307475" localValue="22.41982073307475">
+        <valuefrom value="8.511409411724813" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="2.31485282256778" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.291787144487957" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.273622878924368" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.028148475369832" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2" decompositionType="IOR"/>
+      <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.2/@intentionalelements.0"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Presencial" importance="Low" confidence="Confident" localValue="5.912175085974775" globalValue="5.912175085974775" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" importance="Low" globalValue="5.912175085974775" localValue="5.912175085974775">
+        <valuefrom value="2.6540384214549047" intentionalelement="//@actors.0/@intentionalelements.1"/>
+        <valuefrom value="-1.271545421762233" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="1.8837204781778225" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="-2.9377616230629453" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="5.583723231167227" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.3" contributionType="n25"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.5" contributionType="n50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.6" contributionType="p75"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Online" importance="High" confidence="Possibly_More" localValue="19.765782311619844" globalValue="19.765782311619844" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" importance="High" confidence="Possibly_More" globalValue="19.765782311619844" localValue="19.765782311619844">
+        <valuefrom value="5.857370990269907" intentionalelement="//@actors.0/@intentionalelements.2"/>
+        <valuefrom value="2.31485282256778" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.291787144487957" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="4.273622878924368" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="3.028148475369832" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.3" contributionType="p50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.5" contributionType="p75"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.6" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Horario flexible" importance="Low" confidence="Confident" localValue="7.9763572178927165" globalValue="7.9763572178927165" evaluation="Disagree" trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.0 //@actors.0/@intentionalelements.2/@srcLinks.0">
+      <iterations iteration="1" importance="Low" globalValue="7.9763572178927165" localValue="7.9763572178927165">
+        <valuefrom value="3.6845700734047595" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="4.291787144487957" intentionalelement="//@actors.0/@intentionalelements.4"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.4" contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Satisfacion con el curso" importance="High" confidence="Confident" localValue="7.1103121737624395" globalValue="7.1103121737624395" evaluation="Disagree" trgLinks="//@actors.0/@intentionalelements.3/@srcLinks.0 //@actors.0/@intentionalelements.5/@srcLinks.0 //@actors.0/@intentionalelements.6/@srcLinks.0">
+      <iterations iteration="1" importance="High" globalValue="7.1103121737624395" localValue="7.1103121737624395">
+        <valuefrom value="7.1103121737624395" intentionalelement="//@actors.0/@intentionalelements.4"/>
+      </iterations>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Evitar desplazamiento" importance="Medium" confidence="Confident" localValue="8.421662215517339" globalValue="8.421662215517339" evaluation="Disagree" trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.1 //@actors.0/@intentionalelements.2/@srcLinks.1">
+      <iterations iteration="1" importance="Medium" globalValue="8.421662215517339" localValue="8.421662215517339">
+        <valuefrom value="3.028148475369832" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="5.393513740147506" intentionalelement="//@actors.0/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.4" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Calidad del curso" importance="High" confidence="Confident" localValue="11.402099318250396" globalValue="11.402099318250396" evaluation="Agree" trgLinks="//@actors.0/@intentionalelements.1/@srcLinks.2 //@actors.0/@intentionalelements.2/@srcLinks.2">
+      <iterations iteration="1" importance="High" globalValue="11.402099318250396" localValue="11.402099318250396">
+        <valuefrom value="4.291787144487957" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="7.1103121737624395" intentionalelement="//@actors.0/@intentionalelements.6"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.4" contributionType="p50"/>
+    </intentionalelements>
+  </actors>
+  <actors elementName="Compa&#xf1;ia" importance="Very_High" confidence="Confident">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Formar trabajadores" importance="Very_High" confidence="Confident" localValue="23.92619361181299" globalValue="23.92619361181299" evaluation="Strongly_Agree">
+      <iterations iteration="1" globalValue="23.92619361181299" localValue="23.92619361181299">
+        <valuefrom value="10.192829714836723" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="7.589780879411584" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="2.5730253466112107" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="3.570557670953474" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.1/@intentionalelements.1 //@actors.1/@intentionalelements.2" decompositionType="IOR"/>
+      <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.2/@intentionalelements.0"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Presencial" importance="Medium" confidence="Possibly_Less" localValue="12.297939518884112" globalValue="12.297939518884112" evaluation="Neutral" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" importance="Medium" confidence="Possibly_Less" globalValue="12.297939518884112" localValue="12.297939518884112">
+        <valuefrom value="5.096414857418361" intentionalelement="//@actors.1/@intentionalelements.1"/>
+        <valuefrom value="-3.5633064309536597" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="4.1351611577912735" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="6.6296699346281365" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.3" contributionType="n25"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.5" contributionType="p75"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Online" importance="Medium" confidence="Possibly_Less" localValue="18.829778754394628" globalValue="18.829778754394628" evaluation="Neutral" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" importance="Medium" confidence="Possibly_Less" globalValue="18.829778754394628" localValue="18.829778754394628">
+        <valuefrom value="5.096414857418361" intentionalelement="//@actors.1/@intentionalelements.2"/>
+        <valuefrom value="7.589780879411584" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="2.5730253466112107" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="3.570557670953474" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.3" contributionType="p75"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.5" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Reducir costes" importance="High" confidence="Possibly_More" localValue="9.613032939883507" globalValue="9.613032939883507" evaluation="Strongly_Disagree" trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.0 //@actors.1/@intentionalelements.2/@srcLinks.0">
+      <iterations iteration="1" importance="High" confidence="Possibly_More" globalValue="9.613032939883507" localValue="9.613032939883507">
+        <valuefrom value="9.613032939883507" intentionalelement="//@actors.1/@intentionalelements.3"/>
+      </iterations>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Aumentar productividad" importance="High" confidence="Possibly_More" localValue="9.613032939883507" globalValue="9.613032939883507" evaluation="Strongly_Disagree" trgLinks="//@actors.1/@intentionalelements.5/@srcLinks.0">
+      <iterations iteration="1" importance="High" confidence="Possibly_More" globalValue="9.613032939883507" localValue="9.613032939883507">
+        <valuefrom value="9.613032939883507" intentionalelement="//@actors.1/@intentionalelements.4"/>
+      </iterations>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Formacion de calidad" importance="High" confidence="Confident" localValue="14.352669677797252" globalValue="14.352669677797252" evaluation="Agree" trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.1 //@actors.1/@intentionalelements.2/@srcLinks.1">
+      <iterations iteration="1" importance="High" globalValue="14.352669677797252" localValue="14.352669677797252">
+        <valuefrom value="5.844669766360936" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="8.507999911436317" intentionalelement="//@actors.1/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.4" contributionType="p50"/>
+    </intentionalelements>
+  </actors>
+  <actors elementName="Profesor" importance="Medium" confidence="Confident">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Proveer curso" importance="Very_High" confidence="Confident" localValue="14.264976314596428" globalValue="68.66180759549054" evaluation="Strongly_Agree" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.1 //@actors.1/@intentionalelements.0/@srcLinks.1">
+      <iterations iteration="1" globalValue="68.66180759549054" localValue="14.264976314596428">
+        <valuefrom value="8.511409411724813" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="1.658719759780667" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="5.583723231167227" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="2.33568070050731" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.581676817854726" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="10.192829714836723" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="5.844669766360936" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="5.844669766360936" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="7.843452112300761" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="6.444489437121573" intentionalelement="//@actors.2/@intentionalelements.0"/>
+        <valuefrom value="3.829126938358845" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="5.016298804217607" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.898277975998807" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-2.929973924135294" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.993242916965108" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.2/@intentionalelements.1 //@actors.2/@intentionalelements.2" decompositionType="IOR"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Presencial" importance="Medium" confidence="Confident" localValue="0.5294147936946922" globalValue="54.92624607458879" evaluation="Agree" trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" importance="Medium" globalValue="54.92624607458879" localValue="0.5294147936946922">
+        <valuefrom value="8.511409411724813" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="1.658719759780667" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="5.583723231167227" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="2.33568070050731" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.581676817854726" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="10.192829714836723" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="5.844669766360936" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="5.844669766360936" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="7.843452112300761" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="3.2222447185607863" intentionalelement="//@actors.2/@intentionalelements.1"/>
+        <valuefrom value="-1.4763419251988752" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="-1.993242916965108" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="-2.5177896440910676" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="3.294544561388957" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.3" contributionType="n25"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.5" contributionType="n50"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.7" contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Online" importance="Medium" confidence="Confident" localValue="11.042731596035644" globalValue="65.43956287692976" evaluation="Agree" trgLinks="//@actors.2/@intentionalelements.0/@srcLinks.0">
+      <iterations iteration="1" importance="Medium" globalValue="65.43956287692976" localValue="11.042731596035644">
+        <valuefrom value="8.511409411724813" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.0"/>
+        <valuefrom value="1.658719759780667" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.3"/>
+        <valuefrom value="5.583723231167227" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.4"/>
+        <valuefrom value="2.33568070050731" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.5"/>
+        <valuefrom value="6.581676817854726" valueFrom="External" intentionalelement="//@actors.0/@intentionalelements.6"/>
+        <valuefrom value="10.192829714836723" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.0"/>
+        <valuefrom value="5.844669766360936" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.3"/>
+        <valuefrom value="5.844669766360936" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.4"/>
+        <valuefrom value="7.843452112300761" valueFrom="External" intentionalelement="//@actors.1/@intentionalelements.5"/>
+        <valuefrom value="3.2222447185607863" intentionalelement="//@actors.2/@intentionalelements.2"/>
+        <valuefrom value="3.829126938358845" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="5.016298804217607" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="3.898277975998807" intentionalelement="//@actors.2/@intentionalelements.5"/>
+        <valuefrom value="-2.929973924135294" intentionalelement="//@actors.2/@intentionalelements.6"/>
+        <valuefrom value="-1.993242916965108" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.3" contributionType="p100"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.5" contributionType="p75"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.7" contributionType="n25"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.6" contributionType="n75"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Cualquier lugar" importance="Medium" confidence="Confident" localValue="7.392651320616781" globalValue="7.392651320616781" evaluation="Agree" trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.0 //@actors.2/@intentionalelements.2/@srcLinks.0">
+      <iterations iteration="1" importance="Medium" globalValue="7.392651320616781" localValue="7.392651320616781">
+        <valuefrom value="4.098106759227824" intentionalelement="//@actors.2/@intentionalelements.3"/>
+        <valuefrom value="3.294544561388957" intentionalelement="//@actors.2/@intentionalelements.4"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.4" contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Mejorar acceso a la educacion" importance="High" confidence="Confident" localValue="5.393513740147506" globalValue="5.393513740147506" evaluation="Disagree" trgLinks="//@actors.2/@intentionalelements.3/@srcLinks.0 //@actors.2/@intentionalelements.5/@srcLinks.0">
+      <iterations iteration="1" importance="High" globalValue="5.393513740147506" localValue="5.393513740147506">
+        <valuefrom value="5.393513740147506" intentionalelement="//@actors.2/@intentionalelements.4"/>
+      </iterations>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Cualquier hora" importance="Medium" confidence="Possibly_More" localValue="8.129801046674729" globalValue="8.129801046674729" evaluation="Agree" trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.1 //@actors.2/@intentionalelements.2/@srcLinks.1">
+      <iterations iteration="1" importance="Medium" confidence="Possibly_More" globalValue="8.129801046674729" localValue="8.129801046674729">
+        <valuefrom value="3.294544561388957" intentionalelement="//@actors.2/@intentionalelements.4"/>
+        <valuefrom value="4.835256485285773" intentionalelement="//@actors.2/@intentionalelements.5"/>
+      </iterations>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.2/@intentionalelements.4" contributionType="p50"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Problemas tecnicos" importance="Medium" confidence="Confident" localValue="4.098106759227824" globalValue="4.098106759227824" evaluation="Agree" trgLinks="//@actors.2/@intentionalelements.2/@srcLinks.3">
+      <iterations iteration="1" importance="Medium" globalValue="4.098106759227824" localValue="4.098106759227824">
+        <valuefrom value="4.098106759227824" intentionalelement="//@actors.2/@intentionalelements.6"/>
+      </iterations>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Participacion alumnos en clase" importance="High" confidence="Confident" localValue="5.393513740147506" globalValue="5.393513740147506" evaluation="Disagree" trgLinks="//@actors.2/@intentionalelements.1/@srcLinks.2 //@actors.2/@intentionalelements.2/@srcLinks.2">
+      <iterations iteration="1" importance="High" globalValue="5.393513740147506" localValue="5.393513740147506">
+        <valuefrom value="5.393513740147506" intentionalelement="//@actors.2/@intentionalelements.7"/>
+      </iterations>
+    </intentionalelements>
+  </actors>
+</goalModel:GoalModel>
