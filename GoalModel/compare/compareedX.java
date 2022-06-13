@@ -13,8 +13,8 @@ import goalModel.Iteration;
 public class compareedX {
 
 	public static void main(String[] args) {
-		GoalModel expectedGoalModel = UsingEMFModel.load("Experimento/Sol/edX.xmi");
-		GoalModel goalmodel = UsingEMFModel.load("Experimento/Check/edX.xmi");
+		GoalModel expectedGoalModel = UsingEMFModel.load("Experimento/Sol/Hope.xmi");
+		GoalModel goalmodel = UsingEMFModel.load("Experimento/Check/Hope.xmi");
 		
 		int totalNumberOfIE = 0;
 		int totalNumberOfCorrectIE = 0;
@@ -111,22 +111,22 @@ public class compareedX {
 		String[] tableHead2 = {"P2 1", "P2 2", "P2 3", "P2 4", "P2 5", "P2 6", "P2 6"};
 		Double[] tableRow2 = 
 			{
-				/* HOPE
+				// HOPE
 				getValueFrom(goalmodel, "Usuario", "Telefono", "Atencion inmediata"),
 				getValueFrom(goalmodel, "Usuario", "VideoChat", "Anonimato"),
 				getValueFrom(goalmodel, "Orientador", "Chat", "Ayudar a muchos"),
 				getValueFrom(goalmodel, "Orientador", "Telefono", "Ayuda de calidad"),
 				getValueFrom(goalmodel, "Telefono de la esperanza", "VideoChat", "Evitar escandalos"),
 				getValueFrom(goalmodel, "Telefono de la esperanza", "Chat", "Ofrecer ayuda de calidad")
-				*/
-					
+				
+				/* edX
 					getValueFrom(goalmodel, "Usuario", "Presencial", "Evitar desplazamiento"),
 					getValueFrom(goalmodel, "Usuario", "Aprender", "Satisfacion con el curso"),
 					getValueFrom(goalmodel, "Compañia", "Formar trabajadores", "Aumentar productividad"),
 					getValueFrom(goalmodel, "Compañia", "Online", "Reducir costes"),
 					getValueFrom(goalmodel, "Profesor", "Presencial", "Mejorar acceso a la educacion"),
 					getValueFrom(goalmodel, "Profesor", "Proveer curso", "Participacion alumnos en clase")
-					
+				*/
 			};
 		
 		System.out.println();

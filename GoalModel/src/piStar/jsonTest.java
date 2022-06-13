@@ -20,13 +20,13 @@ public class jsonTest
 
 	public static void main(String[] args) throws JsonParseException, IOException {
 		JsonFactory jsonFactory = new JsonFactory();
-		JsonParser jp = jsonFactory.createJsonParser(new File("./piStar/goalTest.txt"));
+		JsonParser jp = jsonFactory.createJsonParser(new File("./piStar/MeetingScheduler2.txt"));
 		jp.setCodec(new ObjectMapper());
 
 		JsonNode jsonNode = jp.readValueAsTree();
 
 		GoalModel goalModel = generateGoalModel(jsonNode);
-		UsingEMFModel.save(goalModel, "./piStar/KGoalModel.xmi");
+		UsingEMFModel.save(goalModel, "./piStar/MeetingScheduler2.xmi");
 	}
 
 	public static GoalModel generateGoalModel(JsonNode jsonNode)

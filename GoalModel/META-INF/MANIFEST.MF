@@ -4,7 +4,8 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: GoalModel;singleton:=true
 Automatic-Module-Name: GoalModel
 Bundle-Version: 0.1.0.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ jgoodies-forms-1.8.0.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

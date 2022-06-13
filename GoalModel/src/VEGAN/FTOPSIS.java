@@ -490,7 +490,7 @@ public class FTOPSIS {
 	 *  
 	 * PS: It takes into account the parent's links because they propagate to the child
 	 */
-	private static double[][] MaxOrDecomposition(GoalModel goalModel, double[][] value2Criteria, Map<IntentionalElement, Integer> ieToPosition)
+	public static double[][] MaxOrDecomposition(GoalModel goalModel, double[][] value2Criteria, Map<IntentionalElement, Integer> ieToPosition)
 	{
 		double[][] value2CriteriaMaxOR = value2Criteria.clone();
 		
