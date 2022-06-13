@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<goalModel:GoalModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:goalModel="http://goalModel" name="TESTGoalModel1">
+  <actors elementName="Participante">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Asistir reuni&#xf3;n">
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.0/@intentionalelements.1 //@actors.0/@intentionalelements.2" decompositionType="IOR"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Encontrar fecha usando Meeting Scheduler" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.3" contributionType="p25"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.7" contributionType="p25"/>
+      <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.1/@intentionalelements.2"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Encontrar fecha hablando con el iniciador" trgLinks="//@actors.0/@intentionalelements.0/@srcLinks.0">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.7" contributionType="p100"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.3" contributionType="p100"/>
+      <srcLinks xsi:type="goalModel:Dependency" trgs="//@actors.1/@intentionalelements.1"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Expresividad del canal" trgLinks="//@actors.0/@intentionalelements.2/@srcLinks.1 //@actors.0/@intentionalelements.1/@srcLinks.0">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.4" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Calidad" trgLinks="//@actors.0/@intentionalelements.3/@srcLinks.0">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.5" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Satisfacci&#xf3;n" trgLinks="//@actors.0/@intentionalelements.6/@srcLinks.0 //@actors.0/@intentionalelements.4/@srcLinks.0"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Bajo esfuerzo" trgLinks="//@actors.0/@intentionalelements.7/@srcLinks.0">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.5" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="F&#xe1;cil de usar" trgLinks="//@actors.0/@intentionalelements.2/@srcLinks.0 //@actors.0/@intentionalelements.1/@srcLinks.1">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.0/@intentionalelements.6" contributionType="p25"/>
+    </intentionalelements>
+  </actors>
+  <actors elementName="Persona Iniciadora">
+    <intentionalelements xsi:type="goalModel:Goal" elementName="Organizar reuni&#xf3;n">
+      <srcLinks xsi:type="goalModel:Decomposition" trgs="//@actors.1/@intentionalelements.1 //@actors.1/@intentionalelements.2" decompositionType="IOR"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Manualmente" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0 //@actors.0/@intentionalelements.2/@srcLinks.2">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.4" contributionType="p25"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.3" contributionType="p25"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:Task" elementName="Usar Meeting Scheduler" trgLinks="//@actors.1/@intentionalelements.0/@srcLinks.0 //@actors.0/@intentionalelements.1/@srcLinks.2">
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.4" contributionType="p100"/>
+      <srcLinks xsi:type="goalModel:Contribution" trgs="//@actors.1/@intentionalelements.3" contributionType="p100"/>
+    </intentionalelements>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="Poco esfuerzo" trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.1 //@actors.1/@intentionalelements.2/@srcLinks.1"/>
+    <intentionalelements xsi:type="goalModel:SoftGoal" elementName="R&#xe1;pido" trgLinks="//@actors.1/@intentionalelements.1/@srcLinks.0 //@actors.1/@intentionalelements.2/@srcLinks.0"/>
+  </actors>
+</goalModel:GoalModel>
