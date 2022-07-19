@@ -32,6 +32,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
@@ -83,7 +84,8 @@ public class Visual3 extends JFrame {
 	private JPanel bottomPanel;
 	private String[] lookAndFeel = {"Metal", "Nimbus", "CDE/Motif", "Windows","Windows Classic"};
 	private boolean prioritization = true;
-	JButton propagation_prioritizationButton;
+	JButton prioritizationButton;
+	JButton propagationnButton;
 	
 	/**
 	 * Launch the application.
@@ -334,7 +336,48 @@ public class Visual3 extends JFrame {
 		menuBar.add(helpMenu);
 		
 		JMenuItem about = new JMenuItem("About VeGAn...");
-		about.setEnabled(false);
+		about.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JFrame frame = new JFrame("About VeGAn");
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                
+                frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Visual3.class.getResource("/VISUAL/icons/vegan_white.png")));
+                frame.setTitle("About VeGAn");
+                frame.setBounds(100, 100, 400, 225);
+                frame.setSize(400, 225);
+
+                JPanel panel = new JPanel();
+                panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+                frame.setContentPane(panel);
+                panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        		JLabel titleLabel = new JLabel(new ImageIcon(getClass().getResource("icons/aboutVegan.png")));
+        		panel.add(titleLabel);
+        		
+        		panel.add(Box.createVerticalStrut(10));
+        		panel.add(new JLabel("VeGAn v2.0.1"));
+        		panel.add(Box.createVerticalStrut(10));
+        		
+        		panel.add(new JLabel("<html>Copyright "+ Character.toString(169) + " 2022 Universitat Politècnica de València,<br> Valencia, Spain</html>"));
+        		panel.add(Box.createVerticalStrut(5));
+        		panel.add(new JLabel("VeGAn Icon - De Peepal Farm Foundation"));       		        		
+
+        		JHyperlink iconLink = new JHyperlink("File:Vegan friendly, CC BY-SA 4.0");
+        		iconLink.setURL("https://commons.wikimedia.org/w/index.php?curid=81745546");
+        		panel.add(iconLink);
+        		panel.add(Box.createVerticalStrut(10));
+
+        		panel.add(new JLabel("More information and examples:"));
+        		JHyperlink webLink = new JHyperlink("https://research.webs.upv.es/vegan/");
+        		webLink.setURL("https://research.webs.upv.es/vegan/");
+        		panel.add(webLink);
+        		       		
+        		frame.setLocationRelativeTo(contentPane);
+                frame.setVisible(true);
+                frame.setResizable(false);
+			}
+		});
 		helpMenu.add(about);
 		
 		return menuBar;
@@ -345,6 +388,7 @@ public class Visual3 extends JFrame {
 		toolBarPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		
 		JButton openGoalModelButton = new JButton("Open Goal Model...");
+		openGoalModelButton.setToolTipText("Load Goal Model");
 		openGoalModelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				loadGoalModel();
@@ -355,9 +399,10 @@ public class Visual3 extends JFrame {
 		openGoalModelButton.setHorizontalAlignment(SwingConstants.LEFT);
 		openGoalModelButton.setMargin(new Insets(1,1,1,1));
 		openGoalModelButton.setText(null);
-		openGoalModelButton.setIcon(new ImageIcon(getClass().getResource("icons/loadGoalModel.png")));
+		openGoalModelButton.setIcon(new ImageIcon(getClass().getResource("icons/xmi.png")));
 		
 		JButton openImageButton = new JButton("Open Goal Model Picture...");
+		openImageButton.setToolTipText("Load Picture");
 		openImageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				loadPicture();
@@ -367,14 +412,17 @@ public class Visual3 extends JFrame {
 		openImageButton.setHorizontalAlignment(SwingConstants.LEFT);
 		openImageButton.setMargin(new Insets(1,1,1,1));
 		openImageButton.setText(null);
-		openImageButton.setIcon(new ImageIcon(getClass().getResource("icons/loadImage.png")));
+		openImageButton.setIcon(new ImageIcon(getClass().getResource("icons/image.png")));
 		
 		JButton saveButton = new JButton("Save");
+		saveButton.setToolTipText("Save Goal Model");
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				saveGoalModelFile();
 				
-				if(goalModel!=null)
+				if(null == goalModel)
+					JOptionPane.showMessageDialog(contentPane, "Goal Model not loaded.");
+				else
 					JOptionPane.showMessageDialog(contentPane, "Goal Model saved.");
 			}
 		});
@@ -382,45 +430,70 @@ public class Visual3 extends JFrame {
 		toolBarPanel.add(saveButton);
 		saveButton.setHorizontalAlignment(SwingConstants.LEFT);
 		saveButton.setMargin(new Insets(1,1,1,1));
-		//saveButton.setIcon(new ImageIcon(getClass().getResource("icons/ToolTip.gif")));
+		saveButton.setText(null);
+		saveButton.setIcon(new ImageIcon(getClass().getResource("icons/save.png")));
 		
-		propagation_prioritizationButton = new JButton("Propagation");
+		prioritizationButton = new JButton("Prioritization");
+		prioritizationButton.setToolTipText("Prioritization");
+
+		toolBarPanel.add(prioritizationButton);
+		prioritizationButton.setHorizontalAlignment(SwingConstants.LEFT);
+		prioritizationButton.setMargin(new Insets(1,1,1,1));
+		prioritizationButton.setText(null);
+		prioritizationButton.setIcon(new ImageIcon(getClass().getResource("icons/prioritization.png")));
+		prioritizationButton.setEnabled(!prioritization);
 		
-		toolBarPanel.add(propagation_prioritizationButton);
-		propagation_prioritizationButton.setHorizontalAlignment(SwingConstants.LEFT);
-		propagation_prioritizationButton.setMargin(new Insets(1,1,1,1));
-		//PropagationButton.setIcon(new ImageIcon(getClass().getResource("icons/ToolTip.gif")));
+		prioritizationButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				saveGoalModel();
+				prioritization();
+				prioritization = true;
+				
+				prioritizationButton.setEnabled(!prioritization);
+				propagationnButton.setEnabled(prioritization);
+
+			}
+		});
 		
-		propagation_prioritizationButton.addActionListener(new ActionListener() {
+		propagationnButton = new JButton("Propagation");
+		propagationnButton.setToolTipText("Propagation");
+
+		toolBarPanel.add(propagationnButton);
+		propagationnButton.setHorizontalAlignment(SwingConstants.LEFT);
+		propagationnButton.setMargin(new Insets(1,1,1,1));
+		propagationnButton.setText(null);
+		propagationnButton.setIcon(new ImageIcon(getClass().getResource("icons/propagation.png")));
+		propagationnButton.setEnabled(prioritization);
+		
+		propagationnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(prioritization)
+				if(goalModel==null)
 				{
-					if(!canPropagate())
-					{
-						JOptionPane.showMessageDialog(contentPane, "A level of importance and confidence must be assigned to all intentional elements and actors.");
-						return;
-					}
-					
-					propagation_prioritizationButton.setText("Prioritization");
-					
-					saveGoalModel();
-					goalModel = FTOPSIS.calculateValue(goalModel).Item1;
-					propagation();
-					prioritization = false;
+					JOptionPane.showMessageDialog(contentPane, "Goal Model not loaded.");
+					return;
 				}
-				else
+				
+				if(!canPropagate())
 				{
-					propagation_prioritizationButton.setText("Propagation");
-					saveGoalModel();
-					prioritization();
-					prioritization = true;
+					JOptionPane.showMessageDialog(contentPane, "A level of importance and confidence must be assigned to all intentional elements and actors.");
+					return;
 				}
+						
+				saveGoalModel();
+				goalModel = FTOPSIS.calculateValue(goalModel).Item1;
+				propagation();
+				prioritization = false;
+				
+				prioritizationButton.setEnabled(!prioritization);
+				propagationnButton.setEnabled(prioritization);
 				
 			}
 		});
 		
 		JButton importFrompiStarButton = new JButton("Import Goal Model from piStar");
+		importFrompiStarButton.setToolTipText("Import Goal Model from piStar");
 		importFrompiStarButton.setEnabled(false);
 		toolBarPanel.add(importFrompiStarButton);
 		importFrompiStarButton.setHorizontalAlignment(SwingConstants.LEFT);
@@ -429,6 +502,7 @@ public class Visual3 extends JFrame {
 		importFrompiStarButton.setIcon(new ImageIcon(getClass().getResource("icons/piStar.jpg")));
 		
 		JButton importFromjUCMNavButton = new JButton("Import Goal Model from jUCMNav");
+		importFromjUCMNavButton.setToolTipText("Import Goal Model from jUCMNav");
 		importFromjUCMNavButton.setEnabled(false);
 		importFromjUCMNavButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -477,6 +551,7 @@ private void loadGoalModel()
     	goalModelFile = "file://" + jfc.getSelectedFile().getAbsolutePath();
     	goalModel = UsingEMFModel.load(goalModelFile);
     	
+    	prioritization = true;
     	prioritization();
     }
 }
@@ -485,9 +560,9 @@ private void loadPicture()
 {
 	JFileChooser jfc = new JFileChooser();
 	jfc.setCurrentDirectory(new File("."));
-    jfc.setDialogTitle("Select a Image");
+    jfc.setDialogTitle("Select a Picture");
     jfc.setAcceptAllFileFilterUsed(false);
-    FileNameExtensionFilter filter = new FileNameExtensionFilter("Image file", "jpg");
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Picture file", "jpg", "jpeg", "png", "gif");
     jfc.addChoosableFileFilter(filter);
 	
     int returnValue = jfc.showOpenDialog(null);
@@ -786,10 +861,16 @@ private void prioritization()
 		
 		Box  b1 = Box.createHorizontalBox();
 		
-		JLabel actorLabel = new JLabel("Actor:" + actor.getElementName());
-		actorLabel.setFont(new Font(actorLabel.getName(), Font.PLAIN, 16));
+		JLabel actorLabel = new JLabel("Actor: ");
+		actorLabel.setFont(new Font(actorLabel.getName(), Font.BOLD, 16));
 
+		JLabel actorLabel2 = new JLabel(actor.getElementName().trim());
+		actorLabel2.setFont(new Font(actorLabel.getName(), Font.PLAIN, 16));
+		
 		b1.add(actorLabel);
+		b1.add(actorLabel2);
+		
+		
 		
 		JButton showHideButton = new JButton("Show / Hide");
 		showHideButton.addActionListener(new ActionListener() {
@@ -912,7 +993,7 @@ private void prioritization()
 	
 	Box  b2 = Box.createHorizontalBox();
 	JLabel actorsLabel = new JLabel("Prioritize actors:");
-	actorsLabel.setFont(new Font(actorsLabel.getName(), Font.PLAIN, 16));
+	actorsLabel.setFont(new Font(actorsLabel.getName(), Font.BOLD, 16));
 	
 	b2.add(actorsLabel);
 	
@@ -970,6 +1051,9 @@ private void prioritization()
 
 private boolean canPropagate()
 {
+	if(goalModel==null)
+		return false;
+		
 	saveGoalModel();
 	
 	for (Iterator<Actor> actorIterator = goalModel.getActors().iterator(); actorIterator.hasNext();) {
@@ -1143,10 +1227,32 @@ private void propagation() {
 		
 		Box  b1 = Box.createHorizontalBox();
 		
-		JLabel actorLabel = new JLabel("Actor: " + actor.getElementName() + " ( Importance level: " + actor.getImportance().toString().replace('_', ' ') + ", Confidence level: " + actor.getConfidence().toString().replace('_', ' ') + " )");
-		actorLabel.setFont(new Font(actorLabel.getName(), Font.PLAIN, 16));
+		
+		JLabel actorLabel = new JLabel("Actor: ");
+		actorLabel.setFont(new Font(actorLabel.getName(), Font.BOLD, 16));
 
+		JLabel actorLabel2 = new JLabel(actor.getElementName().trim() + " ( ");
+		actorLabel2.setFont(new Font(actorLabel.getName(), Font.PLAIN, 16));
+		
+		JLabel actorLabel3 = new JLabel("Importance level: ");
+		actorLabel3.setFont(new Font(actorLabel.getName(), Font.BOLD, 16));
+		
+		JLabel actorLabel4 = new JLabel(actor.getImportance().toString().replace('_', ' ')+ ", ");
+		actorLabel4.setFont(new Font(actorLabel.getName(), Font.PLAIN, 16));
+		
+		JLabel actorLabel5 = new JLabel("Confidence level: ");
+		actorLabel5.setFont(new Font(actorLabel.getName(), Font.BOLD, 16));
+		
+		JLabel actorLabel6 = new JLabel(actor.getConfidence().toString().replace('_', ' ') + " )");
+		actorLabel6.setFont(new Font(actorLabel.getName(), Font.PLAIN, 16));
+
+	
 		b1.add(actorLabel);
+		b1.add(actorLabel2);
+		b1.add(actorLabel3);
+		b1.add(actorLabel4);
+		b1.add(actorLabel5);
+		b1.add(actorLabel6);
 		
 		JButton showHideButton = new JButton("Show / Hide");
 		showHideButton.addActionListener(new ActionListener() {
